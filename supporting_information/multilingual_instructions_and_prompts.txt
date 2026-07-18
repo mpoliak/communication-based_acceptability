@@ -1,0 +1,87 @@
+### Chinese (zh)
+
+-- Instructions --
+说明: 请认真阅读每一句话，然后回答问题。请注意，许多问题都有正确答案。我们将拒绝错误率在25%以上的用户。因此，如果您不能正确回答75%的问题，请不要填写调查表。
+
+-- Critical sentence prompt (exp_b) --
+您觉得这个句子有多通顺
+
+------------------------------------------------------------------------------
+
+### Danish (da)
+
+-- Instructions --
+Retningslinjer:
+
+Læs hver sætning og besvar derefter spørgsmålet under sætningen.
+
+Nogle Prolific-brugere besvarer spørgsmålene tilfældigt: Vi afviser brugere med en fejlprocent på 25 % eller mere. Hvis du ikke kan besvare 75 % af spørgsmålene korrekt, skal du derfor ikke udfylde spørgeskemaet.
+
+-- Critical sentence prompt (exp_b) --
+Bedøm venligst, hvor naturlig sætningen er
+
+------------------------------------------------------------------------------
+
+### English (en)
+
+-- Instructions --
+Instructions: Please read each sentence and then answer the question immediately following. Please note that there are correct answers for many questions. We will reject users with error rates of 25% or larger. Consequently if you cannot answer 75% of the questions correctly please do not fill out the survey.
+
+-- Critical sentence prompt (exp_b) --
+Please rate how acceptable the sentence is
+
+------------------------------------------------------------------------------
+
+### French (fr)
+
+-- Instructions --
+Instructions : Veuillez lire chaque phrase et répondre à la question qui suit immédiatement. Veuillez noter qu'il existe des réponses correctes pour une partie des questions. Nous rejetterons les utilisateurs dont le taux d'erreur est supérieur ou égal à 25%. Par conséquent, si vous ne pouvez pas répondre correctement à 75% des questions, ne répondez pas à l'enquête.
+
+-- Critical sentence prompt (exp_b) --
+Est-ce que vous trouvez cette phrase naturelle ?
+
+------------------------------------------------------------------------------
+
+### German (de)
+
+-- Instructions --
+Anweisungen: Im folgenden zeigen wir ihnen mehrere Sätze und werden gebeten, zu bewerten, wie natürlich diese klingen. Zu jedem Satz gehört auch eine einfache Verständnisfrage. Sie müssen mindestens 75% der Verständnisfragen richtig beantworten, damit wir Ihre Daten berücksichtigen können. Nutzer mit einer Fehlerquote von 25% oder mehr werden von uns abgelehnt.
+
+-- Critical sentence prompt (exp_b) --
+Bitte bewerten Sie, wie natürlich der Satz ist
+
+------------------------------------------------------------------------------
+
+### Hindi (hi)
+
+-- Instructions --
+निर्देश: कृपया प्रत्येक वाक्य को पढ़ें और उसके तुरंत बाद दिए गए प्रश्न का उत्तर दें। कृपया ध्यान दें कि कई प्रश्नों के सही उत्तर हैं। हम उन उपयोगकर्ताओं को अस्वीकार कर देंगे जो 25% या अधिक प्रश्नों का गलत उत्तर देते हैं। परिणामस्वरूप यदि आप 75% प्रश्नों का सही उत्तर नहीं दे पाते हैं तो कृपया सर्वेक्षण न भरें।
+
+-- Critical sentence prompt (exp_b) --
+कृपया मूल्यांकन करें कि वाक्य कितना ठीक लगता है
+
+------------------------------------------------------------------------------
+
+### Korean (ko)
+
+-- Instructions --
+지침: 각 문장을 읽은 후 이어지는 질문에 답하세요. 일부 문제에는 단 하나의 정답이 있다는 점에 유의하세요. 오류율이 25% 이상인 사용자는 참여가 거부됩니다. 따라서 75%의 질문에 정답을 맞출 수 없다면 실험에 참여하지 마세요.
+
+-- Critical sentence prompt (exp_b) --
+문장이 얼마나 자연스러운지 평가해주세요
+
+------------------------------------------------------------------------------
+
+### Russian (ru)
+
+-- Instructions --
+Указания:
+
+Пожалуйста, прочитайте каждое предложение, а затем ответьте на вопрос, который под ним.
+
+Некоторые пользователи Prolific отвечают на вопросы случайным образом: мы будем отклонять пользователей с долей ошибок 25% и выше. Следовательно, если вы не можете правильно ответить на 75% вопросов, пожалуйста, не заполняйте анкету.
+
+-- Critical sentence prompt (exp_b) --
+На сколько естественно звучит это предложение?
+
+------------------------------------------------------------------------------

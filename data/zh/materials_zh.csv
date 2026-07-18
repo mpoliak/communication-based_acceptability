@@ -1,0 +1,865 @@
+experiment,item,condition,sentence,prompt,question_type,options,literal_response,config
+exp_b,1,original,就像许多典型的雪橇犬，加拿大爱斯基摩犬具有直立、三角形的耳朵，并有型态像羽毛的尾巴，非常浓密的双层皮毛，宽厚的脚掌，竖立的耳朵，卷曲的尾巴和健壮的体魄。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,1,swap_1,就像许多典型的雪橇犬，加拿大爱斯基摩犬具有直立、三角形的耳朵，并有型态像羽毛的尾巴，非常浓密的双层皮毛，宽厚的脚掌，竖立耳朵，的卷曲的尾巴和健壮的体魄。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,1,swap_3,就像典型许多的雪橇犬，加拿大爱斯基摩犬具有直立、三角形的有耳朵，并型态像羽毛的尾巴，非常浓密的双层皮毛，宽厚的脚掌，竖立的耳朵，卷曲的尾巴和健壮的体魄。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,1,non_sense,但被许多岁的 ， 雪橇犬爱斯基摩犬下指荒芜、三民族形的主体 ， 已于球队战斗水面的子孙 ， 还虚弱双的音乐柱 ， 古惑的纸币 ， 开幕的吻 ， 显圣的大小和难吃的体魄。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,1,random,健壮耳朵，双层皮毛，宽厚的尾巴体魄的耳朵，犬许多爱斯基摩和加拿大具有脚掌，羽毛典型的型态直立、竖立的三角形的的非常浓密像并的尾巴，有雪橇犬，卷曲像就的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,1,non_sense_random,下于的难吃体魄爱斯基摩犬指形显圣战斗虚弱大小柱主体吻但子孙的许多古惑纸币 ， 的被的的三已球队双的开幕荒芜还岁水面的和民族音乐的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,1,original,NA,请问上一句话中含有 '皮毛' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%1;condition%original
+exp_b_comprehension,1,swap_1,NA,请问上一句话中含有 '皮毛' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%1;condition%swap_1
+exp_b_comprehension,1,swap_3,NA,请问上一句话中含有 '皮毛' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%1;condition%swap_3
+exp_b_comprehension,1,non_sense,NA,请问上一句话中含有 '已' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%1;condition%non_sense
+exp_b_comprehension,1,random,NA,请问上一句话中含有 '皮毛' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%1;condition%random
+exp_b_comprehension,1,non_sense_random,NA,请问上一句话中含有 '已' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%1;condition%non_sense_random
+exp_b,2,original,蔡蓝钦从小是个品学兼优的孩子，到了大学他看到了更多不同于自己的生命，也因此看到更深的自己，他的创作养份很大的成份来自大学校园。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,2,swap_1,蔡蓝钦从小是个品学兼优的孩子，到了大学他看到了更多不同于自己的生命，也因此看到更深的自己，他的创作很大养份的成份来自大学校园。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,2,swap_3,蔡蓝钦从小是个的品学兼优孩子，了到大学他了看到更多不同于自己的生命，也因此看到更深的自己，他的创作养份很大的成份来自大学校园。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,2,non_sense,蔡蓝钦逐步是次挤眉弄眼的铁路 ， 到了地方他进行了复杂特殊于自己生命 ， 的也因此观看不已自己的 ， 他的系统喜剧不少的年渐变以国家书。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,2,random,了的蔡蓝钦自己，的的的因此多了他不同于也创作他到孩子，更深成份很大从小自己更个品学兼优的来自是大学校园看到看到养份大学生命，。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,2,non_sense_random,到挤眉弄眼的 ， 喜剧年以的观看是自己因的不少的于他他铁路系统国家地方了了书自己渐变蔡蓝钦特殊生命不已此进行复杂也次逐步。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,2,original,NA,请问上一句话中含有 '国家' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%2;condition%original
+exp_b_comprehension,2,swap_1,NA,请问上一句话中含有 '国家' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%2;condition%swap_1
+exp_b_comprehension,2,swap_3,NA,请问上一句话中含有 '国家' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%2;condition%swap_3
+exp_b_comprehension,2,non_sense,NA,请问上一句话中含有 '看到' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%2;condition%non_sense
+exp_b_comprehension,2,random,NA,请问上一句话中含有 '国家' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%2;condition%random
+exp_b_comprehension,2,non_sense_random,NA,请问上一句话中含有 '看到' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%2;condition%non_sense_random
+exp_b,3,original,在1928年与1929年他在位于首都华盛顿的国家标准技术研究所工作，并在1929年受雇于贝尔实验室。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,3,swap_1,在1928与年1929年他在位于首都华盛顿的国家标准技术研究所工作，并在1929年受雇于贝尔实验室。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,3,swap_3,在1928年与1929年他位于在首都华盛顿国家标准的技术研究所并工作，在1929年受雇于贝尔实验室。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,3,non_sense,在 1928 社会与 1929 年他以如成立年的国家市政同年年进入所为 ， 并在 1929 高原是学习贝尔持有室。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,3,random,技术年贝尔实验室他于研究所1929在1929首都1928受雇国家标准的年年与工作，在华盛顿位于在并。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,3,non_sense_random,同年社会在年市政进入以的成立为 1929 1929 所学习室 1928 与持有贝尔在是他高原如国家年年并。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,3,original,NA,请问上一句话中含有 '于' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%3;condition%original
+exp_b_comprehension,3,swap_1,NA,请问上一句话中含有 '于' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%3;condition%swap_1
+exp_b_comprehension,3,swap_3,NA,请问上一句话中含有 '于' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%3;condition%swap_3
+exp_b_comprehension,3,non_sense,NA,请问上一句话中含有 '社会' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%3;condition%non_sense
+exp_b_comprehension,3,random,NA,请问上一句话中含有 '于' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%3;condition%random
+exp_b_comprehension,3,non_sense_random,NA,请问上一句话中含有 '社会' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%3;condition%non_sense_random
+exp_b,4,original,在2011年甬台温铁路列车追尾事故发生后，铁道部在事故中的调查和处理方法备受社会质疑及谴责，要求撤销铁道部的呼声再次出现。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,4,swap_1,在2011年甬台温铁路列车追尾发生事故后，铁道部在事故中的调查和处理方法备受社会质疑及谴责，要求撤销铁道部的呼声再次出现。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,4,swap_3,在2011年甬台温铁路列车追尾事故发生后，铁道部在事故的调查中和处理备受方法社会质疑及谴责，要求撤销铁道部的呼声再次出现。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,4,non_sense,在 2011 年甬台温米月台国安会传播变化后 ， 同年部事故中中调查的处理年价格监制现在无意及保护 ， 随拥有外资部的皇然后改革。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,4,random,谴责，和及铁道部追尾的的列车中撤销后，铁路再次出现调查事故方法社会铁道部甬台温年发生质疑处理2011在备受在呼声事故要求。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,4,non_sense_random,变化国安会后现在台皇年中调查温然后外资及中年无意保护拥有价格改革米部同年月台随事故甬的监制传播在 2011 部处理的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,4,original,NA,请问上一句话中含有 '外资' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%4;condition%original
+exp_b_comprehension,4,swap_1,NA,请问上一句话中含有 '外资' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%4;condition%swap_1
+exp_b_comprehension,4,swap_3,NA,请问上一句话中含有 '外资' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%4;condition%swap_3
+exp_b_comprehension,4,non_sense,NA,请问上一句话中含有 '和' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%4;condition%non_sense
+exp_b_comprehension,4,random,NA,请问上一句话中含有 '外资' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%4;condition%random
+exp_b_comprehension,4,non_sense_random,NA,请问上一句话中含有 '和' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%4;condition%non_sense_random
+exp_b,5,original,日本品牌的商品，无论是否在日本制造，在台湾通常价格较高但被视为品质较佳，依然有不少人购买。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,5,swap_1,日本品牌的商品，无论是否在日本制造，在台湾通常价格较高但被视为品质依然较佳，有不少人购买。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,5,swap_3,日本品牌的无论商品，是否日本在制造，在台湾通常价格较但高被视为品质较佳，依然有不少人购买。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,5,non_sense,品牌的日本金牌 ， 无论得到为日本提升 ， 控制在已部长私人很有存在说喉咙凝练 ， 则在主要年废除。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,5,random,日本日本较佳，但台湾有人的商品，被通常是否购买在依然不少制造，在较无论品质品牌视为价格高。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,5,non_sense_random,有提升金牌得到已主要年凝练控制私人品牌无论部长的很日本存在日本为废除说在则喉咙在。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,5,original,NA,请问上一句话中含有 '品质' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%5;condition%original
+exp_b_comprehension,5,swap_1,NA,请问上一句话中含有 '品质' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%5;condition%swap_1
+exp_b_comprehension,5,swap_3,NA,请问上一句话中含有 '品质' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%5;condition%swap_3
+exp_b_comprehension,5,non_sense,NA,请问上一句话中含有 '金牌' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%5;condition%non_sense
+exp_b_comprehension,5,random,NA,请问上一句话中含有 '品质' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%5;condition%random
+exp_b_comprehension,5,non_sense_random,NA,请问上一句话中含有 '金牌' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%5;condition%non_sense_random
+exp_b,6,original,换句话说，如果每个标注的点都在100米的高度，这条线代表的就是100米海拔。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,6,swap_1,换句话说，如果每个标注的都点在100米的高度，这条线代表的就是100米海拔。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,6,swap_3,换句话说，如果每个的标注点都100在米的这条线高度，代表的就是100米海拔。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,6,non_sense,分布比赛自由改 ， 如果标注强调的部分已经写在当年高度的 ， 这地区准备适合的就是 100 学术食物。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,6,random,这条线代表就是都海拔换句话说，在的米100高度，如果的100米每个标注的点。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,6,non_sense_random,分布 100 地区比赛的这自由准备的在如果适合高度标注已经当年改学术强调部分写食物就是的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,6,original,NA,请问上一句话中含有 '当年' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%6;condition%original
+exp_b_comprehension,6,swap_1,NA,请问上一句话中含有 '当年' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%6;condition%swap_1
+exp_b_comprehension,6,swap_3,NA,请问上一句话中含有 '当年' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%6;condition%swap_3
+exp_b_comprehension,6,non_sense,NA,请问上一句话中含有 '话' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%6;condition%non_sense
+exp_b_comprehension,6,random,NA,请问上一句话中含有 '当年' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%6;condition%random
+exp_b_comprehension,6,non_sense_random,NA,请问上一句话中含有 '话' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%6;condition%non_sense_random
+exp_b,7,original,另一方面，在台湾虽然有不少本地的品牌电脑，但仍有不少人比较喜爱自行组装，以期望组装成效能更佳或价钱较为划算的电脑组口。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,7,swap_1,另一方面，在台湾虽然有不少本地的品牌电脑，但仍有不少人比较喜爱自行组装，以期望组装成效能更佳或价钱划算较为的电脑组口。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,7,swap_3,另一方面，在台湾虽然有不少本地的品牌但电脑，仍有不少人比较喜爱自行组装，以期望组装成效更佳能或价钱较为划算的组口电脑。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,7,non_sense,另一总统在 ， 台湾虽然在有关位置的文学家 ， 就识字约长年而位同样逮捕 ， 而登陆集中测试化石奢华价钱大学互相般的铁路检测。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,7,random,组装成效或但另一方面，更佳组装，电脑，期望组口有划算能本地品牌自行有的不少不少以较为价钱仍在喜爱比较的台湾人虽然电脑。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,7,non_sense_random,的铁路家在总统的虽然识字奢华文学台湾价钱而约长般位置就 ， 同样有关位逮捕化石登陆另大学而一年互相集中检测测试。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,7,original,NA,请问上一句话中含有 '组装' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%7;condition%original
+exp_b_comprehension,7,swap_1,NA,请问上一句话中含有 '组装' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%7;condition%swap_1
+exp_b_comprehension,7,swap_3,NA,请问上一句话中含有 '组装' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%7;condition%swap_3
+exp_b_comprehension,7,non_sense,NA,请问上一句话中含有 '逮捕' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%7;condition%non_sense
+exp_b_comprehension,7,random,NA,请问上一句话中含有 '组装' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%7;condition%random
+exp_b_comprehension,7,non_sense_random,NA,请问上一句话中含有 '逮捕' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%7;condition%non_sense_random
+exp_b,8,original,有人认为，随着统计方法和研究技术越来越先进，公共卫生期刊“充斥着越来越复杂的科学内容”，这将导致医疗健保工作人员越来越难理解。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,8,swap_1,有人认为，随着统计方法和研究技术越来越先进，公共卫生期刊“充斥着越来越复杂的科学内容”，这导致将医疗健保工作人员越来越难理解。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,8,swap_3,有人认为，随着统计方法和研究技术先进，越来越公共卫生期刊“充斥着越来越复杂的科学内容”，将这导致医疗健保工作人员难越来越理解。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,8,non_sense,于年 ， 认为具有着部分个和职务其中但是安全 ， 丰富平等山洞 “做好着通常个别的掌握个人 ” 这 ， 共使用感情西点时候联盟和平正包括。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,8,random,和科学的方法这随着着有人认为，统计先进，将工作人员复杂越来越技术研究导致越来越健保公共卫生期刊“理解难越来越内容”，医疗充斥。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,8,non_sense_random,其中个人平等和平丰富 ， 部分年联盟掌握包括山洞和着于做好西点个别安全着通常的个使用正职务感情具有时候但是 ， 共。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,8,original,NA,请问上一句话中含有 '感情' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%8;condition%original
+exp_b_comprehension,8,swap_1,NA,请问上一句话中含有 '感情' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%8;condition%swap_1
+exp_b_comprehension,8,swap_3,NA,请问上一句话中含有 '感情' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%8;condition%swap_3
+exp_b_comprehension,8,non_sense,NA,请问上一句话中含有 '理解' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%8;condition%non_sense
+exp_b_comprehension,8,random,NA,请问上一句话中含有 '感情' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%8;condition%random
+exp_b_comprehension,8,non_sense_random,NA,请问上一句话中含有 '理解' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%8;condition%non_sense_random
+exp_b,9,original,"2003年11月15日，法航协和飞机的一批剩余零部件和纪念品在巴黎佳士得拍卖行公开拍卖，有约13,000人到场竞投，共拍卖得320万欧元，部分拍卖品的成交价远超预期。",您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,9,swap_1,"2003年11月15日，法航协和飞机的一批剩余零部件和纪念品在巴黎佳士得拍卖行公开拍卖，有约13,000人到场共竞投，拍卖得320万欧元，部分拍卖品的成交价远超预期。",您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,9,swap_3,"2003年11月15日，协和法航飞机的一批剩余零部件和纪念品在巴黎拍卖行佳士得拍卖，公开有约13,000人到场竞投，共拍卖得320万欧元，部分拍卖品的成交价远超预期。",您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,9,non_sense,"2003 个 11 国家日混乱 ， 法航协和房屋一的要塞数目科幻和听品位在佳士得失去行又公开 ， 是已 13,000 年曾爱 ， 竞投大量说话得 320万欧海军 ， 女子灭绝品的任价远超现场。",您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,9,random,"共巴黎万年的零部件13,11佳士得拍卖品15剩余000部分的日，人欧元，竞投，在拍卖，成交价月拍卖行到场法航远超得纪念品和飞机预期有约协和2003320公开一批拍卖。",您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,9,non_sense_random,"失去价听混乱一得说话是个数目和科幻国家在 11 行 13,000 品 320万远超欧已灭绝 2003 位任要塞日又品现场海军的大量协和的年法航女子曾爱 ， 房屋佳士得公开。",您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,9,original,NA,请问上一句话中含有 '成交' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%9;condition%original
+exp_b_comprehension,9,swap_1,NA,请问上一句话中含有 '成交' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%9;condition%swap_1
+exp_b_comprehension,9,swap_3,NA,请问上一句话中含有 '成交' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%9;condition%swap_3
+exp_b_comprehension,9,non_sense,NA,请问上一句话中含有 '位' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%9;condition%non_sense
+exp_b_comprehension,9,random,NA,请问上一句话中含有 '成交' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%9;condition%random
+exp_b_comprehension,9,non_sense_random,NA,请问上一句话中含有 '位' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%9;condition%non_sense_random
+exp_b,10,original,酵母是最早的人工制造的微生物之一，自然存在于葡萄的表皮上，导致了酒精饮料（如葡萄酒）的发明。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,10,swap_1,酵母是最早的人工制造的微生物之一，自然存在葡萄于的表皮上，导致了酒精饮料（如葡萄酒）的发明。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,10,swap_3,酵母是最早的人工制造微生物的自然之一，于存在葡萄的表皮上，导致了酒精饮料（如葡萄酒）的发明。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,10,non_sense,典籍是较小的数据不及的微世界之一自然 ， 发生到宫廷的管家国家 ， 以导致铜男孩 （ 移民首都 ） 的酒解答。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,10,random,葡萄人工存在酵母酒精于是导致表皮饮料（的最早之一，了制造发明上，如葡萄酒）的自然的微生物的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,10,non_sense_random,导致的较小国家 ） 到移民发生数据的解答首都不及之管家的酒典籍男孩微宫廷铜世界以 ， 是一。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,10,original,NA,请问上一句话中含有 '铜' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%10;condition%original
+exp_b_comprehension,10,swap_1,NA,请问上一句话中含有 '铜' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%10;condition%swap_1
+exp_b_comprehension,10,swap_3,NA,请问上一句话中含有 '铜' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%10;condition%swap_3
+exp_b_comprehension,10,non_sense,NA,请问上一句话中含有 '表皮' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%10;condition%non_sense
+exp_b_comprehension,10,random,NA,请问上一句话中含有 '铜' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%10;condition%random
+exp_b_comprehension,10,non_sense_random,NA,请问上一句话中含有 '表皮' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%10;condition%non_sense_random
+exp_b,11,original,历史上，1982年11月至1994年10月期间，天津市人民政府建立了驻福州和驻厦门办事处。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,11,swap_1,历史上，1982年11月至1994年10月期间，人民政府天津市建立了驻福州和驻厦门办事处。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,11,swap_3,历史上，1982年11至月1994年10月期间，天津市人民政府建立了驻福州和驻厦门办事处。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,11,non_sense,行政上 ， 1982 国 11 年至 1994 日月当时 ， 期间市天津委员物质认为了增加福州和加入厦门易名处。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,11,random,驻年了1994至10历史建立上，和1982驻福州办事处年人民政府期间，11厦门月月天津市。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,11,non_sense_random,认为月当时厦门国处加入 11 ， 1982 1994 增加市易名行政年了委员上日物质福州天津至和。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,11,original,NA,请问上一句话中含有 '驻' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%11;condition%original
+exp_b_comprehension,11,swap_1,NA,请问上一句话中含有 '驻' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%11;condition%swap_1
+exp_b_comprehension,11,swap_3,NA,请问上一句话中含有 '驻' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%11;condition%swap_3
+exp_b_comprehension,11,non_sense,NA,请问上一句话中含有 '行政' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%11;condition%non_sense
+exp_b_comprehension,11,random,NA,请问上一句话中含有 '驻' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%11;condition%random
+exp_b_comprehension,11,non_sense_random,NA,请问上一句话中含有 '行政' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%11;condition%non_sense_random
+exp_b,12,original,小水鸭曾经是中国东部最常见的候鸟之一，在迁徙季节，本物种结成遮天闭日的大群从天空飞过，景象非常壮观。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,12,swap_1,小水鸭曾经是中国东部最常见的候鸟之一，在迁徙季节，本物种结成遮天闭日的大群天空从飞过，景象非常壮观。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,12,swap_3,小水鸭曾经是东部中国最常见的之一，候鸟在迁徙季节，本结成物种遮天闭日的大群从天空飞过，景象非常壮观。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,12,non_sense,母音一直是中国现代另外不多的雄性之一 ， 在颗人工 ， 本感受指定蒙蔽招降的长农业天空等立法过 ， 融合最懊恼。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,12,random,是遮天小物种结成在大群水鸭非常从本曾经中国东部候鸟飞过，之一，闭日景象常见的迁徙壮观天空最的季节，。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,12,non_sense_random,不多天空母音现代等招降的的之本立法雄性过是颗一人工另外中国长指定农业懊恼在感受一直最融合蒙蔽。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,12,original,NA,请问上一句话中含有 '人工' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%12;condition%original
+exp_b_comprehension,12,swap_1,NA,请问上一句话中含有 '人工' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%12;condition%swap_1
+exp_b_comprehension,12,swap_3,NA,请问上一句话中含有 '人工' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%12;condition%swap_3
+exp_b_comprehension,12,non_sense,NA,请问上一句话中含有 '物种' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%12;condition%non_sense
+exp_b_comprehension,12,random,NA,请问上一句话中含有 '人工' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%12;condition%random
+exp_b_comprehension,12,non_sense_random,NA,请问上一句话中含有 '物种' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%12;condition%non_sense_random
+exp_b,13,original,在一些网路论坛上经常有网友将老东视的节目与现在的新娱乐频道作比较，有一些毒舌网友甚至直接蔑称新娱乐传媒公司为“土娱乐”。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,13,swap_1,在一些网路论坛上经常有网友将老东视的节目与现在的新娱乐频道作比较，有一些毒舌甚至网友直接蔑称新娱乐传媒公司为“土娱乐”。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,13,swap_3,在一些网路论坛上经常有网友将老东视的节目与现在的新作娱乐频道比较，有一些毒舌网友甚至直接蔑称娱乐新传媒公司为“土娱乐”。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,13,non_sense,在最大纪录火经常还给教室老将的东视真相与方法的新娱乐镑表现博士 ， 在高五彩缤纷内地共却蔑称新娱乐环中公司 “土娱乐 ” 。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,13,random,比较，将有的节目网友频道上新经常老东视土公司甚至传媒作论坛网路现在娱乐为“直接有网友的与一些在新娱乐毒舌娱乐”蔑称一些。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,13,non_sense_random,给却共教室娱乐经常博士公司在蔑称在真相表现五彩缤纷新与将的方法镑中高土内地新环还的东视老娱乐最大娱乐火纪录。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,13,original,NA,请问上一句话中含有 '比较' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%13;condition%original
+exp_b_comprehension,13,swap_1,NA,请问上一句话中含有 '比较' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%13;condition%swap_1
+exp_b_comprehension,13,swap_3,NA,请问上一句话中含有 '比较' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%13;condition%swap_3
+exp_b_comprehension,13,non_sense,NA,请问上一句话中含有 '还' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%13;condition%non_sense
+exp_b_comprehension,13,random,NA,请问上一句话中含有 '比较' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%13;condition%random
+exp_b_comprehension,13,non_sense_random,NA,请问上一句话中含有 '还' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%13;condition%non_sense_random
+exp_b,14,original,他幼年受过良好的教育，通晓拉丁语和希腊语，能诵荷马史诗原文，并到雅典学过哲学。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,14,swap_1,他幼年受过良好的教育，通晓拉丁语和希腊语，能诵荷马史诗原文，并雅典到学过哲学。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,14,swap_3,他幼年受过良好的教育，拉丁语通晓和希腊语，能诵荷马史诗原文，并雅典到哲学学过。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,14,non_sense,他天文应用过反动的地通晓 ， 拉丁语和希腊 ， 语能出掌史诗诸侯绿灯并 ， 参加雅典联合过儿子。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,14,random,的并教育，到受过拉丁语希腊语，哲学通晓良好原文，和雅典他学过荷马史诗能诵幼年。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,14,non_sense_random,应用 ， 史诗能绿灯的出掌他参加雅典天文语 ， 过过地儿子联合反动 ， 希腊和诸侯拉丁。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,14,original,NA,请问上一句话中含有 '反动' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%14;condition%original
+exp_b_comprehension,14,swap_1,NA,请问上一句话中含有 '反动' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%14;condition%swap_1
+exp_b_comprehension,14,swap_3,NA,请问上一句话中含有 '反动' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%14;condition%swap_3
+exp_b_comprehension,14,non_sense,NA,请问上一句话中含有 '荷马' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%14;condition%non_sense
+exp_b_comprehension,14,random,NA,请问上一句话中含有 '反动' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%14;condition%random
+exp_b_comprehension,14,non_sense_random,NA,请问上一句话中含有 '荷马' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%14;condition%non_sense_random
+exp_b,15,original,人类婚姻史的第二时期，妇女劳动范围逐渐变小，财富及继承问题日趋突出，于是关于个人至亲骨肉的后代观念便成了婚姻的主导动机。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,15,swap_1,人类婚姻史的第二时期，妇女劳动范围逐渐变小，财富及继承问题日趋突出，于是关于个人至亲骨肉的后代观念便成了婚姻的动机主导。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,15,swap_3,人类婚姻史的第二时期，妇女劳动范围变小，逐渐财富及继承问题日趋突出，于是关于个人至亲骨肉的观念后代便成了婚姻的动机主导。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,15,non_sense,自身南史的第二人口时期 ， 游戏指挥曾经长达 ， 余额及战略游戏日趋 ， 突出对外关于个人稀少伽马的大型星际已经于了药物的病王。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,15,random,婚姻便成时期，个人继承了的于是动机劳动变小，妇女至亲骨肉逐渐第二人类关于观念后代的及问题史婚姻主导范围日趋财富突出，的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,15,non_sense_random,指挥的稀少关于的日趋史战略余额人口伽马对外游戏及自身南游戏个人的 ， 病大型了星际长达曾经王已经于 ， 第二药物。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,15,original,NA,请问上一句话中含有 '范围' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%15;condition%original
+exp_b_comprehension,15,swap_1,NA,请问上一句话中含有 '范围' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%15;condition%swap_1
+exp_b_comprehension,15,swap_3,NA,请问上一句话中含有 '范围' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%15;condition%swap_3
+exp_b_comprehension,15,non_sense,NA,请问上一句话中含有 '自身' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%15;condition%non_sense
+exp_b_comprehension,15,random,NA,请问上一句话中含有 '范围' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%15;condition%random
+exp_b_comprehension,15,non_sense_random,NA,请问上一句话中含有 '自身' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%15;condition%non_sense_random
+exp_b,16,original,由于取得了举世瞩目的技术创新，纺织行业大规模的迅速发展，标志着大不列颠棉花行业领导的工业革命开始了。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,16,swap_1,由于了取得举世瞩目的技术创新，纺织行业大规模的迅速发展，标志着大不列颠棉花行业领导的工业革命开始了。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,16,swap_3,由于取得了举世瞩目的技术创新，纺织行业大规模迅速的发展，标志着大不列颠行业棉花领导工业革命的开始了。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,16,non_sense,由于收费举世瞩目大的年人物 ， 操作纪录在来的规模艰难 ， 发展形成着大不列颠引力文学以工业的成员来了。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,16,random,的行业纺织技术创新，发展，举世瞩目的工业革命了取得行业开始了大不列颠着领导的由于标志大规模迅速棉花。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,16,non_sense_random,规模举世瞩目形成纪录的工业操作 ， 引力的着大收费由于在来不列颠成员人物了来以艰难大的文学年。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,16,original,NA,请问上一句话中含有 '在来' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%16;condition%original
+exp_b_comprehension,16,swap_1,NA,请问上一句话中含有 '在来' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%16;condition%swap_1
+exp_b_comprehension,16,swap_3,NA,请问上一句话中含有 '在来' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%16;condition%swap_3
+exp_b_comprehension,16,non_sense,NA,请问上一句话中含有 '行业' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%16;condition%non_sense
+exp_b_comprehension,16,random,NA,请问上一句话中含有 '在来' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%16;condition%random
+exp_b_comprehension,16,non_sense_random,NA,请问上一句话中含有 '行业' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%16;condition%non_sense_random
+exp_b,17,original,大部分古生物学家并不认为中华龙鸟属于鸟类，因为根据系统发生学，中华龙鸟与鸟纲演化支的关系距离很远；鸟纲演化支通常被定义为始祖鸟加上现代鸟类。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,17,swap_1,大部分古生物学家并不认为中华龙鸟属于鸟类，因为根据系统发生学，中华龙鸟与鸟纲支演化的关系距离很远；鸟纲演化支通常被定义为始祖鸟加上现代鸟类。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,17,swap_3,古生物学家大部分中华并不认为龙鸟属于鸟类，因为根据系统发生学，中华龙鸟与鸟纲演化支的关系距离很远；鸟纲演化支通常被定义为始祖鸟现代加上鸟类。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,17,non_sense,大范围古投资生物家更已为阡陌减轻出现平方公里 ， 因为系统刺激转移学 ， 出入口与中华龙鸟占演化的历史酒店更多 ； 金顶辞退通常同年以决定所有县级鸟登方案权贵。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,17,random,古生物学家鸟类因为被距离与通常龙鸟鸟类，加上并不认为演化大部分中华的定义演化很远；关系支龙鸟为系统根据发生学，鸟纲现代中华鸟纲始祖鸟支属于。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,17,non_sense_random,家转移与权贵更所有演化占辞退决定古金顶鸟的因为以生物通常县级大酒店学更多刺激历史系统出入口平方公里登范围已出现为阡陌方案减轻中华龙鸟投资同年。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,17,original,NA,请问上一句话中含有 '支' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%17;condition%original
+exp_b_comprehension,17,swap_1,NA,请问上一句话中含有 '支' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%17;condition%swap_1
+exp_b_comprehension,17,swap_3,NA,请问上一句话中含有 '支' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%17;condition%swap_3
+exp_b_comprehension,17,non_sense,NA,请问上一句话中含有 '辞退' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%17;condition%non_sense
+exp_b_comprehension,17,random,NA,请问上一句话中含有 '支' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%17;condition%random
+exp_b_comprehension,17,non_sense_random,NA,请问上一句话中含有 '辞退' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%17;condition%non_sense_random
+exp_b,18,original,新校园在2014年全面投入使用时，学院将会增设至八个，包括人文学院、工商管理学院、设计学院、教育学院、健康科学学院、法学院、科技学院、社会科学学院。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,18,swap_1,新校园在年2014全面投入使用时，学院将会增设至八个，包括人文学院、工商管理学院、设计学院、教育学院、健康科学学院、法学院、科技学院、社会科学学院。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,18,swap_3,新校园2014在年全面时，投入使用学院将会增设至包括八个，人文学院、工商管理学院、设计学院、教育学院、健康科学学院、法学院、科技学院、社会科学学院。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,18,non_sense,新梦 2014 在年最采用联盟时 ， 总督又会击败拥有八同时 ， 离开军事铁、主带领土修改、国际学校、重视植物、部分顾问一切、分战、联盟以上、电影吨会长。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,18,random,新全面八个，科技学院、科学学院、社会科学将会学院、健康学院时，学院学院、校园法学院、至学院、教育设计增设工商管理投入使用2014人文学院、在包括年。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,18,non_sense_random,在电影时主带采用总督领土年新联盟同时顾问梦吨 2014 以上八一切修改会长国际铁战离开击败会部分又拥有军事分植物重视最联盟学校。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,18,original,NA,请问上一句话中含有 '重视' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%18;condition%original
+exp_b_comprehension,18,swap_1,NA,请问上一句话中含有 '重视' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%18;condition%swap_1
+exp_b_comprehension,18,swap_3,NA,请问上一句话中含有 '重视' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%18;condition%swap_3
+exp_b_comprehension,18,non_sense,NA,请问上一句话中含有 '个' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%18;condition%non_sense
+exp_b_comprehension,18,random,NA,请问上一句话中含有 '重视' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%18;condition%random
+exp_b_comprehension,18,non_sense_random,NA,请问上一句话中含有 '个' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%18;condition%non_sense_random
+exp_b,19,original,迪克要让小读者们知道这些书是给他们的，而不是给他们家长的，他认为这很重要。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,19,swap_1,要迪克让小读者们知道这些书是给他们的，而不是给他们家长的，他认为这很重要。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,19,swap_3,迪克要让小读者们这些知道是书给他们的，而不是给他们家长的，他认为这重要很。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,19,non_sense,迪克要要小成分知道希望是个突破包括的他们 ， 而且回到举行他们建筑的 ， 他由这但是复杂。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,19,random,的，他而给知道小重要他们书给家长的，是认为这些很迪克不是让他们们这读者要。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,19,non_sense_random,而且但是要包括这要是迪克知道的由个回到希望小他成分他们他们举行复杂的突破建筑。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,19,original,NA,请问上一句话中含有 '给' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%19;condition%original
+exp_b_comprehension,19,swap_1,NA,请问上一句话中含有 '给' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%19;condition%swap_1
+exp_b_comprehension,19,swap_3,NA,请问上一句话中含有 '给' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%19;condition%swap_3
+exp_b_comprehension,19,non_sense,NA,请问上一句话中含有 '复杂' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%19;condition%non_sense
+exp_b_comprehension,19,random,NA,请问上一句话中含有 '给' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%19;condition%random
+exp_b_comprehension,19,non_sense_random,NA,请问上一句话中含有 '复杂' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%19;condition%non_sense_random
+exp_b,20,original,塔尔卡受地中海气候影响，有干燥的夏天和潮湿的冬天，每年平均降雨量749毫米，平均温度摄氏13度。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,20,swap_1,塔尔卡受气候地中海影响，有干燥的夏天和潮湿的冬天，每年平均降雨量749毫米，平均温度摄氏13度。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,20,swap_3,塔尔卡受地中海影响，气候干燥的有夏天和潮湿的冬天，每年平均降雨量749毫米，平均温度摄氏13度。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,20,non_sense,塔尔卡类似网球海书过来 ， 欣赏有的后来潮湿和的 ， 每年冬天小倾听量 749 外交 ， 则是膝盖摄氏 13 设计。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,20,random,和749降雨量的地中海的摄氏影响，每年平均13有夏天塔尔卡气候潮湿毫米，冬天，受度平均温度干燥。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,20,non_sense_random,小则是后来塔尔卡欣赏海冬天摄氏潮湿 13 过来有设计 ， 倾听的网球和书膝盖类似 749 的量外交。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,20,original,NA,请问上一句话中含有 '外交' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%20;condition%original
+exp_b_comprehension,20,swap_1,NA,请问上一句话中含有 '外交' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%20;condition%swap_1
+exp_b_comprehension,20,swap_3,NA,请问上一句话中含有 '外交' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%20;condition%swap_3
+exp_b_comprehension,20,non_sense,NA,请问上一句话中含有 '地中' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%20;condition%non_sense
+exp_b_comprehension,20,random,NA,请问上一句话中含有 '外交' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%20;condition%random
+exp_b_comprehension,20,non_sense_random,NA,请问上一句话中含有 '地中' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%20;condition%non_sense_random
+exp_b,21,original,不过这唱片并非在新奥尔良录制，而是在纽约；而乐队的五位成员都是些小伙儿，但他们都是白人，把面涂黑了便充当黑人。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,21,swap_1,不过这唱片在并非新奥尔良录制，而是在纽约；而乐队的五位成员都是些小伙儿，但他们都是白人，把面涂黑了便充当黑人。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,21,swap_3,不过这唱片并非在新奥尔良录制，而是在纽约；而乐队的五位成员都是些小伙儿，但他们都是白人，把面涂黑便了充当黑人。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,21,non_sense,还这模型称是新奥尔良派遣 ， 简称被纽约乐队 ； 世界的五北实际都是善小后宫 ， 也他们避免公园 ， 面殊荣在了共怀孕后来。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,21,random,而在都并非小伙儿，唱片不过录制，充当在是便乐队这新奥尔良但了纽约；是都而是白人，的把面涂黑些黑人五位他们成员。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,21,non_sense_random,后来这公园善也称世界新小共在他们奥尔良后宫 ； 了的都是实际北被纽约还派遣避免殊荣面五模型怀孕简称是。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,21,original,NA,请问上一句话中含有 '在' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%21;condition%original
+exp_b_comprehension,21,swap_1,NA,请问上一句话中含有 '在' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%21;condition%swap_1
+exp_b_comprehension,21,swap_3,NA,请问上一句话中含有 '在' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%21;condition%swap_3
+exp_b_comprehension,21,non_sense,NA,请问上一句话中含有 '避免' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%21;condition%non_sense
+exp_b_comprehension,21,random,NA,请问上一句话中含有 '在' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%21;condition%random
+exp_b_comprehension,21,non_sense_random,NA,请问上一句话中含有 '避免' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%21;condition%non_sense_random
+exp_b,22,original,张氏的母亲郑礼是刘康生母傅太后的同母妹妹，她事迹不详，只知她嫁与刘康及没有生下儿子。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,22,swap_1,张氏的母亲郑礼是刘康生母傅太后同母的妹妹，她事迹不详，只知她嫁与刘康及没有生下儿子。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,22,swap_3,张氏的母亲郑礼是刘康生母傅太后的同母妹妹，她事迹不详，只知她嫁与没有刘康及生下儿子。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,22,non_sense,张氏母亲的郑礼是刘生母文艺傅睡衣的全名推进 ， 事迹后来 ， 不详抗衡她开拓刘康及于归类人们。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,22,random,妹妹，太后郑礼母亲生母没有傅是只知她刘康嫁刘康及的与不详，张氏同母的她儿子事迹生下。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,22,non_sense_random,睡衣生母刘母亲抗衡是 ， 文艺推进事迹张氏人们的康开拓她及全名傅刘的于礼后来郑归类。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,22,original,NA,请问上一句话中含有 '人们' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%22;condition%original
+exp_b_comprehension,22,swap_1,NA,请问上一句话中含有 '人们' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%22;condition%swap_1
+exp_b_comprehension,22,swap_3,NA,请问上一句话中含有 '人们' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%22;condition%swap_3
+exp_b_comprehension,22,non_sense,NA,请问上一句话中含有 '同母' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%22;condition%non_sense
+exp_b_comprehension,22,random,NA,请问上一句话中含有 '人们' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%22;condition%random
+exp_b_comprehension,22,non_sense_random,NA,请问上一句话中含有 '同母' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%22;condition%non_sense_random
+exp_b,23,original,该馆成立的目的是要成为国际性的希腊研究中心，馆藏内容包括所有希腊文学和希腊化世界（地中海、中东及印度等地）的语言翻译成希腊文的作品。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,23,swap_1,该馆成立的目的是要成为国际性的研究希腊中心，馆藏内容包括所有希腊文学和希腊化世界（地中海、中东及印度等地）的语言翻译成希腊文的作品。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,23,swap_3,该馆成立的目的是要成为国际性的希腊研究中心，内容馆藏包括所有希腊文学和希腊化世界（地中海、中东印度及等地）语言的翻译成希腊文的作品。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,23,non_sense,人事无目的的在成称为成立性的希腊年月 ， 料理地方创作所有希腊统治希腊和化中 （ 地中海、中东及印度间资料的 ） 公里包含接希腊文的航空。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,23,random,作品的文学希腊国际性中心，翻译成成为印度要希腊希腊化该馆是等地）馆藏希腊文成立及语言的包括中东的世界（内容地中海、和所有目的的研究。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,23,non_sense_random,和的印度地中无 ） 月资料包含希腊为目的航空公里化的成创作间称中统治文希腊的海成立希腊在及料理希腊地方性年人事所有中东接。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,23,original,NA,请问上一句话中含有 '翻译' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%23;condition%original
+exp_b_comprehension,23,swap_1,NA,请问上一句话中含有 '翻译' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%23;condition%swap_1
+exp_b_comprehension,23,swap_3,NA,请问上一句话中含有 '翻译' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%23;condition%swap_3
+exp_b_comprehension,23,non_sense,NA,请问上一句话中含有 '公里' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%23;condition%non_sense
+exp_b_comprehension,23,random,NA,请问上一句话中含有 '翻译' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%23;condition%random
+exp_b_comprehension,23,non_sense_random,NA,请问上一句话中含有 '公里' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%23;condition%non_sense_random
+exp_b,24,original,一次复制多个副本也是可以的，每多一层碳纸和白纸就会多复制一个副本，直到压力不足无法将颜色传到白纸上。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,24,swap_1,一次复制多个副本也是可以的，多一层每碳纸和白纸就会多复制一个副本，直到压力不足无法将颜色传到白纸上。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,24,swap_3,一次多个复制副本也是可以的，多一层每碳纸和白纸就会多复制一个副本，直到压力不足无法颜色将传到白纸上。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,24,non_sense,一名复工多年伯爵造成可以的 ， 后多数一动物图集和徽章但会逐步研究一次此后 ， 直到伙伴有机作无法县长采纳萌学生。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,24,random,碳纸将上副本可以一个传到一次不足是多一层多个复制复制无法的，和白纸会副本，白纸压力每也颜色就直到多。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,24,non_sense_random,无法后此后多数一名作一伙伴复工伯爵可以和多徽章有机动物直到学生会采纳但一次的图集造成县长萌研究年逐步。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,24,original,NA,请问上一句话中含有 '有机' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%24;condition%original
+exp_b_comprehension,24,swap_1,NA,请问上一句话中含有 '有机' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%24;condition%swap_1
+exp_b_comprehension,24,swap_3,NA,请问上一句话中含有 '有机' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%24;condition%swap_3
+exp_b_comprehension,24,non_sense,NA,请问上一句话中含有 '就' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%24;condition%non_sense
+exp_b_comprehension,24,random,NA,请问上一句话中含有 '有机' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%24;condition%random
+exp_b_comprehension,24,non_sense_random,NA,请问上一句话中含有 '就' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%24;condition%non_sense_random
+exp_b,25,original,三角洲特种部队的招募对象通常是有特殊技能的人，比如精通外语或其他有用技能。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,25,swap_1,三角洲特种部队的招募对象通常是有特殊技能的人，比如精通外语或有用其他技能。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,25,swap_3,三角洲特种部队的招募对象通常有是特殊技能的比如人，精通外语或有用其他技能。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,25,non_sense,三气体角天然公司招募的米精心在是广泛分支的年 ， 开放推行年外语其他弱小时段。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,25,random,有外语精通其他技能的三角洲比如特种部队或招募的有用是对象技能人，特殊通常。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,25,non_sense_random,的公司在是外语分支三开放其他广泛天然年角年米弱小时段气体推行招募精心的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,25,original,NA,请问上一句话中含有 '对象' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%25;condition%original
+exp_b_comprehension,25,swap_1,NA,请问上一句话中含有 '对象' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%25;condition%swap_1
+exp_b_comprehension,25,swap_3,NA,请问上一句话中含有 '对象' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%25;condition%swap_3
+exp_b_comprehension,25,non_sense,NA,请问上一句话中含有 '弱小' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%25;condition%non_sense
+exp_b_comprehension,25,random,NA,请问上一句话中含有 '对象' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%25;condition%random
+exp_b_comprehension,25,non_sense_random,NA,请问上一句话中含有 '弱小' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%25;condition%non_sense_random
+exp_b,26,original,这是因为波瓦坦族是一个实行公有制的部落，其理念是“分享所有的财物”。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,26,swap_1,这是因为波瓦坦族是一个公有制实行的部落，其理念是“分享所有的财物”。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,26,swap_3,这是因为波瓦坦族是一个公有制实行的部落，其理念是“分享所有的财物”。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,26,non_sense,这有因为族波瓦坦是一单位带民于有的秋 ， 理念天被 “认为所有的效果 ” 。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,26,random,理念财物”的是是“公有制坦族其实行是因为分享所有一个部落，的波瓦这。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,26,non_sense_random,理念所有于民波瓦坦效果族单位天的因为被这秋带认为一有的有是。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,26,original,NA,请问上一句话中含有 '民' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%26;condition%original
+exp_b_comprehension,26,swap_1,NA,请问上一句话中含有 '民' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%26;condition%swap_1
+exp_b_comprehension,26,swap_3,NA,请问上一句话中含有 '民' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%26;condition%swap_3
+exp_b_comprehension,26,non_sense,NA,请问上一句话中含有 '分享' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%26;condition%non_sense
+exp_b_comprehension,26,random,NA,请问上一句话中含有 '民' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%26;condition%random
+exp_b_comprehension,26,non_sense_random,NA,请问上一句话中含有 '分享' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%26;condition%non_sense_random
+exp_b,27,original,于是丽兹小心地找到崔西进行交谈，崔西承认自己不识字，表示同意去寻求协助。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,27,swap_1,于是丽兹小心地找到崔西进行交谈，崔西承认不自己识字，表示同意去寻求协助。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,27,swap_3,于是地丽兹小心找到进行崔西交谈，崔西承认自己不识字，表示同意去寻求协助。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,27,non_sense,越来越丽兹坚固地预知找到接受字母崔西 ， 购买不而 ， 识字除称有聚合星球。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,27,random,承认崔西小心识字，崔西去交谈，于是丽兹地不找到表示同意协助进行寻求自己。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,27,non_sense_random,丽兹有 ， 预知 ， 找到星球称越来越除聚合购买字母坚固不而接受地。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,27,original,NA,请问上一句话中含有 '小心' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%27;condition%original
+exp_b_comprehension,27,swap_1,NA,请问上一句话中含有 '小心' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%27;condition%swap_1
+exp_b_comprehension,27,swap_3,NA,请问上一句话中含有 '小心' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%27;condition%swap_3
+exp_b_comprehension,27,non_sense,NA,请问上一句话中含有 '星球' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%27;condition%non_sense
+exp_b_comprehension,27,random,NA,请问上一句话中含有 '小心' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%27;condition%random
+exp_b_comprehension,27,non_sense_random,NA,请问上一句话中含有 '星球' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%27;condition%non_sense_random
+exp_b,28,original,基因突变对于进化是至关重要的，因为突变能够创造出新的等位基因。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,28,swap_1,基因突变对于进化是至关重要的，突变因为能够创造出新的等位基因。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,28,swap_3,基因突变对于是进化至关重要的，突变因为能够出新创造的等位基因。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,28,non_sense,恐慌聚集进化发布是原本唯一的 ， 因为位突变由用很大的大量当局。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,28,random,创造因为对于出新等位基因进化的，基因突变的突变能够是至关重要。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,28,non_sense_random,的由发布原本大量因为的很大位当局突变恐慌进化用唯一是聚集。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,28,original,NA,请问上一句话中含有 '恐慌' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%28;condition%original
+exp_b_comprehension,28,swap_1,NA,请问上一句话中含有 '恐慌' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%28;condition%swap_1
+exp_b_comprehension,28,swap_3,NA,请问上一句话中含有 '恐慌' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%28;condition%swap_3
+exp_b_comprehension,28,non_sense,NA,请问上一句话中含有 '至关' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%28;condition%non_sense
+exp_b_comprehension,28,random,NA,请问上一句话中含有 '恐慌' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%28;condition%random
+exp_b_comprehension,28,non_sense_random,NA,请问上一句话中含有 '至关' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%28;condition%non_sense_random
+exp_b,29,original,他一改情报局以往的做法，招募来自社会各界的能人为情报人员。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,29,swap_1,他一改情报局以往的做法，招募来自的社会各界能人为情报人员。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,29,swap_3,他以往一改情报局的做法，招募来自的社会各界能人为情报人员。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,29,non_sense,他休养当地局的以往作品 ， 研发成导致人二战的过程情报月服务。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,29,random,能以往来自人为一改做法，情报人员情报局的招募的社会各界他。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,29,non_sense_random,导致过程研发局二战的作品的他服务人休养情报当地月以往成。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,29,original,NA,请问上一句话中含有 '来' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%29;condition%original
+exp_b_comprehension,29,swap_1,NA,请问上一句话中含有 '来' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%29;condition%swap_1
+exp_b_comprehension,29,swap_3,NA,请问上一句话中含有 '来' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%29;condition%swap_3
+exp_b_comprehension,29,non_sense,NA,请问上一句话中含有 '人' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%29;condition%non_sense
+exp_b_comprehension,29,random,NA,请问上一句话中含有 '来' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%29;condition%random
+exp_b_comprehension,29,non_sense_random,NA,请问上一句话中含有 '人' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%29;condition%non_sense_random
+exp_b,30,original,世界上主要的葡萄酒产区位于南北半球的30°至50°之间，越靠近赤道的产区收获季越早。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,30,swap_1,世界上主要的葡萄酒产区南位于北半球的30°至50°之间，越靠近赤道的产区收获季越早。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,30,swap_3,上世界主要的葡萄酒产区位于北半球南的30°至50°之间，靠近越赤道的产区收获季越早。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,30,non_sense,人上多数的初年酒人民堪称出现格子大屋的 30° 至之间 50° ， 立即出版半岛的报胜任越早电动。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,30,random,葡萄酒赤道产区的至南靠近位于越世界产区北半球季主要的收获50°的30°上之间，越早。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,30,non_sense_random,堪称 30° 至人上的大屋半岛 50° 多数格子出现人民的报电动越早之间出版胜任初年立即的酒。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,30,original,NA,请问上一句话中含有 '出现' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%30;condition%original
+exp_b_comprehension,30,swap_1,NA,请问上一句话中含有 '出现' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%30;condition%swap_1
+exp_b_comprehension,30,swap_3,NA,请问上一句话中含有 '出现' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%30;condition%swap_3
+exp_b_comprehension,30,non_sense,NA,请问上一句话中含有 '于' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%30;condition%non_sense
+exp_b_comprehension,30,random,NA,请问上一句话中含有 '出现' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%30;condition%random
+exp_b_comprehension,30,non_sense_random,NA,请问上一句话中含有 '于' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%30;condition%non_sense_random
+exp_b,31,original,名人会议成员包括亲王、贵族、大主教、大法官，某些情况下，也包括主要城镇的官员。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,31,swap_1,名人会议成员包括亲王、贵族、大主教、大法官，某些情况下，也包括主要城镇官员的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,31,swap_3,名人成员会议包括亲王、贵族、大主教、某些大法官，情况下，也包括城镇主要的官员。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,31,non_sense,法官业务历史下令月、哥哥、大初期、大北方 ， 某些学校下也 ， 于一样事务官员的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,31,random,大法官，包括官员情况贵族、会议名人某些成员亲王、城镇下，的也主要包括大主教、。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,31,non_sense_random,法官一样大哥哥历史学校某些于事务下令月大的 ， 业务北方下官员初期。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,31,original,NA,请问上一句话中含有 '城镇' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%31;condition%original
+exp_b_comprehension,31,swap_1,NA,请问上一句话中含有 '城镇' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%31;condition%swap_1
+exp_b_comprehension,31,swap_3,NA,请问上一句话中含有 '城镇' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%31;condition%swap_3
+exp_b_comprehension,31,non_sense,NA,请问上一句话中含有 '下令' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%31;condition%non_sense
+exp_b_comprehension,31,random,NA,请问上一句话中含有 '城镇' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%31;condition%random
+exp_b_comprehension,31,non_sense_random,NA,请问上一句话中含有 '下令' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%31;condition%non_sense_random
+exp_b,32,original,星形胶质细胞是所有胶质细胞中体积最大的一种，它的数量是神经元的十倍。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,32,swap_1,星形胶质细胞是所有胶质细胞中体积最大的一种，的它数量是神经元的十倍。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,32,swap_3,星形胶质细胞所有是胶质细胞中体积最大的一种，的它是数量神经元的十倍。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,32,non_sense,日间战线草坪是所有基础步道体积年广大的一等 ， 它的公司是届的元十后来。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,32,random,一种，它的细胞细胞是所有中数量十倍胶质最大是体积的的神经元星形胶质。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,32,non_sense_random,后来战线步道草坪所有公司的日间等元的是它一年届是体积的基础广大十。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,32,original,NA,请问上一句话中含有 '后来' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%32;condition%original
+exp_b_comprehension,32,swap_1,NA,请问上一句话中含有 '后来' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%32;condition%swap_1
+exp_b_comprehension,32,swap_3,NA,请问上一句话中含有 '后来' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%32;condition%swap_3
+exp_b_comprehension,32,non_sense,NA,请问上一句话中含有 '胶质' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%32;condition%non_sense
+exp_b_comprehension,32,random,NA,请问上一句话中含有 '后来' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%32;condition%random
+exp_b_comprehension,32,non_sense_random,NA,请问上一句话中含有 '胶质' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%32;condition%non_sense_random
+exp_b,33,original,东北亚地区彼此文化联系有着悠久的历史，部分地区亦为汉字文化圈。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,33,swap_1,东北亚地区彼此文化联系有着悠久的历史，部分地区亦汉字为文化圈。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,33,swap_3,东北亚地区彼此文化联系有着的悠久历史，部分地区亦为汉字文化圈。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,33,non_sense,行星亚理论彼此会议冠军组织悠久新的 ， 历史日水平亦为汉字社会圈。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,33,random,联系部分汉字地区文化圈有着历史，文化东北亚地区的为彼此悠久亦。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,33,non_sense_random,日彼此汉的社会理论 ， 圈会议新行星冠军水平亚亦为组织悠久字。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,33,original,NA,请问上一句话中含有 '着' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%33;condition%original
+exp_b_comprehension,33,swap_1,NA,请问上一句话中含有 '着' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%33;condition%swap_1
+exp_b_comprehension,33,swap_3,NA,请问上一句话中含有 '着' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%33;condition%swap_3
+exp_b_comprehension,33,non_sense,NA,请问上一句话中含有 '新' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%33;condition%non_sense
+exp_b_comprehension,33,random,NA,请问上一句话中含有 '着' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%33;condition%random
+exp_b_comprehension,33,non_sense_random,NA,请问上一句话中含有 '新' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%33;condition%non_sense_random
+exp_b,34,original,它主要分布在表土层或耕层中，深受耕作施肥等人为因素的影响而极不稳定。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,34,swap_1,它主要分布在表土层或耕层中，深受耕作施肥人为因素等的影响而极不稳定。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,34,swap_3,它主要在分布表土层或耕层中，深受耕作施肥等人为因素的而影响不极稳定。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,34,non_sense,它再次失败表土年层耕层台游戏 ， 认定外表山丘交配一般任务的位来于是并讨论。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,34,random,耕层人为因素的主要不影响深受表土层它耕作极施肥稳定而在等分布或中，。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,34,non_sense_random,并讨论认定位层外表任务的交配台一般年它山丘耕层表土失败再次游戏于是来。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,34,original,NA,请问上一句话中含有 '交配' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%34;condition%original
+exp_b_comprehension,34,swap_1,NA,请问上一句话中含有 '交配' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%34;condition%swap_1
+exp_b_comprehension,34,swap_3,NA,请问上一句话中含有 '交配' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%34;condition%swap_3
+exp_b_comprehension,34,non_sense,NA,请问上一句话中含有 '人为' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%34;condition%non_sense
+exp_b_comprehension,34,random,NA,请问上一句话中含有 '交配' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%34;condition%random
+exp_b_comprehension,34,non_sense_random,NA,请问上一句话中含有 '人为' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%34;condition%non_sense_random
+exp_b,35,original,那股充满狂气的演技力，并非只有身为演员的狂气，而是表现于“演技”上的狂气。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,35,swap_1,那股充满狂气的演技力，只有并非身为演员的狂气，而是表现于“演技”上的狂气。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,35,swap_3,那股狂气充满的演技力，并非只有身为演员的狂气，而是表现于“演技”上的狂气。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,35,non_sense,那狗合作铁锈的金字力 ， 完成当上展示加工的闸门 ， 而是鼓励 “于 ” 演技上的幼。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,35,random,充满表现并非力，的狂气的的演员狂气狂气，那股于“只有演技”上身为演技而是。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,35,non_sense_random,完成当上加工合作 ” 展示鼓励力上金字那狗幼的的 “铁锈的而是闸门。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,35,original,NA,请问上一句话中含有 '狂气' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%35;condition%original
+exp_b_comprehension,35,swap_1,NA,请问上一句话中含有 '狂气' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%35;condition%swap_1
+exp_b_comprehension,35,swap_3,NA,请问上一句话中含有 '狂气' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%35;condition%swap_3
+exp_b_comprehension,35,non_sense,NA,请问上一句话中含有 '金字' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%35;condition%non_sense
+exp_b_comprehension,35,random,NA,请问上一句话中含有 '狂气' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%35;condition%random
+exp_b_comprehension,35,non_sense_random,NA,请问上一句话中含有 '金字' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%35;condition%non_sense_random
+exp_b,36,original,会议一致认同需要设立更完善架构与机制，支援保守派教会，特别是北美的教会。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,36,swap_1,会议一致认同需要设立更完善架构与机制，支援保守派教会，特别北美是的教会。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,36,swap_3,会议一致认同需要设立更完善架构与机制，支援特别保守派是教会，北美的教会。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,36,non_sense,层无力表述需要设有也异常低潮机制年支援 ， 合成教会东部 ， 并是首美教会的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,36,random,教会完善机制，需要是架构与认同保守派支援更的北美设立一致特别会议教会，。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,36,non_sense_random,是合成教会需要也 ， 教会的低潮首东部机制设有表述无力美年层并异常。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,36,original,NA,请问上一句话中含有 '异常' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%36;condition%original
+exp_b_comprehension,36,swap_1,NA,请问上一句话中含有 '异常' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%36;condition%swap_1
+exp_b_comprehension,36,swap_3,NA,请问上一句话中含有 '异常' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%36;condition%swap_3
+exp_b_comprehension,36,non_sense,NA,请问上一句话中含有 '更' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%36;condition%non_sense
+exp_b_comprehension,36,random,NA,请问上一句话中含有 '异常' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%36;condition%random
+exp_b_comprehension,36,non_sense_random,NA,请问上一句话中含有 '更' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%36;condition%non_sense_random
+exp_b,37,original,虽民进党不断向马英九攻击，马英九的温和形象吸引不少中间或浅绿选民。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,37,swap_1,虽民进党向不断马英九攻击，马英九的温和形象吸引不少中间或浅绿选民。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,37,swap_3,虽民进党向不断马英九攻击，马英九的温和形象吸引不少中间选民或浅绿。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,37,non_sense,虽该片党而向马攻击交往 ， 马英九的最早当时扩建强烈收费或各职杂志。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,37,random,不断吸引攻击，温和浅绿选民民进党马英九中间马英九形象的或不少虽向。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,37,non_sense_random,杂志党最早向强烈而英九各职当时该片攻击或交往的马扩建虽收费马。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,37,original,NA,请问上一句话中含有 '选民' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%37;condition%original
+exp_b_comprehension,37,swap_1,NA,请问上一句话中含有 '选民' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%37;condition%swap_1
+exp_b_comprehension,37,swap_3,NA,请问上一句话中含有 '选民' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%37;condition%swap_3
+exp_b_comprehension,37,non_sense,NA,请问上一句话中含有 '强烈' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%37;condition%non_sense
+exp_b_comprehension,37,random,NA,请问上一句话中含有 '选民' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%37;condition%random
+exp_b_comprehension,37,non_sense_random,NA,请问上一句话中含有 '强烈' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%37;condition%non_sense_random
+exp_b,38,original,女主角周迅凭借此片获得2009年亚洲电影大奖及第27届中国电影金鸡奖最佳女主角等奖项。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,38,swap_1,女主角周迅凭借此片获得2009年亚洲电影大奖及第27届电影中国金鸡奖最佳女主角等奖项。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,38,swap_3,女主角周迅凭借此片2009获得年亚洲电影大奖及第27中国届电影最佳金鸡奖女主角等奖项。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,38,non_sense,体系电磁周迅凭借个定居 2009 风险年岁男性及第27 年届等富商奖不同编制足球主题年。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,38,random,年亚洲金鸡奖电影大奖此片凭借等奖项女主角女主角27最佳获得届周迅电影及第中国2009。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,38,non_sense_random,及第27 电磁周迅定居编制足球男性岁年主题 2009 富商年凭借年体系个风险等不同奖届。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,38,original,NA,请问上一句话中含有 '风险' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%38;condition%original
+exp_b_comprehension,38,swap_1,NA,请问上一句话中含有 '风险' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%38;condition%swap_1
+exp_b_comprehension,38,swap_3,NA,请问上一句话中含有 '风险' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%38;condition%swap_3
+exp_b_comprehension,38,non_sense,NA,请问上一句话中含有 '主角' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%38;condition%non_sense
+exp_b_comprehension,38,random,NA,请问上一句话中含有 '风险' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%38;condition%random
+exp_b_comprehension,38,non_sense_random,NA,请问上一句话中含有 '主角' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%38;condition%non_sense_random
+exp_b,39,original,马歇尔感到苦恼，他跟周恩来说，如果中共明确不再相信他的公正立场，他就退出调停。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,39,swap_1,马歇尔感到苦恼，他跟周恩来说，如果中共明确不再相信他的公正他立场，就退出调停。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,39,swap_3,马歇尔感到苦恼，他跟周恩来说，如果中共明确不再相信他的公正他立场，就退出调停。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,39,non_sense,感到马歇尔较少 ， 他周跟恩来用 ， 如果中共以至并通常属他的古典军队 ， 他并参赛出入。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,39,random,跟的相信退出他他立场，他如果说，不再调停就明确周恩来马歇尔苦恼，感到公正中共。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,39,non_sense_random,出入古典中共的用跟并属感到周参赛军队马歇尔他并较少他以至通常恩来如果他。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,39,original,NA,请问上一句话中含有 '苦恼' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%39;condition%original
+exp_b_comprehension,39,swap_1,NA,请问上一句话中含有 '苦恼' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%39;condition%swap_1
+exp_b_comprehension,39,swap_3,NA,请问上一句话中含有 '苦恼' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%39;condition%swap_3
+exp_b_comprehension,39,non_sense,NA,请问上一句话中含有 '用' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%39;condition%non_sense
+exp_b_comprehension,39,random,NA,请问上一句话中含有 '苦恼' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%39;condition%random
+exp_b_comprehension,39,non_sense_random,NA,请问上一句话中含有 '用' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%39;condition%non_sense_random
+exp_b,40,original,中东地区长期的教派斗争成为21世纪早期世界和平的一大主要威胁。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,40,swap_1,中东地区长期的教派成为斗争21世纪早期世界和平的一大主要威胁。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,40,swap_3,长期中东地区的教派斗争成为21世纪早期世界和平的一大主要威胁。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,40,non_sense,地区产量女子的宫内得分使有 21 政府电脑创作落后的一大重要血统。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,40,random,一大的的主要威胁早期中东地区世界斗争成为世纪教派21和平长期。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,40,non_sense_random,得分使电脑重要女子大一地区创作产量的血统政府 21 的有宫内落后。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,40,original,NA,请问上一句话中含有 '血统' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%40;condition%original
+exp_b_comprehension,40,swap_1,NA,请问上一句话中含有 '血统' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%40;condition%swap_1
+exp_b_comprehension,40,swap_3,NA,请问上一句话中含有 '血统' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%40;condition%swap_3
+exp_b_comprehension,40,non_sense,NA,请问上一句话中含有 '世纪' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%40;condition%non_sense
+exp_b_comprehension,40,random,NA,请问上一句话中含有 '血统' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%40;condition%random
+exp_b_comprehension,40,non_sense_random,NA,请问上一句话中含有 '世纪' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%40;condition%non_sense_random
+exp_b,41,original,在2008年，范俊业被无线电视邀请成为一奥运节目的嘉宾，并且参与演出。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,41,swap_1,在2008年，范俊业被无线电视邀请成为奥运一节目的嘉宾，并且参与演出。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,41,swap_3,在2008年，范俊业无线电视被邀请成为一奥运节目嘉宾，的参与并且演出。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,41,non_sense,在 2008 ， 年范俊业交易民主时保留在试图一奥运的节目生物 ， 以令功能。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,41,random,年，在无线电视的范俊业成为一奥运节目演出嘉宾，被2008参与邀请并且。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,41,non_sense_random,令节目以俊业 2008 民主交易在时范奥运 ， 试图在功能保留一生物的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,41,original,NA,请问上一句话中含有 '电视' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%41;condition%original
+exp_b_comprehension,41,swap_1,NA,请问上一句话中含有 '电视' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%41;condition%swap_1
+exp_b_comprehension,41,swap_3,NA,请问上一句话中含有 '电视' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%41;condition%swap_3
+exp_b_comprehension,41,non_sense,NA,请问上一句话中含有 '生物' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%41;condition%non_sense
+exp_b_comprehension,41,random,NA,请问上一句话中含有 '电视' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%41;condition%random
+exp_b_comprehension,41,non_sense_random,NA,请问上一句话中含有 '生物' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%41;condition%non_sense_random
+exp_b,42,original,据报有365人在服用该批药水后死亡，其中至少有100人已被确认因二甘醇中毒死亡。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,42,swap_1,据报有人365在服用该批药水后死亡，其中至少有100人已被确认因二甘醇中毒死亡。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,42,swap_3,据报有在365人服用该批药水后死亡，其中至少有人100已被确认因二甘醇中毒死亡。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,42,non_sense,据杂志在人柴油在罹患该批老年后裁决 ， 沙滩而由 100 时再处成立因二甘醇采信成。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,42,random,确认死亡，至少已365甘醇被在有药水据报人死亡服用100有因二后人中毒该批其中。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,42,non_sense_random,老年因杂志成立裁决罹患该批时二甘醇 100 据沙滩处由在再后柴油采信人在成而。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,42,original,NA,请问上一句话中含有 '处' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%42;condition%original
+exp_b_comprehension,42,swap_1,NA,请问上一句话中含有 '处' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%42;condition%swap_1
+exp_b_comprehension,42,swap_3,NA,请问上一句话中含有 '处' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%42;condition%swap_3
+exp_b_comprehension,42,non_sense,NA,请问上一句话中含有 '其中' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%42;condition%non_sense
+exp_b_comprehension,42,random,NA,请问上一句话中含有 '处' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%42;condition%random
+exp_b_comprehension,42,non_sense_random,NA,请问上一句话中含有 '其中' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%42;condition%non_sense_random
+exp_b,43,original,近年来，这些媒体也将巴黎车展、日内瓦车展和世界三大车展赞喻为“世界五大车展”。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,43,swap_1,近年来，这些媒体也巴黎将车展、日内瓦车展和世界三大车展赞喻为“世界五大车展”。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,43,swap_3,这些近年来，媒体也将巴黎车展、日内瓦车展和世界车展三大喻为“赞世界五大车展”。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,43,non_sense,面积来 ， 这些关系主要将车展南、日内瓦经济世界构想三大炸药赞喻 “为上五大地势 ” 。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,43,random,世界车展、将和也日内瓦近年来，车展”五大巴黎赞世界这些喻为“车展三大车展媒体。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,43,non_sense_random,赞喻这些面积车展日内瓦五 “世界经济构想大南炸药主要上大三将来地势关系。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,43,original,NA,请问上一句话中含有 '车展' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%43;condition%original
+exp_b_comprehension,43,swap_1,NA,请问上一句话中含有 '车展' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%43;condition%swap_1
+exp_b_comprehension,43,swap_3,NA,请问上一句话中含有 '车展' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%43;condition%swap_3
+exp_b_comprehension,43,non_sense,NA,请问上一句话中含有 '上' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%43;condition%non_sense
+exp_b_comprehension,43,random,NA,请问上一句话中含有 '车展' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%43;condition%random
+exp_b_comprehension,43,non_sense_random,NA,请问上一句话中含有 '上' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%43;condition%non_sense_random
+exp_b,44,original,皮肤呼吸占总呼吸量的大半，在干燥、不潮湿的地方都无法生存。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,44,swap_1,皮肤呼吸占总呼吸量的大半，在干燥、不潮湿的都地方无法生存。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,44,swap_3,皮肤占呼吸总呼吸量大半，的在干燥、不潮湿的地方无法都生存。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,44,non_sense,飞机胆成占形成量大半的 ， 被私人、也不适的现实还以包括。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,44,random,干燥、地方呼吸的占呼吸量潮湿无法不在的总大半，皮肤都生存。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,44,non_sense_random,私人被成不适还占飞机大半胆以现实的形成包括量也的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,44,original,NA,请问上一句话中含有 '还' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%44;condition%original
+exp_b_comprehension,44,swap_1,NA,请问上一句话中含有 '还' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%44;condition%swap_1
+exp_b_comprehension,44,swap_3,NA,请问上一句话中含有 '还' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%44;condition%swap_3
+exp_b_comprehension,44,non_sense,NA,请问上一句话中含有 '都' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%44;condition%non_sense
+exp_b_comprehension,44,random,NA,请问上一句话中含有 '还' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%44;condition%random
+exp_b_comprehension,44,non_sense_random,NA,请问上一句话中含有 '都' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%44;condition%non_sense_random
+exp_b,45,original,如果报名信息无误，招生单位将为每一位考生（推免生除外）寄送准考证。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,45,swap_1,如果信息报名无误，招生单位将为每一位考生（推免生除外）寄送准考证。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,45,swap_3,报名如果信息无误，招生单位为将一位每考生（推免生除外）寄送准考证。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,45,non_sense,如果年代总值落后 ， 童年地图仍为每一妹妹 （ 位群速居住 ） 排列生产准考。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,45,random,除外）如果单位免寄送准考证为一位报名招生每将考生（无误，信息推生。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,45,non_sense_random,群速童年排列年代落后地图生产总值妹妹仍一 （ 为如果每居住准考。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,45,original,NA,请问上一句话中含有 '招生' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%45;condition%original
+exp_b_comprehension,45,swap_1,NA,请问上一句话中含有 '招生' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%45;condition%swap_1
+exp_b_comprehension,45,swap_3,NA,请问上一句话中含有 '招生' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%45;condition%swap_3
+exp_b_comprehension,45,non_sense,NA,请问上一句话中含有 '总值' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%45;condition%non_sense
+exp_b_comprehension,45,random,NA,请问上一句话中含有 '招生' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%45;condition%random
+exp_b_comprehension,45,non_sense_random,NA,请问上一句话中含有 '总值' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%45;condition%non_sense_random
+exp_b,46,original,学生上各种课程时会需要到各个建筑，一天下来会使用到整个校园的设施。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,46,swap_1,学生上各种课程时会需要到各个建筑，一天会下来使用到整个校园的设施。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,46,swap_3,学生上各种课程时会需要各个到一天建筑，下来会使用到校园整个的设施。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,46,non_sense,整体击败上教堂会时需要在各个次 ， 天世纪膨胀会于在整个性的皇家。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,46,random,建筑，到使用下来会课程学生各个各种设施时会校园需要一天到整个的上。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,46,non_sense_random,会皇家上整体性于会整个击败时教堂世纪各个膨胀在天需要次的在。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,46,original,NA,请问上一句话中含有 '整体' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%46;condition%original
+exp_b_comprehension,46,swap_1,NA,请问上一句话中含有 '整体' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%46;condition%swap_1
+exp_b_comprehension,46,swap_3,NA,请问上一句话中含有 '整体' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%46;condition%swap_3
+exp_b_comprehension,46,non_sense,NA,请问上一句话中含有 '一' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%46;condition%non_sense
+exp_b_comprehension,46,random,NA,请问上一句话中含有 '整体' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%46;condition%random
+exp_b_comprehension,46,non_sense_random,NA,请问上一句话中含有 '一' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%46;condition%non_sense_random
+exp_b,47,original,2005年12月，该剧在横店开机，除保留了原制作班底，主要演员全部更换。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,47,swap_1,2005年12月，该剧在横店开机，除保留了原制作班底，全部主要演员更换。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,47,swap_3,2005年12该剧月，横店在开机，除保留原了制作班底，主要演员全部更换。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,47,non_sense,2005 人 12 年 ， 在来往横店纵贯 ， 除没有原保留气候英年 ， 广泛联邦更换称。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,47,random,年横店原在全部月，制作保留主要演员2005该剧12班底，除开机，了更换。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,47,non_sense_random,横店年保留英年 12 广泛没有原联邦在 2005 除来往人称纵贯更换气候。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,47,original,NA,请问上一句话中含有 '制作' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%47;condition%original
+exp_b_comprehension,47,swap_1,NA,请问上一句话中含有 '制作' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%47;condition%swap_1
+exp_b_comprehension,47,swap_3,NA,请问上一句话中含有 '制作' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%47;condition%swap_3
+exp_b_comprehension,47,non_sense,NA,请问上一句话中含有 '没有' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%47;condition%non_sense
+exp_b_comprehension,47,random,NA,请问上一句话中含有 '制作' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%47;condition%random
+exp_b_comprehension,47,non_sense_random,NA,请问上一句话中含有 '没有' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%47;condition%non_sense_random
+exp_b,48,original,许多疾病并非由单一基因所构成，目前的科学仍无法全盘了解这些疾病的起因。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,48,swap_1,许多疾病并非由单一基因所构成，目前的科学仍无法全盘这些了解疾病的起因。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,48,swap_3,许多疾病并非由单一基因所构成，的目前仍科学无法全盘了解这些的疾病起因。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,48,non_sense,许多教授报道争取清楚彩较使用 ， 的目前岁很运用全盘相关这些进士的收敛。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,48,random,了解仍所科学起因目前的构成，并非基因许多全盘的疾病疾病由单一这些无法。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,48,non_sense_random,进士争取较岁使用相关很的彩目前报道许多运用教授的全盘这些清楚收敛。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,48,original,NA,请问上一句话中含有 '收敛' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%48;condition%original
+exp_b_comprehension,48,swap_1,NA,请问上一句话中含有 '收敛' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%48;condition%swap_1
+exp_b_comprehension,48,swap_3,NA,请问上一句话中含有 '收敛' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%48;condition%swap_3
+exp_b_comprehension,48,non_sense,NA,请问上一句话中含有 '仍' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%48;condition%non_sense
+exp_b_comprehension,48,random,NA,请问上一句话中含有 '收敛' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%48;condition%random
+exp_b_comprehension,48,non_sense_random,NA,请问上一句话中含有 '仍' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%48;condition%non_sense_random
+exp_b,49,original,该市镇总面积2.1平方公里，2009年时的人口为116人。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,49,swap_1,该市镇总面积2.1平方公里，2009年时人口的为116人。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,49,swap_3,该总面积市镇2.1平方公里，2009年时的人口为116人。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,49,non_sense,该客机面积月 2.1 ， 平方公里 2009 年时的等 116 人口人。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,49,random,116的总面积为平方公里，2009时市镇2.1人年该人口。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,49,non_sense_random,面积 ， 客机 116 2.1 2009 等月该人时年人口的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,49,original,NA,请问上一句话中含有 '年' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%49;condition%original
+exp_b_comprehension,49,swap_1,NA,请问上一句话中含有 '年' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%49;condition%swap_1
+exp_b_comprehension,49,swap_3,NA,请问上一句话中含有 '年' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%49;condition%swap_3
+exp_b_comprehension,49,non_sense,NA,请问上一句话中含有 '月' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%49;condition%non_sense
+exp_b_comprehension,49,random,NA,请问上一句话中含有 '年' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%49;condition%random
+exp_b_comprehension,49,non_sense_random,NA,请问上一句话中含有 '月' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%49;condition%non_sense_random
+exp_b,50,original,不过，吸引游客的不只是这些主题公园。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,50,swap_1,不过，吸引游客的只是不这些主题公园。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,50,swap_3,不过，游客吸引的只是这些不主题公园。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,50,non_sense,便不过 ， 思想的然而并不这些医学战争。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,50,random,不过，游客只是的主题公园不吸引这些。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,50,non_sense_random,并的这些战争医学思想不然而 ， 便。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,50,original,NA,请问上一句话中含有 '然而' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%50;condition%original
+exp_b_comprehension,50,swap_1,NA,请问上一句话中含有 '然而' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%50;condition%swap_1
+exp_b_comprehension,50,swap_3,NA,请问上一句话中含有 '然而' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%50;condition%swap_3
+exp_b_comprehension,50,non_sense,NA,请问上一句话中含有 '是' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%50;condition%non_sense
+exp_b_comprehension,50,random,NA,请问上一句话中含有 '然而' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%50;condition%random
+exp_b_comprehension,50,non_sense_random,NA,请问上一句话中含有 '是' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%50;condition%non_sense_random
+exp_b,51,original,她的家里有好几位可以使唤的佣人。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,51,swap_1,她家里的有好几位可以使唤的佣人。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,51,swap_3,的她家里有好几位可以使唤的佣人。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,51,non_sense,她家里的由就几人民位余下使唤的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,51,random,佣人使唤的有家里好几位的她可以。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,51,non_sense_random,家里几位由她人民的使唤的就余下。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,51,original,NA,请问上一句话中含有 '可以' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%51;condition%original
+exp_b_comprehension,51,swap_1,NA,请问上一句话中含有 '可以' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%51;condition%swap_1
+exp_b_comprehension,51,swap_3,NA,请问上一句话中含有 '可以' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%51;condition%swap_3
+exp_b_comprehension,51,non_sense,NA,请问上一句话中含有 '人民' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%51;condition%non_sense
+exp_b_comprehension,51,random,NA,请问上一句话中含有 '可以' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%51;condition%random
+exp_b_comprehension,51,non_sense_random,NA,请问上一句话中含有 '人民' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%51;condition%non_sense_random
+exp_b,52,original,罗柔，无锡人，是一名明朝政治人物。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,52,swap_1,罗柔，是无锡人，一名明朝政治人物。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,52,swap_3,罗柔，一名无锡人，是政治明朝人物。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,52,non_sense,罗柔人 ， 无锡 ， 一是日子政治队伍图书。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,52,random,是人物无锡人，一名政治明朝罗柔，。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,52,non_sense_random,图书 ， 日子政治无锡队伍一罗柔是。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,52,original,NA,请问上一句话中含有 '队伍' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%52;condition%original
+exp_b_comprehension,52,swap_1,NA,请问上一句话中含有 '队伍' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%52;condition%swap_1
+exp_b_comprehension,52,swap_3,NA,请问上一句话中含有 '队伍' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%52;condition%swap_3
+exp_b_comprehension,52,non_sense,NA,请问上一句话中含有 '名' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%52;condition%non_sense
+exp_b_comprehension,52,random,NA,请问上一句话中含有 '队伍' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%52;condition%random
+exp_b_comprehension,52,non_sense_random,NA,请问上一句话中含有 '名' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%52;condition%non_sense_random
+exp_b,53,original,走出阴霾的他带着妻子与养女回到冰风谷定居。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,53,swap_1,走出阴霾他的带着妻子与养女回到冰风谷定居。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,53,swap_3,走出的阴霾他带着妻子与养女回到冰风谷定居。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,53,non_sense,写作的阴霾他给着视角与速率抵御定居回到作。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,53,random,着定居的养女带与妻子冰风谷回到阴霾走出他。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,53,non_sense_random,给速率着抵御作与视角定居他回到写作阴霾的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,53,original,NA,请问上一句话中含有 '养女' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%53;condition%original
+exp_b_comprehension,53,swap_1,NA,请问上一句话中含有 '养女' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%53;condition%swap_1
+exp_b_comprehension,53,swap_3,NA,请问上一句话中含有 '养女' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%53;condition%swap_3
+exp_b_comprehension,53,non_sense,NA,请问上一句话中含有 '写作' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%53;condition%non_sense
+exp_b_comprehension,53,random,NA,请问上一句话中含有 '养女' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%53;condition%random
+exp_b_comprehension,53,non_sense_random,NA,请问上一句话中含有 '写作' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%53;condition%non_sense_random
+exp_b,54,original,他死于痢疾所造成的内出血和疟疾。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,54,swap_1,死他于痢疾所造成的内出血和疟疾。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,54,swap_3,于他死痢疾所造成的和内出血疟疾。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,54,non_sense,他利用痢疾世界愈到的人心理出血外长。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,54,random,他死内出血和的所造成疟疾痢疾于。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,54,non_sense_random,的到出血世界外长心理痢疾他人愈利用。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,54,original,NA,请问上一句话中含有 '心理' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%54;condition%original
+exp_b_comprehension,54,swap_1,NA,请问上一句话中含有 '心理' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%54;condition%swap_1
+exp_b_comprehension,54,swap_3,NA,请问上一句话中含有 '心理' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%54;condition%swap_3
+exp_b_comprehension,54,non_sense,NA,请问上一句话中含有 '所' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%54;condition%non_sense
+exp_b_comprehension,54,random,NA,请问上一句话中含有 '心理' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%54;condition%random
+exp_b_comprehension,54,non_sense_random,NA,请问上一句话中含有 '所' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%54;condition%non_sense_random
+exp_b,55,original,本部分介绍一些最常见的指标。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,55,swap_1,本部分一些介绍最常见的指标。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,55,swap_3,部分本一些介绍最的常见指标。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,55,non_sense,本下至多数并广泛指标的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,55,random,常见介绍本一些最的部分指标。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,55,non_sense_random,的至下指标并本广泛多数。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,55,original,NA,请问上一句话中含有 '一些' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%55;condition%original
+exp_b_comprehension,55,swap_1,NA,请问上一句话中含有 '一些' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%55;condition%swap_1
+exp_b_comprehension,55,swap_3,NA,请问上一句话中含有 '一些' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%55;condition%swap_3
+exp_b_comprehension,55,non_sense,NA,请问上一句话中含有 '多数' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%55;condition%non_sense
+exp_b_comprehension,55,random,NA,请问上一句话中含有 '一些' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%55;condition%random
+exp_b_comprehension,55,non_sense_random,NA,请问上一句话中含有 '多数' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%55;condition%non_sense_random
+exp_b,56,original,电影也大大提升了庐山在人们心目中的地位。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,56,swap_1,电影也提升大大了庐山在人们心目中的地位。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,56,swap_3,也电影大大提升了庐山在人们心目中的地位。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,56,non_sense,国内一直越是了在庐山集资元中的地区。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,56,random,庐山大大了电影地位中心目人们的在也提升。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,56,non_sense_random,在了是元一直庐山越国内地区的集资中。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,56,original,NA,请问上一句话中含有 '集资' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%56;condition%original
+exp_b_comprehension,56,swap_1,NA,请问上一句话中含有 '集资' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%56;condition%swap_1
+exp_b_comprehension,56,swap_3,NA,请问上一句话中含有 '集资' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%56;condition%swap_3
+exp_b_comprehension,56,non_sense,NA,请问上一句话中含有 '大大' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%56;condition%non_sense
+exp_b_comprehension,56,random,NA,请问上一句话中含有 '集资' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%56;condition%random
+exp_b_comprehension,56,non_sense_random,NA,请问上一句话中含有 '大大' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%56;condition%non_sense_random
+exp_b,57,original,大众被邀请参观实验室的设施，目睹实验室有关科学技术的演示。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,57,swap_1,大众被邀请参观的实验室设施，目睹实验室有关科学技术的演示。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,57,swap_3,大众被邀请实验室参观的设施，实验室目睹有关的科学技术演示。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,57,non_sense,足球去就读喝荣获的室位 ， 迎接降低室科学游戏年的国旗。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,57,random,参观演示科学技术实验室的的被实验室邀请大众有关设施，目睹。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,57,non_sense_random,去位就读足球荣获的科学室国旗喝的室游戏年迎接降低。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,57,original,NA,请问上一句话中含有 '演示' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%57;condition%original
+exp_b_comprehension,57,swap_1,NA,请问上一句话中含有 '演示' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%57;condition%swap_1
+exp_b_comprehension,57,swap_3,NA,请问上一句话中含有 '演示' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%57;condition%swap_3
+exp_b_comprehension,57,non_sense,NA,请问上一句话中含有 '降低' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%57;condition%non_sense
+exp_b_comprehension,57,random,NA,请问上一句话中含有 '演示' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%57;condition%random
+exp_b_comprehension,57,non_sense_random,NA,请问上一句话中含有 '降低' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%57;condition%non_sense_random
+exp_b,58,original,过枝纹包括过枝花卉、过枝花果等。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,58,swap_1,过枝纹包括过枝花卉、枝过花果等。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,58,swap_3,过枝纹过枝包括花卉、过枝花果等。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,58,non_sense,晒干纹、年爬行花卉教区社会公交。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,58,random,过枝纹包括花卉、过枝枝花果过等。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,58,non_sense_random,爬行教区年社会晒干纹公交、。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,58,original,NA,请问上一句话中含有 '年' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%58;condition%original
+exp_b_comprehension,58,swap_1,NA,请问上一句话中含有 '年' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%58;condition%swap_1
+exp_b_comprehension,58,swap_3,NA,请问上一句话中含有 '年' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%58;condition%swap_3
+exp_b_comprehension,58,non_sense,NA,请问上一句话中含有 '等' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%58;condition%non_sense
+exp_b_comprehension,58,random,NA,请问上一句话中含有 '年' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%58;condition%random
+exp_b_comprehension,58,non_sense_random,NA,请问上一句话中含有 '等' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%58;condition%non_sense_random
+exp_b,59,original,大的猫头鹰也会捕食其他小体型种属的猫头鹰。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,59,swap_1,大的猫头鹰也会捕食其他小体型的种属猫头鹰。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,59,swap_3,大的猫头鹰也会捕食其他小种属体型的猫头鹰。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,59,non_sense,好奇的年而也听取其他小热带店铺的人身。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,59,random,会也大其他种属猫头鹰猫头鹰捕食小体型的的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,59,non_sense_random,的其他年小人身听取也的而店铺好奇热带。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,59,original,NA,请问上一句话中含有 '猫头鹰' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%59;condition%original
+exp_b_comprehension,59,swap_1,NA,请问上一句话中含有 '猫头鹰' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%59;condition%swap_1
+exp_b_comprehension,59,swap_3,NA,请问上一句话中含有 '猫头鹰' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%59;condition%swap_3
+exp_b_comprehension,59,non_sense,NA,请问上一句话中含有 '听取' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%59;condition%non_sense
+exp_b_comprehension,59,random,NA,请问上一句话中含有 '猫头鹰' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%59;condition%random
+exp_b_comprehension,59,non_sense_random,NA,请问上一句话中含有 '听取' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%59;condition%non_sense_random
+exp_b,60,original,然而，这与目标仍有些差异。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,60,swap_1,然而，这目标与仍有些差异。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,60,swap_3,然而，这目标与仍有些差异。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,60,non_sense,这与然而工程但是知道女儿。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,60,random,与有些这然而，目标仍差异。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,60,non_sense_random,然而 ， 女儿但是与知道工程。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,60,original,NA,请问上一句话中含有 '知道' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%60;condition%original
+exp_b_comprehension,60,swap_1,NA,请问上一句话中含有 '知道' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%60;condition%swap_1
+exp_b_comprehension,60,swap_3,NA,请问上一句话中含有 '知道' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%60;condition%swap_3
+exp_b_comprehension,60,non_sense,NA,请问上一句话中含有 '有些' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%60;condition%non_sense
+exp_b_comprehension,60,random,NA,请问上一句话中含有 '知道' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%60;condition%random
+exp_b_comprehension,60,non_sense_random,NA,请问上一句话中含有 '有些' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%60;condition%non_sense_random
+exp_b,61,original,新达尔文主义产生于19世纪末，创立者是德国生物学家魏斯曼。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,61,swap_1,新达尔文主义产生于19世纪末，创立者是德国魏斯曼生物学家。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,61,swap_3,达尔文主义新产生于世纪末，创立者19是德国生物学家魏斯曼。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,61,non_sense,新达尔文交易具于世纪家创立末 ， 者德国是条缺点魏斯曼。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,61,random,魏斯曼世纪末，是新生物学家德国19达尔文主义创立者产生于。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,61,non_sense_random,交易具创立达尔文者是德国条于家魏斯曼缺点 ， 新世纪。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,61,original,NA,请问上一句话中含有 '19' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%61;condition%original
+exp_b_comprehension,61,swap_1,NA,请问上一句话中含有 '19' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%61;condition%swap_1
+exp_b_comprehension,61,swap_3,NA,请问上一句话中含有 '19' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%61;condition%swap_3
+exp_b_comprehension,61,non_sense,NA,请问上一句话中含有 '交易' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%61;condition%non_sense
+exp_b_comprehension,61,random,NA,请问上一句话中含有 '19' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%61;condition%random
+exp_b_comprehension,61,non_sense_random,NA,请问上一句话中含有 '交易' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%61;condition%non_sense_random
+exp_b,62,original,北校区校园占地155亩，教务区占地76亩，建筑面积3.25万平方米。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,62,swap_1,北校区校园155占地亩，教务区占地76亩，建筑面积3.25万平方米。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,62,swap_3,北校区校园占地155教务亩，占地区亩，76建筑面积3.25万平方米。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,62,non_sense,总部新闻参赛赶出 155 ， 亩总监占地例如 76 压力 ， 最后情人 3.25万国王。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,62,random,校园教务亩，区76占地北校区3.25155万平方米建筑面积亩，占地。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,62,non_sense_random,155 最后压力例如总监国王赶出 76 参赛新闻占地总部 ， 情人 3.25万。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,62,original,NA,请问上一句话中含有 '新闻' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%62;condition%original
+exp_b_comprehension,62,swap_1,NA,请问上一句话中含有 '新闻' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%62;condition%swap_1
+exp_b_comprehension,62,swap_3,NA,请问上一句话中含有 '新闻' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%62;condition%swap_3
+exp_b_comprehension,62,non_sense,NA,请问上一句话中含有 '建筑' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%62;condition%non_sense
+exp_b_comprehension,62,random,NA,请问上一句话中含有 '新闻' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%62;condition%random
+exp_b_comprehension,62,non_sense_random,NA,请问上一句话中含有 '建筑' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%62;condition%non_sense_random
+exp_b,63,original,交趾人受到汉族文化的熏陶，开始采取汉族人的姓氏。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,63,swap_1,交趾人受到汉族文化的熏陶，开始采取的汉族人姓氏。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,63,swap_3,交趾人受到汉族文化的熏陶，开始采取汉族人姓氏的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,63,non_sense,交趾人占汉族政治的晶体 ， 由计划采取族汉的台阶。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,63,random,的文化交趾受到开始汉族人汉族采取熏陶，姓氏的人。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,63,non_sense_random,人占由政治晶体台阶族汉族交趾的汉采取的计划。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,63,original,NA,请问上一句话中含有 '熏陶' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%63;condition%original
+exp_b_comprehension,63,swap_1,NA,请问上一句话中含有 '熏陶' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%63;condition%swap_1
+exp_b_comprehension,63,swap_3,NA,请问上一句话中含有 '熏陶' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%63;condition%swap_3
+exp_b_comprehension,63,non_sense,NA,请问上一句话中含有 '政治' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%63;condition%non_sense
+exp_b_comprehension,63,random,NA,请问上一句话中含有 '熏陶' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%63;condition%random
+exp_b_comprehension,63,non_sense_random,NA,请问上一句话中含有 '政治' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%63;condition%non_sense_random
+exp_b,64,original,水库正常库容为1202万立方米，集雨面积为46平方千米，海拔为26.5米。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,64,swap_1,水库正常库容为1202万立方米，面积集雨为46平方千米，海拔为26.5米。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,64,swap_3,水库正常库容为1202万立方米，集雨面积46为海拔平方千米，为米26.5。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,64,non_sense,移民太小球队为 1202万深海面积 ， 年集雨 46 南 ， 密码为 26.5 关键。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,64,random,海拔水库面积26.5万立方米，正常120246为库容为为米集雨平方千米，。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,64,non_sense_random,关键 46 太小为密码 ， 为球队集雨 1202万南 26.5 深海移民年。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,64,original,NA,请问上一句话中含有 '移民' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%64;condition%original
+exp_b_comprehension,64,swap_1,NA,请问上一句话中含有 '移民' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%64;condition%swap_1
+exp_b_comprehension,64,swap_3,NA,请问上一句话中含有 '移民' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%64;condition%swap_3
+exp_b_comprehension,64,non_sense,NA,请问上一句话中含有 '立方米' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%64;condition%non_sense
+exp_b_comprehension,64,random,NA,请问上一句话中含有 '移民' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%64;condition%random
+exp_b_comprehension,64,non_sense_random,NA,请问上一句话中含有 '立方米' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%64;condition%non_sense_random
+exp_b,65,original,这也是政府和民间的良性互动。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,65,swap_1,也这是政府和民间的良性互动。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,65,swap_3,也这是政府民间和的互动良性。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,65,non_sense,这也是的政府年良性流行龙头。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,65,random,这也良性互动是民间的政府和。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,65,non_sense_random,这龙头年也是良性政府流行的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,65,original,NA,请问上一句话中含有 '互动' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%65;condition%original
+exp_b_comprehension,65,swap_1,NA,请问上一句话中含有 '互动' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%65;condition%swap_1
+exp_b_comprehension,65,swap_3,NA,请问上一句话中含有 '互动' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%65;condition%swap_3
+exp_b_comprehension,65,non_sense,NA,请问上一句话中含有 '龙头' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%65;condition%non_sense
+exp_b_comprehension,65,random,NA,请问上一句话中含有 '互动' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%65;condition%random
+exp_b_comprehension,65,non_sense_random,NA,请问上一句话中含有 '龙头' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%65;condition%non_sense_random
+exp_b,66,original,美国大学协会有成员61个，其中加州大学有6所分校为成员。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,66,swap_1,协会美国大学有成员61个，其中加州大学有6所分校为成员。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,66,swap_3,美国大学有协会61成员个，其中有加州大学6所分校为成员。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,66,non_sense,大学月游戏为初 61 ， 个恐怖加州外部于有肠道当地为王子。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,66,random,加州大学61有6美国大学成员其中个，分校有协会为成员所。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,66,non_sense_random,恐怖加州为 ， 有王子月 61 于游戏大学肠道初为外部当地。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,66,original,NA,请问上一句话中含有 '游戏' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%66;condition%original
+exp_b_comprehension,66,swap_1,NA,请问上一句话中含有 '游戏' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%66;condition%swap_1
+exp_b_comprehension,66,swap_3,NA,请问上一句话中含有 '游戏' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%66;condition%swap_3
+exp_b_comprehension,66,non_sense,NA,请问上一句话中含有 '成员' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%66;condition%non_sense
+exp_b_comprehension,66,random,NA,请问上一句话中含有 '游戏' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%66;condition%random
+exp_b_comprehension,66,non_sense_random,NA,请问上一句话中含有 '成员' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%66;condition%non_sense_random
+exp_b,67,original,1951年他在哥伦比亚大学获得哲学博士学位。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,67,swap_1,1951年在他哥伦比亚大学获得哲学博士学位。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,67,swap_3,1951在年他哥伦比亚大学哲学获得博士学位。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,67,non_sense,1951 个他在哥伦比亚汽车做出控制业务人员。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,67,random,哲学1951获得在博士学位哥伦比亚大学他年。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,67,non_sense_random,做出汽车哥伦比亚个人员他业务在控制 1951 。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,67,original,NA,请问上一句话中含有 '学位' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%67;condition%original
+exp_b_comprehension,67,swap_1,NA,请问上一句话中含有 '学位' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%67;condition%swap_1
+exp_b_comprehension,67,swap_3,NA,请问上一句话中含有 '学位' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%67;condition%swap_3
+exp_b_comprehension,67,non_sense,NA,请问上一句话中含有 '个' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%67;condition%non_sense
+exp_b_comprehension,67,random,NA,请问上一句话中含有 '学位' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%67;condition%random
+exp_b_comprehension,67,non_sense_random,NA,请问上一句话中含有 '个' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%67;condition%non_sense_random
+exp_b,68,original,她也被临时安葬在其丈夫身旁。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,68,swap_1,她也被临时安葬其在丈夫身旁。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,68,swap_3,她被也临时安葬其在身旁丈夫。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,68,non_sense,她但为后布置安葬其咖啡游乐。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,68,random,其在丈夫安葬被临时她也身旁。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,68,non_sense_random,但安葬咖啡她其后布置游乐为。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,68,original,NA,请问上一句话中含有 '但' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%68;condition%original
+exp_b_comprehension,68,swap_1,NA,请问上一句话中含有 '但' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%68;condition%swap_1
+exp_b_comprehension,68,swap_3,NA,请问上一句话中含有 '但' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%68;condition%swap_3
+exp_b_comprehension,68,non_sense,NA,请问上一句话中含有 '身旁' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%68;condition%non_sense
+exp_b_comprehension,68,random,NA,请问上一句话中含有 '但' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%68;condition%random
+exp_b_comprehension,68,non_sense_random,NA,请问上一句话中含有 '身旁' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%68;condition%non_sense_random
+exp_b,69,original,这些任务由教师完成，包括英文、数学和科学。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,69,swap_1,这些任务由教师包括完成，英文、数学和科学。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,69,swap_3,任务这些由教师包括完成，数学英文、和科学。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,69,non_sense,任务时作教会重建 ， 具有包括文数学年、小说。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,69,random,这些任务和由包括英文、教师科学完成，数学。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,69,non_sense_random,小说作年教会、时任务包括重建具有文。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,69,original,NA,请问上一句话中含有 '和' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%69;condition%original
+exp_b_comprehension,69,swap_1,NA,请问上一句话中含有 '和' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%69;condition%swap_1
+exp_b_comprehension,69,swap_3,NA,请问上一句话中含有 '和' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%69;condition%swap_3
+exp_b_comprehension,69,non_sense,NA,请问上一句话中含有 '作' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%69;condition%non_sense
+exp_b_comprehension,69,random,NA,请问上一句话中含有 '和' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%69;condition%random
+exp_b_comprehension,69,non_sense_random,NA,请问上一句话中含有 '作' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%69;condition%non_sense_random
+exp_b,70,original,这些言论在表面上都和维吉尔的预言有所出入，甚至直接相悖。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,70,swap_1,这些言论都在表面上和维吉尔的预言有所出入，甚至直接相悖。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,70,swap_3,这些言论都在表面上和维吉尔的预言甚至有所出入，直接相悖。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,70,non_sense,这些线在年表面并维吉尔和预言的是而民间 ， 先后以断裂。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,70,random,言论直接这些有所在表面上相悖甚至维吉尔预言出入，和都的。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,70,non_sense_random,年和在以而表面先后预言是的并维吉尔断裂线这些民间。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,70,original,NA,请问上一句话中含有 '民间' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%70;condition%original
+exp_b_comprehension,70,swap_1,NA,请问上一句话中含有 '民间' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%70;condition%swap_1
+exp_b_comprehension,70,swap_3,NA,请问上一句话中含有 '民间' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%70;condition%swap_3
+exp_b_comprehension,70,non_sense,NA,请问上一句话中含有 '言论' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%70;condition%non_sense
+exp_b_comprehension,70,random,NA,请问上一句话中含有 '民间' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%70;condition%random
+exp_b_comprehension,70,non_sense_random,NA,请问上一句话中含有 '言论' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%70;condition%non_sense_random
+exp_b,71,original,1988年1月1日，蚕院洞亦被划归瑞草区管理。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,71,swap_1,1988年1月1蚕院日，洞亦被划归瑞草区管理。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,71,swap_3,1988年11月日，蚕院亦洞被划归管理瑞草区。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,71,non_sense,1988 电视年学校 1 等蚕院 ， 洞划归收到于瑞草区简称。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,71,random,年1988管理蚕院被月11日，亦划归瑞草区洞。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,71,non_sense_random,区学校洞划归 ， 1 瑞草等年于收到简称 1988 电视。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,71,original,NA,请问上一句话中含有 '1' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%71;condition%original
+exp_b_comprehension,71,swap_1,NA,请问上一句话中含有 '1' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%71;condition%swap_1
+exp_b_comprehension,71,swap_3,NA,请问上一句话中含有 '1' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%71;condition%swap_3
+exp_b_comprehension,71,non_sense,NA,请问上一句话中含有 '简称' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%71;condition%non_sense
+exp_b_comprehension,71,random,NA,请问上一句话中含有 '1' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%71;condition%random
+exp_b_comprehension,71,non_sense_random,NA,请问上一句话中含有 '简称' 这个词吗?,multiple_choice,对_不对,对,coordinate;experiment%exp_b;item%71;condition%non_sense_random
+exp_b,72,original,它们在欧洲是较为普遍的蝴蝶。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,72,swap_1,在它们欧洲是较为普遍的蝴蝶。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,72,swap_3,是它们在欧洲较为普遍的蝴蝶。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,72,non_sense,在交易欧洲较为而有用的名利。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,72,random,的较为是蝴蝶普遍在欧洲它们。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b,72,non_sense_random,的在有用欧洲而较为交易名利。,您觉得这个句子有多通顺,multiple_choice,1 - 完全不通顺_2_3_4_5_6_7 - 完全通顺,NA,NA
+exp_b_comprehension,72,original,NA,请问上一句话中含有 '有用' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%72;condition%original
+exp_b_comprehension,72,swap_1,NA,请问上一句话中含有 '有用' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%72;condition%swap_1
+exp_b_comprehension,72,swap_3,NA,请问上一句话中含有 '有用' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%72;condition%swap_3
+exp_b_comprehension,72,non_sense,NA,请问上一句话中含有 '蝴蝶' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%72;condition%non_sense
+exp_b_comprehension,72,random,NA,请问上一句话中含有 '有用' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%72;condition%random
+exp_b_comprehension,72,non_sense_random,NA,请问上一句话中含有 '蝴蝶' 这个词吗?,multiple_choice,对_不对,不对,coordinate;experiment%exp_b;item%72;condition%non_sense_random

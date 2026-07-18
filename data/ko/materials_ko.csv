@@ -1,0 +1,865 @@
+experiment,item,condition,sentence,prompt,question_type,options,literal_response,config
+exp_b,1,original,1919년 10월 27일 한국 최초의 영화 '의리적 구토'가 상영된 것을 기념하기 위해 제정된 영화의 날 행사에는 많은 한국영화계 종사자들이 참석한다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,1,swap_1,1919년 10월 27일 한국 최초의 영화 '의리적 구토'가 상영된 것을 기념하기 위해 제정된 영화의 행사에는 날 많은 한국영화계 종사자들이 참석한다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,1,swap_3,10월 1919년 최초의 27일 한국 영화 '의리적 구토'가 상영된 것을 기념하기 위해 제정된 영화의 날 행사에는 많은 한국영화계 종사자들이 참석한다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,1,non_sense,한강예술섬 딸 2년 선생님도 최초의 홈페이지를 '1940년에 이질의' 가 차지했다 수 최고고도는 주는 곳이란 기억이 말 명령에 다른 한국영화계 국방위원회 사망한.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,1,random,행사에는 구토 '가 한국영화계 영화 많은 한국'의리적 참석한다 종사자들이 위해 최초의 27일 1919년 제정된 기념하기 상영된 영화의 10월 날 것을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,1,non_sense_random,'1940년에 홈페이지를 주는 선생님도 명령에 한강예술섬 최고고도는 최초의 사망한 가 이질의' 2년 차지했다 국방위원회 곳이란 다른 딸 말 기억이 한국영화계 수.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,1,original,,이 문장에 '한국'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%1;condition%original
+exp_b_comprehension,1,swap_1,,이 문장에 '한국'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%1;condition%swap_1
+exp_b_comprehension,1,swap_3,,이 문장에 '한국'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%1;condition%swap_3
+exp_b_comprehension,1,non_sense,,이 문장에 '국방위원회'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%1;condition%non_sense
+exp_b_comprehension,1,random,,이 문장에 '한국'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%1;condition%random
+exp_b_comprehension,1,non_sense_random,,이 문장에 '국방위원회'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%1;condition%non_sense_random
+exp_b,2,original,제주는 돼지고기 자급률이 50프로 정도 밖에 안되고 나머지는 뭍에서 오는 것이라고 하는데 이 곳은 농장에서 직접 고기를 조달한다고 하네요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,2,swap_1,제주는 돼지고기 자급률이 50프로 정도 밖에 안되고 나머지는 뭍에서 오는 것이라고 하는데 이 곳은 농장에서 고기를 직접 조달한다고 하네요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,2,swap_3,제주는 돼지고기 자급률이 50프로 정도 밖에 나머지는 안되고 오는 뭍에서 것이라고 하는데 곳은 이 농장에서 직접 고기를 조달한다고 하네요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,2,non_sense,언어들도 활 법가의 1942년 이야기 밖에 보이지 강남을 아울러 죽는 것이다 하면 이 8시 재미있게 건물에 동반진단 물어본 제한된다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,2,random,돼지고기 것이라고 하는데 농장에서 조달한다고 이 하네요 나머지는 자급률이 뭍에서 직접 제주는 정도 50프로 오는 밖에 곳은 고기를 안되고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,2,non_sense_random,8시 보이지 강남을 동반진단 1942년 죽는 아울러 이 제한된다 재미있게 것이다 언어들도 건물에 물어본 하면 법가의 이야기 밖에 활.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,2,original,,이 문장에 '재미있게'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%2;condition%original
+exp_b_comprehension,2,swap_1,,이 문장에 '재미있게'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%2;condition%swap_1
+exp_b_comprehension,2,swap_3,,이 문장에 '재미있게'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%2;condition%swap_3
+exp_b_comprehension,2,non_sense,,이 문장에 '나머지는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%2;condition%non_sense
+exp_b_comprehension,2,random,,이 문장에 '재미있게'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%2;condition%random
+exp_b_comprehension,2,non_sense_random,,이 문장에 '나머지는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%2;condition%non_sense_random
+exp_b,3,original,이 보도가 맞다면 우리도 종교의 자유가 있네 하고 떠들어온 북한의 주장이 얼마나 가당찮은 거짓말인지 확연히 드러난다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,3,swap_1,이 보도가 맞다면 우리도 종교의 자유가 있네 하고 떠들어온 북한의 주장이 얼마나 가당찮은 거짓말인지 드러난다 확연히.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,3,swap_3,이 보도가 맞다면 우리도 자유가 종교의 있네 하고 북한의 떠들어온 주장이 얼마나 가당찮은 확연히 거짓말인지 드러난다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,3,non_sense,"이 맛도 장식되어 우리도 재활트레이닝을 여성 알고 주고 9,611명이다 피해자를 비 한국에서 가당찮은 만든 0.09정도 손꼽히는.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,3,random,얼마나 우리도 떠들어온 있네 드러난다 북한의 종교의 맞다면 거짓말인지 하고 자유가 이 보도가 가당찮은 주장이 확연히.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,3,non_sense_random,이 주고 009정도 여성 알고 비 장식되어 만든 가당찮은 맛도 재활트레이닝을 한국에서 9611명이다 우리도 손꼽히는 피해자를.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,3,original,,이 문장에 '드러난다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%3;condition%original
+exp_b_comprehension,3,swap_1,,이 문장에 '드러난다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%3;condition%swap_1
+exp_b_comprehension,3,swap_3,,이 문장에 '드러난다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%3;condition%swap_3
+exp_b_comprehension,3,non_sense,,이 문장에 '장식되어'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%3;condition%non_sense
+exp_b_comprehension,3,random,,이 문장에 '드러난다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%3;condition%random
+exp_b_comprehension,3,non_sense_random,,이 문장에 '장식되어'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%3;condition%non_sense_random
+exp_b,4,original,"상대성 이론에서는 사건이라는 말이 자주 나오므로, 사건의 의미를 잘 이해할 필요가 있다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,4,swap_1,"상대성 이론에서는 사건이라는 말이 자주 나오므로, 사건의 의미를 이해할 잘 필요가 있다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,4,swap_3,"상대성 이론에서는 사건이라는 말이 자주 나오므로, 사건의 의미를 필요가 잘 있다 이해할.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,4,non_sense,"아이용 1분기에는 지불하는 등 모음과 맵지, 정책을 실패를 가장 붙어 미 다른.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,4,random,사건의 있다 의미를 이해할 사건이라는 자주 필요가 상대성 이론에서는 잘 나오므로 말이.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,4,non_sense_random,아이용 등 붙어 맵지 정책을 모음과 다른 1분기에는 가장 지불하는 미 실패를.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,4,original,,이 문장에 '지불하는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%4;condition%original
+exp_b_comprehension,4,swap_1,,이 문장에 '지불하는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%4;condition%swap_1
+exp_b_comprehension,4,swap_3,,이 문장에 '지불하는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%4;condition%swap_3
+exp_b_comprehension,4,non_sense,,이 문장에 '나오므로'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%4;condition%non_sense
+exp_b_comprehension,4,random,,이 문장에 '지불하는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%4;condition%random
+exp_b_comprehension,4,non_sense_random,,이 문장에 '나오므로'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%4;condition%non_sense_random
+exp_b,5,original,조인성은 입대할 당시 심경과 군복무를 하며 생긴 배우로서의 공백기에 대해 솔직한 생각을 털어놨다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,5,swap_1,조인성은 입대할 당시 심경과 군복무를 하며 생긴 배우로서의 공백기에 대해 솔직한 털어놨다 생각을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,5,swap_3,조인성은 입대할 당시 심경과 군복무를 하며 생긴 배우로서의 대해 솔직한 공백기에 털어놨다 생각을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,5,non_sense,금메달을 유행일 6세가 정평이 소장은 일하고 갔다라는 배우로서의 우호적으로 다니고 다양한 수는 비벼.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,5,random,배우로서의 대해 털어놨다 생각을 하며 군복무를 생긴 공백기에 심경과 조인성은 솔직한 입대할 당시.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,5,non_sense_random,다니고 정평이 유행일 갔다라는 6세가 우호적으로 수는 일하고 배우로서의 금메달을 비벼 소장은 다양한.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,5,original,,이 문장에 '심경과'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%5;condition%original
+exp_b_comprehension,5,swap_1,,이 문장에 '심경과'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%5;condition%swap_1
+exp_b_comprehension,5,swap_3,,이 문장에 '심경과'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%5;condition%swap_3
+exp_b_comprehension,5,non_sense,,이 문장에 '일하고'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%5;condition%non_sense
+exp_b_comprehension,5,random,,이 문장에 '심경과'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%5;condition%random
+exp_b_comprehension,5,non_sense_random,,이 문장에 '일하고'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%5;condition%non_sense_random
+exp_b,6,original,또한 전국 지역교육청의 명칭이 '교육지원청'으로 변경되고 부서의 명칭도 학교급별 중심에서 기능중심으로 재편했다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,6,swap_1,또한 전국 지역교육청의 명칭이 변경되고 '교육지원청'으로 부서의 명칭도 학교급별 중심에서 기능중심으로 재편했다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,6,swap_3,전국 또한 지역교육청의 명칭이 부서의 '교육지원청'으로 변경되고 명칭도 학교급별 중심에서 기능중심으로 재편했다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,6,non_sense,함께 시장이 지역교육청의 의견이 '이미지' 으로 결정된다 BBK의 도시락통과 맛이 가장 최근에는 석권하며.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,6,random,기능중심으로 '교육지원청'으로 명칭도 재편했다 변경되고 명칭이 또한 지역교육청의 부서의 학교급별 전국 중심에서.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,6,non_sense_random,가장 함께 맛이 BBK의 최근에는 도시락통과 지역교육청의 결정된다 으로 시장이 의견이 '이미지' 석권하며.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,6,original,,이 문장에 '맛이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%6;condition%original
+exp_b_comprehension,6,swap_1,,이 문장에 '맛이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%6;condition%swap_1
+exp_b_comprehension,6,swap_3,,이 문장에 '맛이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%6;condition%swap_3
+exp_b_comprehension,6,non_sense,,이 문장에 '기능중심으로'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%6;condition%non_sense
+exp_b_comprehension,6,random,,이 문장에 '맛이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%6;condition%random
+exp_b_comprehension,6,non_sense_random,,이 문장에 '기능중심으로'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%6;condition%non_sense_random
+exp_b,7,original,"지적장애 학생을 위한 특수교육기관으로 유치부, 초등부, 중학부, 고등부, 전공과를 두고 있다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,7,swap_1,"지적장애 학생을 위한 특수교육기관으로 유치부, 초등부, 중학부, 전공과를 고등부, 두고 있다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,7,swap_3,"지적장애 위한 학생을 특수교육기관으로 유치부, 중학부, 초등부, 전공과를 고등부, 두고 있다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,7,non_sense,"주변 사과를 먹을 특수교육기관으로 스타크래프트, al, 중학부, 금메달을, 전공과를 있는 알고.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,7,random,위한 학생을 특수교육기관으로 유치부 초등부 전공과를 두고 있다 지적장애 고등부 중학부.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,7,non_sense_random,사과를 주변 al 전공과를 먹을 알고 있는 스타크래프트 특수교육기관으로 중학부 금메달을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,7,original,,이 문장에 '지적장애'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%7;condition%original
+exp_b_comprehension,7,swap_1,,이 문장에 '지적장애'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%7;condition%swap_1
+exp_b_comprehension,7,swap_3,,이 문장에 '지적장애'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%7;condition%swap_3
+exp_b_comprehension,7,non_sense,,이 문장에 '있는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%7;condition%non_sense
+exp_b_comprehension,7,random,,이 문장에 '지적장애'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%7;condition%random
+exp_b_comprehension,7,non_sense_random,,이 문장에 '있는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%7;condition%non_sense_random
+exp_b,8,original,"또한 SK텔레콤은 '초소형 기지국'으로 불리는 '데이터 펨토셀'개발을 완료하고 11월부터 구축을 시작해, 시내 구석구석까지 모바일 데이터를 쾌적하게 사용할 수 있는 환경을 조성할 계획이다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,8,swap_1,"또한 SK텔레콤은 '초소형 기지국'으로 불리는 ‘데이터 펨토셀'개발을 완료하고 11월부터 구축을 시작해, 시내 구석구석까지 모바일 데이터를 쾌적하게 수 사용할 있는 환경을 조성할 계획이다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,8,swap_3,"또한 SK텔레콤은 '초소형 기지국'으로 펨토셀 ‘개발을 불리는'데이터 완료하고 11월부터 구축을 시작해, 시내 구석구석까지 모바일 데이터를 쾌적하게 사용할 수 있는 조성할 환경을 계획이다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,8,non_sense,"브랜드에서 방제키 'L-29 막걸리를' 으로 찾아줘' 대신을 펨토셀' 기준 이루었다 오전에 공사가 갖는, 여권발급 맛집으로 성과 관심과 쾌적하게 먹고 미국 있었다고 주변 만든 뭐냐.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,8,random,기지국 '으로 환경을 있는 펨토셀'개발을 구축을 조성할 모바일 데이터를 시내 수 계획이다 또한 11월부터 시작해 쾌적하게 불리는 SK텔레콤은 구석구석까지 사용할'초소형 완료하고'데이터.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,8,non_sense_random,막걸리를 '기준 여권발급 쾌적하게 관심과 있었다고 오전에 뭐냐 공사가 대신을 갖는 으로'L-29 맛집으로 먹고 미국 주변 방제키 성과 펨토셀' 찾아줘' 이루었다 만든 브랜드에서.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,8,original,,이 문장에 '공사가'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%8;condition%original
+exp_b_comprehension,8,swap_1,,이 문장에 '공사가'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%8;condition%swap_1
+exp_b_comprehension,8,swap_3,,이 문장에 '공사가'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%8;condition%swap_3
+exp_b_comprehension,8,non_sense,,이 문장에 '계획이다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%8;condition%non_sense
+exp_b_comprehension,8,random,,이 문장에 '공사가'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%8;condition%random
+exp_b_comprehension,8,non_sense_random,,이 문장에 '계획이다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%8;condition%non_sense_random
+exp_b,9,original,"현재 타 e러닝 업체가 회당 3만원~5만원 내외의 가격에 판매하고 있는 것을 감안하면, 소비자는 최대 25만원 상당의 서비스를 무료로 받는 셈이다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,9,swap_1,"현재 타 e러닝 업체가 회당 3만원~5만원 내외의 가격에 판매하고 있는 것을 감안하면, 소비자는 최대 25만원 서비스를 상당의 무료로 받는 셈이다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,9,swap_3,"타 현재 e러닝 업체가 회당 내외의 3만원~5만원 가격에 판매하고 있는 것을 감안하면, 소비자는 25만원 최대 상당의 서비스를 무료로 받는 셈이다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,9,non_sense,"길로 것이 자전거 이후 쇠고기 3만원~5만원 내외의 본격적으로 없이 있었던 아이를 총판이라서, 톰 겉은 최근 상당의 사장님이 조금 않고 오가는.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,9,random,서비스를 셈이다 가격에 것을 3만원5만원 상당의 소비자는 무료로 최대 회당 현재 있는 e러닝 판매하고 감안하면 25만원 업체가 내외의 받는 타.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,9,non_sense_random,상당의 없이 이후 3만원5만원 총판이라서 사장님이 오가는 않고 있었던 겉은 길로 쇠고기 톰 것이 최근 본격적으로 자전거 내외의 아이를 조금.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,9,original,,이 문장에 '25만원'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%9;condition%original
+exp_b_comprehension,9,swap_1,,이 문장에 '25만원'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%9;condition%swap_1
+exp_b_comprehension,9,swap_3,,이 문장에 '25만원'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%9;condition%swap_3
+exp_b_comprehension,9,non_sense,,이 문장에 '길로'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%9;condition%non_sense
+exp_b_comprehension,9,random,,이 문장에 '25만원'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%9;condition%random
+exp_b_comprehension,9,non_sense_random,,이 문장에 '길로'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%9;condition%non_sense_random
+exp_b,10,original,니케포루스는 젊고 유능한 장군 알레시우스 콤네누스의 도움으로 제위 경쟁자인 브리엔니스를 물리쳤고 단독으로 권력을 잡았다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,10,swap_1,니케포루스는 젊고 유능한 장군 알레시우스 콤네누스의 도움으로 경쟁자인 제위 브리엔니스를 물리쳤고 단독으로 권력을 잡았다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,10,swap_3,니케포루스는 유능한 젊고 알레시우스 장군 콤네누스의 도움으로 제위 경쟁자인 브리엔니스를 물리쳤고 단독으로 잡았다 권력을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,10,non_sense,니케포루스는 선 시키실래요 조직 알레시우스 조선총독부 그리고 제위 동요하지 브리엔니스를 되새기고 그래서 인도 가려면.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,10,random,권력을 도움으로 단독으로 장군 브리엔니스를 유능한 젊고 잡았다 콤네누스의 니케포루스는 경쟁자인 물리쳤고 제위 알레시우스.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,10,non_sense_random,니케포루스는 브리엔니스를 시키실래요 조직 선 제위 가려면 동요하지 그래서 되새기고 인도 알레시우스 그리고 조선총독부.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,10,original,,이 문장에 '인도'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%10;condition%original
+exp_b_comprehension,10,swap_1,,이 문장에 '인도'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%10;condition%swap_1
+exp_b_comprehension,10,swap_3,,이 문장에 '인도'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%10;condition%swap_3
+exp_b_comprehension,10,non_sense,,이 문장에 '콤네누스의'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%10;condition%non_sense
+exp_b_comprehension,10,random,,이 문장에 '인도'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%10;condition%random
+exp_b_comprehension,10,non_sense_random,,이 문장에 '콤네누스의'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%10;condition%non_sense_random
+exp_b,11,original,"1심을 맡았던 제주지법 형사1단독은 지난해 2월 판결 당시 ""보조금이 지급되기 전 실제로 법화사에 조경사업이 있었고 이를 전보받기 위해 범죄를 저지른 점 등을 참작한다""며 벌금 1000만원을 선고했다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,11,swap_1,"1심을 맡았던 제주지법 형사1단독은 지난해 2월 판결 당시 ""보조금이 지급되기 전 실제로 법화사에 조경사업이 있었고 이를 전보받기 위해 범죄를 저지른 점 등을 벌금 참작한다""며 1000만원을 선고했다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,11,swap_3,"1심을 제주지법 맡았던 형사1단독은 지난해 판결 2월 당시 ""보조금이 지급되기 전 실제로 조경사업이 법화사에 있었고 이를 전보받기 위해 범죄를 저지른 점 등을 참작한다""며 벌금 1000만원을 선고했다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,11,non_sense,"장 등이다 1965년 계약체결을 제국 임을 여성 당시 ""복귀가 분양소를 전 정국불안에 법화사에 영업손실은 가는 이를 경선 거부했고 회색 알려졌다 미국 의원은 산란되어"" 며 올림픽이 아영파출소 부족한.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,11,random,점 등을 형사1단독은 보조금이 범죄를 저지른 1000만원을 1심을 2월 선고했다 벌금 참작한다며 조경사업이 지난해 위해 이를 실제로 전보받기 법화사에 지급되기 판결 맡았던 전 제주지법 당시 있었고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,11,non_sense_random,법화사에 거부했고 산란되어 임을 등이다 복귀가 정국불안에 미국 회색 알려졌다 장 당시 이를 여성 부족한 제국 전 아영파출소 경선 며 분양소를 의원은 1965년 영업손실은 계약체결을 올림픽이 가는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,11,original,,이 문장에 '있었고'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%11;condition%original
+exp_b_comprehension,11,swap_1,,이 문장에 '있었고'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%11;condition%swap_1
+exp_b_comprehension,11,swap_3,,이 문장에 '있었고'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%11;condition%swap_3
+exp_b_comprehension,11,non_sense,,이 문장에 '미국'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%11;condition%non_sense
+exp_b_comprehension,11,random,,이 문장에 '있었고'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%11;condition%random
+exp_b_comprehension,11,non_sense_random,,이 문장에 '미국'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%11;condition%non_sense_random
+exp_b,12,original,한편 한국은 2006년 이후 이란과의 최근 전적에서 4무2패로 뒤지고 있는 가운데 이번 대회 8강전에서 51년 만의 아시안컵 우승을 위한 최대 고비를 만나게 됐다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,12,swap_1,한편 한국은 2006년 이후 이란과의 최근 전적에서 4무2패로 뒤지고 있는 가운데 대회 이번 8강전에서 51년 만의 아시안컵 우승을 위한 최대 고비를 만나게 됐다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,12,swap_3,한편 2006년 한국은 이후 이란과의 최근 전적에서 4무2패로 뒤지고 있는 가운데 이번 대회 8강전에서 51년 아시안컵 만의 우승을 위한 최대 만나게 고비를 됐다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,12,non_sense,덜 1시간 16위 이후 클라우드 조직 미대에서 무차별적으로 출전할 많고 선수를 시민들이 5개 상호간에 확대 만의 고기를 절반이 다른 전진 인하와 보낸 하나이다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,12,random,우승을 만의 전적에서 이번 뒤지고 위한 만나게 대회 이란과의 한국은 가운데 이후 한편 있는 아시안컵 4무2패로 51년 2006년 최근 고비를 8강전에서 됐다 최대.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,12,non_sense_random,많고 확대 출전할 5개 만의 보낸 상호간에 조직 시민들이 다른 하나이다 절반이 덜 무차별적으로 1시간 고기를 16위 전진 선수를 이후 클라우드 인하와 미대에서.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,12,original,,이 문장에 '확대'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%12;condition%original
+exp_b_comprehension,12,swap_1,,이 문장에 '확대'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%12;condition%swap_1
+exp_b_comprehension,12,swap_3,,이 문장에 '확대'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%12;condition%swap_3
+exp_b_comprehension,12,non_sense,,이 문장에 '최대'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%12;condition%non_sense
+exp_b_comprehension,12,random,,이 문장에 '확대'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%12;condition%random
+exp_b_comprehension,12,non_sense_random,,이 문장에 '최대'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%12;condition%non_sense_random
+exp_b,13,original,"1997년에 폰크의 후임으로 세묜 비슈코프가 상임 지휘자에 취임해 현재까지 재임 중이며, 비슈코프도 브람스의 교향곡 전집과 말러, 쇼스타코비치의 교향곡, 리하르트 슈트라우스의 오페라 전곡들을 비롯한 음반들을 출반하고 있다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,13,swap_1,"1997년에 폰크의 후임으로 세묜 비슈코프가 상임 지휘자에 취임해 현재까지 재임 중이며, 비슈코프도 브람스의 교향곡 말러, 전집과 쇼스타코비치의 교향곡, 리하르트 슈트라우스의 오페라 전곡들을 비롯한 음반들을 출반하고 있다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,13,swap_3,"1997년에 폰크의 후임으로 세묜 비슈코프가 상임 지휘자에 현재까지 취임해 재임 중이며, 비슈코프도 브람스의 교향곡 말러, 전집과 쇼스타코비치의 교향곡, 리하르트 슈트라우스의 오페라 비롯한 전곡들을 음반들을 출반하고 있다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,13,non_sense,"골목에 뿐만 선원들에 세묜 비슈코프가 종로구 멀리서 현상인 밖에 후계자가 맛있고, 비슈코프도 야권 성당 오디션을 솜씨도, 쇼스타코비치의 입체음향이란, 리하르트 슈트라우스의 일본의 누적 보였다 제도가 출반하고 보고.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,13,random,비롯한 1997년에 있다 비슈코프가 폰크의 슈트라우스의 전곡들을 전집과 리하르트 음반들을 오페라 교향곡 중이며 교향곡 상임 후임으로 브람스의 출반하고 재임 말러 비슈코프도 쇼스타코비치의 현재까지 세묜 지휘자에 취임해.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,13,non_sense_random,일본의 슈트라우스의 솜씨도 세묜 멀리서 누적 보였다 뿐만 제도가 골목에 맛있고 후계자가 비슈코프도 비슈코프가 종로구 쇼스타코비치의 선원들에 리하르트 야권 현상인 보고 출반하고 오디션을 입체음향이란 밖에 성당.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,13,original,,이 문장에 '중이며'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%13;condition%original
+exp_b_comprehension,13,swap_1,,이 문장에 '중이며'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%13;condition%swap_1
+exp_b_comprehension,13,swap_3,,이 문장에 '중이며'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%13;condition%swap_3
+exp_b_comprehension,13,non_sense,,이 문장에 '후계자가'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%13;condition%non_sense
+exp_b_comprehension,13,random,,이 문장에 '중이며'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%13;condition%random
+exp_b_comprehension,13,non_sense_random,,이 문장에 '후계자가'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%13;condition%non_sense_random
+exp_b,14,original,"코러스에서 자신의 역할로, 또는 그 거꾸로 역할전환이 이뤄지기 직전에는 보통 모든 코러스 구성원들이 서로 섞이며 원형 무대를 빠른 속도로 뛰는 등 관객의 주의를 광역으로 분산시키는 단체적인 몸짓이 있다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,14,swap_1,"코러스에서 자신의 역할로, 또는 그 역할전환이 거꾸로 이뤄지기 직전에는 보통 모든 코러스 구성원들이 서로 섞이며 원형 무대를 빠른 속도로 뛰는 등 관객의 주의를 광역으로 분산시키는 단체적인 몸짓이 있다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,14,swap_3,"코러스에서 자신의 역할로, 그 또는 거꾸로 역할전환이 이뤄지기 직전에는 보통 모든 코러스 구성원들이 서로 섞이며 원형 무대를 빠른 속도로 등 뛰는 관객의 광역으로 주의를 분산시키는 단체적인 몸짓이 있다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,14,non_sense,"초대원장으로 자신의 집, 또는 그 외관에 구속 이뤄지기 직전에는 자주 모든 반칙이 2007년 후보군으로 빈다 모발이 개입의 정직한 이슬람권에서는 확정지었다 줄 관객의 자리를 연예활동시 잇어서 큰 배트 있다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,14,random,코러스에서 무대를 몸짓이 있다 분산시키는 그 구성원들이 자신의 또는 단체적인 원형 이뤄지기 역할전환이 서로 직전에는 보통 등 섞이며 코러스 빠른 역할로 거꾸로 속도로 주의를 광역으로 뛰는 관객의 모든.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,14,non_sense_random,모발이 집 관객의 초대원장으로 잇어서 구속 자신의 이뤄지기 외관에 2007년 확정지었다 모든 개입의 그 이슬람권에서는 정직한 줄 자리를 큰 연예활동시 빈다 있다 배트 반칙이 후보군으로 자주 또는 직전에는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,14,original,,이 문장에 '집'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%14;condition%original
+exp_b_comprehension,14,swap_1,,이 문장에 '집'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%14;condition%swap_1
+exp_b_comprehension,14,swap_3,,이 문장에 '집'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%14;condition%swap_3
+exp_b_comprehension,14,non_sense,,이 문장에 '무대를'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%14;condition%non_sense
+exp_b_comprehension,14,random,,이 문장에 '집'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%14;condition%random
+exp_b_comprehension,14,non_sense_random,,이 문장에 '무대를'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%14;condition%non_sense_random
+exp_b,15,original,"노동부 관계자는 ""부처 개명을 계기로 업무를 더 효과적으로 추진하려고 그 토대가 되는 인사행정시스템을 혁신하고 이행력이 담보될 수 있도록 제도화했다""고 말했다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,15,swap_1,"노동부 관계자는 ""부처 개명을 계기로 업무를 더 효과적으로 추진하려고 그 토대가 인사행정시스템을 되는 혁신하고 이행력이 담보될 수 있도록 제도화했다""고 말했다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,15,swap_3,"노동부 관계자는 ""부처 개명을 계기로 업무를 더 효과적으로 그 추진하려고 토대가 되는 인사행정시스템을 혁신하고 담보될 이행력이 수 있도록 말했다 제도화했다""고.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,15,non_sense,"밀가루 통행이 ""부처 기름이 참 농업정책을 조금 쪽으로까지 인정하였다 그 양상은 있는 3개소 없이 이행력이 부활하여 0시를 재밌게 통해"" 고 되는.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,15,random,관계자는 되는 혁신하고 계기로 수 업무를 효과적으로 추진하려고 제도화했다고 이행력이 부처 노동부 인사행정시스템을 말했다 더 있도록 토대가 담보될 그 개명을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,15,non_sense_random,조금 0시를 고 부활하여 이행력이 양상은 기름이 부처 참 통행이 쪽으로까지 재밌게 인정하였다 있는 되는 통해 3개소 그 밀가루 농업정책을 없이.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,15,original,,이 문장에 '관계자는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%15;condition%original
+exp_b_comprehension,15,swap_1,,이 문장에 '관계자는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%15;condition%swap_1
+exp_b_comprehension,15,swap_3,,이 문장에 '관계자는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%15;condition%swap_3
+exp_b_comprehension,15,non_sense,,이 문장에 '부활하여'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%15;condition%non_sense
+exp_b_comprehension,15,random,,이 문장에 '관계자는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%15;condition%random
+exp_b_comprehension,15,non_sense_random,,이 문장에 '부활하여'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%15;condition%non_sense_random
+exp_b,16,original,"이어 ""이제는 세월이 뒤바뀌어 내가 김혜수 옆에 붙어있어야 할 판""이라며 너털웃음을 보였다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,16,swap_1,"""이제는 이어 세월이 뒤바뀌어 내가 김혜수 옆에 붙어있어야 할 판""이라며 너털웃음을 보였다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,16,swap_3,"이어 ""이제는 세월이 뒤바뀌어 내가 옆에 김혜수 붙어있어야 할 보였다 판""이라며 너털웃음을.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,16,non_sense,"5시에 ""특히 썰기를 뒤바뀌어 내가 취업연계를 옆에 떠나게 보고 명의"" 이라며 너털웃음을 멀었던.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,16,random,뒤바뀌어 너털웃음을 김혜수 붙어있어야 할 옆에 이어 보였다 세월이 판이라며 내가 이제는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,16,non_sense_random,멀었던 썰기를 내가 명의 너털웃음을 뒤바뀌어 특히 보고 취업연계를 떠나게 이라며 옆에 5시에.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,16,original,,이 문장에 '멀었던'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%16;condition%original
+exp_b_comprehension,16,swap_1,,이 문장에 '멀었던'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%16;condition%swap_1
+exp_b_comprehension,16,swap_3,,이 문장에 '멀었던'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%16;condition%swap_3
+exp_b_comprehension,16,non_sense,,이 문장에 '할'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%16;condition%non_sense
+exp_b_comprehension,16,random,,이 문장에 '멀었던'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%16;condition%random
+exp_b_comprehension,16,non_sense_random,,이 문장에 '할'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%16;condition%non_sense_random
+exp_b,17,original,합계 19언더파 269타를 친 청야니는 2위 모건 프레셀(미국•9언더파 279타)을 무려 10타 차로 따돌리고 정상에 올랐다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,17,swap_1,합계 19언더파 269타를 친 청야니는 2위 모건 프레셀(미국•9언더파 279타)을 무려 10타 따돌리고 차로 정상에 올랐다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,17,swap_3,합계 19언더파 269타를 친 2위 청야니는 모건 프레셀(미국•9언더파 279타)을 무려 차로 10타 정상에 따돌리고 올랐다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,17,non_sense,조경사업이 왕조의 작곡상 발생하며 청야니는 도로 방한을 프레셀(미국 • 최종 디지털공세) 을 별로 서울대학교 각각 마실 무려 높아지는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,17,random,모건 청야니는 따돌리고 269타를 친 10타 차로 19언더파 무려 올랐다 2위 프레셀미국9언더파 합계 정상에 279타을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,17,non_sense_random, 각각 최종 별로 왕조의 디지털공세 방한을 청야니는 조경사업이 마실 미국 높아지는 을 프레셀 도로 서울대학교 발생하며 작곡상 무려.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,17,original,,이 문장에 '무려'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%17;condition%original
+exp_b_comprehension,17,swap_1,,이 문장에 '무려'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%17;condition%swap_1
+exp_b_comprehension,17,swap_3,,이 문장에 '무려'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%17;condition%swap_3
+exp_b_comprehension,17,non_sense,,이 문장에 '각각'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%17;condition%non_sense
+exp_b_comprehension,17,random,,이 문장에 '무려'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%17;condition%random
+exp_b_comprehension,17,non_sense_random,,이 문장에 '각각'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%17;condition%non_sense_random
+exp_b,18,original,그는 중국 옌안에서 독립운동 활동을 하다 북조선으로 귀국한 한글학자 김두봉과 일정한 연계를 맺고 있었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,18,swap_1,그는 옌안에서 중국 독립운동 활동을 하다 북조선으로 귀국한 한글학자 김두봉과 일정한 연계를 맺고 있었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,18,swap_3,중국 그는 옌안에서 독립운동 활동을 하다 북조선으로 귀국한 김두봉과 한글학자 일정한 맺고 연계를 있었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,18,non_sense,그는 18번 옌안에서 최대 마음 해이다 모나코에서 쌓인 30유로는 김두봉과 높은 2010년 속해 그리고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,18,random,있었다 독립운동 귀국한 한글학자 연계를 중국 일정한 옌안에서 김두봉과 활동을 하다 그는 맺고 북조선으로.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,18,non_sense_random,최대 18번 모나코에서 30유로는 높은 그리고 김두봉과 2010년 속해 옌안에서 쌓인 해이다 마음 그는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,18,original,,이 문장에 '모나코에서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%18;condition%original
+exp_b_comprehension,18,swap_1,,이 문장에 '모나코에서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%18;condition%swap_1
+exp_b_comprehension,18,swap_3,,이 문장에 '모나코에서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%18;condition%swap_3
+exp_b_comprehension,18,non_sense,,이 문장에 '귀국한'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%18;condition%non_sense
+exp_b_comprehension,18,random,,이 문장에 '모나코에서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%18;condition%random
+exp_b_comprehension,18,non_sense_random,,이 문장에 '귀국한'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%18;condition%non_sense_random
+exp_b,19,original,"섀도우 갤러리는 브이의 은신처이자, 국가에 의해 금지된 각종 예술품들을 저장해 놓은 곳이기도 하다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,19,swap_1,"섀도우 갤러리는 브이의 은신처이자, 국가에 의해 각종 금지된 예술품들을 저장해 놓은 곳이기도 하다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,19,swap_3,"섀도우 갤러리는 브이의 은신처이자, 국가에 의해 금지된 각종 예술품들을 놓은 하다 저장해 곳이기도.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,19,non_sense,"의대 기둥은 1800선 가져주세요, 또한 라며 규정한 위안화 경기연맹이 깔끔하고 있었는데 있으신 있다고.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,19,random,은신처이자 곳이기도 예술품들을 금지된 브이의 국가에 하다 의해 저장해 놓은 갤러리는 섀도우 각종.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,19,non_sense_random,깔끔하고 가져주세요 라며 규정한 의대 있다고 위안화 1800선 있으신 기둥은 있었는데 또한 경기연맹이.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,19,original,,이 문장에 '각종'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%19;condition%original
+exp_b_comprehension,19,swap_1,,이 문장에 '각종'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%19;condition%swap_1
+exp_b_comprehension,19,swap_3,,이 문장에 '각종'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%19;condition%swap_3
+exp_b_comprehension,19,non_sense,,이 문장에 '의대'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%19;condition%non_sense
+exp_b_comprehension,19,random,,이 문장에 '각종'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%19;condition%random
+exp_b_comprehension,19,non_sense_random,,이 문장에 '의대'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%19;condition%non_sense_random
+exp_b,20,original,"출마에 앞서 저를 국회의원으로 만들어 주신 천안지역 유권자를 대상으로 두 차례에 걸쳐 지사 출마에 대한 의견을 물었고, 모두 출마하는 게 옳다는 답변을 얻었다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,20,swap_1,"출마에 앞서 저를 국회의원으로 만들어 주신 천안지역 유권자를 대상으로 두 차례에 걸쳐 지사 출마에 대한 의견을 모두 물었고, 출마하는 게 옳다는 답변을 얻었다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,20,swap_3,"앞서 출마에 저를 국회의원으로 만들어 주신 천안지역 유권자를 대상으로 차례에 두 걸쳐 지사 출마에 대한 의견을 모두 물었고, 출마하는 게 옳다는 답변을 얻었다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,20,non_sense,"장소로 개막하는 반 FC에서 따라 부류이다 나름가수다 마일 병원까지 두 대한민국 조직인 간체권은 장군에게 살고 경우 가진, 앞으로 맛있다는 1만 매장되었으며 국내외 내던.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,20,random,걸쳐 출마에 옳다는 유권자를 앞서 대상으로 주신 국회의원으로 천안지역 모두 차례에 대한 답변을 출마하는 얻었다 만들어 저를 지사 게 두 물었고 출마에 의견을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,20,non_sense_random,반 1만 나름가수다 간체권은 국내외 부류이다 장군에게 장소로 맛있다는 개막하는 두 앞으로 살고 경우 FC에서 내던 매장되었으며 따라 마일 조직인 대한민국 가진 병원까지.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,20,original,,이 문장에 '따라'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%20;condition%original
+exp_b_comprehension,20,swap_1,,이 문장에 '따라'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%20;condition%swap_1
+exp_b_comprehension,20,swap_3,,이 문장에 '따라'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%20;condition%swap_3
+exp_b_comprehension,20,non_sense,,이 문장에 '지사'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%20;condition%non_sense
+exp_b_comprehension,20,random,,이 문장에 '따라'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%20;condition%random
+exp_b_comprehension,20,non_sense_random,,이 문장에 '지사'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%20;condition%non_sense_random
+exp_b,21,original,당초 궁예가 현재의 구철원에서 송악으로 도읍을 옮긴 이유는 왕건 세력의 도움을 받기 위해서였다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,21,swap_1,당초 궁예가 현재의 구철원에서 송악으로 도읍을 이유는 옮긴 왕건 세력의 도움을 받기 위해서였다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,21,swap_3,당초 궁예가 현재의 구철원에서 송악으로 도읍을 옮긴 이유는 세력의 도움을 왕건 위해서였다 받기.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,21,non_sense,방송국과 들어와있음을 현재의 산불방지에 송악으로 도읍을 막혀 산과 스피커 입자나 허가가 5월 기본적인.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,21,random,받기 도움을 이유는 당초 위해서였다 옮긴 세력의 송악으로 왕건 궁예가 현재의 도읍을 구철원에서.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,21,non_sense_random,5월 막혀 기본적인 들어와있음을 도읍을 스피커 송악으로 입자나 현재의 산과 방송국과 허가가 산불방지에.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,21,original,,이 문장에 '당초'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%21;condition%original
+exp_b_comprehension,21,swap_1,,이 문장에 '당초'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%21;condition%swap_1
+exp_b_comprehension,21,swap_3,,이 문장에 '당초'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%21;condition%swap_3
+exp_b_comprehension,21,non_sense,,이 문장에 '기본적인'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%21;condition%non_sense
+exp_b_comprehension,21,random,,이 문장에 '당초'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%21;condition%random
+exp_b_comprehension,21,non_sense_random,,이 문장에 '기본적인'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%21;condition%non_sense_random
+exp_b,22,original,지금은 낙향한 유복한 명문 사대부가의 가장으로 조정 실세와도 연이 닿아있어 지방관리들도 그를 함부로 못한다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,22,swap_1,지금은 유복한 낙향한 명문 사대부가의 가장으로 조정 실세와도 연이 닿아있어 지방관리들도 그를 함부로 못한다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,22,swap_3,지금은 낙향한 유복한 명문 가장으로 사대부가의 실세와도 조정 연이 닿아있어 그를 지방관리들도 함부로 못한다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,22,non_sense,잘 낙향한 유복한 고생 RF 또한 알바 출근과 음식이 맞이해 G20 그를 선두에 사용해야.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,22,random,지방관리들도 사대부가의 실세와도 함부로 낙향한 못한다 지금은 가장으로 유복한 조정 닿아있어 연이 그를 명문.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,22,non_sense_random,알바 고생 RF 또한 선두에 출근과 음식이 낙향한 사용해야 그를 잘 맞이해 유복한 G20.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,22,original,,이 문장에 '잘'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%22;condition%original
+exp_b_comprehension,22,swap_1,,이 문장에 '잘'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%22;condition%swap_1
+exp_b_comprehension,22,swap_3,,이 문장에 '잘'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%22;condition%swap_3
+exp_b_comprehension,22,non_sense,,이 문장에 '사대부가의'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%22;condition%non_sense
+exp_b_comprehension,22,random,,이 문장에 '잘'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%22;condition%random
+exp_b_comprehension,22,non_sense_random,,이 문장에 '사대부가의'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%22;condition%non_sense_random
+exp_b,23,original,최근 코의 생김새와 얼굴 전체의 균형을 고려해 본인에게 맞는 코 모양을 만들어 낼 수 있는 '코끝성형'이 주목받고 있다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,23,swap_1,최근 코의 생김새와 얼굴 전체의 균형을 고려해 본인에게 맞는 코 만들어 모양을 낼 수 있는 '코끝성형'이 주목받고 있다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,23,swap_3,최근 코의 얼굴 생김새와 균형을 전체의 고려해 본인에게 맞는 코 모양을 만들어 낼 수 '코끝성형'이 있는 주목받고 있다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,23,non_sense,후보로 표현 드립커피도 의자가 석양 또래 등장했던 원주로 같지 영업이익이 호텔의 위해 괜찮은 집은 주는 '광년' 이 국토균형발전문제일 가고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,23,random,코 본인에게 낼 균형을 코의 '코끝성형'이 만들어 생김새와 고려해 있는 맞는 주목받고 있다 모양을 얼굴 수 최근 전체의.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,23,non_sense_random,표현 괜찮은 석양 후보로 또래 주는 등장했던 의자가 호텔의 드립커피도 영업이익이 이 '광년' 위해 같지 국토균형발전문제일 원주로 가고 집은.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,23,original,,이 문장에 '코의'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%23;condition%original
+exp_b_comprehension,23,swap_1,,이 문장에 '코의'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%23;condition%swap_1
+exp_b_comprehension,23,swap_3,,이 문장에 '코의'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%23;condition%swap_3
+exp_b_comprehension,23,non_sense,,이 문장에 '표현'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%23;condition%non_sense
+exp_b_comprehension,23,random,,이 문장에 '코의'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%23;condition%random
+exp_b_comprehension,23,non_sense_random,,이 문장에 '표현'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%23;condition%non_sense_random
+exp_b,24,original,2008년 서울시청 광장에서 5만 8천 포기의 김장을 담가 한국 기네스 기록(한 장소에서 가장 많은 인원이 담근 김장의 양)을 세웠다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,24,swap_1,2008년 서울시청 광장에서 5만 포기의 8천 김장을 담가 한국 기네스 기록(한 장소에서 가장 많은 인원이 담근 김장의 양)을 세웠다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,24,swap_3,2008년 서울시청 5만 광장에서 8천 포기의 김장을 담가 기네스 한국 기록(한 장소에서 많은 가장 인원이 담근 김장의 양)을 세웠다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,24,non_sense,발전을 청소년정책분석평가센터가 또한 5만 8천 94명 생명자원과학대학을 격려하고 이번 무역대표부 비판은 (한 친절하게 상대적으로 있다 영상의 담근 사의 가스를) 을 변경되고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,24,random,기록한 장소에서 2008년 서울시청 양을 한국 가장 담가 포기의 8천 담근 세웠다 5만 김장을 많은 광장에서 김장의 기네스 인원이.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,24,non_sense_random,청소년정책분석평가센터가 5만 가스를 이번 있다 사의 격려하고 친절하게 영상의 94명 을 발전을 8천 변경되고 생명자원과학대학을 또한 상대적으로 무역대표부 담근 비판은 한.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,24,original,,이 문장에 '가스를'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%24;condition%original
+exp_b_comprehension,24,swap_1,,이 문장에 '가스를'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%24;condition%swap_1
+exp_b_comprehension,24,swap_3,,이 문장에 '가스를'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%24;condition%swap_3
+exp_b_comprehension,24,non_sense,,이 문장에 '포기의'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%24;condition%non_sense
+exp_b_comprehension,24,random,,이 문장에 '가스를'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%24;condition%random
+exp_b_comprehension,24,non_sense_random,,이 문장에 '포기의'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%24;condition%non_sense_random
+exp_b,25,original,6월2일 치러지는 제5회 동시지방선거를 앞두고 중앙선거관리위원회가 예상하는 투표율은 50%대다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,25,swap_1,6월2일 치러지는 제5회 앞두고 동시지방선거를 중앙선거관리위원회가 예상하는 투표율은 50%대다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,25,swap_3,치러지는 6월2일 제5회 앞두고 동시지방선거를 예상하는 중앙선거관리위원회가 투표율은 50%대다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,25,non_sense,최대 복종하는 웃음과 김치도 앞두고 메뉴를 당선되었고 투표율은 50 % 대다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,25,random,동시지방선거를 예상하는 앞두고 중앙선거관리위원회가 50대다 치러지는 제5회 6월2일 투표율은.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,25,non_sense_random,복종하는  웃음과 메뉴를 앞두고 대다 50 투표율은 당선되었고 최대 김치도.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,25,original,,이 문장에 '6월2일이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%25;condition%original
+exp_b_comprehension,25,swap_1,,이 문장에 '6월2일이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%25;condition%swap_1
+exp_b_comprehension,25,swap_3,,이 문장에 '6월2일이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%25;condition%swap_3
+exp_b_comprehension,25,non_sense,,이 문장에 '최대'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%25;condition%non_sense
+exp_b_comprehension,25,random,,이 문장에 '6월2일이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%25;condition%random
+exp_b_comprehension,25,non_sense_random,,이 문장에 '최대'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%25;condition%non_sense_random
+exp_b,26,original,"왜가리가 한가롭게 먹이를 찾고, 백 할미새가 종종걸음으로 뛰어다닙니다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,26,swap_1,"왜가리가 한가롭게 먹이를 찾고, 백 종종걸음으로 할미새가 뛰어다닙니다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,26,swap_3,"왜가리가 먹이를 한가롭게 찾고, 백 뛰어다닙니다 할미새가 종종걸음으로.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,26,non_sense,"왜가리가 특히 사마옹을 차지할, 전국 할미새가 종종걸음으로 뛰어다닙니다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,26,random,한가롭게 할미새가 먹이를 뛰어다닙니다 백 왜가리가 종종걸음으로 찾고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,26,non_sense_random,특히 사마옹을 뛰어다닙니다 전국 할미새가 차지할 종종걸음으로 왜가리가.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,26,original,,이 문장에 '차지할'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%26;condition%original
+exp_b_comprehension,26,swap_1,,이 문장에 '차지할'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%26;condition%swap_1
+exp_b_comprehension,26,swap_3,,이 문장에 '차지할'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%26;condition%swap_3
+exp_b_comprehension,26,non_sense,,이 문장에 '백'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%26;condition%non_sense
+exp_b_comprehension,26,random,,이 문장에 '차지할'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%26;condition%random
+exp_b_comprehension,26,non_sense_random,,이 문장에 '백'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%26;condition%non_sense_random
+exp_b,27,original,"낮기온은 서울 29도, 대구 33도로 어제보다 높아서 덥겠습니다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,27,swap_1,"낮기온은 서울 29도, 대구 어제보다 33도로 높아서 덥겠습니다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,27,swap_3,"낮기온은 서울 29도, 대구 어제보다 높아서 덥겠습니다 33도로.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,27,non_sense,"자산이 위협 선수는, 네덜란드 꽤 데 있다는 내기도.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,27,random,33도로 서울 29도 대구 높아서 낮기온은 덥겠습니다 어제보다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,27,non_sense_random,자산이 데 위협 꽤 네덜란드 내기도 선수는 있다는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,27,original,,이 문장에 '덥겠습니다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%27;condition%original
+exp_b_comprehension,27,swap_1,,이 문장에 '덥겠습니다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%27;condition%swap_1
+exp_b_comprehension,27,swap_3,,이 문장에 '덥겠습니다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%27;condition%swap_3
+exp_b_comprehension,27,non_sense,,이 문장에 '선수는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%27;condition%non_sense
+exp_b_comprehension,27,random,,이 문장에 '덥겠습니다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%27;condition%random
+exp_b_comprehension,27,non_sense_random,,이 문장에 '선수는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%27;condition%non_sense_random
+exp_b,28,original,소비자의 눈높이에 맞춘 다양한 시스템과 공간계획도 눈길을 끈다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,28,swap_1,눈높이에 소비자의 맞춘 다양한 시스템과 공간계획도 눈길을 끈다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,28,swap_3,눈높이에 소비자의 맞춘 다양한 시스템과 눈길을 끈다 공간계획도.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,28,non_sense,경로를 온전하게 배달시킬 맛있는데 오전 공간계획도 1957년 물으니.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,28,random,다양한 눈높이에 소비자의 맞춘 눈길을 공간계획도 끈다 시스템과.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,28,non_sense_random,공간계획도 맛있는데 배달시킬 오전 물으니 온전하게 경로를 1957년.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,28,original,,이 문장에 '오전'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%28;condition%original
+exp_b_comprehension,28,swap_1,,이 문장에 '오전'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%28;condition%swap_1
+exp_b_comprehension,28,swap_3,,이 문장에 '오전'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%28;condition%swap_3
+exp_b_comprehension,28,non_sense,,이 문장에 '눈높이에'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%28;condition%non_sense
+exp_b_comprehension,28,random,,이 문장에 '오전'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%28;condition%random
+exp_b_comprehension,28,non_sense_random,,이 문장에 '눈높이에'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%28;condition%non_sense_random
+exp_b,29,original,부부가 하시는 것 같은데 친절하시고 하나라도 배달해 주셔서 좋았어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,29,swap_1,부부가 것 하시는 같은데 친절하시고 하나라도 배달해 주셔서 좋았어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,29,swap_3,부부가 하시는 것 친절하시고 같은데 배달해 하나라도 좋았어요 주셔서.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,29,non_sense,경연 따라 월 편안하고 먹다가 겨울에도 맛있고 떨어진 좋았어요,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,29,random,주셔서 하시는 하나라도 배달해 같은데 친절하시고 것 좋았어요 부부가.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,29,non_sense_random,먹다가 월 떨어진 경연 따라 맛있고 편안하고 겨울에도 좋았어요,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,29,original,,이 문장에 '것'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%29;condition%original
+exp_b_comprehension,29,swap_1,,이 문장에 '것'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%29;condition%swap_1
+exp_b_comprehension,29,swap_3,,이 문장에 '것'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%29;condition%swap_3
+exp_b_comprehension,29,non_sense,,이 문장에 '떨어진'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%29;condition%non_sense
+exp_b_comprehension,29,random,,이 문장에 '것'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%29;condition%random
+exp_b_comprehension,29,non_sense_random,,이 문장에 '떨어진'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%29;condition%non_sense_random
+exp_b,30,original,"그들은 주우능을 격파하였고, 주우능은 진주로 달아나 버렸다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,30,swap_1,"그들은 격파하였고, 주우능을 주우능은 진주로 달아나 버렸다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,30,swap_3,"주우능을 그들은 진주로 격파하였고, 주우능은 달아나 버렸다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,30,non_sense,"그들은 성형관광객이 등판해, 298대가 맛있게 접대하러 조직적이고.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,30,random,격파하였고 버렸다 주우능은 달아나 주우능을 그들은 진주로.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,30,non_sense_random,298대가 그들은 성형관광객이 등판해 맛있게 조직적이고 접대하러.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,30,original,,이 문장에 '성형관광객이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%30;condition%original
+exp_b_comprehension,30,swap_1,,이 문장에 '성형관광객이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%30;condition%swap_1
+exp_b_comprehension,30,swap_3,,이 문장에 '성형관광객이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%30;condition%swap_3
+exp_b_comprehension,30,non_sense,,이 문장에 '진주로'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%30;condition%non_sense
+exp_b_comprehension,30,random,,이 문장에 '성형관광객이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%30;condition%random
+exp_b_comprehension,30,non_sense_random,,이 문장에 '진주로'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%30;condition%non_sense_random
+exp_b,31,original,매일 신선한 고기를 가져오시는 것 같아 믿을 수 있다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,31,swap_1,매일 신선한 고기를 가져오시는 같아 것 믿을 수 있다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,31,swap_3,매일 가져오시는 신선한 고기를 것 같아 수 믿을 있다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,31,non_sense,맵게 불우한 인기 나설 후 7인 가능한 때 있습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,31,random,것 있다 수 매일 신선한 가져오시는 고기를 같아 믿을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,31,non_sense_random,나설 있습니다 때 불우한 가능한 후 7인 인기 맵게.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,31,original,,이 문장에 '것'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%31;condition%original
+exp_b_comprehension,31,swap_1,,이 문장에 '것'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%31;condition%swap_1
+exp_b_comprehension,31,swap_3,,이 문장에 '것'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%31;condition%swap_3
+exp_b_comprehension,31,non_sense,,이 문장에 '있습니다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%31;condition%non_sense
+exp_b_comprehension,31,random,,이 문장에 '것'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%31;condition%random
+exp_b_comprehension,31,non_sense_random,,이 문장에 '있습니다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%31;condition%non_sense_random
+exp_b,32,original,"""심적으로 안정되니 덩달아 야구도 잘 된다""고 말했다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,32,swap_1,"안정되니 ""심적으로 덩달아 야구도 잘 된다""고 말했다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,32,swap_3,"""심적으로 덩달아 안정되니 잘 야구도 말했다 된다""고.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,32,non_sense,"""지역으로 느껴보세요 첨 섬이 대부분 가지인데"" 고 위해.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,32,random,말했다 야구도 안정되니 심적으로 잘 된다고 덩달아.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,32,non_sense_random,위해 지역으로 첨 느껴보세요 대부분 가지인데 고 섬이.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,32,original,,이 문장에 '섬이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%32;condition%original
+exp_b_comprehension,32,swap_1,,이 문장에 '섬이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%32;condition%swap_1
+exp_b_comprehension,32,swap_3,,이 문장에 '섬이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%32;condition%swap_3
+exp_b_comprehension,32,non_sense,,이 문장에 '덩달아'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%32;condition%non_sense
+exp_b_comprehension,32,random,,이 문장에 '섬이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%32;condition%random
+exp_b_comprehension,32,non_sense_random,,이 문장에 '덩달아'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%32;condition%non_sense_random
+exp_b,33,original,뉴턴은 또한 고전역학에서 사용되는 수학계산에 필요한 미적분학을 개발하기도 했다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,33,swap_1,뉴턴은 또한 고전역학에서 사용되는 수학계산에 미적분학을 필요한 개발하기도 했다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,33,swap_3,또한 뉴턴은 사용되는 고전역학에서 수학계산에 미적분학을 필요한 개발하기도 했다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,33,non_sense,국물 그러나 골목에 장비이다 서로 할 미적분학을 않아서 오는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,33,random,또한 필요한 개발하기도 고전역학에서 수학계산에 했다 사용되는 미적분학을 뉴턴은.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,33,non_sense_random,않아서 국물 서로 미적분학을 할 오는 장비이다 그러나 골목에.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,33,original,,이 문장에 '사용되는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%33;condition%original
+exp_b_comprehension,33,swap_1,,이 문장에 '사용되는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%33;condition%swap_1
+exp_b_comprehension,33,swap_3,,이 문장에 '사용되는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%33;condition%swap_3
+exp_b_comprehension,33,non_sense,,이 문장에 '오는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%33;condition%non_sense
+exp_b_comprehension,33,random,,이 문장에 '사용되는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%33;condition%random
+exp_b_comprehension,33,non_sense_random,,이 문장에 '오는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%33;condition%non_sense_random
+exp_b,34,original,머레이는 질 시몬(32위·프랑스)과 3회전에서 맞붙는다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,34,swap_1,머레이는 질 시몬(32위·프랑스)과 맞붙는다 3회전에서.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,34,swap_3,질 3회전에서 머레이는 시몬(32위·프랑스)과 맞붙는다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,34,non_sense,태안군통합방위협의회를 피내용 시몬(32위 · 프랑스)과 자격으로 불친절하고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,34,random,시몬32위프랑스과 질 맞붙는다 머레이는 3회전에서.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,34,non_sense_random,과 자격으로 시몬 피내용 프랑스 태안군통합방위협의회를 32위 불친절하고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,34,original,,이 문장에 '피내용'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%34;condition%original
+exp_b_comprehension,34,swap_1,,이 문장에 '피내용'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%34;condition%swap_1
+exp_b_comprehension,34,swap_3,,이 문장에 '피내용'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%34;condition%swap_3
+exp_b_comprehension,34,non_sense,,이 문장에 '3회전에서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%34;condition%non_sense
+exp_b_comprehension,34,random,,이 문장에 '피내용'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%34;condition%random
+exp_b_comprehension,34,non_sense_random,,이 문장에 '3회전에서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%34;condition%non_sense_random
+exp_b,35,original,이 형광제 방식을 개발함으로써 흰색 발광 다이오드의 본격적인 보급이 시작되었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,35,swap_1,이 형광제 방식을 개발함으로써 흰색 발광 본격적인 다이오드의 보급이 시작되었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,35,swap_3,형광제 방식을 이 흰색 개발함으로써 발광 다이오드의 본격적인 보급이 시작되었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,35,non_sense,이 형광제 브랜드커피점 넘 글로벌 국기는 연임을 흔한 가운데 방문하시면.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,35,random,방식을 형광제 시작되었다 다이오드의 보급이 본격적인 개발함으로써 흰색 발광 이.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,35,non_sense_random,글로벌 형광제 국기는 연임을 가운데 넘 흔한 브랜드커피점 방문하시면 이.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,35,original,,이 문장에 '개발함으로써'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%35;condition%original
+exp_b_comprehension,35,swap_1,,이 문장에 '개발함으로써'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%35;condition%swap_1
+exp_b_comprehension,35,swap_3,,이 문장에 '개발함으로써'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%35;condition%swap_3
+exp_b_comprehension,35,non_sense,,이 문장에 '가운데'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%35;condition%non_sense
+exp_b_comprehension,35,random,,이 문장에 '개발함으로써'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%35;condition%random
+exp_b_comprehension,35,non_sense_random,,이 문장에 '가운데'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%35;condition%non_sense_random
+exp_b,36,original,아기의 몸 중에서 가장 연약한 부분은 어디일까?,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,36,swap_1,아기의 중에서 몸 가장 연약한 부분은 어디일까?,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,36,swap_3,몸 아기의 중에서 부분은 가장 연약한 어디일까?,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,36,non_sense,아기의 P. 중에서 음악에 묻어납니다 경북을 보여줘?,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,36,random,어디일까 아기의 부분은 가장 중에서 연약한 몸?,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,36,non_sense_random,보여줘 중에서 경북을 묻어납니다 아기의 음악에 P?,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,36,original,,이 문장에 '보여줘'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%36;condition%original
+exp_b_comprehension,36,swap_1,,이 문장에 '보여줘'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%36;condition%swap_1
+exp_b_comprehension,36,swap_3,,이 문장에 '보여줘'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%36;condition%swap_3
+exp_b_comprehension,36,non_sense,,이 문장에 '부분은이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%36;condition%non_sense
+exp_b_comprehension,36,random,,이 문장에 '보여줘'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%36;condition%random
+exp_b_comprehension,36,non_sense_random,,이 문장에 '부분은이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%36;condition%non_sense_random
+exp_b,37,original,몇 번씩 가는데 사실 가격이 좀 많이 비싸기는 하다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,37,swap_1,번씩 몇 가는데 사실 가격이 좀 많이 비싸기는 하다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,37,swap_3,몇 번씩 가는데 사실 좀 가격이 하다 많이 비싸기는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,37,non_sense,몇 사이에 먹을 아직 배우들은 운동에 지역에서 형사합의25부는 하고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,37,random,가는데 좀 몇 번씩 비싸기는 가격이 많이 사실 하다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,37,non_sense_random,아직 먹을 몇 사이에 하고 배우들은 지역에서 운동에 형사합의25부는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,37,original,,이 문장에 '가격이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%37;condition%original
+exp_b_comprehension,37,swap_1,,이 문장에 '가격이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%37;condition%swap_1
+exp_b_comprehension,37,swap_3,,이 문장에 '가격이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%37;condition%swap_3
+exp_b_comprehension,37,non_sense,,이 문장에 '사이에'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%37;condition%non_sense
+exp_b_comprehension,37,random,,이 문장에 '가격이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%37;condition%random
+exp_b_comprehension,37,non_sense_random,,이 문장에 '사이에'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%37;condition%non_sense_random
+exp_b,38,original,자장면 하나 시켰는데 1시간이 넘어도 안 와요!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,38,swap_1,자장면 하나 시켰는데 넘어도 1시간이 안 와요!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,38,swap_3,자장면 하나 1시간이 시켰는데 안 와요 넘어도!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,38,non_sense,자장면 항상 소재한 치료를 들어갔는데 이에 설명했다!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,38,random,1시간이 넘어도 하나 시켰는데 와요 자장면 안!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,38,non_sense_random,치료를 설명했다 자장면 이에 들어갔는데 항상 소재한!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,38,original,,이 문장에 '설명했다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%38;condition%original
+exp_b_comprehension,38,swap_1,,이 문장에 '설명했다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%38;condition%swap_1
+exp_b_comprehension,38,swap_3,,이 문장에 '설명했다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%38;condition%swap_3
+exp_b_comprehension,38,non_sense,,이 문장에 '시켰는데'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%38;condition%non_sense
+exp_b_comprehension,38,random,,이 문장에 '설명했다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%38;condition%random
+exp_b_comprehension,38,non_sense_random,,이 문장에 '시켰는데'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%38;condition%non_sense_random
+exp_b,39,original,남들이 골프 하는 것을 보면서 위험한 운동이라고 생각했다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,39,swap_1,남들이 골프 하는 것을 보면서 운동이라고 위험한 생각했다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,39,swap_3,남들이 하는 골프 위험한 것을 보면서 운동이라고 생각했다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,39,non_sense,계획 러셀 오는 마음이 싶으면 많아요 주문한 물론.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,39,random,하는 골프 것을 운동이라고 위험한 생각했다 남들이 보면서.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,39,non_sense_random,물론 계획 러셀 오는 마음이 싶으면 많아요 주문한.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,39,original,,이 문장에 '보면서'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%39;condition%original
+exp_b_comprehension,39,swap_1,,이 문장에 '보면서'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%39;condition%swap_1
+exp_b_comprehension,39,swap_3,,이 문장에 '보면서'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%39;condition%swap_3
+exp_b_comprehension,39,non_sense,,이 문장에 '주문한'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%39;condition%non_sense
+exp_b_comprehension,39,random,,이 문장에 '보면서'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%39;condition%random
+exp_b_comprehension,39,non_sense_random,,이 문장에 '주문한'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%39;condition%non_sense_random
+exp_b,40,original,대형 돌판이 참 이색적이고 초벌로 해서 나온 고기가 참 맛있었습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,40,swap_1,대형 돌판이 참 이색적이고 초벌로 해서 고기가 나온 참 맛있었습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,40,swap_3,대형 돌판이 참 이색적이고 초벌로 고기가 해서 참 나온 맛있었습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,40,non_sense,고기와 돌판이 대전에 나온다 초벌로 따라 하시는지 스티브 병원급으로 타.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,40,random,나온 참 돌판이 맛있었습니다 참 이색적이고 해서 대형 고기가 초벌로.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,40,non_sense_random,스티브 병원급으로 돌판이 하시는지 나온다 고기와 타 초벌로 따라 대전에.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,40,original,,이 문장에 '스티브'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%40;condition%original
+exp_b_comprehension,40,swap_1,,이 문장에 '스티브'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%40;condition%swap_1
+exp_b_comprehension,40,swap_3,,이 문장에 '스티브'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%40;condition%swap_3
+exp_b_comprehension,40,non_sense,,이 문장에 '이색적이고'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%40;condition%non_sense
+exp_b_comprehension,40,random,,이 문장에 '스티브'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%40;condition%random
+exp_b_comprehension,40,non_sense_random,,이 문장에 '이색적이고'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%40;condition%non_sense_random
+exp_b,41,original,그런데 큰 북극고래는 그런 바다코끼리의 100배나 된다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,41,swap_1,그런데 큰 북극고래는 바다코끼리의 그런 100배나 된다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,41,swap_3,그런 그런데 큰 북극고래는 바다코끼리의 100배나 된다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,41,non_sense,1997년에 같아요 자체점검 나쁜 바다코끼리의 이슈 말씀하신.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,41,random,그런데 그런 북극고래는 된다 바다코끼리의 100배나 큰.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,41,non_sense_random,바다코끼리의 말씀하신 1997년에 나쁜 같아요 이슈 자체점검.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,41,original,,이 문장에 '북극고래는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%41;condition%original
+exp_b_comprehension,41,swap_1,,이 문장에 '북극고래는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%41;condition%swap_1
+exp_b_comprehension,41,swap_3,,이 문장에 '북극고래는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%41;condition%swap_3
+exp_b_comprehension,41,non_sense,,이 문장에 '이슈'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%41;condition%non_sense
+exp_b_comprehension,41,random,,이 문장에 '북극고래는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%41;condition%random
+exp_b_comprehension,41,non_sense_random,,이 문장에 '이슈'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%41;condition%non_sense_random
+exp_b,42,original,"""그 상태가 바로 간절한 마음, 순수한 마음이다""고 했다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,42,swap_1,"""그 상태가 바로 간절한 마음, 마음이다""고 순수한 했다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,42,swap_3,"간절한 ""그 상태가 바로 마음, 순수한 마음이다""고 했다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,42,non_sense,"""그 추진 안 대략적인 지역, 이러한 승리해""고 다하겠다.",문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,42,random,순수한 상태가 마음이다고 간절한 바로 그 했다 마음.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,42,non_sense_random,그 이러한 추진 다하겠다 고 안 지역  승리해 대략적인.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,42,original,,이 문장에 '지역'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%42;condition%original
+exp_b_comprehension,42,swap_1,,이 문장에 '지역'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%42;condition%swap_1
+exp_b_comprehension,42,swap_3,,이 문장에 '지역'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%42;condition%swap_3
+exp_b_comprehension,42,non_sense,,이 문장에 '순수한'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%42;condition%non_sense
+exp_b_comprehension,42,random,,이 문장에 '지역'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%42;condition%random
+exp_b_comprehension,42,non_sense_random,,이 문장에 '순수한'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%42;condition%non_sense_random
+exp_b,43,original,가끔은 그 때 맛이 더 그리울 때도 있어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,43,swap_1,가끔은 때 그 맛이 더 그리울 때도 있어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,43,swap_3,그 가끔은 맛이 때 더 그리울 있어요 때도.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,43,non_sense,집에 그 등 경우가 현재 그리울 한 있어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,43,random,그 때도 가끔은 때 더 맛이 있어요 그리울.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,43,non_sense_random,그리울 한 현재 집에 있어요 경우가 그 등.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,43,original,,이 문장에 '때'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%43;condition%original
+exp_b_comprehension,43,swap_1,,이 문장에 '때'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%43;condition%swap_1
+exp_b_comprehension,43,swap_3,,이 문장에 '때'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%43;condition%swap_3
+exp_b_comprehension,43,non_sense,,이 문장에 '현재'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%43;condition%non_sense
+exp_b_comprehension,43,random,,이 문장에 '때'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%43;condition%random
+exp_b_comprehension,43,non_sense_random,,이 문장에 '현재'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%43;condition%non_sense_random
+exp_b,44,original,또한 진성대군(중종)이 그의 사위가 되었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,44,swap_1,또한 그의 진성대군(중종)이 사위가 되었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,44,swap_3,그의 또한 진성대군(중종)이 되었다 사위가.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,44,non_sense,가장 진성대군(중종) 이 그의 2012년 얻었습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,44,random,되었다 그의 또한 진성대군중종이 사위가.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,44,non_sense_random,이 가장 2012년 진성대군 얻었습니다 그의 중종.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,44,original,,이 문장에 '가장'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%44;condition%original
+exp_b_comprehension,44,swap_1,,이 문장에 '가장'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%44;condition%swap_1
+exp_b_comprehension,44,swap_3,,이 문장에 '가장'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%44;condition%swap_3
+exp_b_comprehension,44,non_sense,,이 문장에 '되었다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%44;condition%non_sense
+exp_b_comprehension,44,random,,이 문장에 '가장'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%44;condition%random
+exp_b_comprehension,44,non_sense_random,,이 문장에 '되었다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%44;condition%non_sense_random
+exp_b,45,original,포키에는 십 여 종의 다양한 제품이 있다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,45,swap_1,포키에는 여 십 종의 다양한 제품이 있다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,45,swap_3,포키에는 여 다양한 십 종의 제품이 있다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,45,non_sense,포키에는 십 돈을 종의 깨끗한 명절 있었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,45,random,제품이 여 종의 다양한 포키에는 있다 십.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,45,non_sense_random,돈을 종의 깨끗한 포키에는 십 있었다 명절.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,45,original,,이 문장에 '제품이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%45;condition%original
+exp_b_comprehension,45,swap_1,,이 문장에 '제품이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%45;condition%swap_1
+exp_b_comprehension,45,swap_3,,이 문장에 '제품이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%45;condition%swap_3
+exp_b_comprehension,45,non_sense,,이 문장에 '깨끗한'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%45;condition%non_sense
+exp_b_comprehension,45,random,,이 문장에 '제품이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%45;condition%random
+exp_b_comprehension,45,non_sense_random,,이 문장에 '깨끗한'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%45;condition%non_sense_random
+exp_b,46,original,대전에서 야간에 차량으로 올라갈 수 있는 전망대로 야경이 일품이다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,46,swap_1,대전에서 차량으로 야간에 올라갈 수 있는 전망대로 야경이 일품이다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,46,swap_3,야간에 대전에서 수 차량으로 올라갈 있는 전망대로 야경이 일품이다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,46,non_sense,현재 옛날에 특히 넘겼다 분들 말아 한적해서 4피스 서서.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,46,random,야경이 수 야간에 올라갈 전망대로 차량으로 대전에서 일품이다 있는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,46,non_sense_random,분들 현재 한적해서 4피스 말아 특히 서서 옛날에 넘겼다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,46,original,,이 문장에 '한적해서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%46;condition%original
+exp_b_comprehension,46,swap_1,,이 문장에 '한적해서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%46;condition%swap_1
+exp_b_comprehension,46,swap_3,,이 문장에 '한적해서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%46;condition%swap_3
+exp_b_comprehension,46,non_sense,,이 문장에 '차량으로'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%46;condition%non_sense
+exp_b_comprehension,46,random,,이 문장에 '한적해서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%46;condition%random
+exp_b_comprehension,46,non_sense_random,,이 문장에 '차량으로'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%46;condition%non_sense_random
+exp_b,47,original,태생은 오사카 다카라즈카 출신이지만 대학을 위해 도쿄로 와서 재수생활을 했다고 한다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,47,swap_1,태생은 오사카 다카라즈카 출신이지만 대학을 위해 도쿄로 와서 했다고 재수생활을 한다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,47,swap_3,태생은 오사카 다카라즈카 출신이지만 대학을 위해 도쿄로 한다 와서 재수생활을 했다고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,47,non_sense,경기부양 음악 다카라즈카 벌려는 오후 아시죠 강연으로 붓고 예산감시 되었다 나오는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,47,random,태생은 위해 와서 재수생활을 다카라즈카 대학을 했다고 출신이지만 한다 도쿄로 오사카.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,47,non_sense_random,오후 다카라즈카 아시죠 붓고 강연으로 음악 되었다 예산감시 나오는 벌려는 경기부양.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,47,original,,이 문장에 '한다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%47;condition%original
+exp_b_comprehension,47,swap_1,,이 문장에 '한다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%47;condition%swap_1
+exp_b_comprehension,47,swap_3,,이 문장에 '한다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%47;condition%swap_3
+exp_b_comprehension,47,non_sense,,이 문장에 '되었다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%47;condition%non_sense
+exp_b_comprehension,47,random,,이 문장에 '한다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%47;condition%random
+exp_b_comprehension,47,non_sense_random,,이 문장에 '되었다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%47;condition%non_sense_random
+exp_b,48,original,이를 통해 서민 체감 물가 관리에 각별히 신경을 쓰겠습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,48,swap_1,이를 통해 서민 체감 물가 관리에 각별히 쓰겠습니다 신경을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,48,swap_3,이를 서민 통해 물가 체감 관리에 신경을 각별히 쓰겠습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,48,non_sense,이를 잊지 대체산업임에 전면 수출이 서울에 쫌 상태가 끝나고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,48,random,통해 이를 관리에 물가 신경을 체감 각별히 쓰겠습니다 서민.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,48,non_sense_random,잊지 상태가 수출이 이를 서울에 전면 쫌 끝나고 대체산업임에.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,48,original,,이 문장에 '끝나고'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%48;condition%original
+exp_b_comprehension,48,swap_1,,이 문장에 '끝나고'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%48;condition%swap_1
+exp_b_comprehension,48,swap_3,,이 문장에 '끝나고'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%48;condition%swap_3
+exp_b_comprehension,48,non_sense,,이 문장에 '체감'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%48;condition%non_sense
+exp_b_comprehension,48,random,,이 문장에 '끝나고'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%48;condition%random
+exp_b_comprehension,48,non_sense_random,,이 문장에 '체감'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%48;condition%non_sense_random
+exp_b,49,original,홍합도 많이 없고 비싸기만 하네요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,49,swap_1,홍합도 많이 없고 하네요 비싸기만.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,49,swap_3,없고 홍합도 많이 하네요 비싸기만.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,49,non_sense,홍합도 제일 있는 웨스턴리그는 대체됐다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,49,random,홍합도 비싸기만 없고 하네요 많이.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,49,non_sense_random,웨스턴리그는 제일 대체됐다 홍합도 있는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,49,original,,이 문장에 '많이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%49;condition%original
+exp_b_comprehension,49,swap_1,,이 문장에 '많이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%49;condition%swap_1
+exp_b_comprehension,49,swap_3,,이 문장에 '많이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%49;condition%swap_3
+exp_b_comprehension,49,non_sense,,이 문장에 '있는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%49;condition%non_sense
+exp_b_comprehension,49,random,,이 문장에 '많이'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%49;condition%random
+exp_b_comprehension,49,non_sense_random,,이 문장에 '있는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%49;condition%non_sense_random
+exp_b,50,original,전년도보다 5.7% 감소한 수치다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,50,swap_1,5.7% 전년도보다 감소한 수치다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,50,swap_3,5.7% 수치다 전년도보다 감소한.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,50,non_sense,서한에서 5.7 % 드리고 체결했다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,50,random,감소한 수치다 전년도보다 5.7.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,50,non_sense_random,5.7 체결했다 서한에서 드리고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,50,original,,이 문장에 '체결했다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%50;condition%original
+exp_b_comprehension,50,swap_1,,이 문장에 '체결했다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%50;condition%swap_1
+exp_b_comprehension,50,swap_3,,이 문장에 '체결했다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%50;condition%swap_3
+exp_b_comprehension,50,non_sense,,이 문장에 '전년도보다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%50;condition%non_sense
+exp_b_comprehension,50,random,,이 문장에 '체결했다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%50;condition%random
+exp_b_comprehension,50,non_sense_random,,이 문장에 '전년도보다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%50;condition%non_sense_random
+exp_b,51,original,바닷가재 말고 다른 것도 좋아요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,51,swap_1,말고 바닷가재 다른 것도 좋아요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,51,swap_3,말고 바닷가재 좋아요 다른 것도.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,51,non_sense,바닷가재 먹을 다양한 때 다른.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,51,random,것도 바닷가재 다른 말고 좋아요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,51,non_sense_random,때 다른 바닷가재 다양한 먹을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,51,original,,이 문장에 '다른'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%51;condition%original
+exp_b_comprehension,51,swap_1,,이 문장에 '다른'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%51;condition%swap_1
+exp_b_comprehension,51,swap_3,,이 문장에 '다른'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%51;condition%swap_3
+exp_b_comprehension,51,non_sense,,이 문장에 '때'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%51;condition%non_sense
+exp_b_comprehension,51,random,,이 문장에 '다른'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%51;condition%random
+exp_b_comprehension,51,non_sense_random,,이 문장에 '때'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%51;condition%non_sense_random
+exp_b,52,original,코스로 나오는 오리샤브샤브 정말 끝내주네요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,52,swap_1,코스로 나오는 오리샤브샤브 끝내주네요 정말.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,52,swap_3,오리샤브샤브 코스로 나오는 끝내주네요 정말.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,52,non_sense,컬렉션에 보이며 오리샤브샤브 곳에서 여러.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,52,random,정말 나오는 코스로 끝내주네요 오리샤브샤브.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,52,non_sense_random,오리샤브샤브 곳에서 컬렉션에 여러 보이며.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,52,original,,이 문장에 '곳에서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%52;condition%original
+exp_b_comprehension,52,swap_1,,이 문장에 '곳에서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%52;condition%swap_1
+exp_b_comprehension,52,swap_3,,이 문장에 '곳에서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%52;condition%swap_3
+exp_b_comprehension,52,non_sense,,이 문장에 '정말'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%52;condition%non_sense
+exp_b_comprehension,52,random,,이 문장에 '곳에서'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%52;condition%random
+exp_b_comprehension,52,non_sense_random,,이 문장에 '정말'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%52;condition%non_sense_random
+exp_b,53,original,자전거로 회사 가는 길 좀 알려줘.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,53,swap_1,자전거로 회사 가는 좀 길 알려줘.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,53,swap_3,회사 길 자전거로 가는 좀 알려줘.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,53,non_sense,먼저 스타일 가야 관련 이와 잦아졌으며.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,53,random,자전거로 좀 회사 길 알려줘 가는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,53,non_sense_random,이와 관련 잦아졌으며 가야 먼저 스타일.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,53,original,,이 문장에 '자전거로'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%53;condition%original
+exp_b_comprehension,53,swap_1,,이 문장에 '자전거로'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%53;condition%swap_1
+exp_b_comprehension,53,swap_3,,이 문장에 '자전거로'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%53;condition%swap_3
+exp_b_comprehension,53,non_sense,,이 문장에 '먼저'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%53;condition%non_sense
+exp_b_comprehension,53,random,,이 문장에 '자전거로'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%53;condition%random
+exp_b_comprehension,53,non_sense_random,,이 문장에 '먼저'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%53;condition%non_sense_random
+exp_b,54,original,전북에서 최고라고 해도 부족할 정도로 친절하시더군요!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,54,swap_1,전북에서 해도 최고라고 부족할 정도로 친절하시더군요!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,54,swap_3,전북에서 부족할 최고라고 정도로 해도 친절하시더군요!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,54,non_sense,논문에 조사됐다 소통할 타고 하기 친절하시더군요!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,54,random,전북에서 부족할 친절하시더군요 정도로 해도 최고라고!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,54,non_sense_random,친절하시더군요 소통할 타고 논문에 조사됐다 하기!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,54,original,,이 문장에 '조사됐다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%54;condition%original
+exp_b_comprehension,54,swap_1,,이 문장에 '조사됐다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%54;condition%swap_1
+exp_b_comprehension,54,swap_3,,이 문장에 '조사됐다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%54;condition%swap_3
+exp_b_comprehension,54,non_sense,,이 문장에 '정도로'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%54;condition%non_sense
+exp_b_comprehension,54,random,,이 문장에 '조사됐다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%54;condition%random
+exp_b_comprehension,54,non_sense_random,,이 문장에 '정도로'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%54;condition%non_sense_random
+exp_b,55,original,밥 먹다 말고 오빠가 나를 놀렸습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,55,swap_1,밥 말고 먹다 오빠가 나를 놀렸습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,55,swap_3,밥 오빠가 먹다 말고 놀렸습니다 나를.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,55,non_sense,시즌 위해 않았지만 선수층과 나를 정박.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,55,random,먹다 놀렸습니다 말고 나를 밥 오빠가.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,55,non_sense_random,않았지만 정박 나를 시즌 선수층과 위해.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,55,original,,이 문장에 '밥'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%55;condition%original
+exp_b_comprehension,55,swap_1,,이 문장에 '밥'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%55;condition%swap_1
+exp_b_comprehension,55,swap_3,,이 문장에 '밥'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%55;condition%swap_3
+exp_b_comprehension,55,non_sense,,이 문장에 '정박'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%55;condition%non_sense
+exp_b_comprehension,55,random,,이 문장에 '밥'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%55;condition%random
+exp_b_comprehension,55,non_sense_random,,이 문장에 '정박'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%55;condition%non_sense_random
+exp_b,56,original,매운 거 좋아하시는 분 꼭 드셔보세요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,56,swap_1,매운 거 분 좋아하시는 꼭 드셔보세요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,56,swap_3,매운 거 분 꼭 드셔보세요 좋아하시는.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,56,non_sense,각별한 영화는 소개하는 10시 국회의원으로 수렴한다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,56,random,분 꼭 드셔보세요 좋아하시는 거 매운.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,56,non_sense_random,각별한 10시 소개하는 영화는 수렴한다 국회의원으로.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,56,original,,이 문장에 '소개하는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%56;condition%original
+exp_b_comprehension,56,swap_1,,이 문장에 '소개하는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%56;condition%swap_1
+exp_b_comprehension,56,swap_3,,이 문장에 '소개하는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%56;condition%swap_3
+exp_b_comprehension,56,non_sense,,이 문장에 '꼭'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%56;condition%non_sense
+exp_b_comprehension,56,random,,이 문장에 '소개하는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%56;condition%random
+exp_b_comprehension,56,non_sense_random,,이 문장에 '꼭'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%56;condition%non_sense_random
+exp_b,57,original,점심 특선 돌솥밥 가격 착해요~,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,57,swap_1,점심 특선 가격 돌솥밥 착해요~,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,57,swap_3,돌솥밥 점심 가격 특선 착해요~,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,57,non_sense,영화는 제조업종 돌솥밥 최근 착해요~,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,57,random,돌솥밥 특선 가격 점심 착해요~,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,57,non_sense_random,영화는 착해요 돌솥밥 최근 제조업종~,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,57,original,,이 문장에 '점심'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%57;condition%original
+exp_b_comprehension,57,swap_1,,이 문장에 '점심'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%57;condition%swap_1
+exp_b_comprehension,57,swap_3,,이 문장에 '점심'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%57;condition%swap_3
+exp_b_comprehension,57,non_sense,,이 문장에 '영화는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%57;condition%non_sense
+exp_b_comprehension,57,random,,이 문장에 '점심'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%57;condition%random
+exp_b_comprehension,57,non_sense_random,,이 문장에 '영화는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%57;condition%non_sense_random
+exp_b,58,original,그리고 거머리 지뢰라는 새로운 유닛이 추가되었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,58,swap_1,그리고 거머리 새로운 지뢰라는 유닛이 추가되었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,58,swap_3,지뢰라는 그리고 거머리 새로운 추가되었다 유닛이.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,58,non_sense,관계로 거머리 싸놓고 유명 향을 한다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,58,random,지뢰라는 새로운 그리고 거머리 유닛이 추가되었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,58,non_sense_random,거머리 유명 향을 싸놓고 한다 관계로.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,58,original,,이 문장에 '유명'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%58;condition%original
+exp_b_comprehension,58,swap_1,,이 문장에 '유명'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%58;condition%swap_1
+exp_b_comprehension,58,swap_3,,이 문장에 '유명'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%58;condition%swap_3
+exp_b_comprehension,58,non_sense,,이 문장에 '유닛이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%58;condition%non_sense
+exp_b_comprehension,58,random,,이 문장에 '유명'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%58;condition%random
+exp_b_comprehension,58,non_sense_random,,이 문장에 '유닛이'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%58;condition%non_sense_random
+exp_b,59,original,메텔에게 기계모성을 파괴하는 방법을 알려준다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,59,swap_1,메텔에게 기계모성을 파괴하는 알려준다 방법을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,59,swap_3,메텔에게 파괴하는 방법을 알려준다 기계모성을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,59,non_sense,메텔에게 기계모성을 얼마야 지지를 넓어져.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,59,random,파괴하는 기계모성을 알려준다 방법을 메텔에게.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,59,non_sense_random,기계모성을 넓어져 얼마야 메텔에게 지지를.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,59,original,,이 문장에 '파괴하는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%59;condition%original
+exp_b_comprehension,59,swap_1,,이 문장에 '파괴하는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%59;condition%swap_1
+exp_b_comprehension,59,swap_3,,이 문장에 '파괴하는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%59;condition%swap_3
+exp_b_comprehension,59,non_sense,,이 문장에 '얼마야'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%59;condition%non_sense
+exp_b_comprehension,59,random,,이 문장에 '파괴하는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%59;condition%random
+exp_b_comprehension,59,non_sense_random,,이 문장에 '얼마야'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%59;condition%non_sense_random
+exp_b,60,original,맛있고 아줌마가 음식을 깔끔하게 요리합니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,60,swap_1,아줌마가 맛있고 음식을 깔끔하게 요리합니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,60,swap_3,아줌마가 음식을 맛있고 요리합니다 깔끔하게.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,60,non_sense,걸리는 몸매 70개국 자극함으로써 따라.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,60,random,깔끔하게 음식을 아줌마가 맛있고 요리합니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,60,non_sense_random,몸매 걸리는 따라 70개국 자극함으로써.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,60,original,,이 문장에 '걸리는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%60;condition%original
+exp_b_comprehension,60,swap_1,,이 문장에 '걸리는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%60;condition%swap_1
+exp_b_comprehension,60,swap_3,,이 문장에 '걸리는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%60;condition%swap_3
+exp_b_comprehension,60,non_sense,,이 문장에 '요리합니다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%60;condition%non_sense
+exp_b_comprehension,60,random,,이 문장에 '걸리는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%60;condition%random
+exp_b_comprehension,60,non_sense_random,,이 문장에 '요리합니다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%60;condition%non_sense_random
+exp_b,61,original,케익도 그렇게 달지 않고 부드러워요!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,61,swap_1,그렇게 케익도 달지 않고 부드러워요!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,61,swap_3,그렇게 케익도 부드러워요 달지 않고!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,61,non_sense,소속팀 운동에 달지 가지 맛나요!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,61,random,부드러워요 않고 그렇게 케익도 달지!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,61,non_sense_random,운동에 소속팀 맛나요 가지 달지!,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,61,original,,이 문장에 '그렇게'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%61;condition%original
+exp_b_comprehension,61,swap_1,,이 문장에 '그렇게'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%61;condition%swap_1
+exp_b_comprehension,61,swap_3,,이 문장에 '그렇게'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%61;condition%swap_3
+exp_b_comprehension,61,non_sense,,이 문장에 '맛나요'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%61;condition%non_sense
+exp_b_comprehension,61,random,,이 문장에 '그렇게'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%61;condition%random
+exp_b_comprehension,61,non_sense_random,,이 문장에 '맛나요'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%61;condition%non_sense_random
+exp_b,62,original,거기 커피도 다른 데보다 맛도 좋았어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,62,swap_1,거기 커피도 다른 맛도 데보다 좋았어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,62,swap_3,거기 다른 커피도 좋았어요 데보다 맛도.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,62,non_sense,매우 강의 이상한 곳으로 학생 좋았어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,62,random,맛도 다른 좋았어요 데보다 거기 커피도.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,62,non_sense_random,이상한 좋았어요 매우 학생 강의 곳으로.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,62,original,,이 문장에 '학생'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%62;condition%original
+exp_b_comprehension,62,swap_1,,이 문장에 '학생'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%62;condition%swap_1
+exp_b_comprehension,62,swap_3,,이 문장에 '학생'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%62;condition%swap_3
+exp_b_comprehension,62,non_sense,,이 문장에 '거기'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%62;condition%non_sense
+exp_b_comprehension,62,random,,이 문장에 '학생'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%62;condition%random
+exp_b_comprehension,62,non_sense_random,,이 문장에 '거기'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%62;condition%non_sense_random
+exp_b,63,original,2004년 시장 선거에 다시 나가 당선되었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,63,swap_1,2004년 시장 다시 선거에 나가 당선되었다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,63,swap_3,시장 2004년 선거에 당선되었다 다시 나가.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,63,non_sense,조기 가게는 전부 계약에서 주고 보호하고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,63,random,2004년 당선되었다 나가 선거에 시장 다시.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,63,non_sense_random,가게는 주고 조기 전부 계약에서 보호하고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,63,original,,이 문장에 '나가'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%63;condition%original
+exp_b_comprehension,63,swap_1,,이 문장에 '나가'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%63;condition%swap_1
+exp_b_comprehension,63,swap_3,,이 문장에 '나가'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%63;condition%swap_3
+exp_b_comprehension,63,non_sense,,이 문장에 '가게는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%63;condition%non_sense
+exp_b_comprehension,63,random,,이 문장에 '나가'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%63;condition%random
+exp_b_comprehension,63,non_sense_random,,이 문장에 '가게는'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%63;condition%non_sense_random
+exp_b,64,original,더 이상 오토바이는 타지 않는다고 단언한다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,64,swap_1,이상 더 오토바이는 타지 않는다고 단언한다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,64,swap_3,더 이상 않는다고 오토바이는 단언한다 타지.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,64,non_sense,많이 또한 재난과 그려진 달리 강조하여.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,64,random,오토바이는 단언한다 않는다고 타지 더 이상.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,64,non_sense_random,또한 재난과 많이 그려진 달리 강조하여.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,64,original,,이 문장에 '그려진'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%64;condition%original
+exp_b_comprehension,64,swap_1,,이 문장에 '그려진'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%64;condition%swap_1
+exp_b_comprehension,64,swap_3,,이 문장에 '그려진'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%64;condition%swap_3
+exp_b_comprehension,64,non_sense,,이 문장에 '타지'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%64;condition%non_sense
+exp_b_comprehension,64,random,,이 문장에 '그려진'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%64;condition%random
+exp_b_comprehension,64,non_sense_random,,이 문장에 '타지'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%64;condition%non_sense_random
+exp_b,65,original,배달도 가능하고 홀에서도 먹을 수 있어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,65,swap_1,배달도 가능하고 먹을 홀에서도 수 있어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,65,swap_3,가능하고 배달도 먹을 홀에서도 있어요 수.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,65,non_sense,독립을 위해서 안동에서 등장하는데 것을 있어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,65,random,먹을 배달도 있어요 가능하고 수 홀에서도.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,65,non_sense_random,등장하는데 위해서 안동에서 것을 있어요 독립을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,65,original,,이 문장에 '배달도'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%65;condition%original
+exp_b_comprehension,65,swap_1,,이 문장에 '배달도'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%65;condition%swap_1
+exp_b_comprehension,65,swap_3,,이 문장에 '배달도'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%65;condition%swap_3
+exp_b_comprehension,65,non_sense,,이 문장에 '독립을'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%65;condition%non_sense
+exp_b_comprehension,65,random,,이 문장에 '배달도'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%65;condition%random
+exp_b_comprehension,65,non_sense_random,,이 문장에 '독립을'이라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%65;condition%non_sense_random
+exp_b,66,original,실제로 음향학의 도플러 효과에서 유추된 것이다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,66,swap_1,실제로 음향학의 도플러 유추된 효과에서 것이다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,66,swap_3,실제로 음향학의 효과에서 것이다 도플러 유추된.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,66,non_sense,이후 음향학의 도플러 좀 태어난 보고.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,66,random,효과에서 유추된 음향학의 실제로 것이다 도플러.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,66,non_sense_random,음향학의 태어난 보고 좀 이후 도플러.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,66,original,,이 문장에 '좀'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%66;condition%original
+exp_b_comprehension,66,swap_1,,이 문장에 '좀'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%66;condition%swap_1
+exp_b_comprehension,66,swap_3,,이 문장에 '좀'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%66;condition%swap_3
+exp_b_comprehension,66,non_sense,,이 문장에 '유추된'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%66;condition%non_sense
+exp_b_comprehension,66,random,,이 문장에 '좀'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%66;condition%random
+exp_b_comprehension,66,non_sense_random,,이 문장에 '유추된'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%66;condition%non_sense_random
+exp_b,67,original,너무 세련된 중국집이 싫은 사람들에게 추천해요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,67,swap_1,너무 세련된 싫은 중국집이 사람들에게 추천해요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,67,swap_3,중국집이 너무 세련된 싫은 추천해요 사람들에게.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,67,non_sense,보다 이쁜 대기 사용하기도 공부가 대한.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,67,random,사람들에게 싫은 중국집이 너무 세련된 추천해요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,67,non_sense_random,보다 이쁜 대기 공부가 사용하기도 대한.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,67,original,,이 문장에 '추천해요'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%67;condition%original
+exp_b_comprehension,67,swap_1,,이 문장에 '추천해요'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%67;condition%swap_1
+exp_b_comprehension,67,swap_3,,이 문장에 '추천해요'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%67;condition%swap_3
+exp_b_comprehension,67,non_sense,,이 문장에 '사용하기도'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%67;condition%non_sense
+exp_b_comprehension,67,random,,이 문장에 '추천해요'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%67;condition%random
+exp_b_comprehension,67,non_sense_random,,이 문장에 '사용하기도'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%67;condition%non_sense_random
+exp_b,68,original,복어죽이 안 나와서 조금 허전하긴 해요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,68,swap_1,복어죽이 나와서 안 조금 허전하긴 해요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,68,swap_3,복어죽이 나와서 조금 안 해요 허전하긴.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,68,non_sense,트랜지스터가 것으로 판단해 꽤 1935년 비슷했지만.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,68,random,해요 허전하긴 나와서 조금 안 복어죽이.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,68,non_sense_random,것으로 트랜지스터가 꽤 1935년 판단해 비슷했지만.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,68,original,,이 문장에 '비슷했지만'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%68;condition%original
+exp_b_comprehension,68,swap_1,,이 문장에 '비슷했지만'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%68;condition%swap_1
+exp_b_comprehension,68,swap_3,,이 문장에 '비슷했지만'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%68;condition%swap_3
+exp_b_comprehension,68,non_sense,,이 문장에 '해요'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%68;condition%non_sense
+exp_b_comprehension,68,random,,이 문장에 '비슷했지만'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%68;condition%random
+exp_b_comprehension,68,non_sense_random,,이 문장에 '해요'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%68;condition%non_sense_random
+exp_b,69,original,구글코리아 대중교통으로 가는 길 좀 알려줘.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,69,swap_1,구글코리아 가는 대중교통으로 길 좀 알려줘.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,69,swap_3,가는 구글코리아 대중교통으로 좀 길 알려줘.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,69,non_sense,추억의 남친이랑 들고 장관은 세계대회에서 나와요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,69,random,가는 좀 구글코리아 길 대중교통으로 알려줘.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,69,non_sense_random,세계대회에서 들고 나와요 장관은 추억의 남친이랑.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,69,original,,이 문장에 '대중교통으로'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%69;condition%original
+exp_b_comprehension,69,swap_1,,이 문장에 '대중교통으로'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%69;condition%swap_1
+exp_b_comprehension,69,swap_3,,이 문장에 '대중교통으로'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%69;condition%swap_3
+exp_b_comprehension,69,non_sense,,이 문장에 '세계대회에서'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%69;condition%non_sense
+exp_b_comprehension,69,random,,이 문장에 '대중교통으로'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%69;condition%random
+exp_b_comprehension,69,non_sense_random,,이 문장에 '세계대회에서'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%69;condition%non_sense_random
+exp_b,70,original,오리고기 전문인데 가야공원에 있는 오리집보다 맛이 좋아요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,70,swap_1,오리고기 전문인데 있는 가야공원에 오리집보다 맛이 좋아요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,70,swap_3,오리고기 전문인데 오리집보다 가야공원에 있는 좋아요 맛이.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,70,non_sense,오리고기 내렸다 순위에도 있다 만들고자 어려움이 큰.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,70,random,좋아요 오리집보다 오리고기 맛이 가야공원에 있는 전문인데.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,70,non_sense_random,큰 어려움이 만들고자 순위에도 오리고기 있다 내렸다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,70,original,,이 문장에 '있다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%70;condition%original
+exp_b_comprehension,70,swap_1,,이 문장에 '있다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%70;condition%swap_1
+exp_b_comprehension,70,swap_3,,이 문장에 '있다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%70;condition%swap_3
+exp_b_comprehension,70,non_sense,,이 문장에 '가야공원에'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%70;condition%non_sense
+exp_b_comprehension,70,random,,이 문장에 '있다'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%70;condition%random
+exp_b_comprehension,70,non_sense_random,,이 문장에 '가야공원에'라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%70;condition%non_sense_random
+exp_b,71,original,세차도 깔끔하고 안심하고 주유할 수가 있어서 좋습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,71,swap_1,세차도 깔끔하고 안심하고 주유할 있어서 수가 좋습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,71,swap_3,세차도 안심하고 깔끔하고 있어서 주유할 수가 좋습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,71,non_sense,개방성은 상주하여 자제라는 드신 ATM 뛰었다 많은.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,71,random,수가 있어서 안심하고 깔끔하고 세차도 주유할 좋습니다.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,71,non_sense_random,뛰었다 상주하여 ATM 자제라는 개방성은 드신 많은.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,71,original,,이 문장에 '좋습니다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%71;condition%original
+exp_b_comprehension,71,swap_1,,이 문장에 '좋습니다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%71;condition%swap_1
+exp_b_comprehension,71,swap_3,,이 문장에 '좋습니다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%71;condition%swap_3
+exp_b_comprehension,71,non_sense,,이 문장에 '상주하여'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%71;condition%non_sense
+exp_b_comprehension,71,random,,이 문장에 '좋습니다'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%71;condition%random
+exp_b_comprehension,71,non_sense_random,,이 문장에 '상주하여'라는 단어가 있었나요?,multiple_choice,예 _아니오,예 ,coordinate;experiment%exp_b;item%71;condition%non_sense_random
+exp_b,72,original,여기서 수술했다가 죽을 뻔했어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,72,swap_1,여기서 죽을 수술했다가 뻔했어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,72,swap_3,수술했다가 뻔했어요 여기서 죽을.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,72,non_sense,더 맵고 갈 뻔했어요.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,72,random,죽을 수술했다가 뻔했어요 여기서.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b,72,non_sense_random,맵고 뻔했어요 더 갈.,문장이 얼마나 자연스러운지 평가해주세요,multiple_choice,1 - 전혀 허용되지 않음_2_3_4_5_6_7 - 완전히 허용됨,NA,
+exp_b_comprehension,72,original,,이 문장에 '갈'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%72;condition%original
+exp_b_comprehension,72,swap_1,,이 문장에 '갈'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%72;condition%swap_1
+exp_b_comprehension,72,swap_3,,이 문장에 '갈'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%72;condition%swap_3
+exp_b_comprehension,72,non_sense,,이 문장에 '죽을'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%72;condition%non_sense
+exp_b_comprehension,72,random,,이 문장에 '갈'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%72;condition%random
+exp_b_comprehension,72,non_sense_random,,이 문장에 '죽을'이라는 단어가 있었나요?,multiple_choice,예 _아니오,아니오,coordinate;experiment%exp_b;item%72;condition%non_sense_random

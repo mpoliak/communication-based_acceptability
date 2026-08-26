@@ -131,7 +131,8 @@ lmer_fits <- lapply(unique(crit$language), function(current_language) {
     dl_distance <= 3
     ) %>%
     mutate(
-      n_words = scale(n_words)[,1]
+      n_words = scale(n_words)[,1],
+      dl_distance = scale(dl_distance)[,1]
     ),
   control = lmerControl(
     optimizer ="bobyqa",
@@ -142,17 +143,24 @@ lmer_fits <- lapply(unique(crit$language), function(current_language) {
 
 names(lmer_fits) <- unique(crit$language)
 
-## Fit full RE for en_exp
+## Fit full RE for en_exp.
+## In this experiment each of the 72 base items was written in 3 lengths (short,
+## medium, long), and each of those crossed with the 4 grammaticality conditions.
+## The item id in the data encodes the length version (e.g. en_experimental_62m),
+## so we strip the trailing s/m/l to recover the 72 base items. Length then varies
+## WITHIN item, which is what makes the by-item n_words slope identifiable.
 lmer_fits[["en_exp"]] <- lmer(
-  response ~ dl_distance * n_words + 
-    (dl_distance * n_words|participant_id) + 
+  response ~ dl_distance * n_words +
+    (dl_distance * n_words|participant_id) +
     (dl_distance * n_words|item),
   data=crit %>% filter(
     language == "en_exp",
     dl_distance <= 3
   ) %>%
     mutate(
-      n_words = scale(n_words)[,1]
+      item = as.factor(gsub("[sml]$", "", item)),
+      n_words = scale(n_words)[,1],
+      dl_distance = scale(dl_distance)[,1]
     ),
   control = lmerControl(
     optimizer ="bobyqa",
@@ -181,10 +189,13 @@ lapply(lmer_fits, function(model_fit) {
 ### ---- Effects of Length in Well-formed Materials ----
 well_formed <- crit %>% filter(dl_distance == 0)
 
+## n_words is a between-item predictor, so the by-item random intercept is needed
+## for its standard error to be correct. For these 8 languages length is constant
+## within an item, so only an intercept (not a slope) can be estimated by item.
 length_effects <- lapply(unique(well_formed$language), function(current_language) {
   print(paste0("Processing language: ", current_language))
   lmer(
-    response ~ n_words + (n_words | participant_id),
+    response ~ n_words + (n_words | participant_id) + (1 | item),
     data=well_formed %>% filter(
       language == current_language
     ),
@@ -197,13 +208,18 @@ length_effects <- lapply(unique(well_formed$language), function(current_language
 
 names(length_effects) <- unique(well_formed$language)
 
+## en_exp manipulated length within item, so here length varies within the 72 base
+## items and a by-item length slope is estimable (see the note above on item ids).
 length_effects[["en_exp"]] <- lmer(
-  response ~ n_words + 
+  response ~ n_words +
     (n_words | participant_id) +
     (n_words | item),
   data=well_formed %>% filter(
     language == "en_exp"
-  ),
+  ) %>%
+    mutate(
+      item = as.factor(gsub("[sml]$", "", item))
+    ),
   control = lmerControl(
     optimizer ="bobyqa",
     optCtrl = list(maxfun = 1e5)

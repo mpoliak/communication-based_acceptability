@@ -1,11 +1,12 @@
 ## =============================================================================
 ## Supporting Information analyses for
-##   "Rational inference underlies judgments of grammatical well-formedness"
+##   "Evidence for a communication-based theory of linguistic acceptability judgments"
 ##
 ## Organized to mirror the SI document:
 ##   Section 1 - Controlling for Number of Variables (length as a predictor)
 ##   Section 2 - Analyses including the shuffled condition
 ##   Section 3 - Quantifying Information Using Surprisal instead of Length
+##   Section 4 - Error awareness (English)
 ## followed by 'Diagnostic and Additional Code' (materials & participant
 ## descriptives, parametric linear models, the maximal-exclusion robustness
 ## check, and diagnostic comparison figures) that is not part of the SI document.
@@ -16,7 +17,6 @@
 ## =============================================================================
 
 library(tidyverse)
-library(ordinal)
 library(lme4)
 library(lmerTest)
 library(mgcv)
@@ -397,10 +397,14 @@ if (file.exists("models/fits_byLang_full_withLength.RData")) {
 } else {
   
   ## Fit a model for each language
+  ## NB: this in-loop tibble records the CONDITIONAL log-likelihood (scam's own
+  ## logLik(), which plugs in the fitted random effects). It is kept only as a
+  ## diagnostic; the figures below use the MARGINAL values rebuilt with
+  ## marginal_stats_bylang() after this cache block.
   fits_byLang_full_withLength_stats <- tibble(
     language = character(),
     model = character(),
-    log_likelihood = double()
+    log_likelihood_conditional = double()
   )
   
   fits_byLang_full_withLength <- list()
@@ -460,21 +464,21 @@ if (file.exists("models/fits_byLang_full_withLength.RData")) {
       comm = comm
     )
     
-    fits_byLang_full_withLength_stats <- fits_byLang_full_withLength_stats %>% 
+    fits_byLang_full_withLength_stats <- fits_byLang_full_withLength_stats %>%
       add_row(
         language = language_iter,
         model = "binary",
-        log_likelihood = binary %>% logLik() %>% as.numeric()
+        log_likelihood_conditional = binary %>% logLik() %>% as.numeric()
       ) %>%
       add_row(
         language = language_iter,
         model = "gradient",
-        log_likelihood = gradient %>% logLik() %>% as.numeric()
+        log_likelihood_conditional = gradient %>% logLik() %>% as.numeric()
       ) %>%
       add_row(
         language = language_iter,
         model = "comm",
-        log_likelihood = comm %>% logLik() %>% as.numeric()
+        log_likelihood_conditional = comm %>% logLik() %>% as.numeric()
       )
     
   }
@@ -490,8 +494,11 @@ if (file.exists("models/fits_byLang_full_withLength.RData")) {
         factor(levels=c("Binary\nGrammaticality", "Gradient\nGrammaticality", "Communication-based"))
     )
   
+  ## The saved *_stats tibble holds CONDITIONAL log-likelihoods
+  ## (log_likelihood_conditional); the plotted values are the marginal ones
+  ## recomputed immediately after this block.
   save(
-    fits_byLang_full_withLength, 
+    fits_byLang_full_withLength,
     fits_byLang_full_withLength_stats,
     file="models/fits_byLang_full_withLength.RData"
   )
@@ -1048,7 +1055,7 @@ p_incl_shuffled_main_likelihoods <- ggplot(incl_shuffled_main_likelihoods) +
   scale_color_manual(
     name="",
     values=c("#EB7AA3", "#1E88E5", "#004D40"),
-    labels=c("Grammatical", "Distance", "Weighted Distance")
+    labels=c("Binary\nGrammaticality", "Gradient\nGrammaticality", "Communication")
   ) +
   scale_x_continuous(
     name = ""
@@ -1063,10 +1070,12 @@ if (file.exists("models/fits_byLang_full_with_shuffle.RData")) {
 } else {
   
   ## Fit a model for each language
+  ## Conditional log-likelihoods, diagnostic only -- see the note in Section 1.
+  ## The figures use the marginal values rebuilt after this cache block.
   fits_byLang_full_with_shuffle_stats <- tibble(
     language = character(),
     model = character(),
-    log_likelihood = double()
+    log_likelihood_conditional = double()
   )
   
   fits_byLang_full_with_shuffle <- list()
@@ -1126,21 +1135,21 @@ if (file.exists("models/fits_byLang_full_with_shuffle.RData")) {
       comm = comm
     )
     
-    fits_byLang_full_with_shuffle_stats <- fits_byLang_full_with_shuffle_stats %>% 
+    fits_byLang_full_with_shuffle_stats <- fits_byLang_full_with_shuffle_stats %>%
       add_row(
         language = language_iter,
         model = "binary",
-        log_likelihood = binary %>% logLik() %>% as.numeric()
+        log_likelihood_conditional = binary %>% logLik() %>% as.numeric()
       ) %>%
       add_row(
         language = language_iter,
         model = "gradient",
-        log_likelihood = gradient %>% logLik() %>% as.numeric()
+        log_likelihood_conditional = gradient %>% logLik() %>% as.numeric()
       ) %>%
       add_row(
         language = language_iter,
         model = "comm",
-        log_likelihood = comm %>% logLik() %>% as.numeric()
+        log_likelihood_conditional = comm %>% logLik() %>% as.numeric()
       )
     
   }
@@ -1156,8 +1165,9 @@ if (file.exists("models/fits_byLang_full_with_shuffle.RData")) {
         factor(levels=c("Binary\nGrammaticality", "Gradient\nGrammaticality", "Communication-based"))
     )
   
+  ## Saved *_stats holds CONDITIONAL log-likelihoods; plotted values are marginal.
   save(
-    fits_byLang_full_with_shuffle, 
+    fits_byLang_full_with_shuffle,
     fits_byLang_full_with_shuffle_stats,
     file="models/fits_byLang_full_with_shuffle.RData"
   )
@@ -1199,7 +1209,7 @@ p_language_likelihoods
 
 ## Stack the combined "All Languages" panel (top) over the by-language panel
 ## (bottom), matching the main-text likelihood figure.
-likelihood_differences_with_shuffled_figure <- p_main_likelihoods / p_language_likelihoods +
+likelihood_differences_with_shuffled_figure <- p_incl_shuffled_main_likelihoods / p_language_likelihoods +
   plot_layout(heights = c(1, 3))
 
 ggsave("figures/likelihood_differences_with_shuffled.png",
@@ -1577,7 +1587,8 @@ lmer_fits <- lapply(unique(crit$language), function(current_language) {
       dl_distance <= 3
     ) %>%
       mutate(
-        sum_surprisal = scale(sum_surprisal)[,1]
+        sum_surprisal = scale(sum_surprisal)[,1],
+        dl_distance = scale(dl_distance)[,1]
       ),
     control = lmerControl(
       optimizer ="bobyqa",
@@ -1592,17 +1603,22 @@ lapply(lmer_fits, function(model_fit) {
 
 names(lmer_fits) <- unique(crit$language)
 
-## Fit full RE for en_exp
+## Fit full RE for en_exp. The item id encodes the length version
+## (en_experimental_62m); strip the trailing s/m/l to recover the 72 base items,
+## each of which carries all 3 lengths x 4 grammaticality conditions. Length then
+## varies within item, making the by-item surprisal slope identifiable.
 lmer_fits[["en_exp"]] <- lmer(
-  response_num ~ dl_distance * sum_surprisal + 
-    (dl_distance * sum_surprisal|participant_id) + 
+  response_num ~ dl_distance * sum_surprisal +
+    (dl_distance * sum_surprisal|participant_id) +
     (dl_distance * sum_surprisal|item),
   data=crit %>% filter(
     language == "en_exp",
     dl_distance <= 3
   ) %>%
     mutate(
-      sum_surprisal = scale(sum_surprisal)[,1]
+      item = as.factor(gsub("[sml]$", "", item)),
+      sum_surprisal = scale(sum_surprisal)[,1],
+      dl_distance = scale(dl_distance)[,1]
     ),
   control = lmerControl(
     optimizer ="bobyqa",
@@ -1625,10 +1641,13 @@ lapply(lmer_fits, function(model_fit) {
 ### ---- Effects of Length in Well-formed Materials ----
 well_formed <- crit %>% filter(dl_distance == 0)
 
+## sum_surprisal is a between-item predictor, so the by-item random intercept is
+## needed for its standard error to be correct. For these 8 languages surprisal is
+## constant within an item, so only an intercept (not a slope) is estimable by item.
 length_effects <- lapply(unique(well_formed$language), function(current_language) {
   print(paste0("Processing language: ", current_language))
   lmer(
-    response_num ~ sum_surprisal + (sum_surprisal | participant_id),
+    response_num ~ sum_surprisal + (sum_surprisal | participant_id) + (1 | item),
     data=well_formed %>% filter(
       language == current_language
     ) %>%
@@ -1644,14 +1663,17 @@ length_effects <- lapply(unique(well_formed$language), function(current_language
 
 names(length_effects) <- unique(well_formed$language)
 
+## en_exp varied length within item, so a by-item surprisal slope is estimable
+## once the item id is collapsed to the 72 base items.
 length_effects[["en_exp"]] <- lmer(
-  response_num ~ sum_surprisal + 
+  response_num ~ sum_surprisal +
     (sum_surprisal | participant_id) +
     (sum_surprisal | item),
   data=well_formed %>% filter(
     language == "en_exp"
   ) %>%
     mutate(
+      item = as.factor(gsub("[sml]$", "", item)),
       sum_surprisal = scale(sum_surprisal)[,1]
     ),
   control = lmerControl(
@@ -1885,10 +1907,14 @@ if (file.exists("models/fits_byLang_full_with_surprisal.RData")) {
 } else {
   
   ## Fit a model for each language
+  ## Conditional log-likelihoods, diagnostic only -- see the note in Section 1.
+  ## This rebuild matters most here: under the CONDITIONAL likelihood the
+  ## gradient model beats the communication model in Danish and German, which is
+  ## reversed once the item random effects are integrated out.
   fits_byLang_full_with_surprisal_stats <- tibble(
     language = character(),
     model = character(),
-    log_likelihood = double()
+    log_likelihood_conditional = double()
   )
   
   fits_byLang_full_with_surprisal <- list()
@@ -1946,21 +1972,21 @@ if (file.exists("models/fits_byLang_full_with_surprisal.RData")) {
       comm = comm
     )
     
-    fits_byLang_full_with_surprisal_stats <- fits_byLang_full_with_surprisal_stats %>% 
+    fits_byLang_full_with_surprisal_stats <- fits_byLang_full_with_surprisal_stats %>%
       add_row(
         language = language_iter,
         model = "binary",
-        log_likelihood = binary %>% logLik() %>% as.numeric()
+        log_likelihood_conditional = binary %>% logLik() %>% as.numeric()
       ) %>%
       add_row(
         language = language_iter,
         model = "gradient",
-        log_likelihood = gradient %>% logLik() %>% as.numeric()
+        log_likelihood_conditional = gradient %>% logLik() %>% as.numeric()
       ) %>%
       add_row(
         language = language_iter,
         model = "comm",
-        log_likelihood = comm %>% logLik() %>% as.numeric()
+        log_likelihood_conditional = comm %>% logLik() %>% as.numeric()
       )
     
   }
@@ -1976,8 +2002,9 @@ if (file.exists("models/fits_byLang_full_with_surprisal.RData")) {
         factor(levels=c("Binary\nGrammaticality", "Gradient\nGrammaticality", "Communication-based"))
     )
   
+  ## Saved *_stats holds CONDITIONAL log-likelihoods; plotted values are marginal.
   save(
-    fits_byLang_full_with_surprisal, 
+    fits_byLang_full_with_surprisal,
     fits_byLang_full_with_surprisal_stats,
     file="models/fits_byLang_full_with_surprisal.RData"
   )
@@ -2557,6 +2584,265 @@ ggplot(
 
 ggsave("figures/all_languages_with_model_predictions_surprisal.png", width=12, height=8)
 
+
+## #############################################################################
+## SI SECTION 4: Error awareness (English)
+## #############################################################################
+## A separate English experiment: after each sentence, participants answered
+## "Are there any grammatical errors in this sentence?" (Yes/No). literal_response
+## is the correct answer -- No for the original condition, Yes once any adjacent-
+## token exchanges were introduced. We look at (1) error-detection accuracy as a
+## function of sentence length and number of errors, and (2) how the acceptability
+## rating relates to whether the error was correctly judged. Each figure is
+## produced both for all participants and for an "attentive" subset (see below).
+## Produces error_awareness_by_length[_attentive].png and
+## error_awareness_acceptability_by_detection[_attentive].png.
+
+error_awareness <- read_csv("../data/en_error_awareness/data_en_error_awareness_sample1.csv")
+error_awareness_materials <- read_csv(
+  "../data/en_error_awareness/materials_en_error_awareness.csv")
+
+## Sentence length per item, from the original-condition sentence (adjacent-token
+## exchanges and shuffling preserve the token count). Filtered on a non-missing
+## sentence rather than a fixed experiment label, so it works whether the sentence
+## sits on the exp_b or the exp_b_comprehension rows of the materials file.
+item_lengths <- error_awareness_materials %>%
+  filter(condition == "original", !is.na(sentence)) %>%
+  distinct(item, .keep_all = TRUE) %>%
+  mutate(n_words = str_count(str_squish(sentence), " ") + 1) %>%
+  select(item, n_words)
+
+## Map the four conditions to the number of introduced errors (used as colour)
+label_n_errors <- function(cond) factor(
+  case_when(cond == "original" ~ "0", cond == "swap_1" ~ "1",
+            cond == "swap_3" ~ "3", cond == "random" ~ "shuffled"),
+  levels = c("0", "1", "3", "shuffled"))
+
+## Colours matching the main-text DL-distance buckets (0 / 1-2 / 3 / 4+), mapped to
+## the four error conditions so this section matches the rest of the study.
+error_colors <- c("0" = "#EB7AA3", "1" = "#1E88E5", "3" = "#FFC107", "shuffled" = "#BBBBBB")
+
+## Attention exclusion. A fully shuffled sentence obviously contains errors, so
+## participants who said a shuffled sentence had NO error on more than 20% of
+## shuffled trials are flagged, and dropped from the "attentive" figures.
+shuffle_miss_rate <- error_awareness %>%
+  filter(experiment == "exp_b_comprehension", cond == "random") %>%
+  group_by(participant_id) %>%
+  summarize(miss_rate = mean(response == "No"), .groups = "drop")
+attentive_participants <- shuffle_miss_rate %>%
+  filter(miss_rate <= 0.20) %>% pull(participant_id)
+
+## Shuffled items most often judged error-free (a materials check: which shuffles
+## happened to read as acceptable). Printed for reference.
+error_awareness %>%
+  filter(experiment == "exp_b_comprehension", cond == "random") %>%
+  group_by(item) %>%
+  summarize(n = n(), said_no = sum(response == "No"),
+            miss_rate = mean(response == "No"), .groups = "drop") %>%
+  left_join(error_awareness_materials %>%
+              filter(condition == "random", !is.na(sentence)) %>%
+              distinct(item, .keep_all = TRUE) %>%
+              select(item, sentence), by = "item") %>%
+  arrange(desc(miss_rate)) %>% filter(miss_rate > 0.15)
+
+## ---- Figure 1 data: error-detection accuracy ----
+detection_trials <- error_awareness %>%
+  filter(experiment == "exp_b_comprehension") %>%
+  left_join(item_lengths, by = "item") %>%
+  mutate(correct = as.integer(response == literal_response),
+         n_errors = label_n_errors(cond))
+
+## Accuracy by number of errors, printed for reference
+detection_trials %>%
+  group_by(n_errors) %>%
+  summarize(accuracy = mean(correct), n = n(), .groups = "drop")
+
+## ---- Figure 2 data: acceptability rating vs. detection outcome ----
+## Join each acceptability rating (exp_b) to the same trial's Yes/No error
+## judgment (exp_b_comprehension) for that participant, item, and condition.
+rating_trials <- error_awareness %>%
+  filter(experiment == "exp_b") %>%
+  transmute(participant_id, item, cond,
+            acceptability = as.numeric(substr(response, 1, 1))) %>%
+  inner_join(
+    error_awareness %>% filter(experiment == "exp_b_comprehension") %>%
+      transmute(participant_id, item, cond,
+                judged_correctly = response == literal_response),
+    by = c("participant_id", "item", "cond")) %>%
+  left_join(item_lengths, by = "item") %>%
+  filter(!is.na(judged_correctly)) %>%
+  mutate(n_errors = label_n_errors(cond),
+         judged_correctly = factor(ifelse(judged_correctly,
+           "Correct error judgment", "Incorrect error judgment"),
+           levels = c("Correct error judgment", "Incorrect error judgment")))
+
+## ---- Figure builders (called once for all participants, once for attentive) --
+## Figure 1: error-detection accuracy vs sentence length, one curve per number of
+## errors. Points are item means; curves are logistic fits to trial-level 0/1
+## data. The dashed line marks chance (50%) for the Yes/No task.
+plot_detection_accuracy <- function(trials) {
+  by_item <- trials %>% group_by(item, n_words, n_errors) %>%
+    summarize(accuracy = mean(correct), .groups = "drop")
+  ggplot(mapping = aes(x = n_words, color = n_errors, fill = n_errors)) +
+    geom_hline(yintercept = 0.5, linetype = "dashed", color = "grey70") +
+    geom_point(data = by_item, aes(y = accuracy), alpha = 0.3) +
+    geom_smooth(data = trials, aes(y = correct),
+                method = "glm", method.args = list(family = "binomial")) +
+    scale_color_manual(name = "Number of\nerrors", values = error_colors,
+                       aesthetics = c("colour", "fill")) +
+    scale_x_continuous(name = "Sentence length (tokens)") +
+    scale_y_continuous(name = "Error-detection accuracy",
+                       labels = scales::percent, limits = c(0, 1))
+}
+
+## Figure 2: item-mean acceptability vs sentence length, coloured by number of
+## errors, faceted by whether the Yes/No error judgment was correct. Mirrors the
+## main-text by-item figure.
+plot_acceptability_by_detection <- function(trials) {
+  by_item <- trials %>% group_by(item, n_words, n_errors, judged_correctly) %>%
+    summarize(acceptability = mean(acceptability, na.rm = TRUE), .groups = "drop")
+  ggplot(by_item, aes(x = n_words, y = acceptability,
+                      color = n_errors, fill = n_errors)) +
+    geom_point(alpha = 0.3) +
+    geom_smooth(method = "lm", se = TRUE) +
+    facet_wrap(~judged_correctly) +
+    scale_color_manual(name = "Number of\nerrors", values = error_colors,
+                       aesthetics = c("colour", "fill")) +
+    scale_x_continuous(name = "Sentence length (tokens)") +
+    scale_y_continuous(name = "Acceptability", limits = c(1, 7), breaks = seq(1, 7, 2))
+}
+
+## Trial-level version of Figure 2: one point per trial (not item means), so the
+## left/right split is purely by trial-level judgment correctness. The jitter seed
+## keeps the figure reproducible, and coord_cartesian keeps points jittered past
+## the 1 and 7 endpoints from being dropped.
+plot_acceptability_by_detection_trials <- function(trials) {
+  ggplot(trials, aes(x = n_words, y = acceptability, color = n_errors, fill = n_errors)) +
+    geom_point(alpha = 0.15,
+               position = position_jitter(width = 0.4, height = 0.2, seed = 1)) +
+    geom_smooth(method = "lm", se = TRUE) +
+    facet_wrap(~judged_correctly) +
+    scale_color_manual(name = "Number of\nerrors", values = error_colors,
+                       aesthetics = c("colour", "fill")) +
+    scale_x_continuous(name = "Sentence length (tokens)") +
+    scale_y_continuous(name = "Acceptability", breaks = seq(1, 7, 2)) +
+    coord_cartesian(ylim = c(0.7, 7.3))
+}
+
+## All participants, then the attentive subset
+plot_detection_accuracy(detection_trials)
+ggsave("figures/error_awareness_by_length.png", width = 8, height = 6)
+plot_detection_accuracy(filter(detection_trials, participant_id %in% attentive_participants))
+ggsave("figures/error_awareness_by_length_attentive.png", width = 8, height = 6)
+
+plot_acceptability_by_detection(rating_trials)
+ggsave("figures/error_awareness_acceptability_by_detection.png", width = 11, height = 6)
+plot_acceptability_by_detection(filter(rating_trials, participant_id %in% attentive_participants))
+ggsave("figures/error_awareness_acceptability_by_detection_attentive.png", width = 11, height = 6)
+
+## Trial-level split (all trials)
+plot_acceptability_by_detection_trials(rating_trials)
+ggsave("figures/error_awareness_acceptability_by_detection_trials.png", width = 11, height = 6)
+
+
+### ---- Acceptability by length among correctly-identified error-free sentences ----
+## The communication theory's second prediction: among error-free sentences,
+## longer ones should be less acceptable. Test it per sample on the original
+## (0-error) trials that participants correctly judged to be error-free, predicting
+## acceptability from mean-centered sentence length.
+for (ea_sample in c("sample1", "sample2")) {
+  ea_s <- read_csv(paste0("../data/en_error_awareness/data_en_error_awareness_", ea_sample, ".csv"))
+  error_free_ratings <- ea_s %>% filter(experiment == "exp_b", cond == "original") %>%
+    transmute(participant_id, item, acceptability = as.numeric(substr(response, 1, 1)))
+  error_free_correct <- ea_s %>% filter(experiment == "exp_b_comprehension", cond == "original") %>%
+    transmute(participant_id, item, correct = response == literal_response)
+  error_free_data <- error_free_ratings %>%
+    inner_join(error_free_correct, by = c("participant_id", "item")) %>%
+    filter(correct) %>%
+    left_join(item_lengths, by = "item") %>%
+    mutate(n_words_c = n_words - mean(n_words),
+           participant = factor(participant_id), item_f = factor(item))
+  cat("\n---- error-free (correctly judged) acceptability ~ length --", ea_sample, "----\n")
+  error_free_model <- lmer(acceptability ~ n_words_c + (n_words_c | participant) + (1 | item_f),
+                           data = error_free_data,
+                           control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5)))
+  print(summary(error_free_model)$coefficients)
+}
+
+
+### ---- Error detection vs. the original English experiment ----
+## Does the acceptability pattern depend on what the comprehension question asked?
+## Compare the error-detection experiment (both samples collapsed) to the first
+## English experiment (the between-items length experiment, which used meaning
+## comprehension questions). Acceptability is modelled with a Gaussian linear
+## mixed model in which experiment version (meaning comprehension vs error
+## detection) is fully crossed with DL distance and sentence length. DL distance
+## and length are taken from the original English experiment (same materials, so
+## they are joined rather than recomputed). Produces ea_vs_original_by_version.png.
+en_full <- read_csv("../data/full_data.csv") %>% filter(language == "en")
+en_key <- en_full %>% distinct(item, condition, dl_distance, n_words) %>%
+  mutate(item = as.integer(str_extract(item, "[0-9]+"))) %>% rename(cond = condition)
+
+## original English, keeping participants with >= 80% comprehension accuracy
+en_keep <- en_full %>% filter(experiment == "exp_b_comprehension") %>%
+  group_by(participant_id) %>%
+  summarize(acc = mean(response == literal_response, na.rm = TRUE), .groups = "drop") %>%
+  filter(acc >= 0.8) %>% pull(participant_id)
+version_comprehension <- en_full %>%
+  filter(experiment == "exp_b", participant_id %in% en_keep,
+         dl_distance <= 3, condition %in% c("original", "swap_1", "swap_3")) %>%
+  mutate(item = as.integer(str_extract(item, "[0-9]+"))) %>%
+  transmute(participant_id, item, cond = condition, dl_distance, n_words,
+            acceptability = as.numeric(substr(response, 1, 1)), version = "Comprehension")
+
+## error detection, both samples collapsed, DL distance / length joined in
+load_ea_version <- function(file) read_csv(file) %>%
+  filter(experiment == "exp_b", cond %in% c("original", "swap_1", "swap_3")) %>%
+  transmute(participant_id, item, cond, acceptability = as.numeric(substr(response, 1, 1))) %>%
+  left_join(en_key, by = c("item", "cond")) %>% filter(dl_distance <= 3) %>%
+  transmute(participant_id, item, cond, dl_distance, n_words, acceptability,
+            version = "Error detection")
+version_error <- bind_rows(
+  load_ea_version("../data/en_error_awareness/data_en_error_awareness_sample1.csv"),
+  load_ea_version("../data/en_error_awareness/data_en_error_awareness_sample2.csv"))
+
+## DL distance and sentence length are both mean-centered (kept in their natural
+## units -- edits and tokens -- rather than z-scored).
+version_data <- bind_rows(version_comprehension, version_error) %>%
+  mutate(version = factor(version, levels = c("Comprehension", "Error detection")),
+         participant = factor(participant_id), item_f = factor(item),
+         dl_distance_c = dl_distance - mean(dl_distance),
+         n_words_c = n_words - mean(n_words),
+         n_errors = factor(cond, levels = c("original", "swap_1", "swap_3"),
+                           labels = c("0", "1", "3")))
+
+## Gaussian linear model: acceptability ~ DL distance x length x version (all
+## interactions), maximal random effects the design justifies (version is between
+## participants but within item, since the two experiments share the same items).
+version_model <- lmer(
+  acceptability ~ dl_distance_c * n_words_c * version +
+    (dl_distance_c * n_words_c | participant) + (dl_distance_c * version | item_f),
+  data = version_data,
+  control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5)))
+summary(version_model)
+
+## Figure: acceptability vs sentence length, coloured by number of errors, one
+## panel per experiment version.
+version_data %>%
+  group_by(version, item, n_words, n_errors) %>%
+  summarize(acceptability = mean(acceptability), .groups = "drop") %>%
+  ggplot(aes(n_words, acceptability, color = n_errors, fill = n_errors)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = "lm", se = TRUE) +
+  facet_wrap(~version) +
+  scale_color_manual(name = "Number of\nerrors",
+                     values = c("0" = "#EB7AA3", "1" = "#1E88E5", "3" = "#FFC107"),
+                     aesthetics = c("colour", "fill")) +
+  scale_x_continuous(name = "Sentence length (tokens)") +
+  scale_y_continuous(name = "Acceptability", limits = c(1, 7), breaks = seq(1, 7, 2))
+ggsave("figures/ea_vs_original_by_version.png", width = 12, height = 5.5)
+
+
 ## #############################################################################
 ## DIAGNOSTIC AND ADDITIONAL CODE
 ## Not part of the SI document. Materials & participant descriptives, parametric
@@ -2607,6 +2893,53 @@ ggplot(lengths) +
   scale_y_continuous(breaks = scales::breaks_width(5))
 
 ggsave("figures/sentence_length_histograms.png", width=10, height=6)
+
+### ---- Comprehension Accuracy by Edit Distance ----
+## Descriptive check: how accurately did participants answer the comprehension
+## question that followed each sentence, as a function of how corrupted that
+## sentence was? Restricted to the three error conditions in the design (0, 1, and
+## 3 adjacent-token exchanges); the rare intermediate DL distance of 2 is dropped
+## as it is only sparsely populated. Scored the same way as the exclusion
+## criterion above (correct = literal_response == response), on the same retained
+## sample (participants below the 80% threshold already excluded). Not part of the
+## SI document.
+comprehension_accuracy <- comprehension %>%
+  filter(!participant_id %in% exclusions,
+         dl_distance %in% c(0, 1, 3)) %>%
+  mutate(correct = literal_response == response) %>%
+  group_by(language, dl_distance) %>%
+  summarize(n = n(), k = sum(correct, na.rm = TRUE), .groups = "drop") %>%
+  mutate(
+    accuracy = k / n,
+    ## Wilson 95% confidence interval for a binomial proportion (well behaved
+    ## near the ceiling, where a normal-approximation interval would exceed 1)
+    z = 1.96,
+    wilson_center = (accuracy + z^2 / (2 * n)) / (1 + z^2 / n),
+    wilson_half   = z * sqrt(accuracy * (1 - accuracy) / n + z^2 / (4 * n^2)) /
+                    (1 + z^2 / n),
+    lower = wilson_center - wilson_half,
+    upper = wilson_center + wilson_half,
+    language = label_language(language)
+  )
+
+## Pooled accuracy per DL distance, printed for reference
+comprehension %>%
+  filter(!participant_id %in% exclusions, dl_distance %in% c(0, 1, 3)) %>%
+  mutate(correct = literal_response == response) %>%
+  group_by(dl_distance) %>%
+  summarize(accuracy = mean(correct, na.rm = TRUE), n = n(), .groups = "drop")
+
+ggplot(comprehension_accuracy, aes(x = dl_distance, y = accuracy)) +
+  geom_hline(yintercept = 0.5, linetype = "dashed", color = "grey70") +
+  geom_line(color = "grey60") +
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.15) +
+  geom_point(size = 2) +
+  facet_wrap(~language) +
+  scale_x_continuous(breaks = c(0, 1, 3), name = "Damerau-Levenshtein distance") +
+  scale_y_continuous(name = "Comprehension accuracy", limits = c(0.5, 1)) +
+  theme(panel.grid.major.y = element_line(color = "grey90"))
+
+ggsave("figures/comprehension_accuracy.png", width = 10, height = 6)
 
 ### ---- Count Damerau-Levenshtein distance for each language ----
 distance_counts <- crit %>%
@@ -2892,11 +3225,13 @@ if (file.exists("models/models_by_language_linear.RData")) {
     crit_language_specific <- crit %>%
       filter(language == language_iter)
     
-    ## Collapse to original items for English (controlled)
+    ## Collapse to the 72 base items for English (controlled): the item id
+    ## encodes the length version (en_experimental_62m), so strip the trailing
+    ## s/m/l. Length then varies within item.
     if (language_iter == "en_exp") {
       crit_language_specific <- crit_language_specific %>%
         mutate(
-          item = gsub("[a-z]", "", item)
+          item = as.factor(gsub("[sml]$", "", item))
         )
       
       ## Fit models
@@ -3046,12 +3381,16 @@ if (file.exists("models/linear_model_fits_dl3_interactions.RData")) {
 } else {
   fit_lmer_interaction <- lmer(
     response_num ~ dl_distance * n_words +
-      (dl_distance * n_words|participant_id) + (dl_distance|item) + 
+      (dl_distance * n_words|participant_id) + (dl_distance|item) +
       (dl_distance * n_words|language),
     data=crit %>%
       filter(
         language != "en_exp",
         dl_distance <= 3
+      ) %>%
+      mutate(
+        n_words = scale(n_words)[,1],
+        dl_distance = scale(dl_distance)[,1]
       ),
     control=lmerControl(
       optimizer = "bobyqa",
@@ -3072,7 +3411,8 @@ if (file.exists("models/linear_model_fits_dl3_interactions.RData")) {
             dl_distance <= 3
           ) %>%
           mutate(
-            n_words = scale(n_words)
+            n_words = scale(n_words)[,1],
+            dl_distance = scale(dl_distance)[,1]
           ),
         control=lmerControl(
           optimizer = "bobyqa",
@@ -3084,6 +3424,8 @@ if (file.exists("models/linear_model_fits_dl3_interactions.RData")) {
   
   names(fit_lmers_by_language) <- levels(crit$language)
   
+  ## Collapse the item id to the 72 base items (see Section 3): length varies
+  ## within item only after the trailing s/m/l is stripped.
   fit_lmers_by_language$en_exp <- lmer(
     response_num ~ dl_distance * n_words +
       (dl_distance * n_words|participant_id) + (dl_distance * n_words|item),
@@ -3093,7 +3435,9 @@ if (file.exists("models/linear_model_fits_dl3_interactions.RData")) {
         dl_distance <= 3
       ) %>%
       mutate(
-        n_words = scale(n_words)
+        item = as.factor(gsub("[sml]$", "", item)),
+        n_words = scale(n_words)[,1],
+        dl_distance = scale(dl_distance)[,1]
       ),
     control=lmerControl(
       optimizer = "bobyqa",
@@ -3245,11 +3589,13 @@ if (file.exists("models/models_by_language_linear_dl3.RData")) {
       filter(language == language_iter,
              dl_distance <= 3)
     
-    ## Collapse to original items for English (controlled)
+    ## Collapse to the 72 base items for English (controlled): the item id
+    ## encodes the length version (en_experimental_62m), so strip the trailing
+    ## s/m/l. Length then varies within item.
     if (language_iter == "en_exp") {
       crit_language_specific <- crit_language_specific %>%
         mutate(
-          item = gsub("[a-z]", "", item)
+          item = as.factor(gsub("[sml]$", "", item))
         )
       
       ## Fit models
@@ -3554,28 +3900,32 @@ if (file.exists("models/models_by_language_maximal_exclusions.RData")) {
       response_num ~ s(weighted_dl_distance, bs="mpd") + s(n_words, bs="mpd"),
       data=crit_language_specific
     )
-    
+
     models_by_language[[language_iter]] <- list(
       grammatical = grammatical,
       distance = distance,
       weighted_distance = weighted_distance
     )
-    
-    stats_models_by_language <- stats_models_by_language %>% 
+
+    ## Unlike the other by-language blocks, this tibble is NOT rebuilt after the
+    ## cache guard, so it must carry the marginal value directly. These models
+    ## carry no random effects, so marginal_logLik() returns the same number as
+    ## logLik() -- but using it keeps the figure correct if REs are ever added.
+    stats_models_by_language <- stats_models_by_language %>%
       add_row(
         language = language_iter,
         model = "grammatical",
-        log_likelihood = grammatical %>% logLik() %>% as.numeric()
+        log_likelihood = marginal_logLik(grammatical)
       ) %>%
       add_row(
         language = language_iter,
         model = "distance",
-        log_likelihood = distance %>% logLik() %>% as.numeric()
+        log_likelihood = marginal_logLik(distance)
       ) %>%
       add_row(
         language = language_iter,
         model = "weighted_distance",
-        log_likelihood = weighted_distance %>% logLik() %>% as.numeric()
+        log_likelihood = marginal_logLik(weighted_distance)
       )
     
   }

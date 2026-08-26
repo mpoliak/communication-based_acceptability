@@ -29,6 +29,9 @@ Each script sets its own working directory, so it can be run from RStudio, via
   (cached fits).
 - `supporting_information/` — `supporting_information_analysis.R` (SI analyses and
   figures), `models/` (cached fits), and `goldfish_surprisals/` (surprisal pipeline).
+- `slor_morcela/` — comparison against two language-model accounts of
+  acceptability, SLOR (Lau, Clark & Lappin 2017) and MORCELA (Tjuatja, Neubig,
+  Linzen & Hao 2025). See `slor_morcela/README.md`.
 
 ## Reproducing the analyses
 
@@ -53,7 +56,13 @@ Each script sets its own working directory, so it can be run from RStudio, via
 ### 3. Main analysis
 Run `analysis/main_analysis.R` to produce the paper's figures and analyses.
 
-### 4. Supporting information
+### 4. SLOR and MORCELA
+Run `slor_morcela/get_slor_morcela_scores.py` once to score the stimuli with the
+Goldfish models (it needs the same Conda environment as the surprisal pipeline,
+plus `wordfreq`), then `slor_morcela/slor_morcela_analysis.R` to fit the models
+and draw the figures.
+
+### 5. Supporting information
 Run `supporting_information/supporting_information_analysis.R`. It is organized to
 mirror the SI document — Section 1 (controlling for number of variables), Section 2
 (including the shuffled condition), Section 3 (surprisal instead of length) —

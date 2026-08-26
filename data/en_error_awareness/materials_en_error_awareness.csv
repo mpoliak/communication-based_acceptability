@@ -1,0 +1,577 @@
+experiment,item,condition,sentence,prompt,question_type,options,literal_response,config
+exp_b_comprehension,1,original,They have a warm local atmosphere and taste great.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,1,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%1;condition%original
+exp_b_comprehension,1,random,Have atmosphere great a taste and local warm they.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,1,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%1;condition%random
+exp_b_comprehension,1,swap_1,They have warm a local atmosphere and taste great.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,1,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%1;condition%swap_1
+exp_b_comprehension,1,swap_3,They have a local atmosphere warm taste and great.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,1,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%1;condition%swap_3
+exp_b_comprehension,2,original,A ball flying in the air can hurt.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,2,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%2;condition%original
+exp_b_comprehension,2,random,In flying can ball a hurt air the.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,2,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%2;condition%random
+exp_b_comprehension,2,swap_1,A ball flying in air the can hurt.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,2,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%2;condition%swap_1
+exp_b_comprehension,2,swap_3,A ball in flying can the air hurt.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,2,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%2;condition%swap_3
+exp_b_comprehension,3,original,"Currently, we're in talks with people.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,3,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%3;condition%original
+exp_b_comprehension,3,random,In with currently talks we're people.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,3,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%3;condition%random
+exp_b_comprehension,3,swap_1,"Currently, we're talks in with people.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,3,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%3;condition%swap_1
+exp_b_comprehension,3,swap_3,"Currently, we're people in talks with.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,3,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%3;condition%swap_3
+exp_b_comprehension,4,original,Even prolonged eye contact seems to have an effect.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,4,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%4;condition%original
+exp_b_comprehension,4,random,Have even to prolonged seems contact an eye effect.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,4,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%4;condition%random
+exp_b_comprehension,4,swap_1,Even prolonged eye seems contact to have an effect.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,4,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%4;condition%swap_1
+exp_b_comprehension,4,swap_3,Even prolonged contact seems eye to an have effect.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,4,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%4;condition%swap_3
+exp_b_comprehension,5,original,The latter option may allow for easier revision.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,5,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%5;condition%original
+exp_b_comprehension,5,random,May easier the for revision allow option latter.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,5,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%5;condition%random
+exp_b_comprehension,5,swap_1,The latter may option allow for easier revision.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,5,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%5;condition%swap_1
+exp_b_comprehension,5,swap_3,The latter may option for allow revision easier.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,5,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%5;condition%swap_3
+exp_b_comprehension,6,original,You have many names to choose from.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,6,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%6;condition%original
+exp_b_comprehension,6,random,Have from choose names you to many.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,6,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%6;condition%random
+exp_b_comprehension,6,swap_1,You have names many to choose from.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,6,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%6;condition%swap_1
+exp_b_comprehension,6,swap_3,You have to many names from choose.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,6,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%6;condition%swap_3
+exp_b_comprehension,7,original,She thought she could hear Gomez laughing.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,7,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%7;condition%original
+exp_b_comprehension,7,random,Hear could thought she Gomez laughing she.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,7,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%7;condition%random
+exp_b_comprehension,7,swap_1,She thought she could Gomez hear laughing.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,7,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%7;condition%swap_1
+exp_b_comprehension,7,swap_3,She thought she Gomez could laughing hear.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,7,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%7;condition%swap_3
+exp_b_comprehension,8,original,The next part of the proceedings was less thrilling.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,8,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%8;condition%original
+exp_b_comprehension,8,random,Of part less next thrilling the the proceedings was.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,8,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%8;condition%random
+exp_b_comprehension,8,swap_1,The next part of the was proceedings less thrilling.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,8,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%8;condition%swap_1
+exp_b_comprehension,8,swap_3,The next of the part proceedings less was thrilling.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,8,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%8;condition%swap_3
+exp_b_comprehension,9,original,Let’s say we now use a massive paperweight.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,9,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%9;condition%original
+exp_b_comprehension,9,random,A use now massive we say paperweight let’s.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,9,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%9;condition%random
+exp_b_comprehension,9,swap_1,Let’s say we now use massive a paperweight.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,9,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%9;condition%swap_1
+exp_b_comprehension,9,swap_3,Let’s say we use now massive paperweight a.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,9,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%9;condition%swap_3
+exp_b_comprehension,10,original,Guys this is harder than I thought.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,10,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%10;condition%original
+exp_b_comprehension,10,random,This I thought is guys than harder.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,10,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%10;condition%random
+exp_b_comprehension,10,swap_1,Guys this is harder I than thought.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,10,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%10;condition%swap_1
+exp_b_comprehension,10,swap_3,Guys this harder is I thought than.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,10,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%10;condition%swap_3
+exp_b_comprehension,11,original,So it was a city of grandmothers.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,11,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%11;condition%original
+exp_b_comprehension,11,random,Was city so of grandmothers it a.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,11,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%11;condition%random
+exp_b_comprehension,11,swap_1,So it was a city grandmothers of.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,11,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%11;condition%swap_1
+exp_b_comprehension,11,swap_3,So it was of a grandmothers city.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,11,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%11;condition%swap_3
+exp_b_comprehension,12,original,Keep the soil moist until the seeds germinate.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,12,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%12;condition%original
+exp_b_comprehension,12,random,The keep the moist seeds until germinate soil.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,12,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%12;condition%random
+exp_b_comprehension,12,swap_1,Keep the soil moist until seeds the germinate.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,12,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%12;condition%swap_1
+exp_b_comprehension,12,swap_3,Keep the until soil moist the germinate seeds.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,12,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%12;condition%swap_3
+exp_b_comprehension,13,original,I also like the freedom in mathematics.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,13,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%13;condition%original
+exp_b_comprehension,13,random,Freedom like the also in I mathematics.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,13,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%13;condition%random
+exp_b_comprehension,13,swap_1,I also like the in freedom mathematics.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,13,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%13;condition%swap_1
+exp_b_comprehension,13,swap_3,I also like in the mathematics freedom.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,13,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%13;condition%swap_3
+exp_b_comprehension,14,original,There was no holder and the end was jagged.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,14,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%14;condition%original
+exp_b_comprehension,14,random,Jagged was and was holder no end there the.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,14,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%14;condition%random
+exp_b_comprehension,14,swap_1,There was holder no and the end was jagged.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,14,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%14;condition%swap_1
+exp_b_comprehension,14,swap_3,There was no and holder the was jagged end.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,14,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%14;condition%swap_3
+exp_b_comprehension,15,original,I don’t know what to say.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,15,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%15;condition%original
+exp_b_comprehension,15,random,I don’t say know what to.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,15,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%15;condition%random
+exp_b_comprehension,15,swap_1,I don’t what know to say.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,15,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%15;condition%swap_1
+exp_b_comprehension,15,swap_3,I don’t what say know to.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,15,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%15;condition%swap_3
+exp_b_comprehension,16,original,They also keep track of the score.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,16,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%16;condition%original
+exp_b_comprehension,16,random,They also track score keep of the.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,16,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%16;condition%random
+exp_b_comprehension,16,swap_1,They also keep track the of score.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,16,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%16;condition%swap_1
+exp_b_comprehension,16,swap_3,They also keep of score track the.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,16,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%16;condition%swap_3
+exp_b_comprehension,17,original,Almost everyone is a little bit ethnocentric.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,17,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%17;condition%original
+exp_b_comprehension,17,random,Bit is a almost everyone ethnocentric little.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,17,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%17;condition%random
+exp_b_comprehension,17,swap_1,Almost everyone is a little ethnocentric bit.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,17,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%17;condition%swap_1
+exp_b_comprehension,17,swap_3,Almost everyone a is bit ethnocentric little.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,17,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%17;condition%swap_3
+exp_b_comprehension,18,original,They don’t know if it worked.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,18,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%18;condition%original
+exp_b_comprehension,18,random,Don’t it worked they know if.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,18,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%18;condition%random
+exp_b_comprehension,18,swap_1,They don’t know if worked it.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,18,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%18;condition%swap_1
+exp_b_comprehension,18,swap_3,They don’t it know worked if.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,18,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%18;condition%swap_3
+exp_b_comprehension,19,original,"Many people, and many students, dislike math.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,19,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%19;condition%original
+exp_b_comprehension,19,random,Many dislike and math people students many.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,19,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%19;condition%random
+exp_b_comprehension,19,swap_1,"Many people, many and students, dislike math.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,19,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%19;condition%swap_1
+exp_b_comprehension,19,swap_3,"Many people, dislike and many students, math.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,19,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%19;condition%swap_3
+exp_b_comprehension,20,original,Try this with a group of friends.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,20,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%20;condition%original
+exp_b_comprehension,20,random,Of group a try with friends this.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,20,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%20;condition%random
+exp_b_comprehension,20,swap_1,Try this with group a of friends.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,20,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%20;condition%swap_1
+exp_b_comprehension,20,swap_3,Try this with group friends a of.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,20,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%20;condition%swap_3
+exp_b_comprehension,21,original,It is important not to touch the luminol.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,21,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%21;condition%original
+exp_b_comprehension,21,random,It the touch is not to important luminol.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,21,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%21;condition%random
+exp_b_comprehension,21,swap_1,It is important not to touch luminol the.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,21,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%21;condition%swap_1
+exp_b_comprehension,21,swap_3,It is not important touch to luminol the.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,21,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%21;condition%swap_3
+exp_b_comprehension,22,original,Find a quarter or another small coin.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,22,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%22;condition%original
+exp_b_comprehension,22,random,Another a find coin quarter small or.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,22,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%22;condition%random
+exp_b_comprehension,22,swap_1,Find a quarter or small another coin.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,22,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%22;condition%swap_1
+exp_b_comprehension,22,swap_3,Find a or another quarter coin small.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,22,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%22;condition%swap_3
+exp_b_comprehension,23,original,Now the mites are finally closing in.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,23,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%23;condition%original
+exp_b_comprehension,23,random,Now the in are closing finally mites.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,23,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%23;condition%random
+exp_b_comprehension,23,swap_1,Now the mites are closing finally in.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,23,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%23;condition%swap_1
+exp_b_comprehension,23,swap_3,Now the are mites closing in finally.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,23,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%23;condition%swap_3
+exp_b_comprehension,24,original,Want to bring it to the White House?,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,24,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%24;condition%original
+exp_b_comprehension,24,random,White it bring to House want to the?,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,24,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%24;condition%random
+exp_b_comprehension,24,swap_1,Want to bring it the to White House?,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,24,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%24;condition%swap_1
+exp_b_comprehension,24,swap_3,Want to to bring it the House White?,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,24,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%24;condition%swap_3
+exp_b_comprehension,25,original,Women should avoid offering anything to a monk with their hands.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,25,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%25;condition%original
+exp_b_comprehension,25,random,A should women to hands with offering their avoid monk anything.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,25,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%25;condition%random
+exp_b_comprehension,25,swap_1,Women should avoid offering anything to a with monk their hands.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,25,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%25;condition%swap_1
+exp_b_comprehension,25,swap_3,Women should avoid offering to anything a with monk hands their.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,25,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%25;condition%swap_3
+exp_b_comprehension,26,original,Note that the ratio of Skittles to vodka varies from recipe to recipe.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,26,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%26;condition%original
+exp_b_comprehension,26,random,Varies the recipe note ratio that from to recipe of to Skittles vodka.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,26,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%26;condition%random
+exp_b_comprehension,26,swap_1,Note that the ratio Skittles of to vodka varies from recipe to recipe.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,26,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%26;condition%swap_1
+exp_b_comprehension,26,swap_3,Note that ratio the Skittles of to vodka from varies recipe to recipe.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,26,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%26;condition%swap_3
+exp_b_comprehension,27,original,"And there was a heavier sound, a rasp, like a box pulled over concrete.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,27,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%27;condition%original
+exp_b_comprehension,27,random,A concrete a sound heavier rasp like was and over there box pulled a.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,27,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%27;condition%random
+exp_b_comprehension,27,swap_1,"And there was a heavier sound, a rasp, a like box pulled over concrete.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,27,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%27;condition%swap_1
+exp_b_comprehension,27,swap_3,"And there a was heavier sound, rasp, a like a pulled box over concrete.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,27,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%27;condition%swap_3
+exp_b_comprehension,28,original,"However, these operators are not adequate when trying to test software features associated with specific domains.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,28,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%28;condition%original
+exp_b_comprehension,28,random,Software test are when these specific with features to associated domains trying adequate not however operators.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,28,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%28;condition%random
+exp_b_comprehension,28,swap_1,"However, these operators are not adequate when trying to software test features associated with specific domains.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,28,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%28;condition%swap_1
+exp_b_comprehension,28,swap_3,"However, these are operators not when adequate trying to software test features associated with specific domains.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,28,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%28;condition%swap_3
+exp_b_comprehension,29,original,"Next, we present the results of our work in two sections.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,29,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%29;condition%original
+exp_b_comprehension,29,random,Our next of the sections work present in we two results.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,29,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%29;condition%random
+exp_b_comprehension,29,swap_1,"Next, we the present results of our work in two sections.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,29,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%29;condition%swap_1
+exp_b_comprehension,29,swap_3,"Next, we present results the our work of in two sections.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,29,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%29;condition%swap_3
+exp_b_comprehension,30,original,"Climate change affects distribution of weeds, pests, and diseases.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,30,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%30;condition%original
+exp_b_comprehension,30,random,Diseases weeds climate and of distribution affects pests change.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,30,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%30;condition%random
+exp_b_comprehension,30,swap_1,"Climate change affects distribution of weeds, and pests, diseases.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,30,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%30;condition%swap_1
+exp_b_comprehension,30,swap_3,"Climate change affects of distribution pests, weeds, diseases and.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,30,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%30;condition%swap_3
+exp_b_comprehension,31,original,The best thing that I thought about this bookstore was that they mixed in new copies of books with used copies.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,31,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%31;condition%original
+exp_b_comprehension,31,random,New mixed copies I was thought copies they best the that bookstore books thing that this of used in with about.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,31,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%31;condition%random
+exp_b_comprehension,31,swap_1,The best thing that I about thought this bookstore was that they mixed in new copies of books with used copies.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,31,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%31;condition%swap_1
+exp_b_comprehension,31,swap_3,The best thing that thought I about this bookstore was that they mixed new in copies of books used with copies.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,31,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%31;condition%swap_3
+exp_b_comprehension,32,original,"She said thanks a lot, you know, because she was so worried about Jonathan.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,32,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%32;condition%original
+exp_b_comprehension,32,random,Was worried she because you thanks Jonathan lot know so she said a about.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,32,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%32;condition%random
+exp_b_comprehension,32,swap_1,"She said thanks a lot, you know, because she so was worried about Jonathan.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,32,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%32;condition%swap_1
+exp_b_comprehension,32,swap_3,"She said thanks a lot, you know, she because was worried about so Jonathan.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,32,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%32;condition%swap_3
+exp_b_comprehension,33,original,Its goal is to decrease IE6 users to less than one percent.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,33,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%33;condition%original
+exp_b_comprehension,33,random,Goal one to is to users decrease than percent less its IE6.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,33,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%33;condition%random
+exp_b_comprehension,33,swap_1,Its goal is to decrease IE6 users to than less one percent.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,33,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%33;condition%swap_1
+exp_b_comprehension,33,swap_3,Its goal is to IE6 decrease less users to than one percent.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,33,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%33;condition%swap_3
+exp_b_comprehension,34,original,"I wondered if anyone ever went back under the bleachers, if there were crickets or mice there.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,34,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%34;condition%original
+exp_b_comprehension,34,random,I if crickets mice ever if anyone there bleachers wondered the back there under were went or.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,34,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%34;condition%random
+exp_b_comprehension,34,swap_1,"I wondered if anyone ever went back under the bleachers, there if were crickets or mice there.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,34,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%34;condition%swap_1
+exp_b_comprehension,34,swap_3,"I wondered anyone if went back ever under the bleachers, if there were crickets or mice there.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,34,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%34;condition%swap_3
+exp_b_comprehension,35,original,"It's quite a large Canadian tournament, and so we went as the Gliders team.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,35,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%35;condition%original
+exp_b_comprehension,35,random,Team tournament and Canadian so a Gliders we as large the quite it's went.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,35,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%35;condition%random
+exp_b_comprehension,35,swap_1,"It's quite a large Canadian tournament, and we so went as the Gliders team.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,35,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%35;condition%swap_1
+exp_b_comprehension,35,swap_3,"It's quite a large Canadian tournament, and so we went team as the Gliders.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,35,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%35;condition%swap_3
+exp_b_comprehension,36,original,"Set a timer for ten minutes, and take a nap, read a book, or call your friend.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,36,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%36;condition%original
+exp_b_comprehension,36,random,Set call and or a your take nap friend a a minutes ten book timer for read.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,36,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%36;condition%random
+exp_b_comprehension,36,swap_1,"Set a timer for ten minutes, and take a nap, read a or book, call your friend.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,36,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%36;condition%swap_1
+exp_b_comprehension,36,swap_3,"Set a for timer minutes, ten and take a nap, a read book, or call your friend.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,36,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%36;condition%swap_3
+exp_b_comprehension,37,original,"“Her boys,” as she called them, didn’t take a lot of eggnog in their rum.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,37,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%37;condition%original
+exp_b_comprehension,37,random,She eggnog a as lot didn’t rum Her boys their in take called them of.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,37,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%37;condition%random
+exp_b_comprehension,37,swap_1,"“Her boys,” as she called them, didn’t take a lot eggnog of in their rum.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,37,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%37;condition%swap_1
+exp_b_comprehension,37,swap_3,"“Her boys,” as called she them, take didn’t a lot of eggnog in rum their.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,37,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%37;condition%swap_3
+exp_b_comprehension,38,original,"And you'd put it into the hot coals, you know?",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,38,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%38;condition%original
+exp_b_comprehension,38,random,It you put hot you'd into coals the and know?,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,38,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%38;condition%random
+exp_b_comprehension,38,swap_1,"And you'd it put into the hot coals, you know?",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,38,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%38;condition%swap_1
+exp_b_comprehension,38,swap_3,"And you'd put into it coals, the hot you know?",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,38,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%38;condition%swap_3
+exp_b_comprehension,39,original,The second half ended with the Belgians winning three points.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,39,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%39;condition%original
+exp_b_comprehension,39,random,Half three the the ended points with winning Belgians second.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,39,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%39;condition%random
+exp_b_comprehension,39,swap_1,The second half ended with the winning Belgians three points.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,39,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%39;condition%swap_1
+exp_b_comprehension,39,swap_3,The second ended half with Belgians the three winning points.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,39,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%39;condition%swap_3
+exp_b_comprehension,40,original,"He slung his belt around his back, and gave it a quick tug.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,40,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%40;condition%original
+exp_b_comprehension,40,random,Slung his his he quick gave belt around it tug a back and.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,40,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%40;condition%random
+exp_b_comprehension,40,swap_1,"He slung his belt around his back, and gave it quick a tug.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,40,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%40;condition%swap_1
+exp_b_comprehension,40,swap_3,"He slung belt his back, around his and gave it a quick tug.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,40,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%40;condition%swap_3
+exp_b_comprehension,41,original,Nature enthusiasts should go from early October to late April.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,41,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%41;condition%original
+exp_b_comprehension,41,random,From go nature October to April late enthusiasts should early.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,41,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%41;condition%random
+exp_b_comprehension,41,swap_1,Nature enthusiasts should go from early October to April late.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,41,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%41;condition%swap_1
+exp_b_comprehension,41,swap_3,Nature enthusiasts should from go October early late to April.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,41,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%41;condition%swap_3
+exp_b_comprehension,42,original,The puppets used were picked specifically for this task with careful attention to their appearance.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,42,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%42;condition%original
+exp_b_comprehension,42,random,Careful their appearance this picked specifically to were with puppets used the task for attention.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,42,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%42;condition%random
+exp_b_comprehension,42,swap_1,The puppets used were picked specifically for task this with careful attention to their appearance.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,42,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%42;condition%swap_1
+exp_b_comprehension,42,swap_3,The puppets were used picked specifically for this task with attention careful to appearance their.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,42,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%42;condition%swap_3
+exp_b_comprehension,43,original,These examples show that it is possible to identify the same conversational structure in unrelated languages.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,43,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%43;condition%original
+exp_b_comprehension,43,random,That in is examples identify same conversational unrelated the show structure these to possible languages it.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,43,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%43;condition%random
+exp_b_comprehension,43,swap_1,These examples show that it is possible to identify the same conversational structure in languages unrelated.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,43,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%43;condition%swap_1
+exp_b_comprehension,43,swap_3,These examples show it is possible that to identify the same conversational structure in unrelated languages.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,43,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%43;condition%swap_3
+exp_b_comprehension,44,original,She's been saying for months that you would never wear it.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,44,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%44;condition%original
+exp_b_comprehension,44,random,She's it wear would that months been never for you saying.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,44,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%44;condition%random
+exp_b_comprehension,44,swap_1,She's been saying for months that you never would wear it.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,44,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%44;condition%swap_1
+exp_b_comprehension,44,swap_3,She's been for saying that months would you never wear it.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,44,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%44;condition%swap_3
+exp_b_comprehension,45,original,"We didn’t see Steven’s interest as strange, well, not that much.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,45,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%45;condition%original
+exp_b_comprehension,45,random,Didn’t as well much we not Steven’s strange see interest that.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,45,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%45;condition%random
+exp_b_comprehension,45,swap_1,"We didn’t see Steven’s interest as well, strange, not that much.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,45,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%45;condition%swap_1
+exp_b_comprehension,45,swap_3,"We didn’t see Steven’s as interest strange, not well, much that.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,45,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%45;condition%swap_3
+exp_b_comprehension,46,original,You can purchase them online or at a local garden center.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,46,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%46;condition%original
+exp_b_comprehension,46,random,A local them can you center garden at or online purchase.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,46,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%46;condition%random
+exp_b_comprehension,46,swap_1,You can purchase them online or at local a garden center.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,46,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%46;condition%swap_1
+exp_b_comprehension,46,swap_3,You can them purchase online a or at local garden center.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,46,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%46;condition%swap_3
+exp_b_comprehension,47,original,So if anybody speaks Dutch tell me what that means.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,47,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%47;condition%original
+exp_b_comprehension,47,random,What means tell me so speaks Dutch if that anybody.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,47,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%47;condition%random
+exp_b_comprehension,47,swap_1,So if speaks anybody Dutch tell me what that means.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,47,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%47;condition%swap_1
+exp_b_comprehension,47,swap_3,So if Dutch anybody speaks tell me that what means.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,47,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%47;condition%swap_3
+exp_b_comprehension,48,original,"This makes everyone’s ride on the elevator longer, if only for a few seconds.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,48,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%48;condition%original
+exp_b_comprehension,48,random,Seconds everyone’s a longer the for if only makes few this ride elevator on.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,48,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%48;condition%random
+exp_b_comprehension,48,swap_1,"This makes ride everyone’s on the elevator longer, if only for a few seconds.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,48,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%48;condition%swap_1
+exp_b_comprehension,48,swap_3,"This makes everyone’s ride on elevator the longer, for if only a few seconds.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,48,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%48;condition%swap_3
+exp_b_comprehension,49,original,And then she had to scan and go get the shoes and then she said they didn’t have the size.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,49,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%49;condition%original
+exp_b_comprehension,49,random,And didn’t and size shoes go had get then she scan they to then and have she said the the.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,49,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%49;condition%random
+exp_b_comprehension,49,swap_1,And then she had to scan and go get the shoes and then she said they didn’t the have size.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,49,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%49;condition%swap_1
+exp_b_comprehension,49,swap_3,And then she had scan to and go get the shoes and then she said they didn’t size have the.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,49,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%49;condition%swap_3
+exp_b_comprehension,50,original,"Tropical cyclones are sustained by a form of energy called latent heat, which is released by moisture evaporated from the ocean that condenses to form rain.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,50,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%50;condition%original
+exp_b_comprehension,50,random,Moisture sustained which cyclones form by a rain evaporated from by are called heat energy latent form is that of to released tropical condenses the ocean.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,50,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%50;condition%random
+exp_b_comprehension,50,swap_1,"Tropical cyclones are sustained by a form of energy called latent heat, which is by released moisture evaporated from the ocean that condenses to form rain.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,50,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%50;condition%swap_1
+exp_b_comprehension,50,swap_3,"Tropical cyclones are sustained by a form of energy called heat, latent which is released by moisture evaporated from ocean the condenses that to form rain.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,50,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%50;condition%swap_3
+exp_b_comprehension,51,original,"I have here, some ice in a pan, water in this glass, and steam rising from this pot.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,51,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%51;condition%original
+exp_b_comprehension,51,random,From have in some a water glass this rising in and pan ice I here pot steam this.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,51,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%51;condition%random
+exp_b_comprehension,51,swap_1,"I have here, some ice in a pan, water this in glass, and steam rising from this pot.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,51,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%51;condition%swap_1
+exp_b_comprehension,51,swap_3,"I have here, some ice a pan, in water in this glass, and steam rising from pot this.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,51,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%51;condition%swap_3
+exp_b_comprehension,52,original,"But the challenges ahead are equally great, and they, too, will require the support and the efforts of the Congress and the people working in cooperation with the new Administration.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,52,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%52;condition%original
+exp_b_comprehension,52,random,They with equally the and the are efforts the the people of new will too the support require but the in working and cooperation and great Administration Congress challenges ahead.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,52,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%52;condition%random
+exp_b_comprehension,52,swap_1,"But the challenges are ahead equally great, and they, too, will require the support and the efforts of the Congress and the people working in cooperation with the new Administration.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,52,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%52;condition%swap_1
+exp_b_comprehension,52,swap_3,"But the challenges ahead are equally and they, great, too, will require the support and the efforts of the Congress and the people working in cooperation with the Administration new.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,52,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%52;condition%swap_3
+exp_b_comprehension,53,original,"The first public performances of his works were in Prague in 1872 and, with special success, in 1873, when he was aged 31.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,53,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%53;condition%original
+exp_b_comprehension,53,random,In special of success with public in were the was first aged his performances he works Prague 1873 and when 31 in 1872.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,53,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%53;condition%random
+exp_b_comprehension,53,swap_1,"The first public performances of his works were in Prague in 1872 and, special with success, in 1873, when he was aged 31.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,53,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%53;condition%swap_1
+exp_b_comprehension,53,swap_3,"The first public performances of his works were in Prague in 1872 special and, with success, in 1873, when he aged was 31.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,53,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%53;condition%swap_3
+exp_b_comprehension,54,original,"You also find Shore Crabs, Beach Otters and - rare for Denmark - Seals in the shallow waters and beaches.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,54,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%54;condition%original
+exp_b_comprehension,54,random,Crabs you Denmark shallow in the Otters and and rare for Beach also waters Seals find Shore beaches.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,54,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%54;condition%random
+exp_b_comprehension,54,swap_1,"You also find Shore Crabs, Beach Otters and - for rare Denmark - Seals in the shallow waters and beaches.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,54,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%54;condition%swap_1
+exp_b_comprehension,54,swap_3,"You also find Shore Crabs, Beach Otters and rare - for Denmark - in Seals shallow the waters and beaches.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,54,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%54;condition%swap_3
+exp_b_comprehension,55,original,"It is situated in Yorkshire, North Yorkshire, England with some of the best preserved historical buildings and structures in Europe.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,55,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%55;condition%original
+exp_b_comprehension,55,random,Of Yorkshire and situated is Yorkshire in structures Europe in buildings preserved North best the historical England it with some.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,55,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%55;condition%random
+exp_b_comprehension,55,swap_1,"It is situated in Yorkshire, North England Yorkshire, with some of the best preserved historical buildings and structures in Europe.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,55,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%55;condition%swap_1
+exp_b_comprehension,55,swap_3,"It is situated Yorkshire, in Yorkshire, North England with some the of best preserved historical buildings and structures in Europe.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,55,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%55;condition%swap_3
+exp_b_comprehension,56,original,"I like that something will be a bit of secret, or even unreliable narrator: someone tells something and first you trust him but then you read more and you become thrilled by everything.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,56,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%56;condition%original
+exp_b_comprehension,56,random,And by or but like everything then you that narrator read first someone something become thrilled bit tells will even be you you unreliable a trust more something and him secret of I.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,56,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%56;condition%random
+exp_b_comprehension,56,swap_1,"I like that something will be a bit of secret, or even unreliable narrator: someone tells something and first you trust him but then you more read and you become thrilled by everything.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,56,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%56;condition%swap_1
+exp_b_comprehension,56,swap_3,"I like that something will be a bit of secret, or unreliable even narrator: someone tells something and first trust you him but then you read more and become you thrilled by everything.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,56,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%56;condition%swap_3
+exp_b_comprehension,57,original,"Besides, Steven had some really good stuff: sweets that stained your teeth bright red — well, technically, not your teeth, just the plaque, but the result was often the same.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,57,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%57;condition%original
+exp_b_comprehension,57,random,Same stuff teeth was just good sweets Steven often result bright not had really that besides your teeth your red some well the the plaque but stained technically the.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,57,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%57;condition%random
+exp_b_comprehension,57,swap_1,"Besides, Steven had some really good sweets stuff: that stained your teeth bright red — well, technically, not your teeth, just the plaque, but the result was often the same.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,57,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%57;condition%swap_1
+exp_b_comprehension,57,swap_3,"Besides, Steven had some really good stuff: that sweets stained your teeth bright red well, — technically, not your teeth, just the plaque, but the result was the often same.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,57,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%57;condition%swap_3
+exp_b_comprehension,58,original,We read about six hundred to eight hundred headline ideas on a Monday coming from our staff and a small group of writers outside — a contributing core.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,58,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%58;condition%original
+exp_b_comprehension,58,random,From small on and writers a about ideas hundred group Monday of we read to contributing outside six a eight our coming headline a hundred staff core.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,58,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%58;condition%random
+exp_b_comprehension,58,swap_1,We read about six hundred to eight hundred headline ideas on a Monday coming our from staff and a small group of writers outside — a contributing core.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,58,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%58;condition%swap_1
+exp_b_comprehension,58,swap_3,We read about six hundred to eight hundred headline ideas on a Monday coming from our staff and a small group of — writers outside a core contributing.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,58,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%58;condition%swap_3
+exp_b_comprehension,59,original,"In support of the first claim, we show that the similarities in form and function of an interjection with the specific function of repair initiation are very much greater across languages than chance coincidence would admit.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,59,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%59;condition%original
+exp_b_comprehension,59,random,Much are admit claim greater interjection first the across show similarities in chance function function initiation than and in the would with form of the very specific support we repair coincidence of languages of an that.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,59,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%59;condition%random
+exp_b_comprehension,59,swap_1,"In support of the first claim, we show that the similarities in form and of function an interjection with the specific function of repair initiation are very much greater across languages than chance coincidence would admit.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,59,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%59;condition%swap_1
+exp_b_comprehension,59,swap_3,"In support of the first claim, we show that the similarities in form function and of an interjection with the specific function of repair initiation are very much greater across than languages coincidence chance would admit.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,59,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%59;condition%swap_3
+exp_b_comprehension,60,original,"You must avoid simply copying the grammar rules, however, as this would technically turn your language into a code.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,60,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%60;condition%original
+exp_b_comprehension,60,random,Simply technically copying this code a the turn avoid your grammar would language rules you must into as however.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,60,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%60;condition%random
+exp_b_comprehension,60,swap_1,"You must avoid simply copying the grammar rules, however, as this would technically turn your into language a code.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,60,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%60;condition%swap_1
+exp_b_comprehension,60,swap_3,"You must avoid simply copying grammar the rules, as however, this would technically turn your language into code a.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,60,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%60;condition%swap_3
+exp_b_comprehension,61,original,"This system is efficient and accurate, and it can be adapted to any academic discipline and used for continuous collection.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,61,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%61;condition%original
+exp_b_comprehension,61,random,Be efficient used this can and continuous is any discipline system to for and collection adapted accurate and it academic.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,61,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%61;condition%random
+exp_b_comprehension,61,swap_1,"This system is efficient and accurate, and it can be adapted any to academic discipline and used for continuous collection.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,61,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%61;condition%swap_1
+exp_b_comprehension,61,swap_3,"This system is efficient and accurate, and it be can adapted to academic any discipline and used continuous for collection.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,61,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%61;condition%swap_3
+exp_b_comprehension,62,original,"I am the only candidate who has studied both economics and law, and the only candidate with a background in technology entrepreneurship.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,62,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%62;condition%original
+exp_b_comprehension,62,random,A law only studied only has candidate candidate the with am and technology entrepreneurship economics I in background who the and both.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,62,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%62;condition%random
+exp_b_comprehension,62,swap_1,"I am the only candidate who has studied both economics and law, and only the candidate with a background in technology entrepreneurship.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,62,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%62;condition%swap_1
+exp_b_comprehension,62,swap_3,"I am the only candidate who has studied both economics and and law, the only candidate a with in background technology entrepreneurship.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,62,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%62;condition%swap_3
+exp_b_comprehension,63,original,Have both of the teams turn around and have the referee throw it into the grass or pitch while the teams aren’t looking.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,63,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%63;condition%original
+exp_b_comprehension,63,random,Of teams into or and throw the both pitch turn the referee have it grass the aren’t the while looking around teams have.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,63,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%63;condition%random
+exp_b_comprehension,63,swap_1,Have both of the teams turn around and have the referee throw it into the grass or pitch the while teams aren’t looking.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,63,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%63;condition%swap_1
+exp_b_comprehension,63,swap_3,Have both the of teams turn and around have the referee throw it into the grass or while pitch the teams aren’t looking.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,63,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%63;condition%swap_3
+exp_b_comprehension,64,original,"By taking this action, I hope that I will have hastened the start of that process of healing which is so desperately needed in America.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,64,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%64;condition%original
+exp_b_comprehension,64,random,Which will hope start action taking needed that in that by this hastened the of America is I process so of desperately I have healing.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,64,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%64;condition%random
+exp_b_comprehension,64,swap_1,"By taking this action, I hope I that will have hastened the start of that process of healing which is so desperately needed in America.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,64,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%64;condition%swap_1
+exp_b_comprehension,64,swap_3,"By taking this action, I hope that will I have hastened the start of that healing process of which is so desperately needed in America.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,64,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%64;condition%swap_3
+exp_b_comprehension,65,original,"If someone asks you why you pushed all the buttons, you can honestly say, “It was just a joke!”",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,65,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%65;condition%original
+exp_b_comprehension,65,random,You joke you pushed the why just can It all was say someone asks buttons if honestly a you.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,65,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%65;condition%random
+exp_b_comprehension,65,swap_1,"If someone asks you why you pushed all the buttons, you can honestly say, “It was just joke! a”",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,65,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%65;condition%swap_1
+exp_b_comprehension,65,swap_3,"If someone asks you why all you pushed the buttons, you honestly can say, “It was just a joke!”",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,65,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%65;condition%swap_3
+exp_b_comprehension,66,original,One of them is the channels that NBC as the broadcasting rights owner for the United States will use to air the Paralympic Games on.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,66,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%66;condition%original
+exp_b_comprehension,66,random,To Games United is as one channels rights broadcasting the them the for Paralympic air of on NBC the use the States owner will that.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,66,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%66;condition%random
+exp_b_comprehension,66,swap_1,One of them is the channels that NBC as the broadcasting rights for owner the United States will use to air the Paralympic Games on.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,66,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%66;condition%swap_1
+exp_b_comprehension,66,swap_3,One of them is the channels NBC that as the broadcasting rights owner the for United States will use air to the Paralympic Games on.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,66,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%66;condition%swap_3
+exp_b_comprehension,67,original,The island lies in deep water and has sheltered waters and bays which provide a resting place for humpbacks with calves.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,67,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%67;condition%original
+exp_b_comprehension,67,random,With which island lies place the bays resting a provide humpbacks calves and deep sheltered in has and for water waters.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,67,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%67;condition%random
+exp_b_comprehension,67,swap_1,The island lies deep in water and has sheltered waters and bays which provide a resting place for humpbacks with calves.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,67,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%67;condition%swap_1
+exp_b_comprehension,67,swap_3,The island lies in deep water and sheltered has waters and bays which provide resting a place humpbacks for with calves.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,67,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%67;condition%swap_3
+exp_b_comprehension,68,original,"The Island is new to tourism, so if you are looking for a luxurious vacation this is not the right destination.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,68,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%68;condition%original
+exp_b_comprehension,68,random,Island for you are the so is vacation right not to luxurious if tourism this a new is destination the looking.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,68,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%68;condition%random
+exp_b_comprehension,68,swap_1,"The Island is new to tourism, so if you are looking for a luxurious vacation this is the not right destination.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,68,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%68;condition%swap_1
+exp_b_comprehension,68,swap_3,"The Island is new tourism, to so if you looking are for a luxurious vacation this is the not right destination.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,68,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%68;condition%swap_3
+exp_b_comprehension,69,original,You will already have demonstrated a pretty long successful record of writing stuff for us before you will be in that room on a daily basis.,Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,69,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%69;condition%original
+exp_b_comprehension,69,random,Stuff basis of will daily you for in have writing room a us be long will pretty before on that already record you demonstrated a successful.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,69,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%69;condition%random
+exp_b_comprehension,69,swap_1,You will already have demonstrated a pretty long successful record of writing stuff for us before you will be in that room on daily a basis.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,69,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%69;condition%swap_1
+exp_b_comprehension,69,swap_3,You will already have a demonstrated pretty long successful record of writing stuff for before us you will be in that room on daily a basis.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,69,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%69;condition%swap_3
+exp_b_comprehension,70,original,"The city also expanded outward through rash development, particularly towards the west, as its population grew by absorbing job-seekers from the provinces.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,70,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%70;condition%original
+exp_b_comprehension,70,random,Particularly rash also development provinces population jobseekers grew the west expanded as from through by outward city towards its absorbing the the.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,70,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%70;condition%random
+exp_b_comprehension,70,swap_1,"The city also expanded outward through rash development, particularly towards the as west, its population grew by absorbing job-seekers from the provinces.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,70,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%70;condition%swap_1
+exp_b_comprehension,70,swap_3,"The city also expanded outward through rash development, particularly towards the west, as its population by job-seekers grew absorbing from the provinces.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,70,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%70;condition%swap_3
+exp_b_comprehension,71,original,"In the past decade, there has been a rapid influx of scuba divers and other tourists coming in, making tourism the major industry player in Coron today.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,71,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%71;condition%original
+exp_b_comprehension,71,random,And in there tourism tourists been major past influx player rapid in has other the Coron a decade divers today of the in scuba making industry coming.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,71,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%71;condition%random
+exp_b_comprehension,71,swap_1,"In the past decade, there has been rapid a influx of scuba divers and other tourists coming in, making tourism the major industry player in Coron today.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,71,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%71;condition%swap_1
+exp_b_comprehension,71,swap_3,"In the past decade, there has been a rapid influx of scuba divers and other coming tourists in, making tourism industry the major player in Coron today.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,71,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%71;condition%swap_3
+exp_b_comprehension,72,original,"Mohamed was a VIP guest at the Google Science Fair this weekend, and was able to meet finalists at the event held at Google's headquarters located in Mountain View, California.",Are there any errors in this sentence?,multiple_choice,Yes_No,No,
+exp_b,72,original,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%72;condition%original
+exp_b_comprehension,72,random,At Mountain at was guest mohamed VIP Fair a California to located able the meet headquarters this finalists held Science was in the at View Google's event weekend and Google.,Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,72,random,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%72;condition%random
+exp_b_comprehension,72,swap_1,"Mohamed was a VIP guest at the Google Science Fair this weekend, and was to able meet finalists at the event held at Google's headquarters located in Mountain View, California.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,72,swap_1,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%72;condition%swap_1
+exp_b_comprehension,72,swap_3,"Mohamed was VIP a guest at the Google Science Fair this weekend, was and able to finalists meet at the event held at Google's headquarters located in Mountain View, California.",Are there any errors in this sentence?,multiple_choice,Yes_No,Yes,
+exp_b,72,swap_3,,Please rate how acceptable the sentence is,multiple_choice,1 - Definitely not acceptable_2_3_4_5_6_7 - Definitely acceptable,NA,coordinate;experiment%exp_b_comprehension;item%72;condition%swap_3

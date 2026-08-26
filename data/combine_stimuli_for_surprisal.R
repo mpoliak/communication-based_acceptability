@@ -23,23 +23,21 @@ materials <- read_csv("en/materials_en.csv") %>%
 materials <- materials[0,]
 
 for (current_language in all_languages) {
-  ## Read materials files
-  if (current_language == "zh") {
-    current_dat <- read_csv(
-      file.path(
-        current_language, 
-        paste0("materials_", current_language, "_for_analysis.csv")
-      )
+  ## Read materials files.
+  ## NB: Mandarin deliberately uses the UNSEGMENTED materials_zh.csv here, not the
+  ## jiebaR-segmented materials_zh_for_analysis.csv used elsewhere. The Goldfish
+  ## Chinese model is a SentencePiece model trained on running (unsegmented) text,
+  ## so feeding it the space-separated jieba output makes it score every inserted
+  ## space as a separate token, inflating sum_surprisal for Mandarin relative to
+  ## the other languages. Word segmentation is still what defines n_words and
+  ## dl_distance -- only the language-model input is unsegmented.
+  current_dat <- read_csv(
+    file.path(
+      current_language,
+      paste0("materials_", current_language, ".csv")
     )
-  } else {
-    current_dat <- read_csv(
-      file.path(
-        current_language, 
-        paste0("materials_", current_language, ".csv")
-      )
-    )
-  }
-  
+  )
+
   if (current_language == "en_experimental") {
     current_dat <- current_dat %>% 
       separate(condition, sep="_", into = c("condition", "type")) %>%

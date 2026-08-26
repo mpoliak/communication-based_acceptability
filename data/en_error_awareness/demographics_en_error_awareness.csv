@@ -1,0 +1,7 @@
+name,type,content,options,config
+consent,text,"<b>Consent Statement</b>:<br>By answering the following questions, you are participating in a study being performed by cognitive scientists in the MIT Department of Brain and Cognitive Sciences. If you have questions about this research, please contact us. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.",,
+participant_ID,question_text,Please provide your Prolific ID,,
+native_language,question_choices,Is English your first language?,Yes_No,
+other_languages,question_text,"If you speak any languages other than English, please list them here (write ""none"" if not).",,
+country_of_birth,question_choices,In which country were you born?,United States_United Kingdom_Canada_Australia_Ireland_New Zealand_Other,
+instructions,text,"Instructions: In this study you will read a series of sentences, one at a time.<br><br>For each sentence, you will first rate how acceptable it sounds to you on a scale from 1 (definitely not acceptable) to 7 (definitely acceptable). Trust your intuition; there are no right or wrong answers, and you should not overthink it.<br><br>You will then be asked whether the sentence contains any grammatical errors. Answer Yes or No.<br><br>Please read each sentence carefully and answer every question.",,

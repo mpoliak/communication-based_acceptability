@@ -65,8 +65,10 @@ and draw the figures.
 ### 5. Supporting information
 Run `supporting_information/supporting_information_analysis.R`. It is organized to
 mirror the SI document — Section 1 (controlling for number of variables), Section 2
-(including the shuffled condition), Section 3 (surprisal instead of length) —
-followed by a "Diagnostic and Additional Code" section (materials and participant
+(including the shuffled condition), Section 3 (surprisal instead of length),
+Section 4 (error awareness: a two-sample English experiment in which participants
+also judged whether each sentence contained an error) — followed by a
+"Diagnostic and Additional Code" section (materials and participant
 descriptives, parametric/linear models, the maximal-exclusion robustness check, and
 diagnostic comparison figures) that is not part of the SI document itself.
 

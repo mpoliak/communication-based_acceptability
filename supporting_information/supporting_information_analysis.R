@@ -2590,13 +2590,13 @@ ggsave("figures/all_languages_with_model_predictions_surprisal.png", width=12, h
 ## #############################################################################
 ## SI SECTION 4: Error awareness (English)
 ## #############################################################################
-## A separate English experiment, run in two independent samples of 40
-## participants, on the same materials as the original English experiment. On
-## every trial participants both rated the sentence's acceptability (exp_b) and
-## answered "Are there any errors in this sentence?" (exp_b_comprehension).
-## `literal_response` holds the correct Yes/No answer -- "No" for the original
-## condition, "Yes" once any adjacent-token exchanges were introduced -- so a
-## trial counts as correctly judged exactly when response == literal_response.
+## A separate English experiment with 80 participants, on the same materials as
+## the original English experiment. On every trial participants both rated the
+## sentence's acceptability (exp_b) and answered "Are there any errors in this
+## sentence?" (exp_b_comprehension). `literal_response` holds the correct Yes/No
+## answer -- "No" for the original condition, "Yes" once any adjacent-token
+## exchanges were introduced -- so a trial counts as correctly judged exactly
+## when response == literal_response.
 ##
 ## The section asks, in order:
 ##   4.1  How well do participants detect the errors we introduced?
@@ -2604,16 +2604,15 @@ ggsave("figures/all_languages_with_model_predictions_surprisal.png", width=12, h
 ##   4.3  Do ratings on correctly-judged trials look like the original experiment?
 ##   4.4  Do the paper's three models rank the same way on those trials?
 ##   4.5  Does that ranking survive adding back wrongly-flagged original sentences?
-## 4.4/4.5 also fit the same three models to the unfiltered error-awareness
-## trials and to the original English experiment, because restricting to
-## correctly-judged trials selects on a variable correlated with the rating and
-## the rankings cannot be read without those baselines.
+## 4.4/4.5 also fit the same three models to the unfiltered trials and to the
+## original English experiment, because restricting to correctly-judged trials
+## selects on a variable correlated with the rating and the rankings cannot be
+## read without those baselines.
 ##
 ## Every model is restricted to dl_distance <= 3, matching the main analyses (in
 ## practice this keeps original/swap_1/swap_3 and drops all but a handful of
-## shuffled trials). The shuffled condition still appears in every figure.
-## Produces error_awareness_detection_by_length.png,
-## error_awareness_acceptability_by_detection_sample{1,2}.png,
+## shuffled trials). Produces error_awareness_detection_by_length.png,
+## error_awareness_acceptability_by_detection.png,
 ## error_awareness_acceptability_by_version.png and
 ## error_awareness_likelihood_differences.png.
 
@@ -2628,30 +2627,26 @@ ea_key <- crit %>%
   mutate(item = as.integer(str_extract(as.character(item), "[0-9]+"))) %>%
   rename(cond = condition)
 
-read_ea_sample <- function(path, label) read_csv(path) %>% mutate(sample = label)
-
+## The responses ship in two collection files, concatenated here.
 ea_raw <- bind_rows(
-  read_ea_sample("../data/en_error_awareness/data_en_error_awareness_sample1.csv",
-                 "Sample 1"),
-  read_ea_sample("../data/en_error_awareness/data_en_error_awareness_sample2.csv",
-                 "Sample 2"))
+  read_csv("../data/en_error_awareness/data_en_error_awareness_sample1.csv"),
+  read_csv("../data/en_error_awareness/data_en_error_awareness_sample2.csv"))
 
 ## One row per participant x item: the acceptability rating joined to that same
 ## trial's Yes/No error judgment. This single table drives the whole section.
 ea_trials <- ea_raw %>%
   filter(experiment == "exp_b") %>%
-  transmute(sample, participant_id, item = as.integer(item), cond,
+  transmute(participant_id, item = as.integer(item), cond,
             acceptability = as.numeric(substr(response, 1, 1))) %>%
   inner_join(
     ea_raw %>%
       filter(experiment == "exp_b_comprehension") %>%
-      transmute(sample, participant_id, item = as.integer(item), cond,
+      transmute(participant_id, item = as.integer(item), cond,
                 said_error = response == "Yes",
                 detected = response == literal_response),
-    by = c("sample", "participant_id", "item", "cond")) %>%
+    by = c("participant_id", "item", "cond")) %>%
   left_join(ea_key, by = c("item", "cond")) %>%
   mutate(
-    sample = factor(sample, levels = c("Sample 1", "Sample 2")),
     condition_label = factor(cond,
       levels = c("original", "swap_1", "swap_3", "random"),
       labels = c("Original", "1 swap", "3 swaps", "Shuffled")),
@@ -2713,67 +2708,60 @@ fit_maximal <- function(formulas, fitter, label) {
 ## The models restrict to dl_distance <= 3, as the main analyses do.
 ea_model_trials <- ea_trials %>%
   filter(dl_distance <= 3) %>%
-  mutate(participant_id = factor(participant_id), item = factor(item))
-
-ea_samples <- levels(ea_trials$sample)
+  mutate(participant_id = factor(participant_id), item = factor(item)) %>%
+  droplevels()
 
 
 ## ---- 4.1 Error detection: descriptives, figure, and model ----
 cat("\n===== 4.1 Error detection =====\n")
 
-## Participants, items and trials contributed by each sample
+## Participants, items and trials
 ea_trials %>%
-  group_by(sample) %>%
   summarize(participants = n_distinct(participant_id), items = n_distinct(item),
-            trials = n(), .groups = "drop") %>%
+            trials = n()) %>%
   print()
 
-ea_trials %>%
-  count(sample, condition_label) %>%
-  pivot_wider(names_from = condition_label, values_from = n) %>%
-  print()
+ea_trials %>% count(condition_label) %>% print()
 
 ## Detection accuracy by condition. For the original condition "accuracy" is one
 ## minus the false-alarm rate (correctly saying there is no error); for the three
 ## error conditions it is the hit rate.
 ea_trials %>%
-  group_by(sample, condition_label) %>%
+  group_by(condition_label) %>%
   summarize(n = n(), accuracy = mean(detected), said_error = mean(said_error),
             mean_rating = mean(acceptability), .groups = "drop") %>%
   print(n = Inf)
 
 ea_trials %>%
-  group_by(sample) %>%
   summarize(overall_accuracy = mean(detected),
             false_alarm_rate = mean(said_error[cond == "original"]),
-            hit_rate = mean(said_error[cond != "original"]), .groups = "drop") %>%
+            hit_rate = mean(said_error[cond != "original"])) %>%
   print()
 
 ## Spread of by-item detection accuracy (the dots in the figure below)
 ea_trials %>%
-  item_means(detected, sample, condition_label, item) %>%
-  group_by(sample, condition_label) %>%
+  item_means(detected, condition_label, item) %>%
+  group_by(condition_label) %>%
   summarize(min = min(value), median = median(value), max = max(value),
             items_at_ceiling = sum(value == 1), .groups = "drop") %>%
   print(n = Inf)
 
 ## Figure: by-item detection accuracy against sentence length, one curve per
-## condition, one panel per sample. Dots are item means; the curve is a binomial
-## GAM over the trial-level 0/1 data. The basis is deliberately small and
-## shrinkage-penalised (k = 4, bs = "cs") so the curves describe the trend
-## rather than tracking individual items -- the shuffled condition sits at 99%
-## accuracy and an unconstrained smooth there is all wiggle and no signal.
+## condition. Dots are item means; the curve is a binomial GAM over the
+## trial-level 0/1 data. The basis is deliberately small and shrinkage-penalised
+## (k = 4, bs = "cs") so the curves describe the trend rather than tracking
+## individual items -- the shuffled condition sits at 99% accuracy and an
+## unconstrained smooth there is all wiggle and no signal.
 p_detection <- ggplot(mapping = aes(x = n_words, color = condition_label,
                                     fill = condition_label)) +
   geom_hline(yintercept = 0.5, linetype = "dashed", color = "grey70") +
-  geom_point(data = item_means(ea_trials, detected, sample, item, n_words,
+  geom_point(data = item_means(ea_trials, detected, item, n_words,
                                condition_label),
              aes(y = value), alpha = 0.35) +
   geom_smooth(data = ea_trials %>% mutate(correct = as.integer(detected)),
               aes(y = correct), method = "gam",
               method.args = list(family = "binomial"),
               formula = y ~ s(x, bs = "cs", k = 4)) +
-  facet_wrap(~ sample) +
   scale_color_manual(name = "Condition", values = error_colors,
                      aesthetics = c("colour", "fill")) +
   scale_x_continuous(name = "Sentence length (tokens)") +
@@ -2782,34 +2770,29 @@ p_detection <- ggplot(mapping = aes(x = n_words, color = condition_label,
   coord_cartesian(ylim = c(0, 1))
 p_detection
 ggsave("figures/error_awareness_detection_by_length.png", p_detection,
-       width = 11, height = 5.5)
+       width = 8, height = 5.5)
 
 ## Model: does the chance of noticing an error depend on how much was displaced
 ## and on how long the sentence is? Same fixed and random structure as the
 ## main-analysis acceptability model, in binomial form.
-detection_models <- lapply(ea_samples, function(ea_sample) {
-  d <- ea_model_trials %>%
-    filter(sample == ea_sample) %>% droplevels() %>%
-    mutate(dl_distance_z = zscore(dl_distance), n_words_z = zscore(n_words))
-  fit_maximal(
-    list(
-      detected ~ dl_distance_z * n_words_z +
-        (dl_distance_z * n_words_z | participant_id) + (dl_distance_z | item),
-      detected ~ dl_distance_z * n_words_z +
-        (dl_distance_z + n_words_z | participant_id) + (dl_distance_z | item),
-      detected ~ dl_distance_z * n_words_z +
-        (dl_distance_z + n_words_z || participant_id) + (dl_distance_z || item),
-      detected ~ dl_distance_z * n_words_z +
-        (dl_distance_z + n_words_z || participant_id) + (1 | item)),
-    function(f) glmer(f, data = d, family = binomial, control = glmer_ctrl),
-    paste("detection", ea_sample))
-})
-names(detection_models) <- ea_samples
+detection_model <- fit_maximal(
+  list(
+    detected ~ dl_distance_z * n_words_z +
+      (dl_distance_z * n_words_z | participant_id) + (dl_distance_z | item),
+    detected ~ dl_distance_z * n_words_z +
+      (dl_distance_z + n_words_z | participant_id) + (dl_distance_z | item),
+    detected ~ dl_distance_z * n_words_z +
+      (dl_distance_z + n_words_z || participant_id) + (dl_distance_z || item),
+    detected ~ dl_distance_z * n_words_z +
+      (dl_distance_z + n_words_z || participant_id) + (1 | item)),
+  function(f) glmer(f, family = binomial, control = glmer_ctrl,
+                    data = ea_model_trials %>%
+                      mutate(dl_distance_z = zscore(dl_distance),
+                             n_words_z = zscore(n_words))),
+  "detection")
 
-for (ea_sample in ea_samples) {
-  cat("\n---- detection ~ DL distance x length --", ea_sample, "----\n")
-  print(round(summary(detection_models[[ea_sample]])$coefficients, 4))
-}
+cat("\n---- detection ~ DL distance x length ----\n")
+print(round(summary(detection_model)$coefficients, 4))
 
 
 ## ---- 4.2 Are acceptability ratings independent of error awareness? ----
@@ -2817,82 +2800,66 @@ cat("\n===== 4.2 Ratings and error awareness =====\n")
 
 ## Figure: item-mean acceptability against sentence length, coloured by
 ## condition, split into the trials whose error judgment was right and the
-## trials whose judgment was wrong. One figure per sample.
+## trials whose judgment was wrong.
 ##
 ## The shuffled condition is dropped here (only here -- it is still shown in the
 ## 4.1 and 4.3 figures). Shuffled sentences are detected on 99% of trials, so the
 ## "judged incorrectly" panel holds only a handful of them spread over a few
 ## items, and the fit through them is noise.
-plot_acceptability_by_detection <- function(d) {
-  d <- d %>%
-    filter(cond != "random") %>%
-    mutate(condition_label = droplevels(condition_label))
-  ggplot(item_means(d, acceptability, item, n_words, condition_label,
-                    detection_label),
-         aes(n_words, value, color = condition_label, fill = condition_label)) +
-    geom_point(alpha = 0.35) +
-    geom_smooth(method = "lm", formula = y ~ x) +
-    facet_wrap(~ detection_label, nrow = 1) +
-    scale_color_manual(name = "Condition", values = error_colors,
-                       aesthetics = c("colour", "fill")) +
-    scale_x_continuous(name = "Sentence length (tokens)") +
-    scale_y_continuous(name = "Acceptability", breaks = seq(1, 7, 2)) +
-    coord_cartesian(ylim = c(1, 7))
-}
-
-for (ea_sample in ea_samples) {
-  p <- plot_acceptability_by_detection(ea_trials %>% filter(sample == ea_sample)) +
-    ggtitle(ea_sample)
-  print(p)
-  ggsave(sprintf("figures/error_awareness_acceptability_by_detection_%s.png",
-                 tolower(gsub(" ", "", ea_sample))),
-         p, width = 11, height = 5.5)
-}
+p_awareness <- ea_trials %>%
+  filter(cond != "random") %>%
+  mutate(condition_label = droplevels(condition_label)) %>%
+  item_means(acceptability, item, n_words, condition_label, detection_label) %>%
+  ggplot(aes(n_words, value, color = condition_label, fill = condition_label)) +
+  geom_point(alpha = 0.35) +
+  geom_smooth(method = "lm", formula = y ~ x) +
+  facet_wrap(~ detection_label, nrow = 1) +
+  scale_color_manual(name = "Condition", values = error_colors,
+                     aesthetics = c("colour", "fill")) +
+  scale_x_continuous(name = "Sentence length (tokens)") +
+  scale_y_continuous(name = "Acceptability", breaks = seq(1, 7, 2)) +
+  coord_cartesian(ylim = c(1, 7))
+p_awareness
+ggsave("figures/error_awareness_acceptability_by_detection.png", p_awareness,
+       width = 11, height = 5.5)
 
 ## Model: acceptability from the communication predictors (DL distance per token,
 ## plus sentence length) crossed with whether the error judgment was correct.
 ## Correctness is sum-coded so the predictor main effects are averages over the
 ## two judgment outcomes. Sentence length is between items here, so it gets a
 ## by-participant but no by-item slope (as in main_analysis.R).
-awareness_models <- lapply(ea_samples, function(ea_sample) {
-  d <- ea_model_trials %>%
-    filter(sample == ea_sample) %>% droplevels() %>%
-    mutate(weighted_dl_distance_z = zscore(weighted_dl_distance),
-           n_words_z = zscore(n_words),
-           detected_c = ifelse(detected, 0.5, -0.5))
-  fit_maximal(
-    list(
-      acceptability ~ (weighted_dl_distance_z + n_words_z) * detected_c +
-        (weighted_dl_distance_z + n_words_z + detected_c | participant_id) +
-        (weighted_dl_distance_z + detected_c | item),
-      acceptability ~ (weighted_dl_distance_z + n_words_z) * detected_c +
-        (weighted_dl_distance_z + n_words_z + detected_c | participant_id) +
-        (weighted_dl_distance_z | item),
-      acceptability ~ (weighted_dl_distance_z + n_words_z) * detected_c +
-        (weighted_dl_distance_z + n_words_z + detected_c || participant_id) +
-        (weighted_dl_distance_z || item),
-      acceptability ~ (weighted_dl_distance_z + n_words_z) * detected_c +
-        (weighted_dl_distance_z + n_words_z + detected_c || participant_id) +
-        (1 | item)),
-    function(f) lmer(f, data = d, control = lmer_ctrl),
-    paste("awareness", ea_sample))
-})
-names(awareness_models) <- ea_samples
+awareness_model <- fit_maximal(
+  list(
+    acceptability ~ (weighted_dl_distance_z + n_words_z) * detected_c +
+      (weighted_dl_distance_z + n_words_z + detected_c | participant_id) +
+      (weighted_dl_distance_z + detected_c | item),
+    acceptability ~ (weighted_dl_distance_z + n_words_z) * detected_c +
+      (weighted_dl_distance_z + n_words_z + detected_c | participant_id) +
+      (weighted_dl_distance_z | item),
+    acceptability ~ (weighted_dl_distance_z + n_words_z) * detected_c +
+      (weighted_dl_distance_z + n_words_z + detected_c || participant_id) +
+      (weighted_dl_distance_z || item),
+    acceptability ~ (weighted_dl_distance_z + n_words_z) * detected_c +
+      (weighted_dl_distance_z + n_words_z + detected_c || participant_id) +
+      (1 | item)),
+  function(f) lmer(f, control = lmer_ctrl,
+                   data = ea_model_trials %>%
+                     mutate(weighted_dl_distance_z = zscore(weighted_dl_distance),
+                            n_words_z = zscore(n_words),
+                            detected_c = ifelse(detected, 0.5, -0.5))),
+  "awareness")
 
-for (ea_sample in ea_samples) {
-  cat("\n---- acceptability ~ (DL/length + length) x judged correctly --",
-      ea_sample, "----\n")
-  print(round(summary(awareness_models[[ea_sample]])$coefficients, 4))
-}
+cat("\n---- acceptability ~ (DL/length + length) x judged correctly ----\n")
+print(round(summary(awareness_model)$coefficients, 4))
 
 
 ## ---- 4.3 Ratings on correctly-judged trials vs. the original experiment ----
 cat("\n===== 4.3 Correctly-judged trials vs. the original experiment =====\n")
 
-## Figure: the same by-item picture drawn three times -- for the original English
+## Figure: the same by-item picture drawn twice -- for the original English
 ## experiment (which asked meaning-comprehension questions, so every trial is
-## included) and for each error-awareness sample restricted to the trials whose
-## error judgment was correct.
+## included) and for the error-awareness experiment restricted to the trials
+## whose error judgment was correct.
 version_panels <- bind_rows(
   crit %>%
     filter(language == "en") %>%
@@ -2901,12 +2868,11 @@ version_panels <- bind_rows(
               cond = condition, n_words, acceptability = response_num),
   ea_trials %>%
     filter(detected) %>%
-    transmute(panel = paste0(sample, "\n(errors correctly judged)"),
+    transmute(panel = "Error awareness\n(errors correctly judged)",
               item, cond, n_words, acceptability)) %>%
   mutate(
     panel = factor(panel, levels = c("English\n(comprehension questions)",
-                                     "Sample 1\n(errors correctly judged)",
-                                     "Sample 2\n(errors correctly judged)")),
+                                     "Error awareness\n(errors correctly judged)")),
     condition_label = factor(cond,
       levels = c("original", "swap_1", "swap_3", "random"),
       labels = c("Original", "1 swap", "3 swaps", "Shuffled")))
@@ -2925,21 +2891,18 @@ p_version <- ggplot(item_means(version_panels, acceptability, panel, item,
   coord_cartesian(ylim = c(1, 7))
 p_version
 ggsave("figures/error_awareness_acceptability_by_version.png", p_version,
-       width = 15, height = 5.5)
+       width = 11, height = 5.5)
 
 ## The communication account's second prediction, isolated: among sentences that
 ## the participant correctly judged to be error-free, longer should still be less
-## acceptable. Fit per sample on the original-condition trials only.
-for (ea_sample in ea_samples) {
-  d <- ea_model_trials %>%
-    filter(sample == ea_sample, cond == "original", detected) %>% droplevels() %>%
-    mutate(n_words_c = n_words - mean(n_words))
-  cat("\n---- error-free (correctly judged) acceptability ~ length --",
-      ea_sample, "----\n")
-  print(round(summary(lmer(
-    acceptability ~ n_words_c + (n_words_c | participant_id) + (1 | item),
-    data = d, control = lmer_ctrl))$coefficients, 4))
-}
+## acceptable. Fit on the original-condition trials only.
+cat("\n---- error-free (correctly judged) acceptability ~ length ----\n")
+print(round(summary(lmer(
+  acceptability ~ n_words_c + (n_words_c | participant_id) + (1 | item),
+  data = ea_model_trials %>%
+    filter(cond == "original", detected) %>% droplevels() %>%
+    mutate(n_words_c = n_words - mean(n_words)),
+  control = lmer_ctrl))$coefficients, 4))
 
 
 ## ---- 4.4/4.5 The paper's three models on error-awareness trials ----
@@ -2985,7 +2948,7 @@ fit_ea_model_set <- function(d) {
                   data = d_trials, REML = FALSE, control = lmer_ctrl)))
 }
 
-## Four nested views of the same trials, per sample:
+## Three nested views of the same trials:
 ##   All trials          -- everything, regardless of the error judgment
 ##   Detected only       -- 4.4: only trials whose error judgment was correct
 ##   + flagged originals -- 4.5: adds back the original sentences that were
@@ -3003,18 +2966,15 @@ ea_reference <- crit %>%
             cond = condition, n_words, dl_distance, weighted_dl_distance,
             grammatical, acceptability = response_num)
 
-ea_datasets <- list("English\n(comprehension questions)" = ea_reference)
-for (ea_sample in ea_samples) {
-  d <- ea_model_trials %>% filter(sample == ea_sample)
-  ea_datasets[[paste0(ea_sample, "\nAll trials")]] <- d
-  ea_datasets[[paste0(ea_sample, "\nDetected only")]] <- d %>% filter(detected)
-  ea_datasets[[paste0(ea_sample, "\n+ flagged originals")]] <-
-    d %>% filter(detected | cond == "original")
-}
+ea_datasets <- list(
+  "English\n(comprehension questions)" = ea_reference,
+  "All trials"          = ea_model_trials,
+  "Detected only"       = ea_model_trials %>% filter(detected),
+  "+ flagged originals" = ea_model_trials %>% filter(detected | cond == "original"))
 
 if (!file.exists("models/ea_section4_models.RData")) {
   ea_model_sets <- lapply(names(ea_datasets), function(nm) {
-    cat("Fitting model set for", gsub("\n", " | ", nm), "\n")
+    cat("Fitting model set for", gsub("\n", " ", nm), "\n")
     fit_ea_model_set(ea_datasets[[nm]])
   })
   names(ea_model_sets) <- names(ea_datasets)
@@ -3024,7 +2984,7 @@ if (!file.exists("models/ea_section4_models.RData")) {
 }
 
 ## What each dataset retains
-tibble(dataset = gsub("\n", " | ", names(ea_datasets)),
+tibble(dataset = gsub("\n", " ", names(ea_datasets)),
        trials = vapply(ea_datasets, nrow, integer(1)),
        items = vapply(ea_datasets, function(d) n_distinct(d$item), integer(1)),
        originals = vapply(ea_datasets, function(d) sum(d$cond == "original"),
@@ -3035,14 +2995,14 @@ tibble(dataset = gsub("\n", " | ", names(ea_datasets)),
 ## optimizer failures rather than silently trusting the likelihoods. Boundary
 ## (singular) fits are not reported -- see converged() above.
 for (nm in names(ea_model_sets)) {
-  cat("\n---- convergence --", gsub("\n", " | ", nm), "----\n")
+  cat("\n---- convergence --", gsub("\n", " ", nm), "----\n")
   cat("  scam converged:",
       paste(names(ea_model_sets[[nm]]$scam),
             vapply(ea_model_sets[[nm]]$scam, function(m) m$conv, logical(1)),
             collapse = "  "), "\n")
   for (mn in names(ea_model_sets[[nm]]$lmer)) {
-    m <- ea_model_sets[[nm]]$lmer[[mn]]
-    cat("  lmer", mn, "- converged:", converged(m), "\n")
+    cat("  lmer", mn, "- converged:",
+        converged(ea_model_sets[[nm]]$lmer[[mn]]), "\n")
   }
 }
 
@@ -3074,7 +3034,7 @@ ea_likelihoods <- bind_rows(lapply(names(ea_model_sets), function(nm) {
   ungroup()
 
 ea_likelihoods %>%
-  mutate(dataset = gsub("\n", " | ", dataset)) %>%
+  mutate(dataset = gsub("\n", " ", dataset)) %>%
   select(family, dataset, model, log_likelihood, likelihood_diff) %>%
   arrange(family, dataset, model) %>%
   print(n = Inf)
@@ -3084,7 +3044,7 @@ ea_likelihoods %>%
   group_by(family, dataset) %>%
   slice_max(log_likelihood, n = 1) %>%
   ungroup() %>%
-  mutate(dataset = gsub("\n", " | ", dataset)) %>%
+  mutate(dataset = gsub("\n", " ", dataset)) %>%
   select(family, dataset, best_model = model, log_likelihood) %>%
   print(n = Inf)
 
@@ -3103,7 +3063,7 @@ p_ea_likelihoods <- ggplot(ea_likelihoods) +
   theme(legend.position = "top")
 p_ea_likelihoods
 ggsave("figures/error_awareness_likelihood_differences.png", p_ea_likelihoods,
-       width = 12, height = 7)
+       width = 12, height = 6)
 
 
 ## #############################################################################

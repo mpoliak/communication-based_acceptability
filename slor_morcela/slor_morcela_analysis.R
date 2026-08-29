@@ -367,14 +367,6 @@ stats_models_by_language <- do.call(rbind, lapply(names(models_by_language), fun
 
 write_csv(stats_models_by_language, "figures/likelihoods_by_language.csv")
 
-### ---- Figure based on individual-language likelihoods ----
-stats_models_by_language <- stats_models_by_language %>%
-  group_by(language) %>%
-  mutate(
-    max_likelihood = max(log_likelihood),
-    likelihood_diff = log_likelihood - max_likelihood
-  )
-
 ## Filled shapes (21 to 25 take both a colour and a fill), so every model is a
 ## solid marker. The three models from the paper keep the colours they have
 ## there, and their shapes are the filled versions of the defaults ggplot gave
@@ -394,6 +386,117 @@ MODEL_SHAPES <- c(
   "MORCELA"       = 25
 )
 
+## ---- Analysis Across All Languages ----
+## The paper also fits each model once to all of the languages at the same time,
+## with a random effect for language on top of the one for item, and reports that
+## as the "All Languages" row of its model-comparison figure. We do the same, so
+## that SLOR and MORCELA are judged the way the other three models are.
+##
+## The controlled English experiment is left out of this combined fit, exactly as
+## in analysis/main_analysis.R: its items were built to a different recipe, so
+## pooling them with the sampled materials of the other eight would mix two
+## different kinds of stimulus.
+##
+## MORCELA's two weights are estimated once here, on the pooled data, rather than
+## separately per language. This is one model of all eight languages, so it gets
+## one beta and one gamma.
+crit_by_items_all_languages <- crit_by_items %>%
+  filter(language != "en_exp") %>%
+  droplevels()
+
+crit_by_items_all_languages$morcela <- morcela_score(crit_by_items_all_languages)
+
+if (file.exists("models/all_languages_slor_morcela.RData")) {
+  load("models/all_languages_slor_morcela.RData")
+} else {
+
+  print("Fitting models for all languages together")
+
+  mod_grammatical <- scam(
+    response_num ~ grammatical_numeric +  # Fixed effects
+      s(item, bs="re") +
+      s(language, bs="re") + s(language, grammatical_numeric, bs="re"), # RE
+    data=crit_by_items_all_languages,
+    control = scam.control(trace = TRUE)
+  )
+
+  mod_distance <- scam(
+    response_num ~ s(dl_distance, bs="mpd") + # Fixed effects
+      s(item, bs="re") +
+      s(language, bs="re") + s(language, dl_distance, bs="re"), # RE
+    data=crit_by_items_all_languages,
+    control = scam.control(trace = TRUE)
+  )
+
+  mod_weighted_distance <- scam(
+    response_num ~ s(weighted_dl_distance, bs="mpd") + s(n_words, bs="mpd") + # Fixed effects
+      s(item, bs="re") +
+      s(language, bs="re") + s(language, weighted_dl_distance, bs="re") + 
+      s(language, n_words, bs="re"), # RE
+    data=crit_by_items_all_languages,
+    control = scam.control(trace = TRUE)
+  )
+
+  mod_slor <- scam(
+    response_num ~ s(slor, bs="mpi") + # Fixed effects
+      s(item, bs="re") +
+      s(language, bs="re") + s(language, slor, bs="re"), # RE
+    data=crit_by_items_all_languages,
+    control = scam.control(trace = TRUE)
+  )
+
+  mod_morcela <- scam(
+    response_num ~ s(morcela, bs="mpi") + # Fixed effects
+      s(item, bs="re") +
+      s(language, bs="re") + s(language, morcela, bs="re"), # RE
+    data=crit_by_items_all_languages,
+    control = scam.control(trace = TRUE)
+  )
+
+  save(
+    mod_grammatical,
+    mod_distance,
+    mod_weighted_distance,
+    mod_slor,
+    mod_morcela,
+    file="models/all_languages_slor_morcela.RData"
+  )
+
+}
+
+## Evaluate Convergence
+mod_grammatical$conv
+mod_distance$conv
+mod_weighted_distance$conv
+mod_slor$conv
+mod_morcela$conv
+
+main_likelihoods <- tibble(
+  model = c("Binary", "Gradient", "Communication", "SLOR", "MORCELA"),
+  log_likelihood = c(
+    marginal_logLik(mod_grammatical),
+    marginal_logLik(mod_distance),
+    marginal_logLik(mod_weighted_distance),
+    marginal_logLik(mod_slor),
+    marginal_logLik(mod_morcela)
+  )
+) %>%
+  mutate(
+    max_likelihood = max(log_likelihood),
+    likelihood_diff = log_likelihood - max_likelihood,
+    model = factor(model, levels=c("Communication", "Gradient", "Binary", "SLOR", "MORCELA"))
+  )
+
+write_csv(main_likelihoods, "figures/likelihoods_all_languages.csv")
+
+### ---- Figure based on individual-language likelihoods ----
+stats_models_by_language <- stats_models_by_language %>%
+  group_by(language) %>%
+  mutate(
+    max_likelihood = max(log_likelihood),
+    likelihood_diff = log_likelihood - max_likelihood
+  )
+
 p_language_likelihoods <- ggplot(stats_models_by_language) +
   geom_point(
     aes(
@@ -411,11 +514,36 @@ p_language_likelihoods <- ggplot(stats_models_by_language) +
   scale_x_continuous(
     name = "Log-Likelihood Difference"
   ) +
+  theme(legend.position="none") +
+  scale_y_discrete(name="")
+
+p_main_likelihoods <- ggplot(main_likelihoods) +
+  geom_point(
+    aes(
+      y="All Languages",
+      x=likelihood_diff,
+      color=model,
+      fill=model,
+      shape=model
+    ),
+    size=4
+  ) +
+  scale_color_manual(name="", values=MODEL_COLORS) +
+  scale_fill_manual(name="", values=MODEL_COLORS) +
+  scale_shape_manual(name="", values=MODEL_SHAPES) +
+  scale_x_continuous(
+    name = ""
+  ) +
   theme(legend.position="top") +
   scale_y_discrete(name="")
 
+## Stack the combined "All Languages" panel (top) over the by-language panel
+## (bottom), matching the figure in the paper.
+likelihood_differences_figure <- p_main_likelihoods / p_language_likelihoods +
+  plot_layout(heights = c(1, 3))
+
 ggsave("figures/likelihood_differences_slor_morcela.png",
-       plot = p_language_likelihoods, width = 10, height = 7)
+       plot = likelihood_differences_figure, width = 10, height = 9)
 
 ## ---- Main figure ----
 #### ---- Helper Functions 

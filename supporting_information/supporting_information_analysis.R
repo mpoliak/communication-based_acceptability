@@ -2627,10 +2627,7 @@ ea_key <- crit %>%
   mutate(item = as.integer(str_extract(as.character(item), "[0-9]+"))) %>%
   rename(cond = condition)
 
-## The responses ship in two collection files, concatenated here.
-ea_raw <- bind_rows(
-  read_csv("../data/en_error_awareness/data_en_error_awareness_sample1.csv"),
-  read_csv("../data/en_error_awareness/data_en_error_awareness_sample2.csv"))
+ea_raw <- read_csv("../data/en_error_awareness/data_en_error_awareness.csv")
 
 ## One row per participant x item: the acceptability rating joined to that same
 ## trial's Yes/No error judgment. This single table drives the whole section.

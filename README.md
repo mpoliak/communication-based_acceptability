@@ -27,8 +27,9 @@ Each script sets its own working directory, so it can be run from RStudio, via
   scripts, and the combined `full_data.csv` (see `data/DATA_DICTIONARY.md`).
 - `analysis/` — `main_analysis.R` (paper analyses and main figures) and `models/`
   (cached fits).
-- `supporting_information/` — `supporting_information_analysis.R` (SI analyses and
-  figures), `models/` (cached fits), and `goldfish_surprisals/` (surprisal pipeline).
+- `supporting_information/` — one script per SI section plus the shared `setup.R`
+  they all source, `models/` (cached fits), and `goldfish_surprisals/` (surprisal
+  pipeline).
 - `slor_morcela/` — comparison against two language-model accounts of
   acceptability, SLOR (Lau, Clark & Lappin 2017) and MORCELA (Tjuatja, Neubig,
   Linzen & Hao 2025). See `slor_morcela/README.md`.
@@ -63,14 +64,20 @@ plus `wordfreq`), then `slor_morcela/slor_morcela_analysis.R` to fit the models
 and draw the figures.
 
 ### 5. Supporting information
-Run `supporting_information/supporting_information_analysis.R`. It is organized to
-mirror the SI document — Section 1 (controlling for number of variables), Section 2
-(including the shuffled condition), Section 3 (surprisal instead of length),
-Section 4 (error awareness: a two-sample English experiment in which participants
-also judged whether each sentence contained an error) — followed by a
-"Diagnostic and Additional Code" section (materials and participant
-descriptives, parametric/linear models, the maximal-exclusion robustness check, and
-diagnostic comparison figures) that is not part of the SI document itself.
+`supporting_information/` holds one script per section of the SI document. Each is
+self-contained: it sources `setup.R` (libraries, helper functions, the `crit` data
+frame, the by-item frames and the shared plotting helpers) and can be run on its
+own, so reproducing one section does not mean running the others.
+
+| Script | Contents |
+|---|---|
+| `setup.R` | Shared setup. Not run directly — every script below sources it. |
+| `section1_number_of_variables.R` | Section 1: controlling for the number of variables |
+| `section2_shuffled_condition.R` | Section 2: including the shuffled condition |
+| `section3_surprisal.R` | Section 3: surprisal instead of length |
+| `section4_error_awareness.R` | Section 4: error awareness — the English experiment in which participants also judged whether each sentence contained an error |
+| `diagnostics_and_extras.R` | Materials and participant descriptives, parametric/linear models, the maximal-exclusion robustness check, and diagnostic comparison figures. Not part of the SI document. |
+| `run_all.R` | Runs all five in document order. |
 
 ## Model caching
 

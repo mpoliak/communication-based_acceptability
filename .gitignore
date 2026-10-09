@@ -10,3 +10,12 @@ Rplots.pdf
 *.Rhistory
 .Rapp.history
 .Rproj.user/
+
+# Console logs of analysis runs
+logs/
+
+# Python bytecode
+__pycache__/
+
+# Local writing aid (figure/statistic -> paper section map), not part of the repo
+PAPER_MAP.md

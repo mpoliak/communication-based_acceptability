@@ -1,0 +1,49 @@
+dataset,family,information,model,converged,log_likelihood,paper_model,likelihood_diff
+All trials,Shape-constrained GAM (sentence means),Length,Binary grammaticality,TRUE,-307.6343665911192,TRUE,-81.58467686878296
+All trials,Shape-constrained GAM (sentence means),Length,Gradient grammaticality,TRUE,-268.33306688002847,TRUE,-42.28337715769223
+All trials,Shape-constrained GAM (sentence means),Length,Communication-based,TRUE,-226.04968972233624,TRUE,0
+All trials,Shape-constrained GAM (sentence means),Length,Gradient + length,TRUE,-268.3330670026964,FALSE,-42.283377280360156
+All trials,Shape-constrained GAM (sentence means),Length,Length only,TRUE,-511.28682685245656,FALSE,-285.23713713012035
+All trials,Linear mixed model (trials),Length,Binary grammaticality,TRUE,-4635.5442589561035,TRUE,0
+All trials,Linear mixed model (trials),Length,Gradient grammaticality,TRUE,-4985.451714092626,TRUE,-349.9074551365229
+All trials,Linear mixed model (trials),Length,Communication-based,TRUE,-5119.932947858633,TRUE,-484.3886889025298
+All trials,Shape-constrained GAM (sentence means),Surprisal,Binary grammaticality,TRUE,-307.6343665911192,TRUE,-65.69635862600967
+All trials,Shape-constrained GAM (sentence means),Surprisal,Gradient grammaticality,TRUE,-268.33306688002847,TRUE,-26.395058914918934
+All trials,Shape-constrained GAM (sentence means),Surprisal,Communication-based,TRUE,-241.93800796510953,TRUE,0
+All trials,Shape-constrained GAM (sentence means),Surprisal,Gradient + surprisal,TRUE,-268.333066925469,FALSE,-26.39505896035945
+All trials,Shape-constrained GAM (sentence means),Surprisal,Surprisal only,TRUE,-511.28682685245604,FALSE,-269.3488188873465
+All trials,Linear mixed model (trials),Surprisal,Binary grammaticality,TRUE,-4635.5442589561035,TRUE,0
+All trials,Linear mixed model (trials),Surprisal,Gradient grammaticality,TRUE,-4985.451714092626,TRUE,-349.9074551365229
+All trials,Linear mixed model (trials),Surprisal,Communication-based,TRUE,-5054.448216521058,TRUE,-418.9039575649549
+Judged correctly,Shape-constrained GAM (sentence means),Length,Binary grammaticality,TRUE,-216.55829109687556,TRUE,-74.25367137186646
+Judged correctly,Shape-constrained GAM (sentence means),Length,Gradient grammaticality,TRUE,-183.27178062133237,TRUE,-40.967160896323264
+Judged correctly,Shape-constrained GAM (sentence means),Length,Communication-based,TRUE,-142.3046197250091,TRUE,0
+Judged correctly,Shape-constrained GAM (sentence means),Length,Gradient + length,TRUE,-183.27178062114427,FALSE,-40.96716089613517
+Judged correctly,Shape-constrained GAM (sentence means),Length,Length only,TRUE,-528.8689408848304,FALSE,-386.5643211598213
+Judged correctly,Linear mixed model (trials),Length,Binary grammaticality,TRUE,-3411.9610495359,TRUE,0
+Judged correctly,Linear mixed model (trials),Length,Gradient grammaticality,TRUE,-4353.060170514522,TRUE,-941.0991209786216
+Judged correctly,Linear mixed model (trials),Length,Communication-based,TRUE,-4533.652957562208,TRUE,-1121.6919080263078
+Judged correctly,Shape-constrained GAM (sentence means),Surprisal,Binary grammaticality,TRUE,-216.55829109687556,TRUE,-59.17857294048966
+Judged correctly,Shape-constrained GAM (sentence means),Surprisal,Gradient grammaticality,TRUE,-183.27178062133237,TRUE,-25.892062464946463
+Judged correctly,Shape-constrained GAM (sentence means),Surprisal,Communication-based,TRUE,-157.3797181563859,TRUE,0
+Judged correctly,Shape-constrained GAM (sentence means),Surprisal,Gradient + surprisal,TRUE,-183.27178062114342,FALSE,-25.892062464757515
+Judged correctly,Shape-constrained GAM (sentence means),Surprisal,Surprisal only,TRUE,-528.8689408848304,FALSE,-371.4892227284445
+Judged correctly,Linear mixed model (trials),Surprisal,Binary grammaticality,TRUE,-3411.9610495359,TRUE,0
+Judged correctly,Linear mixed model (trials),Surprisal,Gradient grammaticality,TRUE,-4353.060170514522,TRUE,-941.0991209786216
+Judged correctly,Linear mixed model (trials),Surprisal,Communication-based,TRUE,-4461.610691736636,TRUE,-1049.6496422007358
+Judged correctly + flagged originals,Shape-constrained GAM (sentence means),Length,Binary grammaticality,TRUE,-232.15407959989017,TRUE,-71.68428049174366
+Judged correctly + flagged originals,Shape-constrained GAM (sentence means),Length,Gradient grammaticality,TRUE,-203.38682080845416,TRUE,-42.91702170030766
+Judged correctly + flagged originals,Shape-constrained GAM (sentence means),Length,Communication-based,TRUE,-160.4697991081465,TRUE,0
+Judged correctly + flagged originals,Shape-constrained GAM (sentence means),Length,Gradient + length,TRUE,-203.3868206783143,FALSE,-42.917021570167805
+Judged correctly + flagged originals,Shape-constrained GAM (sentence means),Length,Length only,TRUE,-517.305487851522,FALSE,-356.8356887433755
+Judged correctly + flagged originals,Linear mixed model (trials),Length,Binary grammaticality,TRUE,-3774.8001143198567,TRUE,0
+Judged correctly + flagged originals,Linear mixed model (trials),Length,Gradient grammaticality,TRUE,-4575.253831103549,TRUE,-800.453716783692
+Judged correctly + flagged originals,Linear mixed model (trials),Length,Communication-based,TRUE,-4752.415266856118,TRUE,-977.6151525362616
+Judged correctly + flagged originals,Shape-constrained GAM (sentence means),Surprisal,Binary grammaticality,TRUE,-232.15407959989017,TRUE,-60.52036762443828
+Judged correctly + flagged originals,Shape-constrained GAM (sentence means),Surprisal,Gradient grammaticality,TRUE,-203.38682080845416,TRUE,-31.753108833002273
+Judged correctly + flagged originals,Shape-constrained GAM (sentence means),Surprisal,Communication-based,TRUE,-171.6337119754519,TRUE,0
+Judged correctly + flagged originals,Shape-constrained GAM (sentence means),Surprisal,Gradient + surprisal,TRUE,-203.3868205449182,FALSE,-31.75310856946632
+Judged correctly + flagged originals,Shape-constrained GAM (sentence means),Surprisal,Surprisal only,TRUE,-517.3054878515218,FALSE,-345.6717758760699
+Judged correctly + flagged originals,Linear mixed model (trials),Surprisal,Binary grammaticality,TRUE,-3774.8001143198567,TRUE,0
+Judged correctly + flagged originals,Linear mixed model (trials),Surprisal,Gradient grammaticality,TRUE,-4575.253831103549,TRUE,-800.453716783692
+Judged correctly + flagged originals,Linear mixed model (trials),Surprisal,Communication-based,TRUE,-4678.122084804827,TRUE,-903.3219704849703

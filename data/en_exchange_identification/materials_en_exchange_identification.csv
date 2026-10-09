@@ -1,0 +1,145 @@
+experiment,item,condition,sentence,prompt,question_type,options,literal_response,config
+annot,1,original,They have a warm local atmosphere and taste great.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,1,swap_1,They have warm a local atmosphere and taste great.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,2,original,A ball flying in the air can hurt.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,2,swap_1,A ball flying in air the can hurt.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,3,original,"Currently, we're in talks with people.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,3,swap_1,"Currently, we're talks in with people.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,4,original,Even prolonged eye contact seems to have an effect.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,4,swap_1,Even prolonged eye seems contact to have an effect.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,5,original,The latter option may allow for easier revision.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,5,swap_1,The latter may option allow for easier revision.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,6,original,You have many names to choose from.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,6,swap_1,You have names many to choose from.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,7,original,She thought she could hear Gomez laughing.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,7,swap_1,She thought she could Gomez hear laughing.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,8,original,The next part of the proceedings was less thrilling.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,8,swap_1,The next part of the was proceedings less thrilling.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,9,original,Let’s say we now use a massive paperweight.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,9,swap_1,Let’s say we now use massive a paperweight.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,10,original,Guys this is harder than I thought.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,10,swap_1,Guys this is harder I than thought.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,11,original,So it was a city of grandmothers.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,11,swap_1,So it was a city grandmothers of.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,12,original,Keep the soil moist until the seeds germinate.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,12,swap_1,Keep the soil moist until seeds the germinate.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,13,original,I also like the freedom in mathematics.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,13,swap_1,I also like the in freedom mathematics.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,14,original,There was no holder and the end was jagged.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,14,swap_1,There was holder no and the end was jagged.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,15,original,I don’t know what to say.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,15,swap_1,I don’t what know to say.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,16,original,They also keep track of the score.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,16,swap_1,They also keep track the of score.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,17,original,Almost everyone is a little bit ethnocentric.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,17,swap_1,Almost everyone is a little ethnocentric bit.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,18,original,They don’t know if it worked.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,18,swap_1,They don’t know if worked it.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,19,original,"Many people, and many students, dislike math.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,19,swap_1,"Many people, many and students, dislike math.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,20,original,Try this with a group of friends.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,20,swap_1,Try this with group a of friends.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,21,original,It is important not to touch the luminol.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,21,swap_1,It is important not to touch luminol the.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,22,original,Find a quarter or another small coin.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,22,swap_1,Find a quarter or small another coin.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,23,original,Now the mites are finally closing in.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,23,swap_1,Now the mites are closing finally in.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,24,original,Want to bring it to the White House?,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,24,swap_1,Want to bring it the to White House?,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,25,original,Women should avoid offering anything to a monk with their hands.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,25,swap_1,Women should avoid offering anything to a with monk their hands.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,26,original,Note that the ratio of Skittles to vodka varies from recipe to recipe.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,26,swap_1,Note that the ratio Skittles of to vodka varies from recipe to recipe.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,27,original,"And there was a heavier sound, a rasp, like a box pulled over concrete.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,27,swap_1,"And there was a heavier sound, a rasp, a like box pulled over concrete.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,28,original,"However, these operators are not adequate when trying to test software features associated with specific domains.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,28,swap_1,"However, these operators are not adequate when trying to software test features associated with specific domains.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,29,original,"Next, we present the results of our work in two sections.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,29,swap_1,"Next, we the present results of our work in two sections.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,30,original,"Climate change affects distribution of weeds, pests, and diseases.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,30,swap_1,"Climate change affects distribution of weeds, and pests, diseases.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,31,original,The best thing that I thought about this bookstore was that they mixed in new copies of books with used copies.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,31,swap_1,The best thing that I about thought this bookstore was that they mixed in new copies of books with used copies.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,32,original,"She said thanks a lot, you know, because she was so worried about Jonathan.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,32,swap_1,"She said thanks a lot, you know, because she so was worried about Jonathan.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,33,original,Its goal is to decrease IE6 users to less than one percent.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,33,swap_1,Its goal is to decrease IE6 users to than less one percent.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,34,original,"I wondered if anyone ever went back under the bleachers, if there were crickets or mice there.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,34,swap_1,"I wondered if anyone ever went back under the bleachers, there if were crickets or mice there.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,35,original,"It's quite a large Canadian tournament, and so we went as the Gliders team.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,35,swap_1,"It's quite a large Canadian tournament, and we so went as the Gliders team.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,36,original,"Set a timer for ten minutes, and take a nap, read a book, or call your friend.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,36,swap_1,"Set a timer for ten minutes, and take a nap, read a or book, call your friend.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,37,original,"“Her boys,” as she called them, didn’t take a lot of eggnog in their rum.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,37,swap_1,"“Her boys,” as she called them, didn’t take a lot eggnog of in their rum.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,38,original,"And you'd put it into the hot coals, you know?",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,38,swap_1,"And you'd it put into the hot coals, you know?",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,39,original,The second half ended with the Belgians winning three points.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,39,swap_1,The second half ended with the winning Belgians three points.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,40,original,"He slung his belt around his back, and gave it a quick tug.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,40,swap_1,"He slung his belt around his back, and gave it quick a tug.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,41,original,Nature enthusiasts should go from early October to late April.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,41,swap_1,Nature enthusiasts should go from early October to April late.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,42,original,The puppets used were picked specifically for this task with careful attention to their appearance.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,42,swap_1,The puppets used were picked specifically for task this with careful attention to their appearance.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,43,original,These examples show that it is possible to identify the same conversational structure in unrelated languages.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,43,swap_1,These examples show that it is possible to identify the same conversational structure in languages unrelated.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,44,original,She's been saying for months that you would never wear it.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,44,swap_1,She's been saying for months that you never would wear it.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,45,original,"We didn’t see Steven’s interest as strange, well, not that much.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,45,swap_1,"We didn’t see Steven’s interest as well, strange, not that much.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,46,original,You can purchase them online or at a local garden center.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,46,swap_1,You can purchase them online or at local a garden center.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,47,original,So if anybody speaks Dutch tell me what that means.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,47,swap_1,So if speaks anybody Dutch tell me what that means.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,48,original,"This makes everyone’s ride on the elevator longer, if only for a few seconds.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,48,swap_1,"This makes ride everyone’s on the elevator longer, if only for a few seconds.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,49,original,And then she had to scan and go get the shoes and then she said they didn’t have the size.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,49,swap_1,And then she had to scan and go get the shoes and then she said they didn’t the have size.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,50,original,"Tropical cyclones are sustained by a form of energy called latent heat, which is released by moisture evaporated from the ocean that condenses to form rain.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,50,swap_1,"Tropical cyclones are sustained by a form of energy called latent heat, which is by released moisture evaporated from the ocean that condenses to form rain.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,51,original,"I have here, some ice in a pan, water in this glass, and steam rising from this pot.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,51,swap_1,"I have here, some ice in a pan, water this in glass, and steam rising from this pot.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,52,original,"But the challenges ahead are equally great, and they, too, will require the support and the efforts of the Congress and the people working in cooperation with the new Administration.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,52,swap_1,"But the challenges are ahead equally great, and they, too, will require the support and the efforts of the Congress and the people working in cooperation with the new Administration.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,53,original,"The first public performances of his works were in Prague in 1872 and, with special success, in 1873, when he was aged 31.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,53,swap_1,"The first public performances of his works were in Prague in 1872 and, special with success, in 1873, when he was aged 31.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,54,original,"You also find Shore Crabs, Beach Otters and - rare for Denmark - Seals in the shallow waters and beaches.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,54,swap_1,"You also find Shore Crabs, Beach Otters and - for rare Denmark - Seals in the shallow waters and beaches.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,55,original,"It is situated in Yorkshire, North Yorkshire, England with some of the best preserved historical buildings and structures in Europe.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,55,swap_1,"It is situated in Yorkshire, North England Yorkshire, with some of the best preserved historical buildings and structures in Europe.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,56,original,"I like that something will be a bit of secret, or even unreliable narrator: someone tells something and first you trust him but then you read more and you become thrilled by everything.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,56,swap_1,"I like that something will be a bit of secret, or even unreliable narrator: someone tells something and first you trust him but then you more read and you become thrilled by everything.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,57,original,"Besides, Steven had some really good stuff: sweets that stained your teeth bright red — well, technically, not your teeth, just the plaque, but the result was often the same.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,57,swap_1,"Besides, Steven had some really good sweets stuff: that stained your teeth bright red — well, technically, not your teeth, just the plaque, but the result was often the same.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,58,original,We read about six hundred to eight hundred headline ideas on a Monday coming from our staff and a small group of writers outside — a contributing core.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,58,swap_1,We read about six hundred to eight hundred headline ideas on a Monday coming our from staff and a small group of writers outside — a contributing core.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,59,original,"In support of the first claim, we show that the similarities in form and function of an interjection with the specific function of repair initiation are very much greater across languages than chance coincidence would admit.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,59,swap_1,"In support of the first claim, we show that the similarities in form and of function an interjection with the specific function of repair initiation are very much greater across languages than chance coincidence would admit.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,60,original,"You must avoid simply copying the grammar rules, however, as this would technically turn your language into a code.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,60,swap_1,"You must avoid simply copying the grammar rules, however, as this would technically turn your into language a code.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,61,original,"This system is efficient and accurate, and it can be adapted to any academic discipline and used for continuous collection.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,61,swap_1,"This system is efficient and accurate, and it can be adapted any to academic discipline and used for continuous collection.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,62,original,"I am the only candidate who has studied both economics and law, and the only candidate with a background in technology entrepreneurship.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,62,swap_1,"I am the only candidate who has studied both economics and law, and only the candidate with a background in technology entrepreneurship.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,63,original,Have both of the teams turn around and have the referee throw it into the grass or pitch while the teams aren’t looking.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,63,swap_1,Have both of the teams turn around and have the referee throw it into the grass or pitch the while teams aren’t looking.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,64,original,"By taking this action, I hope that I will have hastened the start of that process of healing which is so desperately needed in America.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,64,swap_1,"By taking this action, I hope I that will have hastened the start of that process of healing which is so desperately needed in America.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,65,original,"If someone asks you why you pushed all the buttons, you can honestly say, “It was just a joke!”",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,65,swap_1,"If someone asks you why you pushed all the buttons, you can honestly say, “It was just joke! a”",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,66,original,One of them is the channels that NBC as the broadcasting rights owner for the United States will use to air the Paralympic Games on.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,66,swap_1,One of them is the channels that NBC as the broadcasting rights for owner the United States will use to air the Paralympic Games on.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,67,original,The island lies in deep water and has sheltered waters and bays which provide a resting place for humpbacks with calves.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,67,swap_1,The island lies deep in water and has sheltered waters and bays which provide a resting place for humpbacks with calves.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,68,original,"The Island is new to tourism, so if you are looking for a luxurious vacation this is not the right destination.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,68,swap_1,"The Island is new to tourism, so if you are looking for a luxurious vacation this is the not right destination.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,69,original,You will already have demonstrated a pretty long successful record of writing stuff for us before you will be in that room on a daily basis.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,69,swap_1,You will already have demonstrated a pretty long successful record of writing stuff for us before you will be in that room on daily a basis.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,70,original,"The city also expanded outward through rash development, particularly towards the west, as its population grew by absorbing job-seekers from the provinces.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,70,swap_1,"The city also expanded outward through rash development, particularly towards the as west, its population grew by absorbing job-seekers from the provinces.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,71,original,"In the past decade, there has been a rapid influx of scuba divers and other tourists coming in, making tourism the major industry player in Coron today.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,71,swap_1,"In the past decade, there has been rapid a influx of scuba divers and other tourists coming in, making tourism the major industry player in Coron today.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,72,original,"Mohamed was a VIP guest at the Google Science Fair this weekend, and was able to meet finalists at the event held at Google's headquarters located in Mountain View, California.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,72,swap_1,"Mohamed was a VIP guest at the Google Science Fair this weekend, and was to able meet finalists at the event held at Google's headquarters located in Mountain View, California.",Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA

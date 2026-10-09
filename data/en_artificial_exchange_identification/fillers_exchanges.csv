@@ -1,0 +1,244 @@
+item_id,length,version,structure,n_words,sentence,swap_slots,shared_1exch_across_lengths
+1,short,original,"simple transitive, SVO + PP",8,The waiter got a tip from the customer.,,True
+1,short,1-exchange,"simple transitive, SVO + PP",8,The waiter a got tip from the customer.,2,True
+1,short,3-exchange,"simple transitive, SVO + PP",8,Waiter the a got tip from customer the.,2 0 6,True
+1,medium,original,"simple transitive, SVO + PP",10,The waiter got a large tip from the last customer.,,True
+1,medium,1-exchange,"simple transitive, SVO + PP",10,The waiter a got large tip from the last customer.,2,True
+1,medium,3-exchange,"simple transitive, SVO + PP",10,Waiter the a got large tip from last the customer.,2 0 7,True
+1,long,original,"simple transitive, SVO + PP",19,The waiter got a large tip from the last customer who had been drinking quietly by himself all evening.,,True
+1,long,1-exchange,"simple transitive, SVO + PP",19,The waiter a got large tip from the last customer who had been drinking quietly by himself all evening.,2,True
+1,long,3-exchange,"simple transitive, SVO + PP",19,Waiter the a got large tip from last the customer who had been drinking quietly by himself all evening.,2 0 7,True
+2,short,original,ditransitive (double object),6,The study gave scientists an insight.,,True
+2,short,1-exchange,ditransitive (double object),6,The study gave an scientists insight.,3,True
+2,short,3-exchange,ditransitive (double object),6,Study the gave an insight scientists.,3 0 4,True
+2,medium,original,ditransitive (double object),11,The study gave scientists an insight into the origin of life.,,True
+2,medium,1-exchange,ditransitive (double object),11,The study gave an scientists insight into the origin of life.,3,True
+2,medium,3-exchange,ditransitive (double object),11,The study gave an scientists insight the into of origin life.,3 6 8,True
+2,long,original,ditransitive (double object),20,The study published last week in a leading scientific journal gave scientists an unexpected insight into the origin of life.,,True
+2,long,1-exchange,ditransitive (double object),20,The study published last week in a leading scientific journal gave an scientists unexpected insight into the origin of life.,11,True
+2,long,3-exchange,ditransitive (double object),20,The study published last week in a leading scientific journal gave an scientists unexpected insight the into of origin life.,11 15 17,True
+3,short,original,imperative + object-control infinitive,8,Teach your child to use all household products.,,True
+3,short,1-exchange,imperative + object-control infinitive,8,Teach your child use to all household products.,3,True
+3,short,3-exchange,imperative + object-control infinitive,8,Your teach child use to household all products.,3 5 0,True
+3,medium,original,imperative + object-control infinitive,13,Teach your child to use all household products only for their proper purposes.,,True
+3,medium,1-exchange,imperative + object-control infinitive,13,Teach your child use to all household products only for their proper purposes.,3,True
+3,medium,3-exchange,imperative + object-control infinitive,13,Your teach child use to all household products only for proper their purposes.,3 10 0,True
+3,long,original,imperative + object-control infinitive,22,Teach your child from an early age to use all the household products in the kitchen cupboard only for their proper purposes.,,True
+3,long,1-exchange,imperative + object-control infinitive,22,Teach your child from an early age use to all the household products in the kitchen cupboard only for their proper purposes.,7,True
+3,long,3-exchange,imperative + object-control infinitive,22,Teach your child from an early age use to the all household products in the kitchen cupboard only for proper their purposes.,7 9 19,True
+4,short,original,equative comparative (as X as Y) + modal,6,The ballerina has to behave graciously.,,True
+4,short,1-exchange,equative comparative (as X as Y) + modal,6,The ballerina has behave to graciously.,3,True
+4,short,3-exchange,equative comparative (as X as Y) + modal,6,Ballerina has the behave to graciously.,3 0 1,True
+4,medium,original,equative comparative (as X as Y) + modal,16,The ballerina has to behave just as graciously and confidently on stage as her partner does.,,True
+4,medium,1-exchange,equative comparative (as X as Y) + modal,16,The ballerina has behave to just as graciously and confidently on stage as her partner does.,3,True
+4,medium,3-exchange,equative comparative (as X as Y) + modal,16,The ballerina has behave to just as graciously and confidently on as stage her does partner.,3 11 14,True
+4,long,original,equative comparative (as X as Y) + modal,25,The young ballerina who joined the company last season has to behave just as graciously and confidently on stage as her more experienced partner does.,,True
+4,long,1-exchange,equative comparative (as X as Y) + modal,25,The young ballerina who joined the company last season has behave to just as graciously and confidently on stage as her more experienced partner does.,10,True
+4,long,3-exchange,equative comparative (as X as Y) + modal,25,The young ballerina who joined the company last season has behave to just as graciously and confidently on as stage her more experienced does partner.,10 18 23,True
+5,short,original,coordinated VPs (shared subject),7,The soldier gathered her in his arms.,,True
+5,short,1-exchange,coordinated VPs (shared subject),7,Soldier the gathered her in his arms.,0,True
+5,short,3-exchange,coordinated VPs (shared subject),7,Soldier the her gathered in arms his.,0 5 2,True
+5,medium,original,coordinated VPs (shared subject),10,The soldier gathered her in his arms and ran outside.,,True
+5,medium,1-exchange,coordinated VPs (shared subject),10,Soldier the gathered her in his arms and ran outside.,0,True
+5,medium,3-exchange,coordinated VPs (shared subject),10,Soldier the gathered her in arms his ran and outside.,0 5 7,True
+5,long,original,coordinated VPs (shared subject),19,When the roof of the building finally gave way the soldier gathered her in his arms and ran outside.,,True
+5,long,1-exchange,coordinated VPs (shared subject),19,When the roof of the building finally gave way soldier the gathered her in his arms and ran outside.,9,True
+5,long,3-exchange,coordinated VPs (shared subject),19,When the roof of the building finally gave way soldier the gathered her in arms his ran and outside.,9 14 16,True
+6,short,original,coordinated clauses with but,5,The butler started a rumor.,,False
+6,short,1-exchange,coordinated clauses with but,5,The butler a started rumor.,2,False
+6,short,3-exchange,coordinated clauses with but,5,Butler the a rumor started.,2 3 0,False
+6,medium,original,coordinated clauses with but,14,The butler started a nasty rumor but the cook did not believe a word.,,False
+6,medium,1-exchange,coordinated clauses with but,14,The butler started a nasty rumor but cook the did not believe a word.,7,False
+6,medium,3-exchange,coordinated clauses with but,14,The butler started a nasty but rumor cook the did not a believe word.,7 5 11,False
+6,long,original,coordinated clauses with but,23,The butler started a nasty rumor about the housekeeper but the cook who had known her for years did not believe a word.,,False
+6,long,1-exchange,coordinated clauses with but,23,The butler started nasty a rumor about the housekeeper but the cook who had known her for years did not believe a word.,3,False
+6,long,3-exchange,coordinated clauses with but,23,The butler started nasty a rumor about the housekeeper but the cook who had her known for years did not a believe word.,3 14 20,False
+7,short,original,correlative coordination (not only...but also) + passive,8,The seeds are spread by birds and insects.,,False
+7,short,1-exchange,correlative coordination (not only...but also) + passive,8,The seeds are by spread birds and insects.,3,False
+7,short,3-exchange,correlative coordination (not only...but also) + passive,8,The seeds by are spread and birds insects.,3 2 5,False
+7,medium,original,correlative coordination (not only...but also) + passive,18,The seeds of this plant are spread not only by birds and insects but also by larger animals.,,False
+7,medium,1-exchange,correlative coordination (not only...but also) + passive,18,The seeds of this plant are spread not only by and birds insects but also by larger animals.,10,False
+7,medium,3-exchange,correlative coordination (not only...but also) + passive,18,The seeds of this plant spread are not only by and birds insects also but by larger animals.,10 5 13,False
+7,long,original,correlative coordination (not only...but also) + passive,27,The tiny seeds of this rare desert plant are spread across the valley not only by birds and insects but also by larger animals such as deer.,,False
+7,long,1-exchange,correlative coordination (not only...but also) + passive,27,The tiny seeds of this rare desert plant spread are across the valley not only by birds and insects but also by larger animals such as deer.,8,False
+7,long,3-exchange,correlative coordination (not only...but also) + passive,27,The tiny seeds of rare this desert plant spread are across the valley not only by birds and insects also but by larger animals such as deer.,8 4 19,False
+8,short,original,subject relative clause,7,The cop was from the downtown precinct.,,False
+8,short,1-exchange,subject relative clause,7,Cop the was from the downtown precinct.,0,False
+8,short,3-exchange,subject relative clause,7,Cop the from was downtown the precinct.,0 4 2,False
+8,medium,original,subject relative clause,12,The cop that wounded the fleeing robber was from the downtown precinct.,,False
+8,medium,1-exchange,subject relative clause,12,Cop the that wounded the fleeing robber was from the downtown precinct.,0,False
+8,medium,3-exchange,subject relative clause,12,Cop the wounded that the fleeing robber from was the downtown precinct.,0 2 7,False
+8,long,original,subject relative clause,21,The cop that wounded the fleeing robber during the chase last night was from the small downtown precinct on Elm Street.,,False
+8,long,1-exchange,subject relative clause,21,The cop that wounded the fleeing robber during the chase last night was from small the downtown precinct on Elm Street.,14,False
+8,long,3-exchange,subject relative clause,21,The cop wounded that the fleeing robber during the chase last night from was small the downtown precinct on Elm Street.,14 2 12,False
+9,short,original,object relative clause,6,The speech was much too long.,,True
+9,short,1-exchange,object relative clause,6,The speech was too much long.,3,True
+9,short,3-exchange,object relative clause,6,Speech the too was much long.,3 0 2,True
+9,medium,original,object relative clause,13,The speech that the politician prepared was much too long for the meeting.,,True
+9,medium,1-exchange,object relative clause,13,The speech that the politician prepared was too much long for the meeting.,7,True
+9,medium,3-exchange,object relative clause,13,The speech that the politician was prepared too much long for meeting the.,7 5 11,True
+9,long,original,object relative clause,22,The speech that the young politician prepared for the formal occasion was much too long and far too technical for the meeting.,,True
+9,long,1-exchange,object relative clause,22,The speech that the young politician prepared for the formal occasion was too much long and far too technical for the meeting.,12,True
+9,long,3-exchange,object relative clause,22,The speech that the young politician prepared for the formal occasion was too much long and far too for technical meeting the.,12 18 20,True
+10,short,original,reduced relative (participial postmodifier),6,Many plant species are now endangered.,,False
+10,short,1-exchange,reduced relative (participial postmodifier),6,Many plant are species now endangered.,2,False
+10,short,3-exchange,reduced relative (participial postmodifier),6,Plant many are species endangered now.,2 0 4,False
+10,medium,original,reduced relative (participial postmodifier),15,Many plant and animal species found in this valley are now endangered outside the park.,,False
+10,medium,1-exchange,reduced relative (participial postmodifier),15,Many plant and animal species in found this valley are now endangered outside the park.,5,False
+10,medium,3-exchange,reduced relative (participial postmodifier),15,Many plant and animal species in found valley are this now endangered outside the park.,5 7 8,False
+10,long,original,reduced relative (participial postmodifier),24,Many plant and animal species found in this remote valley in the far north are now seriously endangered almost everywhere outside the national park.,,False
+10,long,1-exchange,reduced relative (participial postmodifier),24,Many plant and animal species found in this remote valley in the far north are now seriously endangered almost everywhere outside national the park.,21,False
+10,long,3-exchange,reduced relative (participial postmodifier),24,Plant many and animal species found in this remote valley the in far north are now seriously endangered almost everywhere outside national the park.,21 0 10,False
+11,short,original,copular predicate AP + PP complement + causal PP,7,The residents were unhappy about the construction.,,False
+11,short,1-exchange,copular predicate AP + PP complement + causal PP,7,The residents were unhappy about construction the.,5,False
+11,short,3-exchange,copular predicate AP + PP complement + causal PP,7,Residents the were about unhappy construction the.,5 3 0,False
+11,medium,original,copular predicate AP + PP complement + causal PP,16,The local residents were extremely unhappy about the new construction site because of the constant noise.,,False
+11,medium,1-exchange,copular predicate AP + PP complement + causal PP,16,The local residents were extremely unhappy about the new construction site because the of constant noise.,12,False
+11,medium,3-exchange,copular predicate AP + PP complement + causal PP,16,The local residents were extremely about unhappy new the construction site because the of constant noise.,12 5 7,False
+11,long,original,copular predicate AP + PP complement + causal PP,25,The local residents who live nearest to the river were extremely unhappy about the new construction site behind the school because of the constant noise.,,False
+11,long,1-exchange,copular predicate AP + PP complement + causal PP,25,The local residents who live nearest to the river were extremely unhappy about the new construction site behind school the because of the constant noise.,18,False
+11,long,3-exchange,copular predicate AP + PP complement + causal PP,25,The local residents who live nearest to the river were extremely about unhappy new the construction site behind school the because of the constant noise.,18 11 13,False
+12,short,original,finite that-complement clause,9,The economist concluded that the housing market would improve.,,False
+12,short,1-exchange,finite that-complement clause,9,The economist concluded that the housing would market improve.,6,False
+12,short,3-exchange,finite that-complement clause,9,Economist the concluded the that housing would market improve.,6 3 0,False
+12,medium,original,finite that-complement clause,14,The economist concluded that the condition of the housing market would improve very soon.,,False
+12,medium,1-exchange,finite that-complement clause,14,The economist concluded that the condition of the housing market improve would very soon.,10,False
+12,medium,3-exchange,finite that-complement clause,14,The economist concluded the that condition of housing the market improve would very soon.,10 3 7,False
+12,long,original,finite that-complement clause,23,The economist who advises the central bank concluded that the condition of the housing market would improve very soon with slightly lower rates.,,False
+12,long,1-exchange,finite that-complement clause,23,Economist the who advises the central bank concluded that the condition of the housing market would improve very soon with slightly lower rates.,0,False
+12,long,3-exchange,finite that-complement clause,23,Economist the who advises the central bank concluded the that condition of housing the market would improve very soon with slightly lower rates.,0 8 12,False
+13,short,original,negative quantifier subject + modal + causal PP,5,None could identify the criminal.,,True
+13,short,1-exchange,negative quantifier subject + modal + causal PP,5,None could identify criminal the.,3,True
+13,short,3-exchange,negative quantifier subject + modal + causal PP,5,None identify criminal could the.,3 1 2,True
+13,medium,original,negative quantifier subject + modal + causal PP,18,None of the witnesses at the scene could clearly identify the criminal because of the black ski mask.,,True
+13,medium,1-exchange,negative quantifier subject + modal + causal PP,18,None of the witnesses at the scene could clearly identify criminal the because of the black ski mask.,10,True
+13,medium,3-exchange,negative quantifier subject + modal + causal PP,18,None the of witnesses the at scene could clearly identify criminal the because of the black ski mask.,10 1 4,True
+13,long,original,negative quantifier subject + modal + causal PP,27,None of the witnesses at the scene that night could later clearly identify the criminal in the police lineup because of the black ski mask he wore.,,True
+13,long,1-exchange,negative quantifier subject + modal + causal PP,27,None of the witnesses at the scene that night could later clearly identify criminal the in the police lineup because of the black ski mask he wore.,13,True
+13,long,3-exchange,negative quantifier subject + modal + causal PP,27,None the of witnesses the at scene that night could later clearly identify criminal the in the police lineup because of the black ski mask he wore.,13 1 4,True
+14,short,original,subject raising (appear to) + infinitival perfect passive,9,The measures do not appear to have been effective.,,False
+14,short,1-exchange,subject raising (appear to) + infinitival perfect passive,9,The measures do not appear to have effective been.,7,False
+14,short,3-exchange,subject raising (appear to) + infinitival perfect passive,9,The measures do not have appear to effective been.,7 5 4,False
+14,medium,original,subject raising (appear to) + infinitival perfect passive,17,The new measures introduced last year to help vulnerable customers do not appear to have been effective.,,False
+14,medium,1-exchange,subject raising (appear to) + infinitival perfect passive,17,The new measures introduced last year to help vulnerable customers do not appear to been have effective.,14,False
+14,medium,3-exchange,subject raising (appear to) + infinitival perfect passive,17,New the measures introduced last year to help vulnerable customers do not to appear been have effective.,14 0 12,False
+14,long,original,subject raising (appear to) + infinitival perfect passive,26,The new measures introduced last year by the regulator to help vulnerable customers in rural areas do not appear to have been particularly effective so far.,,False
+14,long,1-exchange,subject raising (appear to) + infinitival perfect passive,26,The new measures introduced last year by the regulator to help vulnerable customers in rural areas do not appear to been have particularly effective so far.,20,False
+14,long,3-exchange,subject raising (appear to) + infinitival perfect passive,26,New the measures introduced last year by the regulator to help vulnerable customers in rural areas do not to appear been have particularly effective so far.,20 0 18,False
+15,short,original,purpose/control infinitive complement,5,Tina met with an architect.,,True
+15,short,1-exchange,purpose/control infinitive complement,5,Tina met with architect an.,3,True
+15,short,3-exchange,purpose/control infinitive complement,5,Tina with architect met an.,3 1 2,True
+15,medium,original,purpose/control infinitive complement,13,Tina met with an architect to discuss the layout of the new building.,,True
+15,medium,1-exchange,purpose/control infinitive complement,13,Tina met with architect an to discuss the layout of the new building.,3,True
+15,medium,3-exchange,purpose/control infinitive complement,13,Tina met with architect an discuss to the of layout the new building.,3 8 5,True
+15,long,original,purpose/control infinitive complement,22,Earlier that same week Tina met with an architect and a structural engineer to discuss the layout of the new office building.,,True
+15,long,1-exchange,purpose/control infinitive complement,22,Earlier that same week Tina met with architect an and a structural engineer to discuss the layout of the new office building.,7,True
+15,long,3-exchange,purpose/control infinitive complement,22,Earlier that same week Tina met with architect an a and structural engineer to discuss the of layout the new office building.,7 9 16,True
+16,short,original,long passive (by-phrase),7,The phone was answered by a man.,,False
+16,short,1-exchange,long passive (by-phrase),7,The was phone answered by a man.,1,False
+16,short,3-exchange,long passive (by-phrase),7,The was phone by answered man a.,1 3 5,False
+16,medium,original,long passive (by-phrase),11,The phone was answered by a man with a pleasant voice.,,False
+16,medium,1-exchange,long passive (by-phrase),11,The phone was answered by a man with pleasant a voice.,8,False
+16,medium,3-exchange,long passive (by-phrase),11,The phone was by answered a with man pleasant a voice.,8 3 6,False
+16,long,original,long passive (by-phrase),20,After the third ring the phone was answered by a man with a very pleasant voice who spoke perfect French.,,False
+16,long,1-exchange,long passive (by-phrase),20,After the third ring the phone was answered by a man with a very pleasant voice spoke who perfect French.,16,False
+16,long,3-exchange,long passive (by-phrase),20,After the third ring the phone was by answered a with man a very pleasant voice spoke who perfect French.,16 7 10,False
+17,short,original,past perfect short passive + because-of PP,6,The bus service had been suspended.,,False
+17,short,1-exchange,past perfect short passive + because-of PP,6,The bus service had suspended been.,4,False
+17,short,3-exchange,past perfect short passive + because-of PP,6,Bus the had service suspended been.,4 2 0,False
+17,medium,original,past perfect short passive + because-of PP,12,The regular bus service had been suspended because of the fuel shortage.,,False
+17,medium,1-exchange,past perfect short passive + because-of PP,12,The regular bus service had been suspended because of fuel the shortage.,9,False
+17,medium,3-exchange,past perfect short passive + because-of PP,12,The regular bus had service suspended been because of fuel the shortage.,9 3 5,False
+17,long,original,past perfect short passive + because-of PP,21,Throughout most of the northern region the regular bus service had been suspended indefinitely because of the worsening national fuel shortage.,,False
+17,long,1-exchange,past perfect short passive + because-of PP,21,Throughout most of the northern region the regular bus service had been suspended indefinitely because of worsening the national fuel shortage.,16,False
+17,long,3-exchange,past perfect short passive + because-of PP,21,Throughout most of the northern region the regular bus had service suspended been indefinitely because of worsening the national fuel shortage.,16 9 11,False
+18,short,original,future modal + transitive with postmodified object NP,9,The court will consider the appeals by the detainees.,,False
+18,short,1-exchange,future modal + transitive with postmodified object NP,9,Court the will consider the appeals by the detainees.,0,False
+18,short,3-exchange,future modal + transitive with postmodified object NP,9,Court the consider will the appeals the by detainees.,0 6 2,False
+18,medium,original,future modal + transitive with postmodified object NP,15,The court will consider all the further appeals by the remaining detainees early next month.,,False
+18,medium,1-exchange,future modal + transitive with postmodified object NP,15,The court will consider all the further appeals the by remaining detainees early next month.,8,False
+18,medium,3-exchange,future modal + transitive with postmodified object NP,15,Court the consider will all the further appeals the by remaining detainees early next month.,8 0 2,False
+18,long,original,future modal + transitive with postmodified object NP,24,The high court in the capital will consider all the further appeals lodged by the remaining detainees at the detention camp early next month.,,False
+18,long,1-exchange,future modal + transitive with postmodified object NP,24,The high court in the capital will consider all the further appeals lodged by the remaining detainees at detention the camp early next month.,18,False
+18,long,3-exchange,future modal + transitive with postmodified object NP,24,The high court the in capital consider will all the further appeals lodged by the remaining detainees at detention the camp early next month.,18 3 6,False
+19,short,original,existential there + infinitival modifier,8,There is no easy way to raise money.,,True
+19,short,1-exchange,existential there + infinitival modifier,8,There is no easy to way raise money.,4,True
+19,short,3-exchange,existential there + infinitival modifier,8,There easy is no to way raise money.,4 2 1,True
+19,medium,original,existential there + infinitival modifier,10,There is no easy way to raise money this year.,,True
+19,medium,1-exchange,existential there + infinitival modifier,10,There is no easy to way raise money this year.,4,True
+19,medium,3-exchange,existential there + infinitival modifier,10,There no is easy to way raise money year this.,4 8 1,True
+19,long,original,existential there + infinitival modifier,19,There is no easy way to raise money for the new community center this year without any government support.,,True
+19,long,1-exchange,existential there + infinitival modifier,19,There is no easy to way raise money for the new community center this year without any government support.,4,True
+19,long,3-exchange,existential there + infinitival modifier,19,There is no easy to way raise money the for new community center year this without any government support.,4 13 8,True
+20,short,original,counterfactual conditional (past perfect / would have),8,The driver would have arrived an hour ago.,,True
+20,short,1-exchange,counterfactual conditional (past perfect / would have),8,Driver the would have arrived an hour ago.,0,True
+20,short,3-exchange,counterfactual conditional (past perfect / would have),8,Driver the have would arrived hour an ago.,0 2 5,True
+20,medium,original,counterfactual conditional (past perfect / would have),17,If the driver had followed the directions on the map he would have arrived an hour ago.,,True
+20,medium,1-exchange,counterfactual conditional (past perfect / would have),17,If driver the had followed the directions on the map he would have arrived an hour ago.,1,True
+20,medium,3-exchange,counterfactual conditional (past perfect / would have),17,If driver the had followed directions the on the map he would have arrived hour an ago.,1 5 14,True
+20,long,original,counterfactual conditional (past perfect / would have),26,If the driver had simply followed the directions printed on the map in his glove compartment he would have arrived at the hotel an hour ago.,,True
+20,long,1-exchange,counterfactual conditional (past perfect / would have),26,If driver the had simply followed the directions printed on the map in his glove compartment he would have arrived at the hotel an hour ago.,1,True
+20,long,3-exchange,counterfactual conditional (past perfect / would have),26,If driver the had simply followed directions the printed on the map in his glove compartment he would have arrived at the hotel hour an ago.,1 6 23,True
+21,short,original,prepositional dative (introduce X to Y) + postposed temporal clause (before),5,The interpreter introduced the ambassador.,,False
+21,short,1-exchange,prepositional dative (introduce X to Y) + postposed temporal clause (before),5,The interpreter introduced ambassador the.,3,False
+21,short,3-exchange,prepositional dative (introduce X to Y) + postposed temporal clause (before),5,Interpreter the ambassador introduced the.,3 0 2,False
+21,medium,original,prepositional dative (introduce X to Y) + postposed temporal clause (before),14,The embassy interpreter introduced the ambassador to the congressman shortly before the negotiations began.,,False
+21,medium,1-exchange,prepositional dative (introduce X to Y) + postposed temporal clause (before),14,The embassy interpreter introduced ambassador the to the congressman shortly before the negotiations began.,4,False
+21,medium,3-exchange,prepositional dative (introduce X to Y) + postposed temporal clause (before),14,Embassy the interpreter introduced ambassador the to congressman the shortly before the negotiations began.,4 7 0,False
+21,long,original,prepositional dative (introduce X to Y) + postposed temporal clause (before),23,The embassy interpreter who spoke four languages introduced the visiting ambassador to the congressman from Ohio shortly before the difficult trade negotiations began.,,False
+21,long,1-exchange,prepositional dative (introduce X to Y) + postposed temporal clause (before),23,The embassy interpreter who spoke four languages the introduced visiting ambassador to the congressman from Ohio shortly before the difficult trade negotiations began.,7,False
+21,long,3-exchange,prepositional dative (introduce X to Y) + postposed temporal clause (before),23,Embassy the interpreter who spoke four languages the introduced visiting ambassador to the from congressman Ohio shortly before the difficult trade negotiations began.,7 0 13,False
+22,short,original,postposed temporal clause + perception small clause,5,Keith was walking his dog.,,True
+22,short,1-exchange,postposed temporal clause + perception small clause,5,Keith walking was his dog.,1,True
+22,short,3-exchange,postposed temporal clause + perception small clause,5,Keith walking dog was his.,1 3 2,True
+22,medium,original,postposed temporal clause + perception small clause,15,Keith was walking his dog in the park when he heard someone arguing loudly nearby.,,True
+22,medium,1-exchange,postposed temporal clause + perception small clause,15,Keith walking was his dog in the park when he heard someone arguing loudly nearby.,1,True
+22,medium,3-exchange,postposed temporal clause + perception small clause,15,Keith walking was his dog in the when park heard he someone arguing loudly nearby.,1 7 9,True
+22,long,original,postposed temporal clause + perception small clause,24,Keith was walking his old dog in the park near his apartment late on Sunday evening when he heard someone arguing loudly somewhere nearby.,,True
+22,long,1-exchange,postposed temporal clause + perception small clause,24,Keith walking was his old dog in the park near his apartment late on Sunday evening when he heard someone arguing loudly somewhere nearby.,1,True
+22,long,3-exchange,postposed temporal clause + perception small clause,24,Keith walking was old his dog in the park near his apartment late on Sunday evening when heard he someone arguing loudly somewhere nearby.,1 3 17,True
+23,short,original,preposed nonfinite (gerund) adjunct,7,The engineer decided to patent the device.,,False
+23,short,1-exchange,preposed nonfinite (gerund) adjunct,7,The engineer to decided patent the device.,2,False
+23,short,3-exchange,preposed nonfinite (gerund) adjunct,7,The engineer to decided the device patent.,2 4 5,False
+23,medium,original,preposed nonfinite (gerund) adjunct,11,After consulting a lawyer the engineer decided to patent the device.,,False
+23,medium,1-exchange,preposed nonfinite (gerund) adjunct,11,After consulting a lawyer the engineer decided to patent device the.,9,False
+23,medium,3-exchange,preposed nonfinite (gerund) adjunct,11,Consulting after a the lawyer engineer decided to patent device the.,9 0 3,False
+23,long,original,preposed nonfinite (gerund) adjunct,20,After consulting a lawyer about the potential risks the young engineer finally decided to patent the device before the deadline.,,False
+23,long,1-exchange,preposed nonfinite (gerund) adjunct,20,After consulting a lawyer about the potential the risks young engineer finally decided to patent the device before the deadline.,7,False
+23,long,3-exchange,preposed nonfinite (gerund) adjunct,20,Consulting after a lawyer about potential the the risks young engineer finally decided to patent the device before the deadline.,7 0 5,False
+24,short,original,preposed PP adjunct + present perfect progressive,9,The landlord has been promising to repair the roof.,,True
+24,short,1-exchange,preposed PP adjunct + present perfect progressive,9,The landlord has been to promising repair the roof.,4,True
+24,short,3-exchange,preposed PP adjunct + present perfect progressive,9,The landlord been has to promising the repair roof.,4 2 6,True
+24,medium,original,preposed PP adjunct + present perfect progressive,12,For two years the landlord has been promising to repair the roof.,,True
+24,medium,1-exchange,preposed PP adjunct + present perfect progressive,12,For two years the landlord has been to promising repair the roof.,7,True
+24,medium,3-exchange,preposed PP adjunct + present perfect progressive,12,For two years the landlord been has to promising the repair roof.,7 5 9,True
+24,long,original,preposed PP adjunct + present perfect progressive,21,For two years now the landlord who lives downstairs has been promising to repair the roof and replace the broken windows.,,True
+24,long,1-exchange,preposed PP adjunct + present perfect progressive,21,For two years now the landlord who lives downstairs has been to promising repair the roof and replace the broken windows.,11,True
+24,long,3-exchange,preposed PP adjunct + present perfect progressive,21,For two years now the landlord who lives downstairs been has to promising the repair roof and replace the broken windows.,11 9 13,True
+25,short,original,embedded polar question (whether) + control infinitive,9,Eric wondered whether he would ever get a chance.,,True
+25,short,1-exchange,embedded polar question (whether) + control infinitive,9,Eric wondered he whether would ever get a chance.,2,True
+25,short,3-exchange,embedded polar question (whether) + control infinitive,9,Eric wondered he whether would ever a chance get.,2 6 7,True
+25,medium,original,embedded polar question (whether) + control infinitive,18,Eric wondered whether he would ever get a chance to run the famous marathon in Boston next April.,,True
+25,medium,1-exchange,embedded polar question (whether) + control infinitive,18,Eric wondered he whether would ever get a chance to run the famous marathon in Boston next April.,2,True
+25,medium,3-exchange,embedded polar question (whether) + control infinitive,18,Eric wondered he whether would ever a get chance to run the famous marathon Boston in next April.,2 6 14,True
+25,long,original,embedded polar question (whether) + control infinitive,27,After his second knee surgery Eric secretly wondered whether he would ever get a chance to run the famous marathon in Boston with his brother next April.,,True
+25,long,1-exchange,embedded polar question (whether) + control infinitive,27,After his second knee surgery Eric secretly wondered he whether would ever get a chance to run the famous marathon in Boston with his brother next April.,8,True
+25,long,3-exchange,embedded polar question (whether) + control infinitive,27,After his second knee surgery Eric secretly wondered he whether would ever a get chance to run the famous marathon Boston in with his brother next April.,8 12 20,True
+26,short,original,noun-complement clause (reports that ...),8,He dismissed reports that his party was divided.,,True
+26,short,1-exchange,noun-complement clause (reports that ...),8,He dismissed reports that his was party divided.,5,True
+26,short,3-exchange,noun-complement clause (reports that ...),8,Dismissed he reports his that was party divided.,5 3 0,True
+26,medium,original,noun-complement clause (reports that ...),17,He angrily dismissed recent newspaper reports that his party was deeply divided over both tactics and personalities.,,True
+26,medium,1-exchange,noun-complement clause (reports that ...),17,He angrily dismissed recent newspaper reports that his was party deeply divided over both tactics and personalities.,8,True
+26,medium,3-exchange,noun-complement clause (reports that ...),17,He angrily dismissed recent newspaper reports his that was party deeply divided over both and tactics personalities.,8 6 14,True
+26,long,original,noun-complement clause (reports that ...),26,Speaking to reporters on Monday he angrily dismissed recent newspaper reports that his party was deeply divided over both tactics and personalities ahead of the election.,,True
+26,long,1-exchange,noun-complement clause (reports that ...),26,Speaking to reporters on Monday he angrily dismissed recent newspaper reports that his was party deeply divided over both tactics and personalities ahead of the election.,13,True
+26,long,3-exchange,noun-complement clause (reports that ...),26,Speaking to reporters on Monday he angrily dismissed recent newspaper reports his that was party deeply divided over both and tactics personalities ahead of the election.,13 11 19,True
+27,short,original,passive with free-relative object of by (by what ...),7,Babies are conditioned by what they eat.,,False
+27,short,1-exchange,passive with free-relative object of by (by what ...),7,Babies conditioned are by what they eat.,1,False
+27,short,3-exchange,passive with free-relative object of by (by what ...),7,Babies conditioned are what by eat they.,1 5 3,False
+27,medium,original,passive with free-relative object of by (by what ...),16,Young babies are strongly conditioned by what they are given to eat and drink every day.,,False
+27,medium,1-exchange,passive with free-relative object of by (by what ...),16,Young babies are strongly conditioned by what they are given to eat and every drink day.,13,False
+27,medium,3-exchange,passive with free-relative object of by (by what ...),16,Young are babies strongly conditioned by what they are given eat to and every drink day.,13 1 10,False
+27,long,original,passive with free-relative object of by (by what ...),25,Young babies in their first year of life are strongly conditioned by what they are given to eat and drink by their parents every day.,,False
+27,long,1-exchange,passive with free-relative object of by (by what ...),25,Young in babies their first year of life are strongly conditioned by what they are given to eat and drink by their parents every day.,1,False
+27,long,3-exchange,passive with free-relative object of by (by what ...),25,Young in babies their first of year life are strongly conditioned by what they are given eat to and drink by their parents every day.,1 5 16,False

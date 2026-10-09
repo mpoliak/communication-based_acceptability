@@ -18,6 +18,10 @@ library(mgcv)
 library(scam)
 library(patchwork)
 
+## Print warnings as they happen, so they show up next to the step that raised
+## them in the run logs
+options(warn = 1)
+
 ## Set plotting preferences
 ggplot2::theme_set(ggplot2::theme_bw(base_size=18))
 ggplot2::theme_update(panel.grid = ggplot2::element_blank(), 
@@ -73,9 +77,9 @@ label_language <- function(language_code) {
 ## scam/gam's logLik() is CONDITIONAL on the fitted random effects b; this returns
 ## the MARGINAL log-likelihood (integrating the b's out), i.e. the quantity that
 ## lmer() reports, so that model comparison does not credit a model for its fitted
-## item- or language-specific random effects. Validated against lmer() for every
-## random-effects structure used here (item/language intercepts and slopes) in
-## ../marginal_loglik_test.R (outside this repo).
+## item- or language-specific random effects. check_marginal_loglik.R checks it
+## against lmer() for each random-effect term used here (item/language
+## intercepts and slopes).
 marginal_logLik <- function(m) {
   scale  <- m$sig2
   y      <- if (!is.null(m$y)) m$y else model.response(m$model)
@@ -112,18 +116,85 @@ marginal_stats_bylang <- function(model_list, model_map) {
            model = factor(model_map[model], levels = unname(model_map)))
 }
 
+## ---- Random-effect smooth labels ----
+## Labels of every random-effect smooth in a scam/gam model (item and language
+## intercepts and slopes). Passed to predict(exclude = ...) so that predictions
+## are population-level: no item effect (including the en_exp by-item slopes)
+## and, in the pooled fits, no language effect.
+random_effect_labels <- function(m) {
+  re_idx <- which(vapply(m$smooth, function(s) inherits(s, "random.effect"), logical(1)))
+  vapply(m$smooth[re_idx], function(s) s$label, character(1))
+}
+
+## ---- MORCELA weights and score ----
+## MORCELA (Tjuatja, Neubig, Linzen & Hao 2025) is SLOR with the unigram and
+## length corrections allowed to be weaker or stronger than SLOR assumes:
+##
+##     MORCELA = ( log p(sentence) - beta * log p_unigram(sentence) + gamma ) / length
+##
+## The weights are learned from the ratings, as in that paper: regress the ratings
+## on the three terms and read beta and gamma off the coefficients (as in
+## ../analysis/main_analysis.R). Split into two functions so that the weights
+## themselves can be reported.
+morcela_weights <- function(model_data) {
+  morcela_regression <- lm(
+    response_num ~ I(log_p_sentence / n_words) + I(log_p_unigram / n_words) + I(1 / n_words),
+    data = model_data
+  )
+  ## Coefficients in formula order: intercept, sentence, unigram, 1/length
+  weights <- unname(coef(morcela_regression))
+  list(
+    beta  = -weights[3] / weights[2],
+    gamma =  weights[4] / weights[2]
+  )
+}
+
+morcela_score <- function(model_data, weights) {
+  (model_data$log_p_sentence - weights$beta * model_data$log_p_unigram + weights$gamma) /
+    model_data$n_words
+}
+
 ## ---- Read and Prepare Data ----
 ## Read full data
 dat <- read_csv("../data/full_data.csv")
-surprisals <- read_csv("goldfish_surprisals/surprisal_goldfish.csv")
+
+## Sentence log-probabilities from the Goldfish models (log2, i.e. bits), one row
+## per sentence per unigram model, written by data/get_slor_morcela_scores.py. We
+## use the model-initial unigram throughout. The item ids there are bare, while
+## full_data.csv prefixes them with the folder name, so rebuild that prefix (the
+## controlled English experiment is en_exp in the data but lives in the
+## en_experimental folder).
+scores <- read_csv(
+  "../data/slor_morcela_scores.csv",
+  col_types = cols(item = col_character())
+) %>%
+  filter(unigram_model == "model_initial") %>%
+  mutate(
+    item = paste(ifelse(language == "en_exp", "en_experimental", language), item, sep = "_")
+  )
 
 ## Examine comprehension questions
 comprehension <- dat %>% filter(grepl("comprehension", experiment))
 
-dat <- dat %>% 
+## Information(s) is the surprisal of the intended (original) sentence in bits.
+## It is a property of the item, so it is the same in every condition of an item.
+## SLOR and MORCELA instead score each condition's own sentence, so they take
+## that condition's log-probabilities.
+dat <- dat %>%
   left_join(
-    surprisals %>% select(-sentence) %>% mutate(language = ifelse(language == "en_experimental", "en_exp", language)),
+    scores %>%
+      filter(condition == "original") %>%
+      transmute(language, item, sum_surprisal = -log_p_sentence),
     by=c("language", "item")
+  ) %>%
+  left_join(
+    scores %>% select(language, item, condition, log_p_sentence, log_p_unigram),
+    by=c("language", "item", "condition")
+  ) %>%
+  mutate(
+    weighted_dl_distance_surprisal = dl_distance / sum_surprisal,
+    ## SLOR (Lau, Clark & Lappin 2017), with length in words
+    slor = (log_p_sentence - log_p_unigram) / n_words
   )
 
 ## Exclude participants with a low comprehension score
@@ -192,12 +263,18 @@ crit <- crit %>%
     response = as.factor(response_num)
   ) %>%
   select(
-    participant_id, language, item, response, n_words, dl_distance, 
+    participant_id, language, item, response, n_words, dl_distance,
     weighted_dl_distance, grammatical, response_num, first_language,
     english_first_language, french_first_language, sum_surprisal, condition,
-    weighted_dl_distance_surprisal
+    weighted_dl_distance_surprisal, log_p_sentence, log_p_unigram, slor
   )
 
+## Every critical sentence must have a score
+stopifnot(
+  !anyNA(crit$sum_surprisal),
+  !anyNA(crit$log_p_sentence),
+  !anyNA(crit$log_p_unigram)
+)
 
 
 ## ---- By-item data frames ----
@@ -218,11 +295,13 @@ crit_by_items_full <- crit %>%
     item = as.factor(item),
     language = as.factor(language)
   ) %>%
-  group_by(language, item, n_words, dl_distance, weighted_dl_distance, 
-           grammatical, sum_surprisal, condition, weighted_dl_distance_surprisal) %>%
+  group_by(language, item, n_words, dl_distance, weighted_dl_distance,
+           grammatical, sum_surprisal, condition, weighted_dl_distance_surprisal,
+           log_p_sentence, log_p_unigram, slor) %>%
   summarize(
     response_num = mean(response_num)
   ) %>%
+  ungroup() %>%
   mutate(
     grammatical_numeric = ifelse(grammatical == "grammatical", .5, -.5),
     item = as.factor(gsub("[sml]$", "", item))
@@ -289,6 +368,48 @@ get_prediction_grid <- function(
     )
 }
 
+## The same grid over sentence surprisal (bits) instead of length, for the
+## models whose Information(s) is surprisal.
+get_prediction_grid_surprisal <- function(
+    fits,
+    lang,
+    model_type,
+    sum_surprisal=c(4, 40), 
+    dl_distance=c(0, 1, 3)
+) {
+  expand.grid(
+    sum_surprisal = seq(sum_surprisal[1] - .25, sum_surprisal[2] + .25, 1),
+    dl_distance = dl_distance
+  ) %>%
+    mutate(
+      weighted_dl_distance_surprisal = dl_distance / sum_surprisal,
+      grammatical_numeric = ifelse(dl_distance == 0, .5, -.5),
+      item=factor(fits[[lang]][[model_type]]$model$item[1], levels=levels(fits[[lang]][[model_type]]$model$item))
+    )
+}
+
+## Colours, shapes and legend labels of the five models in the model-comparison
+## figures (as in ../analysis/main_analysis.R). SLOR and MORCELA get
+## filled shapes (23 and 25 take both a colour and a fill), so all five markers
+## are solid.
+MODEL_LEVELS <- c("Binary", "Gradient", "Communication", "SLOR", "MORCELA")
+MODEL_LABELS <- c("Binary\nGrammaticality", "Gradient\nGrammaticality",
+                  "Communication", "SLOR", "MORCELA")
+MODEL_COLORS <- c(
+  "Binary"        = "#EB7AA3",
+  "Gradient"      = "#1E88E5",
+  "Communication" = "#004D40",
+  "SLOR"          = "#E08A2E",
+  "MORCELA"       = "#A31F34"
+)
+MODEL_SHAPES <- c(
+  "Binary"        = 16,
+  "Gradient"      = 17,
+  "Communication" = 15,
+  "SLOR"          = 23,
+  "MORCELA"       = 25
+)
+
 
 ### ---- Baseline data for plotting (item means) ----
 plot_data_by_item <- crit %>% 
@@ -305,7 +426,7 @@ plot_data_by_item <- crit %>%
     item = as.factor(item),
     language = as.factor(language)
   ) %>%
-  group_by(language, item, n_words, dl_distance, weighted_dl_distance, 
+  group_by(language, item, n_words, sum_surprisal, dl_distance, weighted_dl_distance, 
            grammatical, condition) %>%
   summarize(
     response_num = mean(response_num)
@@ -313,7 +434,7 @@ plot_data_by_item <- crit %>%
   mutate(
     grammatical_numeric = ifelse(grammatical == "grammatical", .5, -.5)
   ) %>%
-  dplyr::group_by(language, item, n_words, dl_distance) %>%
+  dplyr::group_by(language, item, n_words, sum_surprisal, dl_distance) %>%
   dplyr::summarise(response = mean(response_num), .groups = "drop") %>%
   dplyr::mutate(
     dl_distance_bucket = bucket_dl(dl_distance),

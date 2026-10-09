@@ -1,0 +1,244 @@
+experiment,item,condition,sentence,prompt,question_type,options,literal_response,config
+annot,1,original_short,The waiter got a tip from the customer.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,1,swap-1_short,The waiter a got tip from the customer.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,1,swap-3_short,Waiter the a got tip from customer the.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,1,original_medium,The waiter got a large tip from the last customer.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,1,swap-1_medium,The waiter a got large tip from the last customer.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,1,swap-3_medium,Waiter the a got large tip from last the customer.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,1,original_long,The waiter got a large tip from the last customer who had been drinking quietly by himself all evening.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,1,swap-1_long,The waiter a got large tip from the last customer who had been drinking quietly by himself all evening.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,1,swap-3_long,Waiter the a got large tip from last the customer who had been drinking quietly by himself all evening.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,2,original_short,The study gave scientists an insight.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,2,swap-1_short,The study gave an scientists insight.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,2,swap-3_short,Study the gave an insight scientists.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,2,original_medium,The study gave scientists an insight into the origin of life.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,2,swap-1_medium,The study gave an scientists insight into the origin of life.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,2,swap-3_medium,The study gave an scientists insight the into of origin life.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,2,original_long,The study published last week in a leading scientific journal gave scientists an unexpected insight into the origin of life.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,2,swap-1_long,The study published last week in a leading scientific journal gave an scientists unexpected insight into the origin of life.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,2,swap-3_long,The study published last week in a leading scientific journal gave an scientists unexpected insight the into of origin life.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,3,original_short,Teach your child to use all household products.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,3,swap-1_short,Teach your child use to all household products.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,3,swap-3_short,Your teach child use to household all products.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,3,original_medium,Teach your child to use all household products only for their proper purposes.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,3,swap-1_medium,Teach your child use to all household products only for their proper purposes.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,3,swap-3_medium,Your teach child use to all household products only for proper their purposes.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,3,original_long,Teach your child from an early age to use all the household products in the kitchen cupboard only for their proper purposes.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,3,swap-1_long,Teach your child from an early age use to all the household products in the kitchen cupboard only for their proper purposes.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,3,swap-3_long,Teach your child from an early age use to the all household products in the kitchen cupboard only for proper their purposes.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,4,original_short,The ballerina has to behave graciously.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,4,swap-1_short,The ballerina has behave to graciously.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,4,swap-3_short,Ballerina has the behave to graciously.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,4,original_medium,The ballerina has to behave just as graciously and confidently on stage as her partner does.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,4,swap-1_medium,The ballerina has behave to just as graciously and confidently on stage as her partner does.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,4,swap-3_medium,The ballerina has behave to just as graciously and confidently on as stage her does partner.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,4,original_long,The young ballerina who joined the company last season has to behave just as graciously and confidently on stage as her more experienced partner does.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,4,swap-1_long,The young ballerina who joined the company last season has behave to just as graciously and confidently on stage as her more experienced partner does.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,4,swap-3_long,The young ballerina who joined the company last season has behave to just as graciously and confidently on as stage her more experienced does partner.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,5,original_short,The soldier gathered her in his arms.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,5,swap-1_short,Soldier the gathered her in his arms.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,5,swap-3_short,Soldier the her gathered in arms his.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,5,original_medium,The soldier gathered her in his arms and ran outside.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,5,swap-1_medium,Soldier the gathered her in his arms and ran outside.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,5,swap-3_medium,Soldier the gathered her in arms his ran and outside.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,5,original_long,When the roof of the building finally gave way the soldier gathered her in his arms and ran outside.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,5,swap-1_long,When the roof of the building finally gave way soldier the gathered her in his arms and ran outside.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,5,swap-3_long,When the roof of the building finally gave way soldier the gathered her in arms his ran and outside.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,6,original_short,The butler started a rumor.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,6,swap-1_short,The butler a started rumor.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,6,swap-3_short,Butler the a rumor started.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,6,original_medium,The butler started a nasty rumor but the cook did not believe a word.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,6,swap-1_medium,The butler started a nasty rumor but cook the did not believe a word.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,6,swap-3_medium,The butler started a nasty but rumor cook the did not a believe word.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,6,original_long,The butler started a nasty rumor about the housekeeper but the cook who had known her for years did not believe a word.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,6,swap-1_long,The butler started nasty a rumor about the housekeeper but the cook who had known her for years did not believe a word.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,6,swap-3_long,The butler started nasty a rumor about the housekeeper but the cook who had her known for years did not a believe word.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,7,original_short,The seeds are spread by birds and insects.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,7,swap-1_short,The seeds are by spread birds and insects.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,7,swap-3_short,The seeds by are spread and birds insects.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,7,original_medium,The seeds of this plant are spread not only by birds and insects but also by larger animals.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,7,swap-1_medium,The seeds of this plant are spread not only by and birds insects but also by larger animals.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,7,swap-3_medium,The seeds of this plant spread are not only by and birds insects also but by larger animals.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,7,original_long,The tiny seeds of this rare desert plant are spread across the valley not only by birds and insects but also by larger animals such as deer.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,7,swap-1_long,The tiny seeds of this rare desert plant spread are across the valley not only by birds and insects but also by larger animals such as deer.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,7,swap-3_long,The tiny seeds of rare this desert plant spread are across the valley not only by birds and insects also but by larger animals such as deer.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,8,original_short,The cop was from the downtown precinct.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,8,swap-1_short,Cop the was from the downtown precinct.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,8,swap-3_short,Cop the from was downtown the precinct.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,8,original_medium,The cop that wounded the fleeing robber was from the downtown precinct.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,8,swap-1_medium,Cop the that wounded the fleeing robber was from the downtown precinct.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,8,swap-3_medium,Cop the wounded that the fleeing robber from was the downtown precinct.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,8,original_long,The cop that wounded the fleeing robber during the chase last night was from the small downtown precinct on Elm Street.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,8,swap-1_long,The cop that wounded the fleeing robber during the chase last night was from small the downtown precinct on Elm Street.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,8,swap-3_long,The cop wounded that the fleeing robber during the chase last night from was small the downtown precinct on Elm Street.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,9,original_short,The speech was much too long.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,9,swap-1_short,The speech was too much long.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,9,swap-3_short,Speech the too was much long.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,9,original_medium,The speech that the politician prepared was much too long for the meeting.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,9,swap-1_medium,The speech that the politician prepared was too much long for the meeting.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,9,swap-3_medium,The speech that the politician was prepared too much long for meeting the.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,9,original_long,The speech that the young politician prepared for the formal occasion was much too long and far too technical for the meeting.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,9,swap-1_long,The speech that the young politician prepared for the formal occasion was too much long and far too technical for the meeting.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,9,swap-3_long,The speech that the young politician prepared for the formal occasion was too much long and far too for technical meeting the.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,10,original_short,Many plant species are now endangered.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,10,swap-1_short,Many plant are species now endangered.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,10,swap-3_short,Plant many are species endangered now.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,10,original_medium,Many plant and animal species found in this valley are now endangered outside the park.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,10,swap-1_medium,Many plant and animal species in found this valley are now endangered outside the park.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,10,swap-3_medium,Many plant and animal species in found valley are this now endangered outside the park.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,10,original_long,Many plant and animal species found in this remote valley in the far north are now seriously endangered almost everywhere outside the national park.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,10,swap-1_long,Many plant and animal species found in this remote valley in the far north are now seriously endangered almost everywhere outside national the park.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,10,swap-3_long,Plant many and animal species found in this remote valley the in far north are now seriously endangered almost everywhere outside national the park.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,11,original_short,The residents were unhappy about the construction.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,11,swap-1_short,The residents were unhappy about construction the.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,11,swap-3_short,Residents the were about unhappy construction the.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,11,original_medium,The local residents were extremely unhappy about the new construction site because of the constant noise.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,11,swap-1_medium,The local residents were extremely unhappy about the new construction site because the of constant noise.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,11,swap-3_medium,The local residents were extremely about unhappy new the construction site because the of constant noise.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,11,original_long,The local residents who live nearest to the river were extremely unhappy about the new construction site behind the school because of the constant noise.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,11,swap-1_long,The local residents who live nearest to the river were extremely unhappy about the new construction site behind school the because of the constant noise.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,11,swap-3_long,The local residents who live nearest to the river were extremely about unhappy new the construction site behind school the because of the constant noise.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,12,original_short,The economist concluded that the housing market would improve.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,12,swap-1_short,The economist concluded that the housing would market improve.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,12,swap-3_short,Economist the concluded the that housing would market improve.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,12,original_medium,The economist concluded that the condition of the housing market would improve very soon.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,12,swap-1_medium,The economist concluded that the condition of the housing market improve would very soon.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,12,swap-3_medium,The economist concluded the that condition of housing the market improve would very soon.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,12,original_long,The economist who advises the central bank concluded that the condition of the housing market would improve very soon with slightly lower rates.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,12,swap-1_long,Economist the who advises the central bank concluded that the condition of the housing market would improve very soon with slightly lower rates.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,12,swap-3_long,Economist the who advises the central bank concluded the that condition of housing the market would improve very soon with slightly lower rates.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,13,original_short,None could identify the criminal.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,13,swap-1_short,None could identify criminal the.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,13,swap-3_short,None identify criminal could the.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,13,original_medium,None of the witnesses at the scene could clearly identify the criminal because of the black ski mask.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,13,swap-1_medium,None of the witnesses at the scene could clearly identify criminal the because of the black ski mask.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,13,swap-3_medium,None the of witnesses the at scene could clearly identify criminal the because of the black ski mask.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,13,original_long,None of the witnesses at the scene that night could later clearly identify the criminal in the police lineup because of the black ski mask he wore.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,13,swap-1_long,None of the witnesses at the scene that night could later clearly identify criminal the in the police lineup because of the black ski mask he wore.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,13,swap-3_long,None the of witnesses the at scene that night could later clearly identify criminal the in the police lineup because of the black ski mask he wore.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,14,original_short,The measures do not appear to have been effective.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,14,swap-1_short,The measures do not appear to have effective been.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,14,swap-3_short,The measures do not have appear to effective been.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,14,original_medium,The new measures introduced last year to help vulnerable customers do not appear to have been effective.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,14,swap-1_medium,The new measures introduced last year to help vulnerable customers do not appear to been have effective.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,14,swap-3_medium,New the measures introduced last year to help vulnerable customers do not to appear been have effective.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,14,original_long,The new measures introduced last year by the regulator to help vulnerable customers in rural areas do not appear to have been particularly effective so far.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,14,swap-1_long,The new measures introduced last year by the regulator to help vulnerable customers in rural areas do not appear to been have particularly effective so far.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,14,swap-3_long,New the measures introduced last year by the regulator to help vulnerable customers in rural areas do not to appear been have particularly effective so far.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,15,original_short,Tina met with an architect.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,15,swap-1_short,Tina met with architect an.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,15,swap-3_short,Tina with architect met an.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,15,original_medium,Tina met with an architect to discuss the layout of the new building.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,15,swap-1_medium,Tina met with architect an to discuss the layout of the new building.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,15,swap-3_medium,Tina met with architect an discuss to the of layout the new building.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,15,original_long,Earlier that same week Tina met with an architect and a structural engineer to discuss the layout of the new office building.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,15,swap-1_long,Earlier that same week Tina met with architect an and a structural engineer to discuss the layout of the new office building.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,15,swap-3_long,Earlier that same week Tina met with architect an a and structural engineer to discuss the of layout the new office building.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,16,original_short,The phone was answered by a man.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,16,swap-1_short,The was phone answered by a man.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,16,swap-3_short,The was phone by answered man a.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,16,original_medium,The phone was answered by a man with a pleasant voice.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,16,swap-1_medium,The phone was answered by a man with pleasant a voice.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,16,swap-3_medium,The phone was by answered a with man pleasant a voice.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,16,original_long,After the third ring the phone was answered by a man with a very pleasant voice who spoke perfect French.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,16,swap-1_long,After the third ring the phone was answered by a man with a very pleasant voice spoke who perfect French.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,16,swap-3_long,After the third ring the phone was by answered a with man a very pleasant voice spoke who perfect French.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,17,original_short,The bus service had been suspended.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,17,swap-1_short,The bus service had suspended been.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,17,swap-3_short,Bus the had service suspended been.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,17,original_medium,The regular bus service had been suspended because of the fuel shortage.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,17,swap-1_medium,The regular bus service had been suspended because of fuel the shortage.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,17,swap-3_medium,The regular bus had service suspended been because of fuel the shortage.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,17,original_long,Throughout most of the northern region the regular bus service had been suspended indefinitely because of the worsening national fuel shortage.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,17,swap-1_long,Throughout most of the northern region the regular bus service had been suspended indefinitely because of worsening the national fuel shortage.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,17,swap-3_long,Throughout most of the northern region the regular bus had service suspended been indefinitely because of worsening the national fuel shortage.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,18,original_short,The court will consider the appeals by the detainees.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,18,swap-1_short,Court the will consider the appeals by the detainees.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,18,swap-3_short,Court the consider will the appeals the by detainees.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,18,original_medium,The court will consider all the further appeals by the remaining detainees early next month.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,18,swap-1_medium,The court will consider all the further appeals the by remaining detainees early next month.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,18,swap-3_medium,Court the consider will all the further appeals the by remaining detainees early next month.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,18,original_long,The high court in the capital will consider all the further appeals lodged by the remaining detainees at the detention camp early next month.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,18,swap-1_long,The high court in the capital will consider all the further appeals lodged by the remaining detainees at detention the camp early next month.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,18,swap-3_long,The high court the in capital consider will all the further appeals lodged by the remaining detainees at detention the camp early next month.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,19,original_short,There is no easy way to raise money.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,19,swap-1_short,There is no easy to way raise money.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,19,swap-3_short,There easy is no to way raise money.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,19,original_medium,There is no easy way to raise money this year.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,19,swap-1_medium,There is no easy to way raise money this year.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,19,swap-3_medium,There no is easy to way raise money year this.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,19,original_long,There is no easy way to raise money for the new community center this year without any government support.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,19,swap-1_long,There is no easy to way raise money for the new community center this year without any government support.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,19,swap-3_long,There is no easy to way raise money the for new community center year this without any government support.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,20,original_short,The driver would have arrived an hour ago.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,20,swap-1_short,Driver the would have arrived an hour ago.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,20,swap-3_short,Driver the have would arrived hour an ago.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,20,original_medium,If the driver had followed the directions on the map he would have arrived an hour ago.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,20,swap-1_medium,If driver the had followed the directions on the map he would have arrived an hour ago.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,20,swap-3_medium,If driver the had followed directions the on the map he would have arrived hour an ago.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,20,original_long,If the driver had simply followed the directions printed on the map in his glove compartment he would have arrived at the hotel an hour ago.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,20,swap-1_long,If driver the had simply followed the directions printed on the map in his glove compartment he would have arrived at the hotel an hour ago.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,20,swap-3_long,If driver the had simply followed directions the printed on the map in his glove compartment he would have arrived at the hotel hour an ago.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,21,original_short,The interpreter introduced the ambassador.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,21,swap-1_short,The interpreter introduced ambassador the.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,21,swap-3_short,Interpreter the ambassador introduced the.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,21,original_medium,The embassy interpreter introduced the ambassador to the congressman shortly before the negotiations began.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,21,swap-1_medium,The embassy interpreter introduced ambassador the to the congressman shortly before the negotiations began.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,21,swap-3_medium,Embassy the interpreter introduced ambassador the to congressman the shortly before the negotiations began.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,21,original_long,The embassy interpreter who spoke four languages introduced the visiting ambassador to the congressman from Ohio shortly before the difficult trade negotiations began.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,21,swap-1_long,The embassy interpreter who spoke four languages the introduced visiting ambassador to the congressman from Ohio shortly before the difficult trade negotiations began.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,21,swap-3_long,Embassy the interpreter who spoke four languages the introduced visiting ambassador to the from congressman Ohio shortly before the difficult trade negotiations began.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,22,original_short,Keith was walking his dog.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,22,swap-1_short,Keith walking was his dog.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,22,swap-3_short,Keith walking dog was his.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,22,original_medium,Keith was walking his dog in the park when he heard someone arguing loudly nearby.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,22,swap-1_medium,Keith walking was his dog in the park when he heard someone arguing loudly nearby.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,22,swap-3_medium,Keith walking was his dog in the when park heard he someone arguing loudly nearby.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,22,original_long,Keith was walking his old dog in the park near his apartment late on Sunday evening when he heard someone arguing loudly somewhere nearby.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,22,swap-1_long,Keith walking was his old dog in the park near his apartment late on Sunday evening when he heard someone arguing loudly somewhere nearby.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,22,swap-3_long,Keith walking was old his dog in the park near his apartment late on Sunday evening when heard he someone arguing loudly somewhere nearby.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,23,original_short,The engineer decided to patent the device.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,23,swap-1_short,The engineer to decided patent the device.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,23,swap-3_short,The engineer to decided the device patent.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,23,original_medium,After consulting a lawyer the engineer decided to patent the device.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,23,swap-1_medium,After consulting a lawyer the engineer decided to patent device the.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,23,swap-3_medium,Consulting after a the lawyer engineer decided to patent device the.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,23,original_long,After consulting a lawyer about the potential risks the young engineer finally decided to patent the device before the deadline.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,23,swap-1_long,After consulting a lawyer about the potential the risks young engineer finally decided to patent the device before the deadline.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,23,swap-3_long,Consulting after a lawyer about potential the the risks young engineer finally decided to patent the device before the deadline.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,24,original_short,The landlord has been promising to repair the roof.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,24,swap-1_short,The landlord has been to promising repair the roof.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,24,swap-3_short,The landlord been has to promising the repair roof.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,24,original_medium,For two years the landlord has been promising to repair the roof.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,24,swap-1_medium,For two years the landlord has been to promising repair the roof.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,24,swap-3_medium,For two years the landlord been has to promising the repair roof.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,24,original_long,For two years now the landlord who lives downstairs has been promising to repair the roof and replace the broken windows.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,24,swap-1_long,For two years now the landlord who lives downstairs has been to promising repair the roof and replace the broken windows.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,24,swap-3_long,For two years now the landlord who lives downstairs been has to promising the repair roof and replace the broken windows.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,25,original_short,Eric wondered whether he would ever get a chance.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,25,swap-1_short,Eric wondered he whether would ever get a chance.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,25,swap-3_short,Eric wondered he whether would ever a chance get.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,25,original_medium,Eric wondered whether he would ever get a chance to run the famous marathon in Boston next April.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,25,swap-1_medium,Eric wondered he whether would ever get a chance to run the famous marathon in Boston next April.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,25,swap-3_medium,Eric wondered he whether would ever a get chance to run the famous marathon Boston in next April.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,25,original_long,After his second knee surgery Eric secretly wondered whether he would ever get a chance to run the famous marathon in Boston with his brother next April.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,25,swap-1_long,After his second knee surgery Eric secretly wondered he whether would ever get a chance to run the famous marathon in Boston with his brother next April.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,25,swap-3_long,After his second knee surgery Eric secretly wondered he whether would ever a get chance to run the famous marathon Boston in with his brother next April.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,26,original_short,He dismissed reports that his party was divided.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,26,swap-1_short,He dismissed reports that his was party divided.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,26,swap-3_short,Dismissed he reports his that was party divided.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,26,original_medium,He angrily dismissed recent newspaper reports that his party was deeply divided over both tactics and personalities.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,26,swap-1_medium,He angrily dismissed recent newspaper reports that his was party deeply divided over both tactics and personalities.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,26,swap-3_medium,He angrily dismissed recent newspaper reports his that was party deeply divided over both and tactics personalities.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,26,original_long,Speaking to reporters on Monday he angrily dismissed recent newspaper reports that his party was deeply divided over both tactics and personalities ahead of the election.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,26,swap-1_long,Speaking to reporters on Monday he angrily dismissed recent newspaper reports that his was party deeply divided over both tactics and personalities ahead of the election.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,26,swap-3_long,Speaking to reporters on Monday he angrily dismissed recent newspaper reports his that was party deeply divided over both and tactics personalities ahead of the election.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,27,original_short,Babies are conditioned by what they eat.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,27,swap-1_short,Babies conditioned are by what they eat.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,27,swap-3_short,Babies conditioned are what by eat they.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,27,original_medium,Young babies are strongly conditioned by what they are given to eat and drink every day.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,27,swap-1_medium,Young babies are strongly conditioned by what they are given to eat and every drink day.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,27,swap-3_medium,Young are babies strongly conditioned by what they are given eat to and every drink day.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,27,original_long,Young babies in their first year of life are strongly conditioned by what they are given to eat and drink by their parents every day.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,27,swap-1_long,Young in babies their first year of life are strongly conditioned by what they are given to eat and drink by their parents every day.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA
+annot,27,swap-3_long,Young in babies their first of year life are strongly conditioned by what they are given eat to and drink by their parents every day.,Click on all the words that are misplaced,per_word_multiple_choice,NA,NA,NA

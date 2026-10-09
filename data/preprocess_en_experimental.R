@@ -119,6 +119,3 @@ Encoding(en_exp$original_sentence) <- "UTF-8"
 Encoding(en_exp$perceived_sentence) <- "UTF-8"
 
 write_excel_csv(en_exp, file.path("en_experimental", "stimuli_data.csv"))
-
-dat <- read_csv("en_experimental/experiment_data.csv")
-

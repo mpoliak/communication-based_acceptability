@@ -1,0 +1,7 @@
+information,model,converged,log_likelihood,likelihood_diff
+Length,Binary grammaticality,TRUE,-316.21649007420876,-72.8300103944365
+Length,Gradient grammaticality,TRUE,-278.670186938759,-35.28370725898674
+Length,Communication-based,TRUE,-243.38647967977226,0
+Surprisal,Binary grammaticality,TRUE,-316.21649007420876,-58.91267754923069
+Surprisal,Gradient grammaticality,TRUE,-278.670186938759,-21.36637441378093
+Surprisal,Communication-based,TRUE,-257.30381252497807,0

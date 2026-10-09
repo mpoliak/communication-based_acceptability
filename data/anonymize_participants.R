@@ -1,3 +1,11 @@
+## =============================================================================
+## One-off, already run: replaced the Prolific IDs in each experiment_data.csv
+## with <language>_<n> before release. Do NOT re-run: the raw IDs are not
+## distributed, re-running would renumber the released IDs, and it loops over
+## every data/ subfolder, so it fails on the folders that have no
+## experiment_data.csv (e.g. the SI follow-up experiments).
+## =============================================================================
+
 library(tidyverse)
 
 ## Set plotting preferences

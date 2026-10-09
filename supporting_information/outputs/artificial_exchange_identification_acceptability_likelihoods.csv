@@ -1,0 +1,19 @@
+dataset,information,model,converged,log_likelihood,likelihood_diff
+All trials,Length,Binary grammaticality,TRUE,-305.101970641049,-101.08122305813805
+All trials,Length,Gradient grammaticality,TRUE,-221.00101098497328,-16.98026340206235
+All trials,Length,Communication-based,TRUE,-204.02074758291093,0
+All trials,Surprisal,Binary grammaticality,TRUE,-305.101970641049,-94.04261910252026
+All trials,Surprisal,Gradient grammaticality,TRUE,-221.00101098497328,-9.941659446444561
+All trials,Surprisal,Communication-based,TRUE,-211.05935153852872,0
+Identification correct,Length,Binary grammaticality,TRUE,-267.99403160703264,-87.36225930161277
+Identification correct,Length,Gradient grammaticality,TRUE,-196.51585332453215,-15.884081019112273
+Identification correct,Length,Communication-based,TRUE,-180.63177230541987,0
+Identification correct,Surprisal,Binary grammaticality,TRUE,-267.99403160703264,-84.78759554185064
+Identification correct,Surprisal,Gradient grammaticality,TRUE,-196.51585332453215,-13.309417259350141
+Identification correct,Surprisal,Communication-based,TRUE,-183.206436065182,0
+Identification correct + flagged originals,Length,Binary grammaticality,TRUE,-271.0449551707818,-85.78467693559017
+Identification correct + flagged originals,Length,Gradient grammaticality,TRUE,-201.95697637812773,-16.6966981429361
+Identification correct + flagged originals,Length,Communication-based,TRUE,-185.26027823519163,0
+Identification correct + flagged originals,Surprisal,Binary grammaticality,TRUE,-271.0449551707818,-83.6750497089628
+Identification correct + flagged originals,Surprisal,Gradient grammaticality,TRUE,-201.95697637812773,-14.587070916308733
+Identification correct + flagged originals,Surprisal,Communication-based,TRUE,-187.369905461819,0

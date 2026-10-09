@@ -2,8 +2,12 @@
 ## SI Section 2: Analyses including the shuffled condition
 ##
 ## Repeats the main comparison with the fully shuffled sentences included.
+## Information(s) is sentence surprisal, as in the main analysis.
 ## Produces with_shuffle_figure.png and likelihood_differences_with_shuffled.png.
 ## =============================================================================
+
+## Print warnings as they happen
+options(warn = 1)
 
 ## Set working directory
 get_script_dir <- function() {
@@ -28,27 +32,29 @@ source("setup.R")
 ## Repeats the main model comparison on the full data, including the shuffled
 ## (DL distance >= 4) condition that the main text excludes.
 ## Produces with_shuffle_figure.png and likelihood_differences_with_shuffled.png.
-if (!file.exists("models/main_model_fits_with_shuffled.RData")) {
+##
+## As in the main analysis, the pooled fit pools all nine experiments (the eight
+## languages and controlled English). The controlled English item ids have lost
+## their s/m/l length suffix in setup.R, so the three length versions of a base
+## item share one item intercept.
+if (!file.exists("models/s2_shuffled_surprisal_pooled.RData")) {
   model_grammatical_incl_shuffled <- scam(
     response_num ~ grammatical_numeric + # + # Fixed effects
       s(item, bs="re") + s(language, bs="re") + s(language, grammatical_numeric, bs="re"), # RE
-    data=crit_by_items_full %>% 
-      filter(language != "en_exp")
+    data=crit_by_items_full
   )
   
   model_distance_incl_shuffled <- scam(
     response_num ~ s(dl_distance, bs="mpd") + # Fixed effects
       s(item, bs="re") + s(language, bs="re") + s(language, dl_distance, bs="re"), # RE
-    data=crit_by_items_full %>% 
-      filter(language != "en_exp")
+    data=crit_by_items_full
   )
   
   model_weighted_distance_incl_shuffled <- scam(
-    response_num ~ s(weighted_dl_distance, bs="mpd") + s(n_words, bs="mpd") + # Fixed effects
-      s(item, bs="re") + s(language, bs="re") + s(language, weighted_dl_distance, bs="re") + 
-      s(language, n_words, bs="re"), # RE
-    data=crit_by_items_full %>% 
-      filter(language != "en_exp")
+    response_num ~ s(weighted_dl_distance_surprisal, bs="mpd") + s(sum_surprisal, bs="mpd") + # Fixed effects
+      s(item, bs="re") + s(language, bs="re") + s(language, weighted_dl_distance_surprisal, bs="re") + 
+      s(language, sum_surprisal, bs="re"), # RE
+    data=crit_by_items_full
   )
   
   
@@ -56,11 +62,11 @@ if (!file.exists("models/main_model_fits_with_shuffled.RData")) {
     model_grammatical_incl_shuffled, 
     model_distance_incl_shuffled, 
     model_weighted_distance_incl_shuffled,
-    file="models/main_model_fits_with_shuffled.RData"
+    file="models/s2_shuffled_surprisal_pooled.RData"
   )
   
 } else {
-  load("models/main_model_fits_with_shuffled.RData")
+  load("models/s2_shuffled_surprisal_pooled.RData")
 }
 
 
@@ -89,10 +95,12 @@ incl_shuffled_main_likelihoods <- tibble(
     model = factor(model, levels=c("grammatical", "distance", "weighted_distance"))
   )
 
+write_csv(incl_shuffled_main_likelihoods, "outputs/s2_shuffled_surprisal_likelihoods_pooled.csv")
+
 p_incl_shuffled_main_likelihoods <- ggplot(incl_shuffled_main_likelihoods) +
   geom_point(
     aes(
-      y="All Languages",
+      y="All Experiments",
       x=likelihood_diff,
       color=model,
       shape=model
@@ -112,8 +120,8 @@ p_incl_shuffled_main_likelihoods <- ggplot(incl_shuffled_main_likelihoods) +
   scale_y_discrete(name="")
 
 ### ---- Analysis By Language ----
-if (file.exists("models/fits_byLang_full_with_shuffle.RData")) {
-  load("models/fits_byLang_full_with_shuffle.RData")
+if (file.exists("models/s2_shuffled_surprisal_by_language.RData")) {
+  load("models/s2_shuffled_surprisal_by_language.RData")
 } else {
   
   ## Fit a model for each language
@@ -149,8 +157,8 @@ if (file.exists("models/fits_byLang_full_with_shuffle.RData")) {
       )
       
       comm <- scam(
-        response_num ~ s(weighted_dl_distance, bs="mpd") + s(n_words, bs="mpd") +
-          s(item, bs="re") + s(item, weighted_dl_distance, bs="re") + + s(item, n_words, bs="re"),
+        response_num ~ s(weighted_dl_distance_surprisal, bs="mpd") + s(sum_surprisal, bs="mpd") +
+          s(item, bs="re") + s(item, weighted_dl_distance_surprisal, bs="re") + s(item, sum_surprisal, bs="re"),
         data=crit_by_items_language_specific
       )
     } else {
@@ -168,7 +176,7 @@ if (file.exists("models/fits_byLang_full_with_shuffle.RData")) {
       )
       
       comm <- scam(
-        response_num ~ s(weighted_dl_distance, bs="mpd") + s(n_words, bs="mpd") +
+        response_num ~ s(weighted_dl_distance_surprisal, bs="mpd") + s(sum_surprisal, bs="mpd") +
           s(item, bs="re"),
         data=crit_by_items_language_specific
       )
@@ -216,9 +224,12 @@ if (file.exists("models/fits_byLang_full_with_shuffle.RData")) {
   save(
     fits_byLang_full_with_shuffle,
     fits_byLang_full_with_shuffle_stats,
-    file="models/fits_byLang_full_with_shuffle.RData"
+    file="models/s2_shuffled_surprisal_by_language.RData"
   )
 }
+
+## Evaluate Convergence
+sapply(fits_byLang_full_with_shuffle, function(M) sapply(M, function(m) m$conv))
 
 fits_byLang_full_with_shuffle_stats <- marginal_stats_bylang(
   fits_byLang_full_with_shuffle,
@@ -230,6 +241,13 @@ fits_byLang_full_with_shuffle_stats <- fits_byLang_full_with_shuffle_stats %>%
     max_likelihood = max(log_likelihood),
     likelihood_diff = log_likelihood - max_likelihood
   )
+
+write_csv(
+  fits_byLang_full_with_shuffle_stats %>%
+    ungroup() %>%
+    mutate(across(c(language, model), ~ gsub("\n", " ", .x))),
+  "outputs/s2_shuffled_surprisal_likelihoods_by_language.csv"
+)
 
 p_language_likelihoods <- ggplot(fits_byLang_full_with_shuffle_stats) +
   geom_point(
@@ -254,7 +272,7 @@ p_language_likelihoods <- ggplot(fits_byLang_full_with_shuffle_stats) +
 
 p_language_likelihoods
 
-## Stack the combined "All Languages" panel (top) over the by-language panel
+## Stack the combined "All Experiments" panel (top) over the by-language panel
 ## (bottom), matching the main-text likelihood figure.
 likelihood_differences_with_shuffled_figure <- p_incl_shuffled_main_likelihoods / p_language_likelihoods +
   plot_layout(heights = c(1, 3))
@@ -263,16 +281,20 @@ ggsave("figures/likelihood_differences_with_shuffled.png",
        plot = likelihood_differences_with_shuffled_figure, width = 8, height = 8)
 
 
+## ---- Model Predictions Figure ----
+## Predictions are population-level: random_effect_labels() drops every item
+## effect, including the by-item slopes of the controlled English models.
+
 ### ---- Baseline scatterplot (item means) ----
 DL_COLORS <- c("0"="#EB7AA3", "1-2"="#1E88E5", "3"="#FFC107", "4+"="#004D40")
 
 p_baseline <- ggplot(
   plot_data_by_item,
-  aes(x = n_words, y = response, color = dl_distance_bucket)
+  aes(x = sum_surprisal, y = response, color = dl_distance_bucket)
 ) +
   geom_point(alpha = 0.3) +
   facet_wrap(~language, ncol = 1, strip.position = "left") +
-  labs(x="Sentence Length in Words", y="Rating") +
+  labs(x="Sentence Surprisal (bits)", y="Rating") +
   theme(
     legend.position = "top",
     plot.title = element_text(hjust = 0.5),
@@ -291,7 +313,7 @@ p_baseline <- ggplot(
 ### ---- GAM smooth over item means ----
 p_gam <- p_baseline +
   geom_smooth(
-    aes(x = n_words, y = response, color = dl_distance_bucket),
+    aes(x = sum_surprisal, y = response, color = dl_distance_bucket),
     method  = "gam",
     formula = y ~ s(x, bs = "tp"),
     se = TRUE,
@@ -318,11 +340,11 @@ grammatical_predictions <- setNames(
   lapply(names(fits_byLang_full_with_shuffle), function(lang) {
     predict(
       fits_byLang_full_with_shuffle[[lang]]$binary,
-      newdata = get_prediction_grid(fits_byLang_full_with_shuffle, lang, "binary", n_words = range(crit[crit$language == lang,]$n_words),
-                                    dl_distance=c(0, 1, 3, 10)),
+      newdata = get_prediction_grid_surprisal(fits_byLang_full_with_shuffle, lang, "binary", sum_surprisal = range(crit[crit$language == lang,]$sum_surprisal),
+                                              dl_distance=c(0, 1, 3, 10)),
       type = "response",
       se.fit = TRUE,
-      exclude = "s(item)"
+      exclude = random_effect_labels(fits_byLang_full_with_shuffle[[lang]]$binary)
     )
   }
   ),
@@ -333,12 +355,12 @@ grammatical_predictions <- setNames(
 grammatical_plot_data <- bind_rows(
   lapply(names(grammatical_predictions), function(lang) {
     preds <- grammatical_predictions[[lang]]
-    grid  <- get_prediction_grid(fits_byLang_full_with_shuffle, lang, "binary", n_words = range(crit[crit$language == lang,]$n_words),
-                                 dl_distance=c(0, 1, 3, 10))
+    grid  <- get_prediction_grid_surprisal(fits_byLang_full_with_shuffle, lang, "binary", sum_surprisal = range(crit[crit$language == lang,]$sum_surprisal),
+                                           dl_distance=c(0, 1, 3, 10))
     
     tibble(
       language = label_language(lang),
-      n_words = grid$n_words,
+      sum_surprisal = grid$sum_surprisal,
       dl_distance_bucket = bucket_dl(grid$dl_distance),
       response = preds$fit,
       se = preds$se.fit
@@ -352,7 +374,7 @@ p_grammatical <- p_baseline +
   geom_ribbon(
     data=grammatical_plot_data,
     aes(
-      x = n_words,
+      x = sum_surprisal,
       ymin = response - 2 * se,
       ymax = response + 2 * se,
       group = dl_distance_bucket
@@ -362,7 +384,7 @@ p_grammatical <- p_baseline +
   geom_line(
     data=grammatical_plot_data,
     aes(
-      x = n_words,
+      x = sum_surprisal,
       y = response,
       color = dl_distance_bucket
     ),
@@ -370,7 +392,7 @@ p_grammatical <- p_baseline +
   ) +
   facet_wrap(~language, ncol = 1) +
   labs(
-    x = "Sentence Length in Words",
+    x = "Sentence Surprisal (bits)",
     y = ""
   ) +
   theme(
@@ -412,11 +434,11 @@ distance_predictions <- setNames(
   lapply(names(fits_byLang_full_with_shuffle), function(lang) {
     predict(
       fits_byLang_full_with_shuffle[[lang]]$gradient,
-      newdata = get_prediction_grid(fits_byLang_full_with_shuffle, lang, "gradient", n_words = range(crit[crit$language == lang,]$n_words),
-                                    dl_distance=c(0, 1, 3, 10)),
+      newdata = get_prediction_grid_surprisal(fits_byLang_full_with_shuffle, lang, "gradient", sum_surprisal = range(crit[crit$language == lang,]$sum_surprisal),
+                                              dl_distance=c(0, 1, 3, 10)),
       type = "response",
       se.fit = TRUE,
-      exclude = "s(item)"
+      exclude = random_effect_labels(fits_byLang_full_with_shuffle[[lang]]$gradient)
     )
   }
   ),
@@ -427,12 +449,12 @@ distance_predictions <- setNames(
 distance_plot_data <- bind_rows(
   lapply(names(distance_predictions), function(lang) {
     preds <- distance_predictions[[lang]]
-    grid  <- get_prediction_grid(fits_byLang_full_with_shuffle, lang, "gradient", n_words = range(crit[crit$language == lang,]$n_words),
-                                 dl_distance=c(0, 1, 3, 10))
+    grid  <- get_prediction_grid_surprisal(fits_byLang_full_with_shuffle, lang, "gradient", sum_surprisal = range(crit[crit$language == lang,]$sum_surprisal),
+                                           dl_distance=c(0, 1, 3, 10))
     
     tibble(
       language = label_language(lang),
-      n_words = grid$n_words,
+      sum_surprisal = grid$sum_surprisal,
       dl_distance_bucket = bucket_dl(grid$dl_distance),
       response = preds$fit,
       se = preds$se.fit
@@ -445,7 +467,7 @@ p_distance <- p_baseline +
   geom_ribbon(
     data=distance_plot_data,
     aes(
-      x = n_words,
+      x = sum_surprisal,
       ymin = response - 2 * se,
       ymax = response + 2 * se,
       group = dl_distance_bucket
@@ -456,7 +478,7 @@ p_distance <- p_baseline +
   geom_line(
     data=distance_plot_data,
     aes(
-      x = n_words,
+      x = sum_surprisal,
       y = response,
       color = dl_distance_bucket
     ),
@@ -464,7 +486,7 @@ p_distance <- p_baseline +
   ) +
   facet_wrap(~language, ncol = 1) +
   labs(
-    x = "Sentence Length in Words",
+    x = "Sentence Surprisal (bits)",
     y = ""
   ) +
   theme(
@@ -498,11 +520,11 @@ weighted_distance_predictions <- setNames(
   lapply(names(fits_byLang_full_with_shuffle), function(lang) {
     predict(
       fits_byLang_full_with_shuffle[[lang]]$comm,
-      newdata = get_prediction_grid(fits_byLang_full_with_shuffle, lang, "comm", n_words = range(crit[crit$language == lang,]$n_words),
-                                    dl_distance=c(0, 1, 3, 10)),
+      newdata = get_prediction_grid_surprisal(fits_byLang_full_with_shuffle, lang, "comm", sum_surprisal = range(crit[crit$language == lang,]$sum_surprisal),
+                                              dl_distance=c(0, 1, 3, 10)),
       type = "response",
       se.fit = TRUE,
-      exclude = "s(item)"
+      exclude = random_effect_labels(fits_byLang_full_with_shuffle[[lang]]$comm)
     )
   }
   ),
@@ -513,12 +535,12 @@ weighted_distance_predictions <- setNames(
 weighted_distance_plot_data <- bind_rows(
   lapply(names(weighted_distance_predictions), function(lang) {
     preds <- weighted_distance_predictions[[lang]]
-    grid  <- get_prediction_grid(fits_byLang_full_with_shuffle, lang, "comm", n_words = range(crit[crit$language == lang,]$n_words),
-                                 dl_distance=c(0, 1, 3, 10))
+    grid  <- get_prediction_grid_surprisal(fits_byLang_full_with_shuffle, lang, "comm", sum_surprisal = range(crit[crit$language == lang,]$sum_surprisal),
+                                           dl_distance=c(0, 1, 3, 10))
     
     tibble(
       language = label_language(lang),
-      n_words = grid$n_words,
+      sum_surprisal = grid$sum_surprisal,
       dl_distance_bucket = bucket_dl(grid$dl_distance),
       response = preds$fit,
       se = preds$se.fit
@@ -536,7 +558,7 @@ p_weighted_distance <- p_baseline +
         upper = ifelse(upper > 7.5, 7.5, upper),
       ),
     aes(
-      x = n_words,
+      x = sum_surprisal,
       ymin = lower,
       ymax = upper,
       group = dl_distance_bucket
@@ -550,7 +572,7 @@ p_weighted_distance <- p_baseline +
         response = ifelse(response > 7.5, 7.5, response)
       ),
     aes(
-      x = n_words,
+      x = sum_surprisal,
       y = response,
       color = dl_distance_bucket
     ),
@@ -558,7 +580,7 @@ p_weighted_distance <- p_baseline +
   ) +
   facet_wrap(~language, ncol = 1) +
   labs(
-    x = "Sentence Length in Words",
+    x = "Sentence Surprisal (bits)",
     y = ""
   ) +
   theme(

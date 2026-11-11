@@ -1,9 +1,12 @@
 ## =============================================================================
 ## SI Section 2: Analyses including the shuffled condition
 ##
-## Repeats the main comparison with the fully shuffled sentences included.
-## Information(s) is sentence surprisal, as in the main analysis.
-## Produces with_shuffle_figure.png and likelihood_differences_with_shuffled.png.
+## Repeats the main comparison of all five models (Binary, Gradient,
+## Communication, SLOR and MORCELA) with the fully shuffled sentences included.
+## Information(s) is sentence surprisal, as in the main analysis. MORCELA's
+## weights are learned on these data (written to s2_morcela_weights.csv).
+## Produces with_shuffle_figure.png and likelihood_differences_with_shuffled.png
+## (and .pdf).
 ## =============================================================================
 
 ## Print warnings as they happen
@@ -13,7 +16,9 @@ options(warn = 1)
 get_script_dir <- function() {
   args <- commandArgs(trailingOnly = FALSE)
   file_arg <- grep("^--file=", args, value = TRUE)
-  if (length(file_arg)) {
+  ## Only while the path still resolves: once a script has moved into its
+  ## folder, a relative --file path no longer does, and getwd() is the folder
+  if (length(file_arg) && file.exists(sub("^--file=", "", file_arg))) {
     return(dirname(normalizePath(sub("^--file=", "", file_arg))))
   }
   if (requireNamespace("rstudioapi", quietly = TRUE) &&
@@ -27,6 +32,45 @@ setwd(get_script_dir())
 ## Libraries, plotting theme, helper functions, `crit`, the by-item data frames
 ## and the shared plotting helpers all live in setup.R.
 source("setup.R")
+
+## ---- SLOR and MORCELA ----
+## The main text's two language-model baselines. SLOR is in the by-item data
+## already (setup.R). MORCELA's two weights are learned by the main text's
+## recipe (../analysis/main_analysis.R), which fits them to the very ratings the
+## score is then used to predict -- here all of them, shuffled condition
+## included. So the weights are learned anew on these data rather than taken
+## from the main text, just as the other models' smooths are refit on them. As
+## in the main text, they are learned once, on all nine experiments, for the
+## pooled fit (here), and separately for each experiment for the by-experiment
+## fits (below).
+crit_by_items_full_with_morcela <- crit_by_items_full
+
+morcela_weights_full <- morcela_weights(crit_by_items_full_with_morcela)
+
+crit_by_items_full_with_morcela$morcela <- morcela_score(
+  crit_by_items_full_with_morcela, morcela_weights_full
+)
+
+## MORCELA's weights, pooled and for each experiment
+morcela_weights_full_table <- bind_rows(
+  tibble(
+    experiment = "all_experiments",
+    beta = morcela_weights_full$beta,
+    gamma = morcela_weights_full$gamma
+  ),
+  bind_rows(lapply(levels(crit_by_items_full$language), function(language_iter) {
+    weights <- morcela_weights(crit_by_items_full %>% filter(language == language_iter))
+    tibble(
+      experiment = language_iter,
+      beta = weights$beta,
+      gamma = weights$gamma
+    )
+  }))
+)
+
+morcela_weights_full_table
+
+write_csv(morcela_weights_full_table, "outputs/s2_morcela_weights.csv")
 
 ## ---- Model Comparison with the Shuffled Condition ----
 ## Repeats the main model comparison on the full data, including the shuffled
@@ -69,53 +113,122 @@ if (!file.exists("models/s2_shuffled_surprisal_pooled.RData")) {
   load("models/s2_shuffled_surprisal_pooled.RData")
 }
 
+## SLOR and MORCELA, specified as in the main text. They were added after the
+## three models above, so they are cached in a file of their own: the three
+## models' cache, and every number reported from it, stay as they were.
+if (!file.exists("models/s2_shuffled_slor_morcela_pooled.RData")) {
+  print(paste(Sys.time(), "Fitting the pooled SLOR model"))
+  model_slor_incl_shuffled <- scam(
+    response_num ~ s(slor, bs="mpi") + # Fixed effects
+      s(item, bs="re") + s(language, bs="re") + s(language, slor, bs="re"), # RE
+    data=crit_by_items_full_with_morcela,
+    control = scam.control(trace = TRUE)
+  )
+
+  print(paste(Sys.time(), "Fitting the pooled MORCELA model"))
+  model_morcela_incl_shuffled <- scam(
+    response_num ~ s(morcela, bs="mpi") + # Fixed effects
+      s(item, bs="re") + s(language, bs="re") + s(language, morcela, bs="re"), # RE
+    data=crit_by_items_full_with_morcela,
+    control = scam.control(trace = TRUE)
+  )
+
+  save(
+    model_slor_incl_shuffled,
+    model_morcela_incl_shuffled,
+    file="models/s2_shuffled_slor_morcela_pooled.RData"
+  )
+
+} else {
+  load("models/s2_shuffled_slor_morcela_pooled.RData")
+}
+## The SLOR and MORCELA smooths (the first smooth of each model) must be
+## monotone increasing, as in the main text
+stopifnot(
+  model_slor_incl_shuffled$smooth[[1]]$label == "s(slor)",
+  inherits(model_slor_incl_shuffled$smooth[[1]], "mpi.smooth"),
+  model_morcela_incl_shuffled$smooth[[1]]$label == "s(morcela)",
+  inherits(model_morcela_incl_shuffled$smooth[[1]], "mpi.smooth")
+)
+
 
 ## Inspect models
 model_grammatical_incl_shuffled$conv
 model_distance_incl_shuffled$conv
 model_weighted_distance_incl_shuffled$conv
+model_slor_incl_shuffled$conv
+model_morcela_incl_shuffled$conv
 
 ## Extract the marginal log-likelihood of each model (see the note above: scam's
 ## own logLik()/AIC()/BIC() are conditional on the fitted random effects).
 marginal_logLik(model_grammatical_incl_shuffled)
 marginal_logLik(model_distance_incl_shuffled)
 marginal_logLik(model_weighted_distance_incl_shuffled)
+marginal_logLik(model_slor_incl_shuffled)
+marginal_logLik(model_morcela_incl_shuffled)
 
+## Each model's convergence is recorded next to its log-likelihood: `converged`
+## is scam's own flag ($conv, whether its penalized IRLS converged), and
+## `bfgs_convergence` how its search for the smoothing parameters ended ("Full
+## convergence", or e.g. "Iteration limit reached")
 incl_shuffled_main_likelihoods <- tibble(
-  model = c("grammatical", "distance", "weighted_distance"),
+  model = c("Binary", "Gradient", "Communication", "SLOR", "MORCELA"),
   log_likelihood = c(
     marginal_logLik(model_grammatical_incl_shuffled),
     marginal_logLik(model_distance_incl_shuffled),
-    marginal_logLik(model_weighted_distance_incl_shuffled)
+    marginal_logLik(model_weighted_distance_incl_shuffled),
+    marginal_logLik(model_slor_incl_shuffled),
+    marginal_logLik(model_morcela_incl_shuffled)
+  ),
+  converged = c(
+    isTRUE(model_grammatical_incl_shuffled$conv),
+    isTRUE(model_distance_incl_shuffled$conv),
+    isTRUE(model_weighted_distance_incl_shuffled$conv),
+    isTRUE(model_slor_incl_shuffled$conv),
+    isTRUE(model_morcela_incl_shuffled$conv)
+  ),
+  bfgs_convergence = c(
+    model_grammatical_incl_shuffled$bfgs.info$conv,
+    model_distance_incl_shuffled$bfgs.info$conv,
+    model_weighted_distance_incl_shuffled$bfgs.info$conv,
+    model_slor_incl_shuffled$bfgs.info$conv,
+    model_morcela_incl_shuffled$bfgs.info$conv
   )
 ) %>%
   mutate(
     max_likelihood = max(log_likelihood),
     likelihood_diff = log_likelihood - max_likelihood,
-    model = factor(model, levels=c("grammatical", "distance", "weighted_distance"))
+    model = factor(model, levels=MODEL_LEVELS)
   )
 
 write_csv(incl_shuffled_main_likelihoods, "outputs/s2_shuffled_surprisal_likelihoods_pooled.csv")
 
+## Drawn like the main text's five-model figure (../analysis/main_analysis.R),
+## with MODEL_COLORS, MODEL_SHAPES and MODEL_LABELS from setup.R
 p_incl_shuffled_main_likelihoods <- ggplot(incl_shuffled_main_likelihoods) +
   geom_point(
     aes(
       y="All Experiments",
       x=likelihood_diff,
       color=model,
+      fill=model,
       shape=model
     ),
     size=3
   ) +
   scale_color_manual(
     name="",
-    values=c("#EB7AA3", "#1E88E5", "#004D40"),
-    labels=c("Binary\nGrammaticality", "Gradient\nGrammaticality", "Communication")
+    values=MODEL_COLORS,
+    labels=MODEL_LABELS
   ) +
+  scale_fill_manual(values=MODEL_COLORS) +
+  scale_shape_manual(values=MODEL_SHAPES) +
   scale_x_continuous(
     name = ""
   ) +
-  guides(shape = "none") +
+  ## Five entries do not fit on one row at this width, so the paper's three
+  ## models go on the first row and SLOR and MORCELA on the second.
+  guides(color = guide_legend(nrow = 2, byrow = TRUE), shape = "none", fill = "none") +
   theme(legend.position="top") +
   scale_y_discrete(name="")
 
@@ -228,12 +341,97 @@ if (file.exists("models/s2_shuffled_surprisal_by_language.RData")) {
   )
 }
 
-## Evaluate Convergence
-sapply(fits_byLang_full_with_shuffle, function(M) sapply(M, function(m) m$conv))
+### ---- SLOR and MORCELA By Language ----
+## SLOR and MORCELA in each experiment, specified as in the main text and cached
+## in a file of their own (see the pooled fits above). Only the fitted models are
+## cached; the log-likelihoods are computed below with marginal_logLik().
+if (file.exists("models/s2_shuffled_slor_morcela_by_language.RData")) {
+  load("models/s2_shuffled_slor_morcela_by_language.RData")
+} else {
 
+  fits_byLang_full_with_shuffle_slor_morcela <- list()
+  for (language_iter in levels(crit_by_items$language)) {
+    print(
+      paste0("Fitting SLOR and MORCELA for ", language_iter)
+    )
+    ## Get specific data
+    crit_by_items_language_specific <- crit_by_items_full %>%
+      filter(language == language_iter)
+
+    ## Score MORCELA with this experiment's own weights, learned on these data
+    crit_by_items_language_specific$morcela <- morcela_score(
+      crit_by_items_language_specific, morcela_weights(crit_by_items_language_specific)
+    )
+
+    if (language_iter == "en_exp") {
+      ## Fit models
+      slor <- scam(
+        response_num ~ s(slor, bs="mpi") +
+          s(item, bs="re") + s(item, slor, bs="re"),
+        data=crit_by_items_language_specific
+      )
+
+      morcela <- scam(
+        response_num ~ s(morcela, bs="mpi") +
+          s(item, bs="re") + s(item, morcela, bs="re"),
+        data=crit_by_items_language_specific
+      )
+    } else {
+      ## Fit models
+      slor <- scam(
+        response_num ~ s(slor, bs="mpi") +
+          s(item, bs="re"),
+        data=crit_by_items_language_specific
+      )
+
+      morcela <- scam(
+        response_num ~ s(morcela, bs="mpi") +
+          s(item, bs="re"),
+        data=crit_by_items_language_specific
+      )
+    }
+
+    fits_byLang_full_with_shuffle_slor_morcela[[language_iter]] <- list(
+      slor = slor,
+      morcela = morcela
+    )
+  }
+
+  save(
+    fits_byLang_full_with_shuffle_slor_morcela,
+    file="models/s2_shuffled_slor_morcela_by_language.RData"
+  )
+}
+## All nine experiments are there, with an increasing SLOR or MORCELA smooth
+## (the first smooth of each model)
+stopifnot(
+  setequal(names(fits_byLang_full_with_shuffle_slor_morcela), names(fits_byLang_full_with_shuffle)),
+  all(sapply(fits_byLang_full_with_shuffle_slor_morcela, function(M) {
+    M$slor$smooth[[1]]$label == "s(slor)" && inherits(M$slor$smooth[[1]], "mpi.smooth") &&
+      M$morcela$smooth[[1]]$label == "s(morcela)" && inherits(M$morcela$smooth[[1]], "mpi.smooth")
+  }))
+)
+
+## All five models of each experiment, in the order of the figure legend
+fits_byLang_full_with_shuffle_5models <- Map(
+  c, fits_byLang_full_with_shuffle,
+  fits_byLang_full_with_shuffle_slor_morcela[names(fits_byLang_full_with_shuffle)]
+)
+
+## Evaluate Convergence
+sapply(fits_byLang_full_with_shuffle_5models, function(M) sapply(M, function(m) m$conv))
+
+## Each fit's convergence is recorded next to its log-likelihood, as for the
+## pooled fits. marginal_stats_bylang() lists the fits in the order of the model
+## list, experiment by experiment, and so do the two columns added here.
 fits_byLang_full_with_shuffle_stats <- marginal_stats_bylang(
-  fits_byLang_full_with_shuffle,
-  c(binary = "Binary\nGrammaticality", gradient = "Gradient\nGrammaticality", comm = "Communication-based"))
+  fits_byLang_full_with_shuffle_5models,
+  c(binary = "Binary", gradient = "Gradient", comm = "Communication",
+    slor = "SLOR", morcela = "MORCELA")) %>%
+  mutate(
+    converged = unlist(lapply(fits_byLang_full_with_shuffle_5models, function(M) sapply(M, function(m) isTRUE(m$conv)))),
+    bfgs_convergence = unlist(lapply(fits_byLang_full_with_shuffle_5models, function(M) sapply(M, function(m) m$bfgs.info$conv)))
+  )
 
 fits_byLang_full_with_shuffle_stats <- fits_byLang_full_with_shuffle_stats %>%
   group_by(language) %>%
@@ -255,14 +453,17 @@ p_language_likelihoods <- ggplot(fits_byLang_full_with_shuffle_stats) +
       y=language,
       x=likelihood_diff,
       color=model,
+      fill=model,
       shape=model
     ),
     size=3
   ) +
   scale_color_manual(
     name="",
-    values=c("#EB7AA3", "#1E88E5", "#004D40")
+    values=MODEL_COLORS
   ) +
+  scale_fill_manual(values=MODEL_COLORS) +
+  scale_shape_manual(values=MODEL_SHAPES) +
   scale_x_continuous(
     name = "Log-Likelihood Difference"
   ) +
@@ -270,7 +471,7 @@ p_language_likelihoods <- ggplot(fits_byLang_full_with_shuffle_stats) +
   scale_y_discrete(name="",
                    limits = rev)
 
-p_language_likelihoods
+if (interactive()) print(p_language_likelihoods)
 
 ## Stack the combined "All Experiments" panel (top) over the by-language panel
 ## (bottom), matching the main-text likelihood figure.
@@ -279,6 +480,11 @@ likelihood_differences_with_shuffled_figure <- p_incl_shuffled_main_likelihoods 
 
 ggsave("figures/likelihood_differences_with_shuffled.png",
        plot = likelihood_differences_with_shuffled_figure, width = 8, height = 8)
+
+## Save as pdf, with the fonts embedded (cairo_pdf)
+ggsave("figures/likelihood_differences_with_shuffled.pdf",
+       plot = likelihood_differences_with_shuffled_figure, width = 8, height = 8,
+       device = cairo_pdf)
 
 
 ## ---- Model Predictions Figure ----
@@ -417,16 +623,7 @@ p_grammatical <- p_baseline +
   ) +
   ggplot2::guides(color = "none") 
 
-p_grammatical
-
-ggsave(
-  p_grammatical,
-  filename = "figures/with_shuffle_figure_grammatical.png",
-  width    = 6,
-  height   = 16,
-  units    = "in",
-  dpi      = 300
-)
+if (interactive()) print(p_grammatical)
 
 #### ---- Distance model ----
 #### ---- Predictions from distance model ----
@@ -503,16 +700,7 @@ p_distance <- p_baseline +
   ) +
   ggplot2::guides(color = "none")
 
-p_distance
-
-ggsave(
-  p_distance,
-  filename = "figures/with_shuffle_figure_distance.png",
-  width    = 6,
-  height   = 16,
-  units    = "in",
-  dpi      = 300
-)
+if (interactive()) print(p_distance)
 
 #### ---- Weighted distance model ----
 #### ---- Predictions from weighted distance model ----
@@ -597,16 +785,7 @@ p_weighted_distance <- p_baseline +
   ) +
   ggplot2::guides(color = "none")
 
-p_weighted_distance
-
-ggsave(
-  p_weighted_distance,
-  filename = "figures/with_shuffle_figure_weighted_distance.png",
-  width    = 6,
-  height   = 16,
-  units    = "in",
-  dpi      = 300
-)
+if (interactive()) print(p_weighted_distance)
 
 ### ---- Combine plots into main figure ----
 main_figure = (p_gam |  p_weighted_distance | p_distance |p_grammatical) +
@@ -615,7 +794,7 @@ main_figure = (p_gam |  p_weighted_distance | p_distance |p_grammatical) +
         plot.title = element_text(hjust = 0.5)
   )
 
-main_figure
+if (interactive()) print(main_figure)
 
 ggsave(
   filename = "figures/with_shuffle_figure.png",

@@ -237,34 +237,26 @@ stopifnot(
 ## Over the original sentences, one per item (so 216 in the controlled English
 ## experiment, where each base item comes in 3 lengths). Length and surprisal are
 ## both properties of the item's original sentence, so we take them from all of
-## an item's conditions: after the exclusions, a few controlled English items
-## have no rating left in the original condition itself.
+## an item's conditions: a few controlled English items were never rated in the
+## original condition itself.
 original_sentences <- crit %>%
   distinct(language, item, n_words, sum_surprisal)
 
 stopifnot(!anyDuplicated(original_sentences[c("language", "item")]))
 
-surprisal_length_correlation <- function(sentences, experiment_code) {
-  correlation <- cor.test(sentences$n_words, sentences$sum_surprisal)
-  tibble(
-    experiment = experiment_code,
-    n_sentences = nrow(sentences),
-    r = unname(correlation$estimate),
-    ci_low = correlation$conf.int[1],
-    ci_high = correlation$conf.int[2],
-    p = correlation$p.value
-  )
-}
-
-surprisal_length_correlations <- bind_rows(
-  lapply(sort(unique(original_sentences$language)), function(current_language) {
-    surprisal_length_correlation(
-      original_sentences %>% filter(language == current_language),
-      current_language
-    )
-  }),
-  surprisal_length_correlation(original_sentences, "all_experiments")
-)
+## Token count vs. summed surprisal: Pearson correlation in each experiment, and
+## in all of them together (the last row)
+surprisal_length_correlations <- original_sentences %>%
+  bind_rows(original_sentences %>% mutate(language = "all_experiments")) %>%
+  group_by(experiment = language) %>%
+  summarize(
+    n_sentences = n(),
+    r = cor(n_words, sum_surprisal),
+    ci_low = cor.test(n_words, sum_surprisal)$conf.int[1],
+    ci_high = cor.test(n_words, sum_surprisal)$conf.int[2],
+    p = cor.test(n_words, sum_surprisal)$p.value
+  ) %>%
+  arrange(experiment == "all_experiments", experiment)
 
 surprisal_length_correlations
 
@@ -272,6 +264,11 @@ write_csv(surprisal_length_correlations, "outputs/surprisal_length_correlations.
 
 ## ---- Main Analyses ----
 ### ---- Linear Model ----
+## Every experiment uses the nlminb optimizer. allFit() shows nlminb at the best
+## log-likelihood of any optimizer (to within 0.0001) in all nine, while bobyqa
+## stops ~27 log-likelihood units short in en_exp. In Danish, nlminb reports
+## "singular convergence (7)" at the same optimum that bobyqa finds (identical
+## estimates): the fit is singular, like most of these maximal fits.
 ## en_exp is left out of this loop because it is fit below with its full by-item
 ## random-effects structure.
 lmer_fits <- lapply(setdiff(unique(crit$language), "en_exp"), function(current_language) {
@@ -289,8 +286,8 @@ lmer_fits <- lapply(setdiff(unique(crit$language), "en_exp"), function(current_l
       dl_distance = scale(dl_distance)[,1]
     ),
   control = lmerControl(
-    optimizer ="bobyqa",
-    optCtrl = list(maxfun = 1e5)
+    optimizer ="nlminbwrap",
+    optCtrl = list(eval.max = 1e5, iter.max = 1e5)
   )
   )
 })
@@ -316,12 +313,10 @@ lmer_fits[["en_exp"]] <- lmer(
       sum_surprisal = scale(sum_surprisal)[,1],
       dl_distance = scale(dl_distance)[,1]
     ),
-  ## nlminb rather than bobyqa: with this random-effects structure bobyqa stops
-  ## ~27 log-likelihood units short of the optimum and fails the convergence
-  ## check. allFit() shows nlminb and NLopt reaching the same optimum; nlminb is
-  ## the one that passes the check. (In the other 8 experiments bobyqa already
-  ## reaches the optimum.) The fit is still singular: the maximal structure is
-  ## more than the data support.
+  ## nlminb, as above. With this random-effects structure bobyqa stops ~27
+  ## log-likelihood units short of the optimum and fails the convergence check.
+  ## The fit is still singular: the maximal structure is more than the data
+  ## support.
   control = lmerControl(
     optimizer ="nlminbwrap",
     optCtrl = list(eval.max = 1e5, iter.max = 1e5)
@@ -814,6 +809,47 @@ mod_weighted_distance$conv
 mod_slor$conv
 mod_morcela$conv
 
+## How each fit's search for its smoothing parameters ended, per experiment and
+## pooled. scam stops the search when the gradient of its smoothness score is
+## small enough (gradtol.bfgs, 1e-6 by default), when it reaches its 200-step
+## limit, or when its last step finds no lower score. `tolerance_met` is the
+## smallest gradtol.bfgs at which the fit would pass scam's own stopping rule
+## (in scam's bfgs_gcv.ubre, which compares the relative gradient with
+## 6.0554 * gradtol.bfgs). Not reported in the paper.
+all_fits <- c(
+  unlist(models_by_language, recursive = FALSE),
+  list(
+    all_experiments.grammatical       = mod_grammatical,
+    all_experiments.distance          = mod_distance,
+    all_experiments.weighted_distance = mod_weighted_distance,
+    all_experiments.slor              = mod_slor,
+    all_experiments.morcela           = mod_morcela
+  )
+)
+
+search_convergence <- tibble(
+  fit = names(all_fits),
+  bfgs_convergence = vapply(all_fits, function(m) m$bfgs.info$conv, character(1)),
+  tolerance_met = vapply(all_fits, function(m) {
+    max(abs(m$bfgs.info$grad)) * max(max(abs(log(m$sp))), 1) /
+      max(abs(m$gcv.ubre), 1) / 6.0554
+  }, numeric(1))
+)
+
+print(search_convergence %>% filter(bfgs_convergence != "Full convergence"), n = Inf)
+
+## The fits whose last step found no lower score: refit each with scam's two
+## other optimizers, and print how much its marginal log-likelihood changes
+for (fit_name in search_convergence$fit[grepl("^Last step failed", search_convergence$bfgs_convergence)]) {
+  m <- all_fits[[fit_name]]
+  print(paste0(
+    fit_name, ": marginal log-likelihood change with nlm ",
+    round(marginal_logLik(scam(m$formula, data = m$model, optimizer = "nlm")) - marginal_logLik(m), 3),
+    ", with optim ",
+    round(marginal_logLik(scam(m$formula, data = m$model, optimizer = "optim")) - marginal_logLik(m), 3)
+  ))
+}
+
 ## ---- Model Comparison ----
 ### ---- Log-likelihoods by experiment ----
 ## Build the by-experiment log-likelihood table using the MARGINAL log-likelihood
@@ -852,18 +888,18 @@ stats_models_by_language <- do.call(rbind, lapply(names(models_by_language), fun
       factor(levels=c("Binary", "Gradient", "Communication", "SLOR", "MORCELA"))
   )
 
-## The three models of the paper keep their colours, shapes and legend labels,
+## The three models of the paper keep their shapes and legend labels,
 ## and SLOR and MORCELA are added. SLOR and MORCELA get filled shapes (23 and 25
 ## take both a colour and a fill), so all five markers are solid.
 MODEL_LEVELS <- c("Binary", "Gradient", "Communication", "SLOR", "MORCELA")
 MODEL_LABELS <- c("Binary\nGrammaticality", "Gradient\nGrammaticality",
                   "Communication", "SLOR", "MORCELA")
 MODEL_COLORS <- c(
-  "Binary"        = "#EB7AA3",
-  "Gradient"      = "#1E88E5",
-  "Communication" = "#004D40",
-  "SLOR"          = "#E08A2E",
-  "MORCELA"       = "#A31F34"
+  "Binary"        = "#939DB0",
+  "Gradient"      = "#5673C5",
+  "Communication" = "#003736",
+  "SLOR"          = "#F7B957",
+  "MORCELA"       = "#A90318"
 )
 MODEL_SHAPES <- c(
   "Binary"        = 16,
@@ -961,19 +997,28 @@ p_language_likelihoods <- ggplot(stats_models_by_language) +
   theme(legend.position="none") +
   scale_y_discrete(name="")
 
+## ---- Main Figure: Model Comparison (Log-likelihoods) ----
 ## Stack the combined "All Experiments" panel (top) over the by-language panel
-## (bottom), matching the figure caption.
+## (bottom), matching the figure caption. It is drawn at 8 x 8 in, like the SI's
+## likelihood figures; printed one column wide (3.42 in), its smallest text (tick
+## labels and legend) comes out at about 6 pt, the PNAS minimum.
 likelihood_differences_figure <- p_main_likelihoods / p_language_likelihoods +
   plot_layout(heights = c(1, 3))
 
 ggsave("figures/likelihood_differences.png",
        plot = likelihood_differences_figure, width = 8, height = 8)
 
+## Save as pdf, with the fonts embedded (cairo_pdf)
+ggsave("figures/likelihood_differences.pdf",
+       plot = likelihood_differences_figure, width = 8, height = 8,
+       device = cairo_pdf)
+
 ### ---- Smooths of the pooled models ----
-## Save the figures
+## Drawn only in an interactive session: the paper does not use them, so they
+## are not saved
+if (interactive()) {
 ## The rug ticks are jittered at random; a fixed seed makes the figure reproducible
 set.seed(2026)
-png("figures/mod_gradient_dl.png", width=6, height=6, units="in", res=300)
 plot(mod_distance, select = 1,
      shade = TRUE,            # optional: shaded CI instead of dashed lines
      shade.col = "lightblue", # color for shading
@@ -983,11 +1028,9 @@ plot(mod_distance, select = 1,
      rug = TRUE,              # keep the rug
      jit = TRUE               # jitter the rug ticks
 )
-dev.off()
 
 ## The rug ticks are jittered at random; a fixed seed makes the figure reproducible
 set.seed(2026)
-png("figures/mod_communication_dlweighted_surprisal.png", width=6, height=6, units="in", res=300)
 plot(mod_weighted_distance, select = 1,
      shade = TRUE,            # optional: shaded CI instead of dashed lines
      shade.col = "lightblue", # color for shading
@@ -997,11 +1040,9 @@ plot(mod_weighted_distance, select = 1,
      rug = TRUE,              # keep the rug
      jit = TRUE               # jitter the rug ticks
 )
-dev.off()
 
 ## The rug ticks are jittered at random; a fixed seed makes the figure reproducible
 set.seed(2026)
-png("figures/mod_communication_sum_surprisal.png", width=6, height=6, units="in", res=300)
 plot(mod_weighted_distance, select = 2,
          shade = TRUE,            # optional: shaded CI instead of dashed lines
          shade.col = "lightblue", # color for shading
@@ -1011,7 +1052,7 @@ plot(mod_weighted_distance, select = 2,
          rug = TRUE,              # keep the rug
          jit = TRUE               # jitter the rug ticks
 )
-dev.off()
+}
 
 ## ---- Plotting Helpers ----
 YLIM <- c(0, 8)
@@ -1055,15 +1096,33 @@ scale_dl_color <- function() {
     limits = DL_BUCKET_LEVELS,
     drop   = FALSE,
     guide  = ggplot2::guide_legend(
-      override.aes = list(alpha = 1, linewidth = 0, size = 3)
+      override.aes = list(alpha = 1, linewidth = 0, size = 1.6)
     )
   )
 }
 
-## ---- Main Figure: Observed vs. Predicted Acceptability ----
+## The main-text figures are drawn at their print size, so that their text comes
+## out at the size it is printed. This is the script's theme at the 8-pt print
+## size of the full-width figures, with axis lines thinned to match (the
+## one-column figure below writes it out at 6.5 pt).
+theme_print_8pt <- theme_bw(base_size = 8) +
+  theme(panel.grid = element_blank(),
+        strip.background = element_blank(),
+        legend.key = element_blank(),
+        panel.border = element_blank(),
+        axis.line = element_line(linewidth = 0.3),
+        axis.ticks = element_line(linewidth = 0.3),
+        strip.text = element_text(face = "bold"),
+        plot.title = element_text(hjust = 0.5))
+
+## ---- Main Figure: Quantitative Predictions (Observed vs. Predicted) ----
 ## Observed against predicted acceptability, one point per item and condition.
 ## One row for the models pooled over all experiments, then one row per
-## experiment; one column per model.
+## experiment; one column per model. The predictions and correlations of all
+## five models are written out, but the figure shows only the models in
+## OBSERVED_VS_PREDICTED_SHOWN: the two language-model scores and the
+## communication model. The binary and gradient models are drawn in the
+## qualitative-predictions figure below.
 OBSERVED_VS_PREDICTED_MODELS <- c(
   slor = "SLOR",
   morcela = "MORCELA",
@@ -1071,6 +1130,9 @@ OBSERVED_VS_PREDICTED_MODELS <- c(
   distance = "Gradient",
   grammatical = "Binary"
 )
+
+## The models drawn, in this column order
+OBSERVED_VS_PREDICTED_SHOWN <- c("SLOR", "MORCELA", "Communication")
 
 ## The row of each panel: "All Experiments" first, then the experiments in the
 ## order label_language() gives them
@@ -1149,7 +1211,8 @@ print(paste0("Item-condition cells at distance 2, not drawn: ",
                    all_predictions$experiment != "all_experiments") /
                length(OBSERVED_VS_PREDICTED_MODELS)))
 
-## Colour shows the DL distance, in the colours of the curve figure.
+## Colour shows the DL distance, in the colours of the qualitative-predictions
+## figure.
 ## Transparency shows sentence surprisal: low-surprisal sentences are faint,
 ## high-surprisal ones are solid. One transparency scale is shared by every
 ## panel, so a given shade means the same number of bits in every row. Higher-
@@ -1159,18 +1222,15 @@ plot_data <- all_predictions %>%
   mutate(dl_label = factor(dl_distance, levels = c(0, 1, 3))) %>%
   arrange(sum_surprisal)
 
-## The same range on both axes and in every panel, wide enough for every point,
-## so that the dashed diagonal is always the line of perfect prediction
-axis_range <- c(
-  min(1, floor(min(plot_data$predicted) * 2) / 2),
-  max(7, ceiling(max(plot_data$predicted) * 2) / 2)
-)
-
 ## Pearson correlation between observed and predicted acceptability in each
-## panel, over the points shown
+## panel, over the points shown, for all five models
 panel_correlations <- plot_data %>%
   group_by(experiment, row_label, model) %>%
-  summarize(r = cor(observed, predicted), n = n(), .groups = "drop") %>%
+  summarize(r = cor(observed, predicted),
+            ## Root mean squared error: how far the points sit from the dashed
+            ## line, in rating points (r ignores offsets from it)
+            rmse = sqrt(mean((observed - predicted)^2)),
+            n = n(), .groups = "drop") %>%
   mutate(label = paste0("r = ", sprintf("%.2f", r)))
 
 print(panel_correlations %>%
@@ -1178,83 +1238,288 @@ print(panel_correlations %>%
         pivot_wider(names_from = row_label, values_from = r),
       width = Inf)
 
-write_csv(panel_correlations %>% select(experiment, model, r, n),
+write_csv(panel_correlations %>% select(experiment, model, r, rmse, n),
           "outputs/observed_vs_predicted_correlations.csv")
 
-## MORCELA's two fitted weights for each row, printed in its panels. They are
-## written as plotmath (parse = TRUE below) rather than as Greek characters,
-## because R in a non-UTF-8 locale mangles non-ASCII text.
-morcela_labels <- morcela_weights_table %>%
+## Mean prediction error (observed minus predicted) in each panel, over the
+## points shown, for all five models: separately at each DL distance (0, 1, 3),
+## and over the sentences with errors together ("1 or 3"). A positive error
+## means the model underestimates acceptability, a negative one that it
+## overestimates it. The figure caption gives the range of these errors over
+## the rows: SLOR and MORCELA underestimate the error-free sentences and
+## overestimate the sentences with errors in every row.
+panel_errors <- bind_rows(
+  plot_data %>% mutate(dl_group = as.character(dl_distance)),
+  plot_data %>% filter(dl_distance > 0) %>% mutate(dl_group = "1 or 3")
+) %>%
+  group_by(experiment, model, dl_group) %>%
+  summarize(mean_error = mean(observed - predicted),
+            n = n(), .groups = "drop")
+
+## The range of the mean errors over the 10 rows, for each model
+print(panel_errors %>%
+        group_by(model, dl_group) %>%
+        summarize(min_error = min(mean_error),
+                  max_error = max(mean_error), .groups = "drop"),
+      n = Inf)
+
+write_csv(panel_errors, "outputs/observed_vs_predicted_errors.csv")
+
+## Only the models drawn in the figure, with "All Experiments" on two lines so
+## the row labels take less width
+plot_data_shown <- plot_data %>%
+  filter(model %in% OBSERVED_VS_PREDICTED_SHOWN) %>%
   mutate(
-    row_label = label_row(experiment),
-    model = factor("MORCELA", levels = levels(all_predictions$model)),
-    label = paste0("list(beta == '", sprintf("%.2f", beta),
-                   "', gamma == '", sprintf("%.1f", gamma), "')")
+    model = fct_drop(model),
+    row_label = fct_relabel(row_label, ~ sub("All Experiments", "All\nExperiments", .x)),
+    ## Points are larger in the per-experiment rows, which have far fewer of
+    ## them than the pooled row
+    point_size = ifelse(experiment == "all_experiments", 0.35, 0.7)
   )
 
-p_observed_vs_predicted <- ggplot(plot_data, aes(x = predicted, y = observed)) +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed", colour = "grey60") +
-  geom_point(aes(colour = dl_label, alpha = sum_surprisal), size = 1.8) +
+## The same models and row labels for the correlation labels
+panel_correlations_shown <- panel_correlations %>%
+  filter(model %in% OBSERVED_VS_PREDICTED_SHOWN) %>%
+  mutate(
+    model = fct_drop(model),
+    row_label = fct_relabel(row_label, ~ sub("All Experiments", "All\nExperiments", .x))
+  )
+
+## The y axis spans the rating scale (1-7). The x axis spans every prediction,
+## since SLOR and MORCELA predict beyond the scale. Both axes use the same units
+## (coord_fixed below), so the dashed diagonal is the line of perfect prediction
+## and the panels come out wider than tall.
+x_range <- range(plot_data_shown$predicted)
+y_range <- c(1, 7)
+
+## The figure is one PNAS column wide (8.7 cm, 3.42 in), with 6.5-pt titles and
+## no text below PNAS's 6-pt minimum
+p_observed_vs_predicted <- ggplot(
+  plot_data_shown,
+  aes(x = predicted, y = observed)
+) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", colour = "grey60",
+              linewidth = 0.25) +
+  geom_point(aes(colour = dl_label, alpha = sum_surprisal, size = point_size), stroke = 0) +
+  scale_size_identity() +
   scale_colour_manual(
     name = "DL distance",
     values = c("0" = "#EB7AA3", "1" = "#1E88E5", "3" = "#FFC107"),
-    guide = guide_legend(override.aes = list(size = 4))
+    guide = guide_legend(override.aes = list(size = 1.6))
   ) +
   scale_alpha_continuous(
-    name = "Sentence surprisal\n(bits)",
-    range = c(0.2, 1)
+    name = "Surprisal (bits)",
+    range = c(0.25, 1),
+    breaks = c(100, 250, 400),
+    guide = guide_legend(override.aes = list(size = 1.6))
   ) +
-  geom_text(
-    data = panel_correlations,
-    aes(x = axis_range[1] + 0.1, y = axis_range[2], label = label),
+  geom_label(
+    data = panel_correlations_shown,
+    aes(x = x_range[1], y = y_range[2], label = label),
     hjust = 0,
     vjust = 1,
-    size = 5,
+    size = 2.15,
+    fill = "white",
+    alpha = 0.8,
+    label.size = 0,
+    label.padding = unit(0.5, "pt"),
     inherit.aes = FALSE
   ) +
-  geom_text(
-    data = morcela_labels,
-    aes(x = axis_range[2], y = axis_range[1], label = label),
-    parse = TRUE,
-    hjust = 1,
-    vjust = 0,
-    size = 5,
-    inherit.aes = FALSE
-  ) +
-  facet_grid(row_label ~ model) +
-  coord_fixed(ratio = 1, xlim = axis_range, ylim = axis_range) +
+  ## Language labels on the left; every panel keeps its axis lines, and the tick
+  ## labels are printed only on the outer panels
+  facet_grid(row_label ~ model, switch = "y", axes = "all", axis.labels = "margins") +
+  coord_fixed(ratio = 1, xlim = x_range, ylim = y_range) +
   scale_x_continuous(breaks = seq(1, 7, 2)) +
   scale_y_continuous(breaks = seq(1, 7, 2)) +
   labs(
     x = "Predicted acceptability",
-    y = "Observed mean acceptability",
-    caption = "Predictions from each model's predictors alone (item and language random effects excluded).\nDashed line: perfect prediction. r: Pearson correlation over the points shown."
+    y = "Observed mean acceptability"
   ) +
-  theme(plot.caption = element_text(size = 14, colour = "grey40"))
+  ## The script's theme at 6.5 pt, with axis lines thinned to match
+  theme_bw(base_size = 6.5) +
+  theme(panel.grid = element_blank(),
+        strip.background = element_blank(),
+        legend.key = element_blank(),
+        panel.border = element_blank(),
+        axis.line = element_line(linewidth = 0.25),
+        axis.ticks = element_line(linewidth = 0.25),
+        strip.text = element_text(face = "bold"),
+        plot.title = element_text(hjust = 0.5)) +
+  theme(strip.placement = "outside",
+        strip.text.y.left = element_text(angle = 0, hjust = 1, size = 6),
+        strip.text.x = element_text(size = 6, face = "bold"),
+        axis.text = element_text(size = 6),
+        legend.text = element_text(size = 6),
+        panel.spacing.x = unit(4, "pt"),
+        panel.spacing.y = unit(3, "pt"),
+        legend.position = "bottom",
+        legend.box = "vertical",
+        legend.spacing.y = unit(0, "pt"),
+        legend.margin = margin(0, 0, 0, 0),
+        legend.box.margin = margin(-4, 0, 0, 0),
+        plot.margin = margin(2, 3, 2, 2))
 
-ggsave(
-  p_observed_vs_predicted,
-  filename = "figures/observed_vs_predicted.png",
-  width    = 18,
-  height   = 32.5,
-  units    = "in",
-  dpi      = 200
-)
+## Not saved: the main text shows the five-model version below, saved as
+## figures/observed_vs_predicted
+if (interactive()) print(p_observed_vs_predicted)
 
-## Save as pdf
-ggsave(
-  p_observed_vs_predicted,
-  filename = "figures/observed_vs_predicted.pdf",
-  width    = 18,
-  height   = 32.5,
-  units    = "in"
-)
+## ---- Main Figures: All Five Models ----
+## Two views of how the five models' predictions compare with the ratings, both
+## in the main text. Both use the predictions of the figure above (random effects
+## excluded), one row for the pooled fit and one per experiment, with the models
+## in order of their pooled log-likelihood, best first.
+ALL_MODELS_ORDER <- c("Communication", "Gradient", "Binary", "MORCELA", "SLOR")
+DL_COLORS_SHOWN <- c("0" = "#EB7AA3", "1" = "#1E88E5", "3" = "#FFC107")
 
-## ---- SI Figure: Model Curves over Surprisal ----
+all_models_data <- plot_data %>%
+  mutate(
+    model = factor(as.character(model), levels = ALL_MODELS_ORDER),
+    ## "All Experiments" on two lines, as in the figure above
+    row_label = fct_relabel(row_label, ~ sub("All Experiments", "All\nExperiments", .x)),
+    ## Observed minus predicted: positive when a sentence is rated higher than
+    ## the model predicts
+    residual = observed - predicted,
+    ## Larger points in the per-experiment rows, which have far fewer of them
+    point_size = ifelse(experiment == "all_experiments", 0.35, 0.7)
+  )
+
+all_models_correlations <- panel_correlations %>%
+  mutate(
+    model = factor(as.character(model), levels = ALL_MODELS_ORDER),
+    row_label = fct_relabel(row_label, ~ sub("All Experiments", "All\nExperiments", .x))
+  )
+
+## Shared layout for the two figures: language labels on the left, axis lines on
+## every panel, tick labels on the outer panels only, legend at the bottom
+all_models_layout <- theme_print_8pt +
+  theme(strip.placement = "outside",
+        strip.text.y.left = element_text(angle = 0, hjust = 1),
+        panel.spacing.x = unit(6, "pt"),
+        panel.spacing.y = unit(4, "pt"),
+        legend.position = "bottom",
+        legend.margin = margin(0, 0, 0, 0),
+        legend.box.margin = margin(-4, 0, 0, 0),
+        plot.margin = margin(2, 4, 2, 2))
+
+## Residuals against sentence surprisal, with a smooth line per DL distance. A
+## line above zero means the model underpredicts those sentences; below zero,
+## it overpredicts them. Cells whose mean rating is exactly 7 (or exactly 1)
+## trace the model's prediction curve upside down, so some points line up.
+p_residuals <- ggplot(
+  all_models_data,
+  aes(x = sum_surprisal, y = residual, colour = dl_label)
+) +
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "grey50", linewidth = 0.3) +
+  geom_point(aes(size = point_size), alpha = 0.35, stroke = 0) +
+  scale_size_identity() +
+  geom_smooth(method = "gam", formula = y ~ s(x, k = 5), se = FALSE, linewidth = 0.6) +
+  scale_colour_manual(
+    name = "DL distance",
+    values = DL_COLORS_SHOWN,
+    guide = guide_legend(override.aes = list(size = 2, alpha = 1, linewidth = 0.6))
+  ) +
+  scale_y_continuous(breaks = c(-4, -2, 0, 2, 4)) +
+  facet_grid(row_label ~ model, switch = "y", axes = "all", axis.labels = "margins",
+             scales = "free_x") +
+  coord_cartesian(ylim = c(-5.8, 5)) +
+  labs(x = "Sentence surprisal (bits)", y = "Observed minus predicted acceptability") +
+  all_models_layout +
+  ## Pull the y title toward the panels, into the space left of the shorter
+  ## (right-aligned) language labels
+  theme(axis.title.y = element_text(margin = margin(r = -8, unit = "pt")))
+
+ggsave(p_residuals, filename = "figures/residuals_by_surprisal.png",
+       width = 7, height = 8.2, units = "in", dpi = 300)
+ggsave(p_residuals, filename = "figures/residuals_by_surprisal.pdf",
+       width = 7, height = 8.2, units = "in", device = cairo_pdf)
+
+## Observed against predicted for all five models. Colour shows the DL distance
+## and, within it, sentence surprisal: light = low, dark = high, on one shared
+## range of bits. Each DL distance gets its own colour scale (ggnewscale).
+x_range_all <- range(all_models_data$predicted)
+surprisal_limits <- range(all_models_data$sum_surprisal)
+
+p_observed_vs_predicted_all <- ggplot(all_models_data, aes(x = predicted, y = observed)) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", colour = "grey60",
+              linewidth = 0.3) +
+  ## DL 0, on a colour scale of its own
+  ggnewscale::new_scale_colour() +
+  geom_point(
+    data = filter(all_models_data, dl_distance == 0),
+    aes(colour = sum_surprisal, size = point_size),
+    stroke = 0
+  ) +
+  scale_colour_gradient(
+    name = "DL 0: surprisal (bits)",
+    low = colorspace::lighten(DL_COLORS_SHOWN[["0"]], 0.75),
+    high = colorspace::darken(DL_COLORS_SHOWN[["0"]], 0.45),
+    limits = surprisal_limits,
+    breaks = c(100, 250, 400),
+    guide = guide_colourbar(barwidth = unit(55, "pt"), barheight = unit(5, "pt"),
+                            title.position = "top", order = 1)
+  ) +
+  ## DL 1, on a colour scale of its own
+  ggnewscale::new_scale_colour() +
+  geom_point(
+    data = filter(all_models_data, dl_distance == 1),
+    aes(colour = sum_surprisal, size = point_size),
+    stroke = 0
+  ) +
+  scale_colour_gradient(
+    name = "DL 1: surprisal (bits)",
+    low = colorspace::lighten(DL_COLORS_SHOWN[["1"]], 0.75),
+    high = colorspace::darken(DL_COLORS_SHOWN[["1"]], 0.45),
+    limits = surprisal_limits,
+    breaks = c(100, 250, 400),
+    guide = guide_colourbar(barwidth = unit(55, "pt"), barheight = unit(5, "pt"),
+                            title.position = "top", order = 2)
+  ) +
+  ## DL 3, on a colour scale of its own
+  ggnewscale::new_scale_colour() +
+  geom_point(
+    data = filter(all_models_data, dl_distance == 3),
+    aes(colour = sum_surprisal, size = point_size),
+    stroke = 0
+  ) +
+  scale_colour_gradient(
+    name = "DL 3: surprisal (bits)",
+    low = colorspace::lighten(DL_COLORS_SHOWN[["3"]], 0.75),
+    high = colorspace::darken(DL_COLORS_SHOWN[["3"]], 0.45),
+    limits = surprisal_limits,
+    breaks = c(100, 250, 400),
+    guide = guide_colourbar(barwidth = unit(55, "pt"), barheight = unit(5, "pt"),
+                            title.position = "top", order = 3)
+  ) +
+  scale_size_identity() +
+  geom_label(
+    data = all_models_correlations,
+    aes(x = x_range_all[1], y = 7, label = label),
+    hjust = 0,
+    vjust = 1,
+    size = 2.2,
+    fill = "white",
+    alpha = 0.8,
+    label.size = 0,
+    label.padding = unit(0.6, "pt"),
+    inherit.aes = FALSE
+  ) +
+  facet_grid(row_label ~ model, switch = "y", axes = "all", axis.labels = "margins") +
+  coord_fixed(ratio = 1, xlim = x_range_all, ylim = c(1, 7)) +
+  scale_x_continuous(breaks = seq(1, 7, 2)) +
+  scale_y_continuous(breaks = seq(1, 7, 2)) +
+  labs(x = "Predicted acceptability", y = "Observed mean acceptability") +
+  all_models_layout +
+  theme(legend.title = element_text(size = 7))
+
+ggsave(p_observed_vs_predicted_all, filename = "figures/observed_vs_predicted.png",
+       width = 7, height = 8.1, units = "in", dpi = 300)
+ggsave(p_observed_vs_predicted_all, filename = "figures/observed_vs_predicted.pdf",
+       width = 7, height = 8.1, units = "in", device = cairo_pdf)
+
+## ---- Main Figure: Qualitative Predictions (Model Curves over Surprisal) ----
 ## Human judgments and the predictions of the binary, gradient and communication
-## models, drawn over sentence surprisal. Written to the SI figures folder.
-SI_FIGURES <- "../supporting_information/figures"
-dir.create(SI_FIGURES, showWarnings = FALSE)
+## models, drawn over sentence surprisal. Like the figure above, it is drawn at
+## its print size: PNAS full width (17.8 cm, 7 in), with 8-pt text.
 
 #### ---- Helper Functions
 ## The binary, gradient and communication models are functions of surprisal and
@@ -1320,16 +1585,19 @@ p_baseline <- ggplot(
   plot_data_by_item,
   aes(x = sum_surprisal, y = response, color = dl_distance_bucket)
 ) +
-  geom_point(alpha = 0.3) +
+  geom_point(alpha = 0.3, size = 0.6, stroke = 0) +
   facet_wrap(~language, ncol = 1, strip.position = "left") +
-  labs(x="Sentence Surprisal (bits)", y="Rating") +
+  labs(x="Sentence surprisal (bits)", y="Rating") +
+  theme_print_8pt +
   theme(
           legend.position = "top",
           plot.title = element_text(hjust = 0.5),
 
-          # put facet strips on the outside + rotate text
+          # put facet strips on the outside, with the language names horizontal.
+          # Only this first column shows them; the other columns blank their strips.
           strip.placement = "outside",
-          strip.text.y.left = element_text(angle = 90)
+          strip.text.y.left = element_text(angle = 0, hjust = 1),
+          panel.spacing = unit(4, "pt")
       ) +
   scale_y_continuous(
     limits = YLIM,
@@ -1345,7 +1613,7 @@ p_gam <- p_baseline +
     method  = "gam",
     formula = y ~ s(x, bs = "tp"),
     se = TRUE,
-    linewidth = 1.5,
+    linewidth = 0.5,
     show.legend = FALSE
   ) +
   theme(
@@ -1359,12 +1627,6 @@ p_gam <- p_baseline +
     name = "Acceptability Ratings (1-7 scale)"
   ) +
   ggplot2::guides(color = "none")
-
-ggsave(p_gam, filename = file.path(SI_FIGURES, "curves_surprisal_gam.png"),
-       width    = 6,
-       height   = 16,
-       units    = "in",
-       dpi      = 300)
 
 ### ---- Model-based plots ----
 ## Predictions leave out every random effect (random_effect_labels()), so that
@@ -1422,12 +1684,12 @@ p_grammatical <- p_baseline +
       y = response,
       color = dl_distance_bucket
     ),
-    linewidth = 1.5
+    linewidth = 0.5
   ) +
   facet_wrap(~language, ncol = 1) +
   labs(
-    x = "Sentence Surprisal (bits)",
-    y = ""
+    x = "Sentence surprisal (bits)",
+    y = NULL
   ) +
   theme(
     legend.position = "none",
@@ -1435,7 +1697,7 @@ p_grammatical <- p_baseline +
     strip.text = element_blank(),
     strip.background = element_blank()
   ) +
-  ggtitle("Binary Grammaticality Model") +
+  ggtitle("Binary Grammaticality\nModel") +
   scale_y_continuous(
     limits = YLIM,
     breaks = NULL,
@@ -1452,15 +1714,6 @@ p_grammatical <- p_baseline +
   ggplot2::guides(color = "none")
 
 p_grammatical
-
-ggsave(
-  p_grammatical,
-  filename = file.path(SI_FIGURES, "curves_surprisal_grammatical.png"),
-  width    = 6,
-  height   = 16,
-  units    = "in",
-  dpi      = 300
-)
 
 #### ---- Distance model ----
 #### ---- Predictions from distance model ----
@@ -1514,12 +1767,12 @@ p_distance <- p_baseline +
       y = response,
       color = dl_distance_bucket
     ),
-    linewidth = 1.5
+    linewidth = 0.5
   ) +
   facet_wrap(~language, ncol = 1) +
   labs(
-    x = "Sentence Surprisal (bits)",
-    y = ""
+    x = "Sentence surprisal (bits)",
+    y = NULL
   ) +
   theme(
     legend.position = "none",
@@ -1527,7 +1780,7 @@ p_distance <- p_baseline +
     strip.text = element_blank(),
     strip.background = element_blank()
   ) +
-  ggtitle("Gradient Grammaticality Model") +
+  ggtitle("Gradient Grammaticality\nModel") +
   scale_y_continuous(
     limits = YLIM,
     breaks = NULL,
@@ -1536,15 +1789,6 @@ p_distance <- p_baseline +
   ggplot2::guides(color = "none")
 
 p_distance
-
-ggsave(
-  p_distance,
-  filename = file.path(SI_FIGURES, "curves_surprisal_distance.png"),
-  width    = 6,
-  height   = 16,
-  units    = "in",
-  dpi      = 300
-)
 
 #### ---- Weighted distance model ----
 #### ---- Predictions from weighted distance model ----
@@ -1606,12 +1850,12 @@ p_weighted_distance <- p_baseline +
       y = response,
       color = dl_distance_bucket
     ),
-    linewidth = 1.5
+    linewidth = 0.5
   ) +
   facet_wrap(~language, ncol = 1) +
   labs(
-    x = "Sentence Surprisal (bits)",
-    y = ""
+    x = "Sentence surprisal (bits)",
+    y = NULL
   ) +
   theme(
     legend.position = "none",
@@ -1619,7 +1863,7 @@ p_weighted_distance <- p_baseline +
     strip.text = element_blank(),
     strip.background = element_blank()
   ) +
-  ggtitle("Communication Model") +
+  ggtitle("Communication\nModel") +
   scale_y_continuous(
     limits = YLIM,
     breaks = NULL,
@@ -1629,40 +1873,39 @@ p_weighted_distance <- p_baseline +
 
 p_weighted_distance
 
-ggsave(
-  p_weighted_distance,
-  filename = file.path(SI_FIGURES, "curves_surprisal_weighted_distance.png"),
-  width    = 6,
-  height   = 16,
-  units    = "in",
-  dpi      = 300
-)
-
-### ---- Combine plots into the curve figure ----
-curves_surprisal_figure = (p_gam |  p_weighted_distance | p_distance |p_grammatical) +
-  plot_layout(guides = "collect") &
+### ---- Combine plots into the qualitative-predictions figure ----
+## The four columns share one legend and one x-axis title. The column titles are
+## at the base text size, with "Model" on a second line so they fit over their
+## columns. The figure as a whole (its margins and the shared legend) also takes the print
+## theme, rather than the script's 18-pt default.
+qualitative_predictions_figure = (p_gam |  p_weighted_distance | p_distance |p_grammatical) +
+  plot_layout(guides = "collect", axis_titles = "collect") +
+  plot_annotation(theme = theme_print_8pt) &
   theme(legend.position = "bottom",
-        plot.title = element_text(hjust = 0.5)
+        legend.margin = margin(0, 0, 0, 0),
+        legend.box.spacing = unit(2, "pt"),
+        plot.title = element_text(hjust = 0.5, size = rel(1))
         )
 
-curves_surprisal_figure
+qualitative_predictions_figure
 
 ggsave(
-  filename = file.path(SI_FIGURES, "curves_surprisal.png"),
-  plot     = curves_surprisal_figure,
-  width    = 25,
-  height   = 20,
+  filename = "figures/qualitative_predictions.png",
+  plot     = qualitative_predictions_figure,
+  width    = 7,
+  height   = 7.5,
   units    = "in",
   dpi      = 300
 )
 
-## Save as pdf
+## Save as pdf, with the fonts embedded (cairo_pdf)
 ggsave(
-  filename = file.path(SI_FIGURES, "curves_surprisal.pdf"),
-  plot     = curves_surprisal_figure,
-  width    = 25,
-  height   = 20,
-  units    = "in"
+  filename = "figures/qualitative_predictions.pdf",
+  plot     = qualitative_predictions_figure,
+  width    = 7,
+  height   = 7.5,
+  units    = "in",
+  device   = cairo_pdf
 )
 
 print("Done.")

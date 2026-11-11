@@ -1,0 +1,3 @@
+task,subset,beta,se,df,t,p,singular,optimizer,optimizer_code,convergence,max_gradient,negative_hessian_eigenvalues,sd_surprisal_bits,n_participants,n_trials
+exchange_identification_acceptability_ratings,All trials,-0.0972374549765003,0.033060510226453795,25.642669145926384,-2.9411964398146067,0.006842930928726582,TRUE,bobyqa,0,boundary (singular) fit: see help('isSingular'),2.66577612612245e-6,0,44.00603012419496,97,866
+exchange_identification_acceptability_ratings,Identified correctly,-0.08369827417660047,0.03038261558323631,29.91851953922021,-2.7548080561826684,0.009896002029673726,TRUE,bobyqa,0,boundary (singular) fit: see help('isSingular'),4.075759034759996e-6,0,44.01158524280161,97,827

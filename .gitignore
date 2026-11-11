@@ -19,3 +19,6 @@ __pycache__/
 
 # Local writing aid (figure/statistic -> paper section map), not part of the repo
 PAPER_MAP.md
+
+# Local writing aid: every statistic to report, by paper section
+STATS_TO_REPORT.md

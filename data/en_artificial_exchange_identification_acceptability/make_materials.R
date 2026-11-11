@@ -11,7 +11,7 @@
 ## The click comes first because it has to: Surveyor shows the sentence only on
 ## the anchor trial, and a coordinated follow-up renders its prompt alone. The
 ## exchange identification task needs the sentence to click on, so it is the anchor and the rating
-## is its coordinated follow-up -- the same arrangement as the error question
+## is its coordinated follow-up -- the same arrangement as the binary error detection question
 ## and rating in data/en_artificial_binary_error_detection. Writes
 ## materials_en_artificial_exchange_identification_acceptability.csv (stimuli) and
 ## demographics_en_artificial_exchange_identification_acceptability.csv (survey properties).

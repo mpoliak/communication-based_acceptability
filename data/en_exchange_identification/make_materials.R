@@ -3,7 +3,7 @@
 ##
 ## Uses the ORIGINAL English materials (data/en), not the length-controlled ones,
 ## and only the original and swap_1 conditions -- so 72 items x 2 conditions.
-## There is no acceptability rating and no Yes/No error question: every word in
+## There is no acceptability rating and no Yes/No binary error detection question: every word in
 ## the sentence is clickable, and the participant clicks the ones they think are
 ## out of place. That is Surveyor's `per_word_multiple_choice` question type, so
 ## `options`, `literal_response` and `config` are all NA.

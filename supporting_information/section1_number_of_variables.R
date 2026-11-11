@@ -4,8 +4,10 @@
 ## Adds sentence surprisal as a predictor to the binary- and gradient-
 ## grammaticality models so every model has the same number of predictors (the
 ## communication model already has it: its Information(s) is sentence surprisal).
+## The main text's two language-model baselines, SLOR and MORCELA, get the same
+## surprisal term, so all five models of the main text are compared.
 ## Produces with_surprisal_term_figure.png and
-## likelihood_differences_with_surprisal_term.png.
+## likelihood_differences_with_surprisal_term.png (and .pdf).
 ## =============================================================================
 
 ## Print warnings as they happen
@@ -15,7 +17,9 @@ options(warn = 1)
 get_script_dir <- function() {
   args <- commandArgs(trailingOnly = FALSE)
   file_arg <- grep("^--file=", args, value = TRUE)
-  if (length(file_arg)) {
+  ## Only while the path still resolves: once a script has moved into its
+  ## folder, a relative --file path no longer does, and getwd() is the folder
+  if (length(file_arg) && file.exists(sub("^--file=", "", file_arg))) {
     return(dirname(normalizePath(sub("^--file=", "", file_arg))))
   }
   if (requireNamespace("rstudioapi", quietly = TRUE) &&
@@ -30,9 +34,28 @@ setwd(get_script_dir())
 ## and the shared plotting helpers all live in setup.R.
 source("setup.R")
 
+## ---- SLOR and MORCELA ----
+## The main text's two language-model baselines. SLOR is in the by-item data
+## already (setup.R). MORCELA's two weights are learned from the ratings exactly
+## as in the main text (../analysis/main_analysis.R): once, on all nine
+## experiments, for the pooled fit (here), and separately for each experiment
+## for the by-experiment fits (below). Surprisal is not added to that
+## regression -- the score would then no longer be MORCELA -- so the weights are
+## the main text's.
+crit_by_items_with_morcela <- crit_by_items
+
+crit_by_items_with_morcela$morcela <- morcela_score(
+  crit_by_items_with_morcela, morcela_weights(crit_by_items_with_morcela)
+)
+
 ## ---- Main Analysis with Surprisal in all models ----
-## Adds sentence surprisal (P-spline) as a predictor to the binary- and gradient-
-## grammaticality models, matching the communication model's predictor count.
+## Adds sentence surprisal as a predictor to the binary- and gradient-
+## grammaticality models, matching the communication model's predictor count,
+## and likewise to SLOR and MORCELA (MORCELA then also has its two weights).
+## As in the communication model, the surprisal effect is monotone decreasing
+## ("mpd"): surprisal is strongly correlated with length, and higher surprisal
+## means more potential processing difficulty, never less. The SLOR and MORCELA
+## smooths themselves are monotone increasing ("mpi"), as in the main text.
 ## Produces with_surprisal_term_figure.png and
 ## likelihood_differences_with_surprisal_term.png.
 ##
@@ -41,20 +64,16 @@ source("setup.R")
 ## their s/m/l length suffix in setup.R, so the three length versions of a base
 ## item share one item intercept.
 
-if (!file.exists("models/s1_surprisal_term_pooled.RData")) {
+if (!file.exists("models/s1_surprisal_term_decreasing_pooled.RData")) {
   fit_overall_surprisal_term_binary <- scam(
-    ## surprisal enters as an unconstrained P-spline ("ps"), not a monotone one,
-    ## so the grammar-based models are free to fit it in either direction
-    response_num ~ grammatical_numeric + s(sum_surprisal, bs="ps") + # Fixed effects
+    response_num ~ grammatical_numeric + s(sum_surprisal, bs="mpd") + # Fixed effects
       s(item, bs="re") + s(language, bs="re") + s(language, grammatical_numeric, bs="re") +
       s(language, sum_surprisal, bs="re"), # RE
     data=crit_by_items
   )
 
   fit_overall_surprisal_term_gradient <- scam(
-    ## surprisal enters as an unconstrained P-spline ("ps"), not a monotone one,
-    ## so the grammar-based models are free to fit it in either direction
-    response_num ~ s(dl_distance, bs="mpd") + s(sum_surprisal, bs="ps") + # Fixed effects
+    response_num ~ s(dl_distance, bs="mpd") + s(sum_surprisal, bs="mpd") + # Fixed effects
       s(item, bs="re") + s(language, bs="re") + s(language, dl_distance, bs="re") +
       s(language, sum_surprisal, bs="re"), # RE
     data=crit_by_items
@@ -71,17 +90,73 @@ if (!file.exists("models/s1_surprisal_term_pooled.RData")) {
     fit_overall_surprisal_term_binary,
     fit_overall_surprisal_term_gradient,
     fit_overall_surprisal_term_comm,
-    file="models/s1_surprisal_term_pooled.RData"
+    file="models/s1_surprisal_term_decreasing_pooled.RData"
   )
 
 } else {
-  load("models/s1_surprisal_term_pooled.RData")
+  load("models/s1_surprisal_term_decreasing_pooled.RData")
 }
+## The surprisal smooth (the first smooth of the binary model, the second of the
+## gradient model) must be monotone decreasing. Checked after a cache is loaded,
+## so a model fit under an older specification is refused.
+stopifnot(
+  fit_overall_surprisal_term_binary$smooth[[1]]$label == "s(sum_surprisal)",
+  inherits(fit_overall_surprisal_term_binary$smooth[[1]], "mpd.smooth"),
+  fit_overall_surprisal_term_gradient$smooth[[2]]$label == "s(sum_surprisal)",
+  inherits(fit_overall_surprisal_term_gradient$smooth[[2]], "mpd.smooth")
+)
+
+## SLOR and MORCELA with the same surprisal term. They were added after the three
+## models above, so they are cached in a file of their own: the three models'
+## cache, and every number reported from it, stay as they were.
+if (!file.exists("models/s1_surprisal_term_slor_morcela_pooled.RData")) {
+  print(paste(Sys.time(), "Fitting the pooled SLOR model"))
+  fit_overall_surprisal_term_slor <- scam(
+    response_num ~ s(slor, bs="mpi") + s(sum_surprisal, bs="mpd") + # Fixed effects
+      s(item, bs="re") + s(language, bs="re") + s(language, slor, bs="re") +
+      s(language, sum_surprisal, bs="re"), # RE
+    data=crit_by_items_with_morcela,
+    control = scam.control(trace = TRUE)
+  )
+
+  print(paste(Sys.time(), "Fitting the pooled MORCELA model"))
+  fit_overall_surprisal_term_morcela <- scam(
+    response_num ~ s(morcela, bs="mpi") + s(sum_surprisal, bs="mpd") + # Fixed effects
+      s(item, bs="re") + s(language, bs="re") + s(language, morcela, bs="re") +
+      s(language, sum_surprisal, bs="re"), # RE
+    data=crit_by_items_with_morcela,
+    control = scam.control(trace = TRUE)
+  )
+
+  save(
+    fit_overall_surprisal_term_slor,
+    fit_overall_surprisal_term_morcela,
+    file="models/s1_surprisal_term_slor_morcela_pooled.RData"
+  )
+
+} else {
+  load("models/s1_surprisal_term_slor_morcela_pooled.RData")
+}
+## The surprisal smooth (the second smooth of each model) must be monotone
+## decreasing, and the SLOR and MORCELA smooths (the first) monotone increasing,
+## as in the main text
+stopifnot(
+  fit_overall_surprisal_term_slor$smooth[[2]]$label == "s(sum_surprisal)",
+  inherits(fit_overall_surprisal_term_slor$smooth[[2]], "mpd.smooth"),
+  fit_overall_surprisal_term_morcela$smooth[[2]]$label == "s(sum_surprisal)",
+  inherits(fit_overall_surprisal_term_morcela$smooth[[2]], "mpd.smooth"),
+  fit_overall_surprisal_term_slor$smooth[[1]]$label == "s(slor)",
+  inherits(fit_overall_surprisal_term_slor$smooth[[1]], "mpi.smooth"),
+  fit_overall_surprisal_term_morcela$smooth[[1]]$label == "s(morcela)",
+  inherits(fit_overall_surprisal_term_morcela$smooth[[1]], "mpi.smooth")
+)
 
 ## Evaluate Convergence
 fit_overall_surprisal_term_binary$conv
 fit_overall_surprisal_term_gradient$conv
 fit_overall_surprisal_term_comm$conv
+fit_overall_surprisal_term_slor$conv
+fit_overall_surprisal_term_morcela$conv
 
 ## Extract the marginal log-likelihood of each model. scam's own logLik()/AIC()/
 ## BIC() are conditional on the fitted random effects, so they do not match the
@@ -89,121 +164,108 @@ fit_overall_surprisal_term_comm$conv
 marginal_logLik(fit_overall_surprisal_term_binary)
 marginal_logLik(fit_overall_surprisal_term_gradient)
 marginal_logLik(fit_overall_surprisal_term_comm)
+marginal_logLik(fit_overall_surprisal_term_slor)
+marginal_logLik(fit_overall_surprisal_term_morcela)
 
-## Save the figures
-## The rug ticks are jittered at random; a fixed seed makes the figure reproducible
-set.seed(2026)
-png("figures/mod_binary_surprisal_term.png", width=6, height=6, units="in", res=300)
-plot(fit_overall_surprisal_term_binary, select = 1,
-     shade = TRUE,            # optional: shaded CI instead of dashed lines
-     shade.col = "lightblue", # color for shading
-     main = "Binary Grammaticality", # title
-     xlab = "Sentence Surprisal (bits)",    # x-axis label
-     ylab = "Acceptability (centered)", # y-axis label
-     rug = TRUE,              # keep the rug
-     jit = TRUE               # jitter the rug ticks
-)
-dev.off()
+## How much the surprisal term moves each pooled model's predictions: its
+## fitted contribution's maximum minus its minimum over the data, in rating
+## points (0: the term was estimated flat)
+tibble(
+  model = c("Binary", "Gradient", "Communication", "SLOR", "MORCELA"),
+  surprisal_term_range = c(
+    diff(range(predict(fit_overall_surprisal_term_binary, type = "terms")[, "s(sum_surprisal)"])),
+    diff(range(predict(fit_overall_surprisal_term_gradient, type = "terms")[, "s(sum_surprisal)"])),
+    diff(range(predict(fit_overall_surprisal_term_comm, type = "terms")[, "s(sum_surprisal)"])),
+    diff(range(predict(fit_overall_surprisal_term_slor, type = "terms")[, "s(sum_surprisal)"])),
+    diff(range(predict(fit_overall_surprisal_term_morcela, type = "terms")[, "s(sum_surprisal)"]))
+  )
+) %>%
+  print()
 
-## The rug ticks are jittered at random; a fixed seed makes the figure reproducible
-set.seed(2026)
-png("figures/mod_gradient_dl_surprisal_term.png", width=6, height=6, units="in", res=300)
-plot(fit_overall_surprisal_term_gradient, select = 1,
-     shade = TRUE,            # optional: shaded CI instead of dashed lines
-     shade.col = "lightblue", # color for shading
-     main = "Gradient Grammaticality", # title
-     xlab = "DL distance",    # x-axis label
-     ylab = "Acceptability (centered)", # y-axis label
-     rug = TRUE,              # keep the rug
-     jit = TRUE               # jitter the rug ticks
-)
-dev.off()
-
-## The rug ticks are jittered at random; a fixed seed makes the figure reproducible
-set.seed(2026)
-png("figures/mod_gradient_surprisal_term.png", width=6, height=6, units="in", res=300)
-plot(fit_overall_surprisal_term_gradient, select = 2,
-     shade = TRUE,            # optional: shaded CI instead of dashed lines
-     shade.col = "lightblue", # color for shading
-     main = "Gradient Grammaticality", # title
-     xlab = "Sentence Surprisal (bits)",    # x-axis label
-     ylab = "Acceptability (centered)", # y-axis label
-     rug = TRUE,              # keep the rug
-     jit = TRUE               # jitter the rug ticks
-)
-dev.off()
-
-## The rug ticks are jittered at random; a fixed seed makes the figure reproducible
-set.seed(2026)
-png("figures/mod_communication_dlweighted_surprisal_term.png", width=6, height=6, units="in", res=300)
-plot(fit_overall_surprisal_term_comm, select = 1,
-     shade = TRUE,            # optional: shaded CI instead of dashed lines
-     shade.col = "lightblue", # color for shading
-     main = "Communication", # title
-     xlab = "DL distance / surprisal",    # x-axis label
-     ylab = "Acceptability (centered)", # y-axis label
-     rug = TRUE,              # keep the rug
-     jit = TRUE               # jitter the rug ticks
-)
-dev.off()
-
-## The rug ticks are jittered at random; a fixed seed makes the figure reproducible
-set.seed(2026)
-png("figures/mod_communication_surprisal_term.png", width=6, height=6, units="in", res=300)
-plot(fit_overall_surprisal_term_comm, select = 2,
-     shade = TRUE,            # optional: shaded CI instead of dashed lines
-     shade.col = "lightblue", # color for shading
-     main = "Communication", # title
-     xlab = "Sentence Surprisal (bits)",    # x-axis label
-     ylab = "Acceptability (centered)", # y-axis label
-     rug = TRUE,              # keep the rug
-     jit = TRUE               # jitter the rug ticks
-)
-dev.off()
-
+## Each model's convergence is recorded next to its log-likelihood: `converged`
+## is scam's own flag ($conv, whether its penalized IRLS converged), and
+## `bfgs_convergence` how its search for the smoothing parameters ended ("Full
+## convergence", or e.g. "Iteration limit reached")
 main_likelihoods <- tibble(
-  model = c("binary", "gradient", "comm"),
+  model = c("Binary", "Gradient", "Communication", "SLOR", "MORCELA"),
   log_likelihood = c(
     marginal_logLik(fit_overall_surprisal_term_binary),
     marginal_logLik(fit_overall_surprisal_term_gradient),
-    marginal_logLik(fit_overall_surprisal_term_comm)
+    marginal_logLik(fit_overall_surprisal_term_comm),
+    marginal_logLik(fit_overall_surprisal_term_slor),
+    marginal_logLik(fit_overall_surprisal_term_morcela)
+  ),
+  converged = c(
+    isTRUE(fit_overall_surprisal_term_binary$conv),
+    isTRUE(fit_overall_surprisal_term_gradient$conv),
+    isTRUE(fit_overall_surprisal_term_comm$conv),
+    isTRUE(fit_overall_surprisal_term_slor$conv),
+    isTRUE(fit_overall_surprisal_term_morcela$conv)
+  ),
+  bfgs_convergence = c(
+    fit_overall_surprisal_term_binary$bfgs.info$conv,
+    fit_overall_surprisal_term_gradient$bfgs.info$conv,
+    fit_overall_surprisal_term_comm$bfgs.info$conv,
+    fit_overall_surprisal_term_slor$bfgs.info$conv,
+    fit_overall_surprisal_term_morcela$bfgs.info$conv
   )
 ) %>%
   mutate(
     max_likelihood = max(log_likelihood),
     likelihood_diff = log_likelihood - max_likelihood,
-    model = factor(model, levels=c("binary", "gradient", "comm"))
+    model = factor(model, levels=MODEL_LEVELS)
   )
 
 write_csv(main_likelihoods, "outputs/s1_surprisal_term_likelihoods_pooled.csv")
 
+## The change in log-likelihood from adding the surprisal term: these fits minus
+## the main text's (../analysis/outputs, written by ../analysis/main_analysis.R).
+## Communication has the term already, so it is the main text's model.
+main_likelihoods %>%
+  mutate(model = as.character(model)) %>%
+  left_join(
+    read_csv("../analysis/outputs/likelihoods_all_experiments.csv", show_col_types = FALSE) %>%
+      select(model, main_text_log_likelihood = log_likelihood),
+    by = "model"
+  ) %>%
+  mutate(change_from_surprisal_term = log_likelihood - main_text_log_likelihood) %>%
+  select(model, log_likelihood, main_text_log_likelihood, change_from_surprisal_term) %>%
+  print(width = Inf)
+
+## Drawn like the main text's five-model figure (../analysis/main_analysis.R),
+## with MODEL_COLORS, MODEL_SHAPES and MODEL_LABELS from setup.R
 p_main_likelihoods <- ggplot(main_likelihoods) +
   geom_point(
     aes(
       y="All Experiments",
       x=likelihood_diff,
       color=model,
+      fill=model,
       shape=model
     ),
     size=3
   ) +
   scale_color_manual(
     name="",
-    values=c("#EB7AA3", "#1E88E5", "#004D40"),
-    labels=c("Binary\nGrammaticality", "Gradient\nGrammaticality", "Communication")
+    values=MODEL_COLORS,
+    labels=MODEL_LABELS
   ) +
+  scale_fill_manual(values=MODEL_COLORS) +
+  scale_shape_manual(values=MODEL_SHAPES) +
   scale_x_continuous(
     name = ""
   ) +
-  guides(shape = "none") +
+  ## Five entries do not fit on one row at this width, so the paper's three
+  ## models go on the first row and SLOR and MORCELA on the second.
+  guides(color = guide_legend(nrow = 2, byrow = TRUE), shape = "none", fill = "none") +
   theme(legend.position="top") +
   scale_y_discrete(name="")
 
-p_main_likelihoods
+if (interactive()) print(p_main_likelihoods)
 
 ### ---- Analysis By Language ----
-if (file.exists("models/s1_surprisal_term_by_language.RData")) {
-  load("models/s1_surprisal_term_by_language.RData")
+if (file.exists("models/s1_surprisal_term_decreasing_by_language.RData")) {
+  load("models/s1_surprisal_term_decreasing_by_language.RData")
 } else {
 
   ## Fit a model for each language
@@ -230,13 +292,13 @@ if (file.exists("models/s1_surprisal_term_by_language.RData")) {
       ## Fit models. Length, and so surprisal, varies within item here, so the
       ## by-item surprisal slopes are identifiable.
       binary <- scam(
-        response_num ~ grammatical_numeric + s(sum_surprisal, bs="ps") +
+        response_num ~ grammatical_numeric + s(sum_surprisal, bs="mpd") +
           s(item, bs="re") + s(item, grammatical_numeric, bs="re") + s(item, sum_surprisal, bs="re"),
         data=crit_by_items_language_specific
       )
 
       gradient <- scam(
-        response_num ~ s(dl_distance, bs="mpd") + s(sum_surprisal, bs="ps") +
+        response_num ~ s(dl_distance, bs="mpd") + s(sum_surprisal, bs="mpd") +
           s(item, bs="re") + s(item, dl_distance, bs="re") + s(item, sum_surprisal, bs="re"),
         data=crit_by_items_language_specific
       )
@@ -249,13 +311,13 @@ if (file.exists("models/s1_surprisal_term_by_language.RData")) {
     } else {
       ## Fit models
       binary <- scam(
-        response_num ~ grammatical_numeric + s(sum_surprisal, bs="ps") +
+        response_num ~ grammatical_numeric + s(sum_surprisal, bs="mpd") +
           s(item, bs="re") ,
         data=crit_by_items_language_specific
       )
 
       gradient <- scam(
-        response_num ~ s(dl_distance, bs="mpd") + s(sum_surprisal, bs="ps") +
+        response_num ~ s(dl_distance, bs="mpd") + s(sum_surprisal, bs="mpd") +
           s(item, bs="re"),
         data=crit_by_items_language_specific
       )
@@ -311,17 +373,111 @@ if (file.exists("models/s1_surprisal_term_by_language.RData")) {
   save(
     fits_byLang_surprisal_term,
     fits_byLang_surprisal_term_stats,
-    file="models/s1_surprisal_term_by_language.RData"
+    file="models/s1_surprisal_term_decreasing_by_language.RData"
   )
 }
+## The same check of the surprisal smooth in every experiment
+stopifnot(all(sapply(fits_byLang_surprisal_term, function(M) {
+  M$binary$smooth[[1]]$label == "s(sum_surprisal)" && inherits(M$binary$smooth[[1]], "mpd.smooth") &&
+    M$gradient$smooth[[2]]$label == "s(sum_surprisal)" && inherits(M$gradient$smooth[[2]], "mpd.smooth")
+})))
+
+### ---- SLOR and MORCELA By Language ----
+## The same surprisal term added to SLOR and MORCELA in each experiment, cached
+## in a file of their own (see the pooled fits above). Only the fitted models
+## are cached; the log-likelihoods are computed below with marginal_logLik().
+if (file.exists("models/s1_surprisal_term_slor_morcela_by_language.RData")) {
+  load("models/s1_surprisal_term_slor_morcela_by_language.RData")
+} else {
+
+  fits_byLang_surprisal_term_slor_morcela <- list()
+  for (language_iter in levels(crit_by_items$language)) {
+    print(
+      paste0("Fitting SLOR and MORCELA for ", language_iter)
+    )
+    ## Get specific data
+    crit_by_items_language_specific <- crit_by_items %>%
+      filter(language == language_iter)
+
+    ## Score MORCELA with this experiment's own weights, as in the main text
+    crit_by_items_language_specific$morcela <- morcela_score(
+      crit_by_items_language_specific, morcela_weights(crit_by_items_language_specific)
+    )
+
+    if (language_iter == "en_exp") {
+      ## Fit models. Length, and so surprisal, varies within item here, so the
+      ## by-item surprisal slopes are identifiable.
+      slor <- scam(
+        response_num ~ s(slor, bs="mpi") + s(sum_surprisal, bs="mpd") +
+          s(item, bs="re") + s(item, slor, bs="re") + s(item, sum_surprisal, bs="re"),
+        data=crit_by_items_language_specific
+      )
+
+      morcela <- scam(
+        response_num ~ s(morcela, bs="mpi") + s(sum_surprisal, bs="mpd") +
+          s(item, bs="re") + s(item, morcela, bs="re") + s(item, sum_surprisal, bs="re"),
+        data=crit_by_items_language_specific
+      )
+    } else {
+      ## Fit models
+      slor <- scam(
+        response_num ~ s(slor, bs="mpi") + s(sum_surprisal, bs="mpd") +
+          s(item, bs="re"),
+        data=crit_by_items_language_specific
+      )
+
+      morcela <- scam(
+        response_num ~ s(morcela, bs="mpi") + s(sum_surprisal, bs="mpd") +
+          s(item, bs="re"),
+        data=crit_by_items_language_specific
+      )
+    }
+
+    fits_byLang_surprisal_term_slor_morcela[[language_iter]] <- list(
+      slor = slor,
+      morcela = morcela
+    )
+  }
+
+  save(
+    fits_byLang_surprisal_term_slor_morcela,
+    file="models/s1_surprisal_term_slor_morcela_by_language.RData"
+  )
+}
+## All nine experiments are there, with the decreasing surprisal smooth (the
+## second smooth of each model) and an increasing SLOR or MORCELA smooth (the
+## first)
+stopifnot(
+  setequal(names(fits_byLang_surprisal_term_slor_morcela), names(fits_byLang_surprisal_term)),
+  all(sapply(fits_byLang_surprisal_term_slor_morcela, function(M) {
+    M$slor$smooth[[2]]$label == "s(sum_surprisal)" && inherits(M$slor$smooth[[2]], "mpd.smooth") &&
+      M$morcela$smooth[[2]]$label == "s(sum_surprisal)" && inherits(M$morcela$smooth[[2]], "mpd.smooth") &&
+      M$slor$smooth[[1]]$label == "s(slor)" && inherits(M$slor$smooth[[1]], "mpi.smooth") &&
+      M$morcela$smooth[[1]]$label == "s(morcela)" && inherits(M$morcela$smooth[[1]], "mpi.smooth")
+  }))
+)
+
+## All five models of each experiment, in the order of the figure legend
+fits_byLang_surprisal_term_5models <- Map(
+  c, fits_byLang_surprisal_term,
+  fits_byLang_surprisal_term_slor_morcela[names(fits_byLang_surprisal_term)]
+)
 
 ## Evaluate Convergence
-sapply(fits_byLang_surprisal_term, function(M) sapply(M, function(m) m$conv))
+sapply(fits_byLang_surprisal_term_5models, function(M) sapply(M, function(m) m$conv))
 
 ### ---- Figure based on individual-language likelihoods
+## Each fit's convergence is recorded next to its log-likelihood, as for the
+## pooled fits. marginal_stats_bylang() lists the fits in the order of the model
+## list, experiment by experiment, and so do the two columns added here.
 fits_byLang_surprisal_term_stats <- marginal_stats_bylang(
-  fits_byLang_surprisal_term,
-  c(binary = "Binary\nGrammaticality", gradient = "Gradient\nGrammaticality", comm = "Communication-based"))
+  fits_byLang_surprisal_term_5models,
+  c(binary = "Binary", gradient = "Gradient", comm = "Communication",
+    slor = "SLOR", morcela = "MORCELA")) %>%
+  mutate(
+    converged = unlist(lapply(fits_byLang_surprisal_term_5models, function(M) sapply(M, function(m) isTRUE(m$conv)))),
+    bfgs_convergence = unlist(lapply(fits_byLang_surprisal_term_5models, function(M) sapply(M, function(m) m$bfgs.info$conv)))
+  )
 
 fits_byLang_surprisal_term_stats <- fits_byLang_surprisal_term_stats %>%
   group_by(language) %>%
@@ -337,20 +493,38 @@ write_csv(
   "outputs/s1_surprisal_term_likelihoods_by_language.csv"
 )
 
+## The same change in log-likelihood in each experiment
+fits_byLang_surprisal_term_stats %>%
+  ungroup() %>%
+  mutate(language = as.character(language), model = as.character(model)) %>%
+  left_join(
+    read_csv("../analysis/outputs/likelihoods_by_language.csv", show_col_types = FALSE) %>%
+      mutate(language = as.character(label_language(experiment))) %>%
+      select(language, model, main_text_log_likelihood = log_likelihood),
+    by = c("language", "model")
+  ) %>%
+  mutate(change_from_surprisal_term = log_likelihood - main_text_log_likelihood) %>%
+  select(language, model, change_from_surprisal_term) %>%
+  pivot_wider(names_from = model, values_from = change_from_surprisal_term) %>%
+  print(width = Inf)
+
 p_language_likelihoods <- ggplot(fits_byLang_surprisal_term_stats) +
   geom_point(
     aes(
       y=language,
       x=likelihood_diff,
       color=model,
+      fill=model,
       shape=model
     ),
     size=3
   ) +
   scale_color_manual(
     name="",
-    values=c("#EB7AA3", "#1E88E5", "#004D40")
+    values=MODEL_COLORS
   ) +
+  scale_fill_manual(values=MODEL_COLORS) +
+  scale_shape_manual(values=MODEL_SHAPES) +
   scale_x_continuous(
     name = "Log-Likelihood Difference"
   ) +
@@ -358,7 +532,7 @@ p_language_likelihoods <- ggplot(fits_byLang_surprisal_term_stats) +
   scale_y_discrete(name="",
                    limits = rev)
 
-p_language_likelihoods
+if (interactive()) print(p_language_likelihoods)
 
 ## Stack the combined "All Experiments" panel (top) over the by-language panel
 ## (bottom), matching the main-text likelihood figure.
@@ -367,6 +541,11 @@ likelihood_differences_with_surprisal_term_figure <- p_main_likelihoods / p_lang
 
 ggsave("figures/likelihood_differences_with_surprisal_term.png",
        plot = likelihood_differences_with_surprisal_term_figure, width = 8, height = 8)
+
+## Save as pdf, with the fonts embedded (cairo_pdf)
+ggsave("figures/likelihood_differences_with_surprisal_term.pdf",
+       plot = likelihood_differences_with_surprisal_term_figure, width = 8, height = 8,
+       device = cairo_pdf)
 
 ## ---- Model Predictions Figure ----
 ## Predictions are population-level: random_effect_labels() drops every item
@@ -416,12 +595,6 @@ p_gam <- p_baseline +
     name = "Acceptability Ratings (1-7 scale)"
   ) +
   ggplot2::guides(color = "none")
-
-ggsave(p_gam, filename = "figures/with_surprisal_term_figure_gam.png",
-       width    = 6,
-       height   = 16,
-       units    = "in",
-       dpi      = 300)
 
 ### ---- Model-based plots ----
 #### ---- Grammatical model ----
@@ -505,16 +678,7 @@ p_grammatical <- p_baseline +
   ) +
   ggplot2::guides(color = "none")
 
-p_grammatical
-
-ggsave(
-  p_grammatical,
-  filename = "figures/with_surprisal_term_figure_grammatical.png",
-  width    = 6,
-  height   = 16,
-  units    = "in",
-  dpi      = 300
-)
+if (interactive()) print(p_grammatical)
 
 #### ---- Distance model ----
 #### ---- Predictions from distance model ----
@@ -589,16 +753,7 @@ p_distance <- p_baseline +
   ) +
   ggplot2::guides(color = "none")
 
-p_distance
-
-ggsave(
-  p_distance,
-  filename = "figures/with_surprisal_term_figure_distance.png",
-  width    = 6,
-  height   = 16,
-  units    = "in",
-  dpi      = 300
-)
+if (interactive()) print(p_distance)
 
 #### ---- Weighted distance model ----
 #### ---- Predictions from weighted distance model ----
@@ -681,16 +836,7 @@ p_weighted_distance <- p_baseline +
   ) +
   ggplot2::guides(color = "none")
 
-p_weighted_distance
-
-ggsave(
-  p_weighted_distance,
-  filename = "figures/with_surprisal_term_figure_weighted_distance.png",
-  width    = 6,
-  height   = 16,
-  units    = "in",
-  dpi      = 300
-)
+if (interactive()) print(p_weighted_distance)
 
 ### ---- Combine plots into main figure ----
 main_figure = (p_gam |  p_weighted_distance | p_distance |p_grammatical) +
@@ -699,7 +845,7 @@ main_figure = (p_gam |  p_weighted_distance | p_distance |p_grammatical) +
         plot.title = element_text(hjust = 0.5)
   )
 
-main_figure
+if (interactive()) print(main_figure)
 
 ggsave(
   filename = "figures/with_surprisal_term_figure.png",

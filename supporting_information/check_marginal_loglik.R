@@ -18,7 +18,7 @@
 ##          variances (the real item-slope variance can be estimated at zero)
 ##   T3-T5  by-item means pooled over all nine experiments (as in the pooled fits)
 ##
-## Small fits only. Not part of run_all.R; run it on its own:
+## Small fits only, but it takes about 10 minutes. Not part of run_all.R; run it on its own:
 ##   LC_ALL=en_US.UTF-8 Rscript supporting_information/check_marginal_loglik.R
 ## It stops with an error if any test fails.
 ## =============================================================================
@@ -43,7 +43,9 @@ options(ggplot2.discrete.fill = c("#A31F34", "#8A8B8C"))
 get_script_dir <- function() {
   args <- commandArgs(trailingOnly = FALSE)
   file_arg <- grep("^--file=", args, value = TRUE)
-  if (length(file_arg)) {
+  ## Only while the path still resolves: once a script has moved into its
+  ## folder, a relative --file path no longer does, and getwd() is the folder
+  if (length(file_arg) && file.exists(sub("^--file=", "", file_arg))) {
     return(dirname(normalizePath(sub("^--file=", "", file_arg))))
   }
   if (requireNamespace("rstudioapi", quietly = TRUE) &&

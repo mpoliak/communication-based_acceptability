@@ -1,0 +1,21 @@
+task,subset,information,model,log_likelihood,max_likelihood,likelihood_diff,converged,n_participants,n_trials,n_cells
+exchange_identification_acceptability_ratings,All trials,Surprisal,Binary,-305.101970641049,-211.06065709589103,-94.04131354515795,TRUE,97,2593,243
+exchange_identification_acceptability_ratings,All trials,Surprisal,Gradient,-221.00101098497277,-211.06065709589103,-9.940353889081734,TRUE,97,2593,243
+exchange_identification_acceptability_ratings,All trials,Surprisal,Communication,-211.06065709589103,-211.06065709589103,0,TRUE,97,2593,243
+exchange_identification_acceptability_ratings,All trials,Surprisal,SLOR,-419.28576333813766,-211.06065709589103,-208.22510624224662,TRUE,97,2593,243
+exchange_identification_acceptability_ratings,All trials,Surprisal,MORCELA,-349.463065358024,-211.06065709589103,-138.40240826213295,TRUE,97,2593,243
+exchange_identification_acceptability_ratings,All trials,Length,Binary,-305.101970641049,-204.02076826769684,-101.08120237335214,TRUE,97,2593,243
+exchange_identification_acceptability_ratings,All trials,Length,Gradient,-221.00101098497277,-204.02076826769684,-16.980242717275928,TRUE,97,2593,243
+exchange_identification_acceptability_ratings,All trials,Length,Communication,-204.02076826769684,-204.02076826769684,0,TRUE,97,2593,243
+exchange_identification_acceptability_ratings,All trials,Length,SLOR,-419.28576333813766,-204.02076826769684,-215.26499507044082,TRUE,97,2593,243
+exchange_identification_acceptability_ratings,All trials,Length,MORCELA,-349.463065358024,-204.02076826769684,-145.44229709032714,TRUE,97,2593,243
+exchange_identification_acceptability_ratings,Identified correctly,Surprisal,Binary,-267.99403160703264,-183.14120364092216,-84.85282796611048,TRUE,97,2410,243
+exchange_identification_acceptability_ratings,Identified correctly,Surprisal,Gradient,-196.51585332453197,-183.14120364092216,-13.374649683609817,TRUE,97,2410,243
+exchange_identification_acceptability_ratings,Identified correctly,Surprisal,Communication,-183.14120364092216,-183.14120364092216,0,TRUE,97,2410,243
+exchange_identification_acceptability_ratings,Identified correctly,Surprisal,SLOR,-431.3929122871779,-183.14120364092216,-248.25170864625576,TRUE,97,2410,243
+exchange_identification_acceptability_ratings,Identified correctly,Surprisal,MORCELA,-362.3048320843974,-183.14120364092216,-179.16362844347523,TRUE,97,2410,243
+exchange_identification_acceptability_ratings,Identified correctly,Length,Binary,-267.99403160703264,-180.63167415341468,-87.36235745361796,TRUE,97,2410,243
+exchange_identification_acceptability_ratings,Identified correctly,Length,Gradient,-196.51585332453197,-180.63167415341468,-15.884179171117296,TRUE,97,2410,243
+exchange_identification_acceptability_ratings,Identified correctly,Length,Communication,-180.63167415341468,-180.63167415341468,0,TRUE,97,2410,243
+exchange_identification_acceptability_ratings,Identified correctly,Length,SLOR,-431.3929122871779,-180.63167415341468,-250.76123813376324,TRUE,97,2410,243
+exchange_identification_acceptability_ratings,Identified correctly,Length,MORCELA,-362.3048320843974,-180.63167415341468,-181.6731579309827,TRUE,97,2410,243

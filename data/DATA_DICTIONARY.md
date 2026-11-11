@@ -16,7 +16,9 @@ other languages — see notes below).
 
 The language-model scores that every analysis takes its surprisal from,
 `slor_morcela_scores.csv`, are described after it
-([`slor_morcela_scores.csv`](#data-dictionary--slor_morcela_scorescsv)). The data
+([`slor_morcela_scores.csv`](#data-dictionary--slor_morcela_scorescsv)), followed
+by the English scores under other language and unigram models that SI section 5
+uses ([`slor_morcela_scores_english_settings.csv`](#data-dictionary--slor_morcela_scores_english_settingscsv)). The data
 of the SI follow-up experiments (SI section 4) are not in `full_data.csv`. They
 are described in the last section of this file
 ([SI follow-up experiments](#data-dictionary--si-follow-up-experiments-si-section-4)).
@@ -133,7 +135,7 @@ has 6,822 rows:
 - 6,336 for the nine acceptability experiments: 288 sentences (72 items × 4
   conditions) in each of `da`, `de`, `en`, `fr`, `hi`, `ko`, `ru` and `zh`, and 864
   (216 item versions × 4 conditions) in `en_exp`, each × 2 unigram models;
-- 486 for the artificial English follow-ups of SI sections 4.1–4.5 (`en_artificial`):
+- 486 for the artificial English follow-ups of SI section 4 (`en_artificial`):
   243 sentences (27 items × 9 conditions) × 2 unigram models.
 
 | Column | Description |
@@ -192,10 +194,41 @@ scores <- read_csv("slor_morcela_scores.csv", col_types = cols(item = col_charac
   `item`, `condition`). SLOR = (`log_p_sentence` − `log_p_unigram`) / `n_words`;
   MORCELA = (`log_p_sentence` − β·`log_p_unigram` + γ) / `n_words`, with β and γ
   fitted to the ratings (SLOR is β = 1, γ = 0).
-- In the `en_artificial` analyses (SI 4.2–4.5), `sum_surprisal` is
+- In the `en_artificial` analyses (SI section 4), `sum_surprisal` is
   `-log_p_sentence` of the `original_<length>` row, joined on (`item`, length),
   where length is the suffix of `condition`. The original and swapped versions of
   an item at one length share it; its short, medium and long versions differ.
+
+---
+
+# Data dictionary — `slor_morcela_scores_english_settings.csv`
+
+The scores of SI section 5 (`supporting_information/section5_slor_morcela_settings.R`),
+which asks whether SLOR or MORCELA does better with another language model or
+unigram model than the main text's. The 288 sentences of the English experiment
+(`en`: 72 items × 4 conditions) are scored under 18 settings, 6 language models ×
+3 unigram models: 5,184 rows, one per sentence per setting. They are computed like
+`slor_morcela_scores.csv`: on each condition's own `perceived_sentence` (from
+`en/stimuli_data.csv`), in bits (log2), with words split at spaces.
+
+| Column | Description |
+|---|---|
+| `language` | Always `en`. |
+| `item` | `1`–`72`, without the `en_` prefix, as in `slor_morcela_scores.csv`. |
+| `condition` | `original`, `swap_1`, `swap_3` or `random`. |
+| `language_model` | The model behind `log_p_sentence`: `goldfish` (`goldfish-models/eng_latn_1000mb`, the main text's), `gpt2` and `gpt2-xl` (the Hugging Face GPT-2 models of those names), or `kn2`, `kn3` and `kn4` (interpolated Kneser-Ney 2-, 3- and 4-gram models, discount 0.75, trained on about 20 million words of WikiText-103 normalized like the stimuli). |
+| `unigram_model` | The unigram model behind `log_p_unigram`: `model_initial` (each word scored alone at the start of a sentence by the same language model; the main text's), `wordfreq` (as in `slor_morcela_scores.csv`), or `corpus` (the word's relative frequency in the n-gram models' WikiText-103 text, an unseen word counting as half an occurrence). |
+| `log_p_sentence` | Log2 probability of the sentence under `language_model`. The neural models condition on a start token that is not itself scored (`[CLS]` for Goldfish, `<\|endoftext\|>` for GPT-2), the n-gram models on `<s>` padding. No end-of-sentence token is scored. |
+| `log_p_unigram` | Sum over the sentence's words of each word's log2 unigram probability. |
+
+**Provenance.** Copied from `slor_grid_english.csv`, which
+`SLOR/scripts/03_score_grid.py` (its helpers are copied in `SLOR/scripts/vendor/`)
+wrote in an earlier exploration kept outside this repository, in the folder
+`../SLOR/` next to the repository root. Only the columns above were kept, renamed
+from `lm`, `unigram`, `log_pm` and `log_pu`, and the unigram model `model_init`
+was renamed `model_initial`; the scores are unchanged. The Goldfish rows with
+`model_initial` and `wordfreq` equal the `en` rows of `slor_morcela_scores.csv`
+to about 1e-13 bits, which section 5 checks.
 
 ---
 
@@ -203,39 +236,40 @@ scores <- read_csv("slor_morcela_scores.csv", col_types = cols(item = col_charac
 
 Each folder below holds one Surveyor study of English speakers, run after the nine
 acceptability experiments. None of them is part of `full_data.csv`; the SI
-section 4 scripts read them directly.
+section 4 scripts read three of them directly (see Used by). The other four hold
+earlier follow-ups that no script analyses any more.
 
 | Folder | Responses | Design | Used by |
 |---|---|---|---|
-| `en_binary_error_detection/` | `data_en_binary_error_detection.csv`, 80 participants (`en_awareness_<n>`) | The 72 items of the English experiment (`en`) in `original`, `swap_1`, `swap_3` and `random`. On each trial an error question (`exp_b_comprehension`), then a rating (`exp_b`) | SI §4 |
-| `en_experimental_binary_error_detection/` | `data_en_exp_binary_error_detection.csv`, 40 participants | The 72 base items of the controlled English experiment (`en_exp`). `cond` = `<version>_<length>`, version `original`, `swap-1`, `swap-3` or `random`, length `short`, `medium` or `long`. Error question, then rating | SI §4 |
-| `en_exchange_identification/` | `en_exchange_identification_data.csv`, 41 participants, plus `test` (the experimenters' run-through, which the analysis drops) | The 72 `en` items in `original` and `swap_1`. Participants click the words they think are misplaced (`annot`) | SI §4 |
-| `en_artificial_exchange_identification/` | `en_artificial_exchange_identification_data.csv`, 100 participants | 27 constructed items, each in a short, medium and long version, each `original`, `swap-1` or `swap-3`: 9 conditions (`<version>_<length>`), and each participant sees every item once. Click task (`annot`) | SI 4.1, 4.3 |
-| `en_artificial_binary_error_detection/` | `en_artificial_binary_error_detection_data.csv`, 100 participants | The same 243 sentences. Error question, then rating | SI 4.2, 4.3 |
-| `en_artificial_acceptability_ratings/` | `en_artificial_acceptability_ratings_data.csv`, 101 participants | The same 243 sentences. Rating only | SI 4.4, and the source of the `en_artificial` sentences in `slor_morcela_scores.csv` |
-| `en_artificial_exchange_identification_acceptability/` | `en_artificial_exchange_identification_acceptability_data.csv`, 100 participants | The same 243 sentences. Click task, then rating | SI 4.5 |
+| `en_binary_error_detection/` | `data_en_binary_error_detection.csv`, 80 participants (`en_awareness_<n>`) | The 72 items of the English experiment (`en`) in `original`, `swap_1`, `swap_3` and `random`. On each trial a binary error detection question (`exp_b_comprehension`), then a rating (`exp_b`) | Not analysed since 2026-11-02 (the earlier SI §4; git history, commit `2537ec2`) |
+| `en_experimental_binary_error_detection/` | `data_en_exp_binary_error_detection.csv`, 40 participants | The 72 base items of the controlled English experiment (`en_exp`). `cond` = `<version>_<length>`, version `original`, `swap-1`, `swap-3` or `random`, length `short`, `medium` or `long`. Binary error detection, then rating | Not analysed since 2026-11-02 (the earlier SI §4; git history, commit `2537ec2`) |
+| `en_exchange_identification/` | `en_exchange_identification_data.csv`, 41 participants, plus `test` (the experimenters' run-through, which the analysis drops) | The 72 `en` items in `original` and `swap_1`. Participants click the words they think are misplaced (`annot`) | Not analysed since 2026-11-02 (the earlier SI §4; git history, commit `2537ec2`) |
+| `en_artificial_exchange_identification/` | `en_artificial_exchange_identification_data.csv`, 100 participants | 27 constructed items, each in a short, medium and long version, each `original`, `swap-1` or `swap-3`: 9 conditions (`<version>_<length>`), and each participant sees every item once. Exchange identification (`annot`) | Not analysed since 2026-11-02 (the earlier SI 4.1 and 4.3; git history, commit `2537ec2`). Its materials are the source of the three studies below |
+| `en_artificial_binary_error_detection/` | `en_artificial_binary_error_detection_data.csv`, 100 participants | The same 243 sentences. Binary error detection, then rating | SI 4.2, binary error detection + acceptability ratings (4.3 reads its responses, to drop the people who took both) |
+| `en_artificial_acceptability_ratings/` | `en_artificial_acceptability_ratings_data.csv`, 101 participants | The same 243 sentences. Rating only | SI 4.1, acceptability ratings only, and the source of the `en_artificial` sentences in `slor_morcela_scores.csv` |
+| `en_artificial_exchange_identification_acceptability/` | `en_artificial_exchange_identification_acceptability_data.csv`, 100 participants | The same 243 sentences. Exchange identification, then rating | SI 4.3, exchange identification + acceptability ratings (4.2 reads its responses likewise) |
 
 Three people took both `en_artificial_binary_error_detection` and
-`en_artificial_exchange_identification_acceptability`. Sections 4.2 and 4.5 match
+`en_artificial_exchange_identification_acceptability`. Sections 4.2 and 4.3 match
 the two response files on `participant_id` and drop them from both.
 
 ## Response files
 
 One row per trial (per screen). The follow-up question of a trial (the rating after
-the error question or after the click task) is the screen right after it, so its
-`presentation_order` is one higher.
+the binary error detection question or after exchange identification) is the
+screen right after it, so its `presentation_order` is one higher.
 
 | Column | Description |
 |---|---|
 | `participant_id` | Participant identifier. |
-| `experiment` | Trial type: `exp_b` = acceptability rating (1–7, the same response format as in `full_data.csv`); `exp_b_comprehension` = here the error question, "Are there any errors in this sentence?" (`Yes`/`No`); `annot` = the click task, "Click on all the words that are misplaced". |
+| `experiment` | Trial type: `exp_b` = acceptability rating (1–7, the same response format as in `full_data.csv`); `exp_b_comprehension` = here the binary error detection question, "Are there any errors in this sentence?" (`Yes`/`No`); `annot` = exchange identification, "Click on all the words that are misplaced". |
 | `item` | Item number (`1`–`72`, or `1`–`27` in the artificial studies), without a language prefix. |
 | `cond` | Condition, as in the table above. |
 | `presentation_order` | 0-based position of the screen in the participant's session. |
-| `literal_response` | On the error question, the correct answer: `No` for originals, `Yes` for every altered sentence. `NA` on rating and click rows. |
-| `response` | On rating rows, the rating (character, as in `full_data.csv`: take the leading digit). On error-question rows, `Yes` or `No`. On click rows, the clicked words as comma-separated `position:word` pairs, with 1-based word positions and the words percent-encoded for `%`, `,` and `:` (decode with `URLdecode`), or `NONE` when nothing was clicked. |
+| `literal_response` | On the binary error detection question, the correct answer: `No` for originals, `Yes` for every altered sentence. `NA` on rating and click rows. |
+| `response` | On rating rows, the rating (character, as in `full_data.csv`: take the leading digit). On binary error detection rows, `Yes` or `No`. On click rows, the clicked words as comma-separated `position:word` pairs, with 1-based word positions and the words percent-encoded for `%`, `,` and `:` (decode with `URLdecode`), or `NONE` when nothing was clicked. |
 | `timestamp` | Trial timestamp. |
-| `native_language` | `Yes`/`No` to "Is English your first language?". Sections 4.4 and 4.5 drop the participants who answered `No`. |
+| `native_language` | `Yes`/`No` to "Is English your first language?". Sections 4.1–4.3 drop the participants who answered `No`. |
 | `other_languages` | Free text: any languages other than English the participant speaks. |
 | `country_of_birth` | Country of birth, chosen from a list. |
 

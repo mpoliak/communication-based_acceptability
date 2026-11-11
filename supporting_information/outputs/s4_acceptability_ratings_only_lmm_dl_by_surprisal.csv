@@ -1,0 +1,5 @@
+task,subset,term,estimate,se,df,t,p,singular,optimizer,optimizer_code,convergence,max_gradient,negative_hessian_eigenvalues,n_participants,n_trials
+acceptability_ratings_only,All trials,(Intercept),3.706953510548042,0.09508497649898677,44.37063583868179,38.985690979137416,5.7086669393961874e-36,TRUE,bobyqa,0,boundary (singular) fit: see help('isSingular'),7.843229929887605e-6,0,100,2692
+acceptability_ratings_only,All trials,dl_distance,-1.6940937071230744,0.05113194894280788,60.320277250079144,-33.13180393373921,2.079089681046823e-40,TRUE,bobyqa,0,boundary (singular) fit: see help('isSingular'),7.843229929887605e-6,0,100,2692
+acceptability_ratings_only,All trials,sum_surprisal,0.18499997091477605,0.05934703300581936,23.87084434563034,3.1172572838921133,0.004708401223213072,TRUE,bobyqa,0,boundary (singular) fit: see help('isSingular'),7.843229929887605e-6,0,100,2692
+acceptability_ratings_only,All trials,dl_distance:sum_surprisal,0.15947629875559255,0.0363191709520101,75.13578208431564,4.390967485637671,3.639525358640563e-5,TRUE,bobyqa,0,boundary (singular) fit: see help('isSingular'),7.843229929887605e-6,0,100,2692

@@ -11,8 +11,8 @@
 ##     per experiment and pooled over all nine experiments, with the
 ##     Communication model's information term on length
 ##   - the curve figure: ratings and model predictions over length
-## Produces likelihood_differences_length.png, curves_length.png/.pdf and
-## length_mod_*.png, and writes its statistics to outputs/s3_length_*.csv.
+## Produces likelihood_differences_length.png and curves_length.png/.pdf, and
+## writes its statistics to outputs/s3_length_*.csv.
 ## =============================================================================
 
 options(warn = 1)
@@ -21,7 +21,9 @@ options(warn = 1)
 get_script_dir <- function() {
   args <- commandArgs(trailingOnly = FALSE)
   file_arg <- grep("^--file=", args, value = TRUE)
-  if (length(file_arg)) {
+  ## Only while the path still resolves: once a script has moved into its
+  ## folder, a relative --file path no longer does, and getwd() is the folder
+  if (length(file_arg) && file.exists(sub("^--file=", "", file_arg))) {
     return(dirname(normalizePath(sub("^--file=", "", file_arg))))
   }
   if (requireNamespace("rstudioapi", quietly = TRUE) &&
@@ -41,6 +43,12 @@ source("setup.R")
 ## their interaction, fit separately for each experiment with both predictors
 ## z-scored within the experiment. en_exp is fit on its own below, with a fuller
 ## random-effects structure, so it is left out of this loop.
+## As in ../analysis/main_analysis.R, each experiment uses the optimizer that
+## allFit() shows at the best log-likelihood: nlminb, except bobyqa for English.
+## There nlminb stops 1.7 REML log-likelihood units short of the optimum that
+## bobyqa and both nloptwrap optimizers reach (within 1.5e-6), with a negative
+## eigenvalue of the Hessian. In Mandarin, nlminb reports "singular convergence
+## (7)" at the same optimum that bobyqa finds.
 ### ---- Linear Model ----
 lmer_languages <- setdiff(as.character(unique(crit$language)), "en_exp")
 
@@ -59,10 +67,17 @@ lmer_fits <- lapply(lmer_languages, function(current_language) {
       dl_distance = scale(dl_distance)[,1]
     ) %>%
     droplevels(),
-  control = lmerControl(
-    optimizer ="bobyqa",
-    optCtrl = list(maxfun = 1e5)
-  )
+  control = if (current_language == "en") {
+    lmerControl(
+      optimizer ="bobyqa",
+      optCtrl = list(maxfun = 1e5)
+    )
+  } else {
+    lmerControl(
+      optimizer ="nlminbwrap",
+      optCtrl = list(eval.max = 1e5, iter.max = 1e5)
+    )
+  }
   )
 })
 
@@ -88,9 +103,9 @@ lmer_fits[["en_exp"]] <- lmer(
       dl_distance = scale(dl_distance)[,1]
     ) %>%
     droplevels(),
-  ## nlminb rather than bobyqa, as in analysis/main_analysis.R: with this
-  ## random-effects structure bobyqa stops ~28 log-likelihood units short of the
-  ## optimum and fails the convergence check. The fit is still singular.
+  ## With this random-effects structure bobyqa stops ~28 log-likelihood units
+  ## short of the optimum and fails the convergence check. The fit is still
+  ## singular.
   control = lmerControl(
     optimizer ="nlminbwrap",
     optCtrl = list(eval.max = 1e5, iter.max = 1e5)
@@ -468,49 +483,6 @@ mod_weighted_distance$conv
 mod_slor$conv
 mod_morcela$conv
 
-## Save the figures
-## The rug ticks are jittered at random; a fixed seed makes the figure reproducible
-set.seed(2026)
-png("figures/length_mod_gradient_dl.png", width=6, height=6, units="in", res=300)
-plot(mod_distance, select = 1,
-     shade = TRUE,            # optional: shaded CI instead of dashed lines
-     shade.col = "lightblue", # color for shading
-     main = "Gradient Grammaticality", # title
-     xlab = "DL distance",    # x-axis label
-     ylab = "Acceptability (centered)", # y-axis label
-     rug = TRUE,              # keep the rug
-     jit = TRUE               # jitter the rug ticks
-)
-dev.off()
-
-## The rug ticks are jittered at random; a fixed seed makes the figure reproducible
-set.seed(2026)
-png("figures/length_mod_communication_dlweighted.png", width=6, height=6, units="in", res=300)
-plot(mod_weighted_distance, select = 1,
-     shade = TRUE,            # optional: shaded CI instead of dashed lines
-     shade.col = "lightblue", # color for shading
-     main = "Communication", # title
-     xlab = "DL distance / length",    # x-axis label
-     ylab = "Acceptability (centered)", # y-axis label
-     rug = TRUE,              # keep the rug
-     jit = TRUE               # jitter the rug ticks
-)
-dev.off()
-
-## The rug ticks are jittered at random; a fixed seed makes the figure reproducible
-set.seed(2026)
-png("figures/length_mod_communication_nwords.png", width=6, height=6, units="in", res=300)
-plot(mod_weighted_distance, select = 2,
-         shade = TRUE,            # optional: shaded CI instead of dashed lines
-         shade.col = "lightblue", # color for shading
-         main = "Communication", # title
-         xlab = "Length",    # x-axis label
-         ylab = "Acceptability (centered)", # y-axis label
-         rug = TRUE,              # keep the rug
-         jit = TRUE               # jitter the rug ticks
-)
-dev.off()
-
 ### ---- Marginal log-likelihoods ----
 ## Build the by-language log-likelihood table using the MARGINAL log-likelihood
 ## (integrating the item random effects out) rather than the conditional value
@@ -582,6 +554,34 @@ main_likelihoods <- tibble(
   )
 
 write_csv(main_likelihoods, "outputs/s3_length_likelihoods_all_experiments.csv")
+
+## Binary, Gradient, SLOR and MORCELA have no information term, so they are the
+## main text's models, and only Communication changes. The change: these fits
+## (length) minus the main text's (surprisal; ../analysis/outputs, written by
+## ../analysis/main_analysis.R), for all nine experiments together and then in
+## each experiment
+main_likelihoods %>%
+  mutate(model = as.character(model)) %>%
+  left_join(
+    read_csv("../analysis/outputs/likelihoods_all_experiments.csv", show_col_types = FALSE) %>%
+      select(model, main_text_log_likelihood = log_likelihood),
+    by = "model"
+  ) %>%
+  mutate(length_minus_surprisal = log_likelihood - main_text_log_likelihood) %>%
+  select(model, log_likelihood, main_text_log_likelihood, length_minus_surprisal) %>%
+  print()
+
+stats_models_by_language %>%
+  mutate(model = as.character(model)) %>%
+  left_join(
+    read_csv("../analysis/outputs/likelihoods_by_language.csv", show_col_types = FALSE) %>%
+      select(language_code = experiment, model, main_text_log_likelihood = log_likelihood),
+    by = c("language_code", "model")
+  ) %>%
+  mutate(length_minus_surprisal = log_likelihood - main_text_log_likelihood) %>%
+  select(language_code, model, length_minus_surprisal) %>%
+  pivot_wider(names_from = model, values_from = length_minus_surprisal) %>%
+  print(width = Inf)
 
 ### ---- Likelihood differences figure ----
 ## Drawn exactly like the main text's five-model figure, with the pooled "All
@@ -752,12 +752,6 @@ p_gam <- p_baseline +
   ) +
   ggplot2::guides(color = "none")
 
-ggsave(p_gam, filename = "figures/curves_length_gam.png",
-       width    = 6,
-       height   = 16,
-       units    = "in",
-       dpi      = 300)
-
 ### ---- Model-based plots ----
 #### ---- Grammatical model ----
 #### ---- Predictions from grammatical model ----
@@ -840,16 +834,7 @@ p_grammatical <- p_baseline +
   ) +
   ggplot2::guides(color = "none")
 
-p_grammatical
-
-ggsave(
-  p_grammatical,
-  filename = "figures/curves_length_grammatical.png",
-  width    = 6,
-  height   = 16,
-  units    = "in",
-  dpi      = 300
-)
+if (interactive()) print(p_grammatical)
 
 #### ---- Distance model ----
 #### ---- Predictions from distance model ----
@@ -924,16 +909,7 @@ p_distance <- p_baseline +
   ) +
   ggplot2::guides(color = "none")
 
-p_distance
-
-ggsave(
-  p_distance,
-  filename = "figures/curves_length_distance.png",
-  width    = 6,
-  height   = 16,
-  units    = "in",
-  dpi      = 300
-)
+if (interactive()) print(p_distance)
 
 #### ---- Weighted distance model ----
 #### ---- Predictions from weighted distance model ----
@@ -1016,16 +992,7 @@ p_weighted_distance <- p_baseline +
   ) +
   ggplot2::guides(color = "none")
 
-p_weighted_distance
-
-ggsave(
-  p_weighted_distance,
-  filename = "figures/curves_length_weighted_distance.png",
-  width    = 6,
-  height   = 16,
-  units    = "in",
-  dpi      = 300
-)
+if (interactive()) print(p_weighted_distance)
 
 ### ---- Combine plots into the curve figure ----
 curves_length_figure = (p_gam |  p_weighted_distance | p_distance |p_grammatical) +
@@ -1034,7 +1001,7 @@ curves_length_figure = (p_gam |  p_weighted_distance | p_distance |p_grammatical
         plot.title = element_text(hjust = 0.5)
         )
 
-curves_length_figure
+if (interactive()) print(curves_length_figure)
 
 ggsave(
   filename = "figures/curves_length.png",

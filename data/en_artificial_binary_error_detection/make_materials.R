@@ -93,7 +93,7 @@ write_csv(materials, "materials_en_artificial_binary_error_detection.csv", na = 
 ## sentences contain a swap, so "Most of these materials have errors" still
 ## holds. Mirrors data/en_binary_error_detection/demographics_en_binary_error_detection.csv. The
 ## instructions describe the order the participant actually meets the two
-## questions in: the error question comes first, the rating second.
+## questions in: the binary error detection question comes first, the rating second.
 demographics <- tribble(
   ~name, ~type, ~content, ~options, ~config,
   "consent", "text",

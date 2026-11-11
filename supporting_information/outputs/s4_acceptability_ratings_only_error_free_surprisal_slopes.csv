@@ -1,0 +1,2 @@
+task,subset,beta,se,df,t,p,singular,optimizer,optimizer_code,convergence,max_gradient,negative_hessian_eigenvalues,sd_surprisal_bits,n_participants,n_trials
+acceptability_ratings_only,All trials,-0.21523362406799887,0.03919422043914339,80.66630902605465,-5.491463324348821,4.5020029490358897e-7,TRUE,bobyqa,0,boundary (singular) fit: see help('isSingular'),4.043873976000183e-6,0,44.77512188632664,100,896

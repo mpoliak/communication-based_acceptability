@@ -54,9 +54,9 @@ WORDFREQ_LANGUAGES = {
     "en_artificial": "en",
 }
 
-# The four artificial English experiments (SI 4.1-4.5) all show the same 243
-# sentences (27 items x 9 conditions), so we score them once, from the
-# acceptability-ratings materials.
+# The four artificial English experiments (three of them in SI section 4) all
+# show the same 243 sentences (27 items x 9 conditions), so we score them once,
+# from the materials of SI 4.1 (acceptability ratings only).
 EN_ARTIFICIAL_MATERIALS = os.path.join(
     "en_artificial_acceptability_ratings",
     "materials_en_artificial_acceptability_ratings.csv",

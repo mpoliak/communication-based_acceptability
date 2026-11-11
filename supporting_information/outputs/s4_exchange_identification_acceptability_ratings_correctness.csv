@@ -1,0 +1,13 @@
+task,condition_label,length_level,n_trials,proportion_correct,proportion_all_regions_marked
+exchange_identification_acceptability_ratings,Original,short,291,0.9690721649484536,0.9690721649484536
+exchange_identification_acceptability_ratings,Original,medium,291,0.9381443298969072,0.9381443298969072
+exchange_identification_acceptability_ratings,Original,long,291,0.9587628865979382,0.9587628865979382
+exchange_identification_acceptability_ratings,Original,all,873,0.9553264604810997,0.9553264604810997
+exchange_identification_acceptability_ratings,1 swap,short,291,0.9243986254295533,0.9243986254295533
+exchange_identification_acceptability_ratings,1 swap,medium,291,0.8350515463917526,0.8350515463917526
+exchange_identification_acceptability_ratings,1 swap,long,291,0.8350515463917526,0.8350515463917526
+exchange_identification_acceptability_ratings,1 swap,all,873,0.8648339060710195,0.8648339060710195
+exchange_identification_acceptability_ratings,3 swaps,short,291,0.9828178694158075,0.9347079037800687
+exchange_identification_acceptability_ratings,3 swaps,medium,291,0.9690721649484536,0.6804123711340206
+exchange_identification_acceptability_ratings,3 swaps,long,291,0.9484536082474226,0.6804123711340206
+exchange_identification_acceptability_ratings,3 swaps,all,873,0.9667812142038946,0.7651775486827033

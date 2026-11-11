@@ -36,7 +36,9 @@ ggplot2::theme_update(panel.grid = ggplot2::element_blank(),
 get_script_dir <- function() {
   args <- commandArgs(trailingOnly = FALSE)
   file_arg <- grep("^--file=", args, value = TRUE)
-  if (length(file_arg)) {
+  ## Only while the path still resolves: once a script has moved into its
+  ## folder, a relative --file path no longer does, and getwd() is the folder
+  if (length(file_arg) && file.exists(sub("^--file=", "", file_arg))) {
     return(dirname(normalizePath(sub("^--file=", "", file_arg))))
   }
   if (requireNamespace("rstudioapi", quietly = TRUE) &&
@@ -396,11 +398,11 @@ MODEL_LEVELS <- c("Binary", "Gradient", "Communication", "SLOR", "MORCELA")
 MODEL_LABELS <- c("Binary\nGrammaticality", "Gradient\nGrammaticality",
                   "Communication", "SLOR", "MORCELA")
 MODEL_COLORS <- c(
-  "Binary"        = "#EB7AA3",
-  "Gradient"      = "#1E88E5",
-  "Communication" = "#004D40",
-  "SLOR"          = "#E08A2E",
-  "MORCELA"       = "#A31F34"
+  "Binary"        = "#939DB0",
+  "Gradient"      = "#5673C5",
+  "Communication" = "#003736",
+  "SLOR"          = "#F7B957",
+  "MORCELA"       = "#A90318"
 )
 MODEL_SHAPES <- c(
   "Binary"        = 16,

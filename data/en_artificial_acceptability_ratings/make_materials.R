@@ -6,7 +6,7 @@
 ## stimuli file, so every artificial-materials study shows byte-identical
 ## sentences -- presented exactly as in the original English experiment
 ## (data/en): one acceptability rating per sentence, with the same prompt,
-## the same 1-7 scale and the same instructions. There is no error question
+## the same 1-7 scale and the same instructions. There is no binary error detection question
 ## and no exchange identification task. The original experiment also asked a comprehension
 ## question after each sentence; this version has none. Writes materials_en_artificial_acceptability_ratings.csv (stimuli) and
 ## demographics_en_artificial_acceptability_ratings.csv (survey properties).

@@ -140,12 +140,18 @@ p_dataset_likelihoods <- ggplot(s4_likelihoods) +
     values=MODEL_COLORS,
     labels=MODEL_LABELS
   ) +
-  scale_fill_manual(values=MODEL_COLORS) +
-  scale_shape_manual(values=MODEL_SHAPES) +
+  scale_fill_manual(name="", values=MODEL_COLORS, labels=MODEL_LABELS) +
+  scale_shape_manual(name="", values=MODEL_SHAPES, labels=MODEL_LABELS) +
   scale_x_continuous(
     name = "Log-Likelihood Difference"
   ) +
-  guides(color = guide_legend(nrow = 2, byrow = TRUE), shape = "none", fill = "none") +
+  ## The colour, fill and shape scales share a name, labels and guide, so ggplot
+  ## merges them into one legend whose keys show each model's marker.
+  guides(
+    color = guide_legend(nrow = 2, byrow = TRUE),
+    fill = guide_legend(nrow = 2, byrow = TRUE),
+    shape = guide_legend(nrow = 2, byrow = TRUE)
+  ) +
   theme(legend.position="top", legend.location = "plot") +
   scale_y_discrete(name="")
 

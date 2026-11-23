@@ -861,15 +861,22 @@ stats_models_by_language <- do.call(rbind, lapply(names(models_by_language), fun
       model == "slor" ~ "SLOR",
       model == "morcela" ~ "MORCELA"
     ) %>%
-      factor(levels=c("Binary", "Gradient", "Communication", "SLOR", "MORCELA"))
+      factor(levels=c("Communication", "Gradient", "Binary", "MORCELA", "SLOR"))
   )
 
 ## Colours, shapes and legend labels of the five models, as in the SI figures
 ## (setup.R). SLOR and MORCELA get filled shapes (23 and 25 take both a colour
 ## and a fill), so all five markers are solid.
-MODEL_LEVELS <- c("Binary", "Gradient", "Communication", "SLOR", "MORCELA")
-MODEL_LABELS <- c("Binary\nGrammaticality", "Gradient\nGrammaticality",
-                  "Communication", "SLOR", "MORCELA")
+## One order for every figure: the communication-based model first, then the
+## rule-based models, then MORCELA and SLOR (as in Figs 1-3, by pooled fit).
+MODEL_LEVELS <- c("Communication", "Gradient", "Binary", "MORCELA", "SLOR")
+MODEL_LABELS <- c(
+  "Communication" = "Communication",
+  "Gradient"      = "Gradient\nGrammaticality",
+  "Binary"        = "Binary\nGrammaticality",
+  "MORCELA"       = "MORCELA",
+  "SLOR"          = "SLOR"
+)
 MODEL_COLORS <- c(
   "Binary"        = "#939DB0",
   "Gradient"      = "#5673C5",
@@ -1616,7 +1623,7 @@ p_weighted_distance <- p_baseline +
 ## text size, with "Grammaticality" on a second line so they fit over their
 ## columns. The figure as a whole (its margins and the shared legend) also takes
 ## the print theme, rather than the script's 18-pt default.
-qualitative_predictions_figure <- (p_gam | p_grammatical | p_distance | p_weighted_distance) +
+qualitative_predictions_figure <- (p_gam | p_weighted_distance | p_distance | p_grammatical) +
   plot_layout(guides = "collect", axis_titles = "collect") +
   plot_annotation(theme = theme_print_8pt) &
   theme(legend.position = "bottom",

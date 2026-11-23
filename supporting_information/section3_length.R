@@ -762,7 +762,7 @@ p_binary <- p_baseline +
     strip.text = element_blank(),
     strip.background = element_blank()
   ) +
-  ggtitle(MODEL_LABELS[1]) +
+  ggtitle(MODEL_LABELS[["Binary"]]) +
   scale_y_continuous(limits = YLIM, breaks = NULL) +
   scale_color_manual(values = DL_COLORS_BINARY) +
   ggplot2::guides(color = "none")
@@ -795,7 +795,7 @@ p_gradient <- p_baseline +
     strip.text = element_blank(),
     strip.background = element_blank()
   ) +
-  ggtitle(MODEL_LABELS[2]) +
+  ggtitle(MODEL_LABELS[["Gradient"]]) +
   scale_y_continuous(limits = YLIM, breaks = NULL) +
   ggplot2::guides(color = "none")
 
@@ -833,14 +833,14 @@ p_communication <- p_baseline +
     strip.text = element_blank(),
     strip.background = element_blank()
   ) +
-  ggtitle(MODEL_LABELS[3]) +
+  ggtitle(MODEL_LABELS[["Communication"]]) +
   scale_y_continuous(limits = YLIM, breaks = NULL) +
   ggplot2::guides(color = "none")
 
 ### ---- Combine the panels into Figure S5 ----
 ## As in the main text's Figure 1: one legend and one x-axis title for the four
 ## columns, and the print theme for the figure as a whole
-prediction_figure <- (p_gam | p_binary | p_gradient | p_communication) +
+prediction_figure <- (p_gam | p_communication | p_gradient | p_binary) +
   plot_layout(guides = "collect", axis_titles = "collect") +
   plot_annotation(theme = theme_print_8pt) &
   theme(legend.position = "bottom",

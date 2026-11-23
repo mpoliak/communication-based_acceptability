@@ -413,9 +413,16 @@ get_prediction_grid_surprisal <- function(
 ## figures (as in ../analysis/main_analysis.R). SLOR and MORCELA get
 ## filled shapes (23 and 25 take both a colour and a fill), so all five markers
 ## are solid.
-MODEL_LEVELS <- c("Binary", "Gradient", "Communication", "SLOR", "MORCELA")
-MODEL_LABELS <- c("Binary\nGrammaticality", "Gradient\nGrammaticality",
-                  "Communication", "SLOR", "MORCELA")
+## One order for every figure: the communication-based model first, then the
+## rule-based models, then MORCELA and SLOR (as in Figs 1-3, by pooled fit).
+MODEL_LEVELS <- c("Communication", "Gradient", "Binary", "MORCELA", "SLOR")
+MODEL_LABELS <- c(
+  "Communication" = "Communication",
+  "Gradient"      = "Gradient\nGrammaticality",
+  "Binary"        = "Binary\nGrammaticality",
+  "MORCELA"       = "MORCELA",
+  "SLOR"          = "SLOR"
+)
 MODEL_COLORS <- c(
   "Binary"        = "#939DB0",
   "Gradient"      = "#5673C5",

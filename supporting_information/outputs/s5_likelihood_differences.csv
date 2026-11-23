@@ -1,16 +1,16 @@
 task,subset,model,log_likelihood,max_likelihood,likelihood_diff,n_participants,n_trials,n_cells
-acceptability_ratings_only,All trials,Binary,-316.21649007420876,-257.50434953481454,-58.71214053939423,100,2692,243
-acceptability_ratings_only,All trials,Gradient,-278.6701869387589,-257.50434953481454,-21.16583740394435,100,2692,243
 acceptability_ratings_only,All trials,Communication,-257.50434953481454,-257.50434953481454,0,100,2692,243
-acceptability_ratings_only,All trials,SLOR,-431.45316457564854,-257.50434953481454,-173.948815040834,100,2692,243
+acceptability_ratings_only,All trials,Gradient,-278.6701869387589,-257.50434953481454,-21.16583740394435,100,2692,243
+acceptability_ratings_only,All trials,Binary,-316.21649007420876,-257.50434953481454,-58.71214053939423,100,2692,243
 acceptability_ratings_only,All trials,MORCELA,-375.4265066660977,-257.50434953481454,-117.92215713128314,100,2692,243
-binary_error_detection_acceptability_ratings,Judged correctly,Binary,-216.55829109687548,-155.6899349665959,-60.86835613027958,97,2318,243
-binary_error_detection_acceptability_ratings,Judged correctly,Gradient,-183.2717806213323,-155.6899349665959,-27.581845654736412,97,2318,243
+acceptability_ratings_only,All trials,SLOR,-431.45316457564854,-257.50434953481454,-173.948815040834,100,2692,243
 binary_error_detection_acceptability_ratings,Judged correctly,Communication,-155.6899349665959,-155.6899349665959,0,97,2318,243
-binary_error_detection_acceptability_ratings,Judged correctly,SLOR,-443.0941241606632,-155.6899349665959,-287.4041891940673,97,2318,243
+binary_error_detection_acceptability_ratings,Judged correctly,Gradient,-183.2717806213323,-155.6899349665959,-27.581845654736412,97,2318,243
+binary_error_detection_acceptability_ratings,Judged correctly,Binary,-216.55829109687548,-155.6899349665959,-60.86835613027958,97,2318,243
 binary_error_detection_acceptability_ratings,Judged correctly,MORCELA,-376.4421370725197,-155.6899349665959,-220.75220210592377,97,2318,243
-exchange_identification_acceptability_ratings,Identified correctly,Binary,-267.99403160703264,-183.14120364092216,-84.85282796611048,97,2410,243
-exchange_identification_acceptability_ratings,Identified correctly,Gradient,-196.51585332453195,-183.14120364092216,-13.374649683609816,97,2410,243
+binary_error_detection_acceptability_ratings,Judged correctly,SLOR,-443.0941241606632,-155.6899349665959,-287.4041891940673,97,2318,243
 exchange_identification_acceptability_ratings,Identified correctly,Communication,-183.14120364092216,-183.14120364092216,0,97,2410,243
-exchange_identification_acceptability_ratings,Identified correctly,SLOR,-431.3929122871779,-183.14120364092216,-248.25170864625576,97,2410,243
+exchange_identification_acceptability_ratings,Identified correctly,Gradient,-196.51585332453195,-183.14120364092216,-13.374649683609816,97,2410,243
+exchange_identification_acceptability_ratings,Identified correctly,Binary,-267.99403160703264,-183.14120364092216,-84.85282796611048,97,2410,243
 exchange_identification_acceptability_ratings,Identified correctly,MORCELA,-362.3048320843974,-183.14120364092216,-179.16362844347523,97,2410,243
+exchange_identification_acceptability_ratings,Identified correctly,SLOR,-431.3929122871779,-183.14120364092216,-248.25170864625576,97,2410,243

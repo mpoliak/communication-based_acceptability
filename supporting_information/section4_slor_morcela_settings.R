@@ -731,11 +731,12 @@ p_settings_likelihoods <- ggplot(settings_plot_data) +
       nrow = 2,
       byrow = TRUE,
       override.aes = list(
-        linetype = c("solid", "solid", "blank", "blank", "blank"),
-        shape = c(NA, NA, MODEL_SHAPES[["Communication"]], MODEL_SHAPES[["SLOR"]],
-                  MODEL_SHAPES[["MORCELA"]]),
-        fill = c(NA, NA, MODEL_COLORS[["Communication"]], MODEL_COLORS[["SLOR"]],
-                 MODEL_COLORS[["MORCELA"]])
+        ## In MODEL_LEVELS order: Communication, Gradient, Binary, MORCELA, SLOR
+        linetype = c("blank", "solid", "solid", "blank", "blank"),
+        shape = c(MODEL_SHAPES[["Communication"]], NA, NA, MODEL_SHAPES[["MORCELA"]],
+                  MODEL_SHAPES[["SLOR"]]),
+        fill = c(MODEL_COLORS[["Communication"]], NA, NA, MODEL_COLORS[["MORCELA"]],
+                 MODEL_COLORS[["SLOR"]])
       )
     ),
     shape = "none",

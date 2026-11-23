@@ -1,14 +1,16 @@
 ## =============================================================================
 ## Build the Surveyor questionnaire for the "identify the misplaced words" task
-## on the ARTIFICIAL length-controlled English materials.
+## on the constructed English sentences.
 ##
-## Same task as en_exchange_identification: every word in the sentence is clickable, and the
+## Same task as an earlier study on the English experiment's items (not reported,
+## and not in this repository): every word in the sentence is clickable, and the
 ## participant clicks the ones they think are out of place. That is Surveyor's
 ## `per_word_multiple_choice` question type, so `options`, `literal_response`
-## and `config` are all NA, exactly as in en_exchange_identification.
+## and `config` are all NA, exactly as in that study.
 ##
-## The design differs from en_exchange_identification in one way: length is manipulated within
-## item. Each item exists in a short, medium and long version, each of which is
+## The design differs from that study in its items: 27 constructed
+## sentences instead of the English experiment's 72, with length manipulated
+## within item. Each item exists in a short, medium and long version, each of which is
 ## original, 1-exchange or 3-exchange -- 9 conditions, no shuffled condition.
 ## Conditions are named version_length the way en_experimental names them
 ## (original_short, swap-1_medium, swap-3_long, ...), so they split cleanly on
@@ -17,7 +19,7 @@
 ## `literal_response` is left NA because the answer is a set of word positions,
 ## which that column cannot express. The ground truth lives in
 ## fillers_exchanges.csv (`swap_slots`), which this script leaves untouched and
-## which joins back to the data on item + condition.
+## which joins back to the data on item, length and version (recoded as below).
 ##
 ## Surveyor requires the item count to be a multiple of the condition count, so
 ## this needs a multiple of 9 items. The script stops, and writes no stimuli
@@ -57,7 +59,7 @@ get_script_dir <- function() {
 setwd(get_script_dir())
 
 ## ---- Survey properties (demographics) ----
-## Identical to en_exchange_identification except for one phrase in the instructions: "two
+## Identical to that earlier study's except for one phrase in the instructions: "two
 ## words have been exchanged" becomes "one or more pairs of words have been
 ## exchanged", because the 3-exchange sentences contain three swapped pairs.
 ## Written first because it does not depend on the item count.
@@ -107,8 +109,8 @@ sentences <- read_csv("fillers_exchanges.csv", show_col_types = FALSE, trim_ws =
          condition = paste(version, length, sep = "_"))
 
 ## ---- Checks on the source materials ----
-## Run before anything is written, so newly added items get the same scrutiny
-## as the first 24. Every check returns the offending rows; all should be empty.
+## Run before the stimuli file is written. Every check returns the offending
+## rows; all should be empty.
 tokens <- function(s) str_split(s, " ")[[1]]
 bare <- function(t) str_to_lower(str_remove_all(t, "[^[:alnum:]'-]"))
 punct <- function(t) str_remove_all(t, "[[:alnum:]'-]")
@@ -174,6 +176,7 @@ if (length(bad)) {
 ## ---- Stimuli ----
 materials <- sentences %>%
   transmute(
+    ## 'annot' = Surveyor label of the exchange identification task
     experiment = "annot",
     item = item_id, condition,
     sentence,

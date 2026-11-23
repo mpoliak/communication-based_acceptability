@@ -4,15 +4,18 @@
 ##
 ## The main text measures a sentence's information as its summed surprisal. This
 ## section repeats the main analyses with information measured as sentence
-## length in words instead, which is how the submitted paper measured it:
+## length in tokens instead:
 ##   - mixed-effects models of DL distance x length, per experiment
 ##   - the effect of length on well-formed sentences, tested across experiments
 ##   - the five-model comparison (Binary, Gradient, Communication, SLOR, MORCELA),
-##     per experiment and pooled over all nine experiments, with the
-##     Communication model's information term on length
+##     per experiment and pooled over the eight language experiments (controlled
+##     English left out of the pool), with the Communication model's information
+##     term on length
 ##   - the curve figure: ratings and model predictions over length
-## Produces likelihood_differences_length.png and curves_length.png/.pdf, and
-## writes its statistics to outputs/s3_length_*.csv.
+## Produces Figure S5 (figures/curves_length.png) and Figure S6
+## (figures/likelihood_differences_length.png), and writes its statistics to
+## outputs/s3_length_*.csv. Reads ../analysis/outputs/likelihoods_*.csv, so run
+## ../analysis/main_analysis.R first.
 ## =============================================================================
 
 options(warn = 1)
@@ -39,10 +42,10 @@ setwd(get_script_dir())
 source("setup.R")
 
 ## ---- Linear Mixed-Effects Models ----
-## The submitted paper's main-text regression: ratings on DL distance, length and
-## their interaction, fit separately for each experiment with both predictors
-## z-scored within the experiment. en_exp is fit on its own below, with a fuller
-## random-effects structure, so it is left out of this loop.
+## The main text's regression with length in place of surprisal: ratings on DL
+## distance, length and their interaction, fit separately for each experiment
+## with both predictors z-scored within the experiment. en_exp is fit on its own
+## below, with a fuller random-effects structure, so it is left out of this loop.
 ## As in ../analysis/main_analysis.R, each experiment uses the optimizer that
 ## allFit() shows at the best log-likelihood: nlminb, except bobyqa for English.
 ## There nlminb stops 1.7 REML log-likelihood units short of the optimum that
@@ -105,7 +108,8 @@ lmer_fits[["en_exp"]] <- lmer(
     droplevels(),
   ## With this random-effects structure bobyqa stops ~28 log-likelihood units
   ## short of the optimum and fails the convergence check. The fit is still
-  ## singular.
+  ## singular, and nlminb reports convergence code 1, "singular convergence
+  ## (7)", as in Mandarin.
   control = lmerControl(
     optimizer ="nlminbwrap",
     optCtrl = list(eval.max = 1e5, iter.max = 1e5)
@@ -156,8 +160,8 @@ well_formed <- crit %>% filter(dl_distance == 0)
 ## n_words is a between-item predictor, so the by-item random intercept is needed
 ## for its standard error to be correct. For these 8 languages length is constant
 ## within an item, so only an intercept (not a slope) can be estimated by item.
-## Length is left in raw words here, as in the paper, so the slopes are in rating
-## points per word. en_exp is fit on its own below.
+## Length is left in raw tokens here (the main text z-scores surprisal), so the
+## slopes are in rating points per token. en_exp is fit on its own below.
 length_languages <- setdiff(as.character(unique(well_formed$language)), "en_exp")
 
 length_effects <- lapply(length_languages, function(current_language) {
@@ -252,39 +256,15 @@ write_csv(
 )
 
 ## ---- Five-Model Comparison ----
-## Binary, Gradient and Communication are the three models from the submitted
-## paper; SLOR and MORCELA are the two language-model baselines from the main
-## text. Every model is fit exactly as in the earlier SLOR/MORCELA comparison
-## (removed in the 2026-10-09 restructure), whose Communication model also took
-## length as its information term, so the log-likelihoods here reproduce the ones
-## it reported. Only the Communication
-## model differs from the main text's: here it is a function of DL distance per
-## word and of length, there of DL distance per bit and of surprisal.
+## Binary, Gradient and Communication are the rule-based and communication-based
+## models of the main text; SLOR and MORCELA are its two language-model
+## baselines. Only the Communication model differs from the main text's: here
+## it is a function of DL distance per token and of length, there of DL
+## distance per bit and of surprisal.
 ##
-## The item means come from setup.R (distances above 3 dropped, en_exp item ids
-## already stripped of their length suffix, so the three length versions of each
-## base item share one item random effect). Rebuilding the two factors gives them
-## sorted levels, as in that earlier comparison.
-length_model_data <- crit_by_items %>%
-  ungroup() %>%
-  mutate(
-    item = as.factor(as.character(item)),
-    language = as.factor(as.character(language))
-  )
-
-## One experiment's data. MORCELA's two weights are learned separately for each
-## experiment, since there is no reason a single beta and gamma should suit all
-## of them.
-language_data_length <- function(language_iter) {
-  language_specific <- length_model_data %>%
-    filter(language == language_iter) %>% droplevels()
-
-  language_specific$morcela <- morcela_score(
-    language_specific, morcela_weights(language_specific)
-  )
-
-  language_specific
-}
+## The item means are setup.R's crit_by_items (distances above 3 dropped, en_exp
+## item ids already stripped of their length suffix, so the three length
+## versions of each base item share one item random effect).
 
 ### ---- Analysis By Language ----
 if (file.exists("models/s3_length_by_language_5models.RData")) {
@@ -295,13 +275,21 @@ if (file.exists("models/s3_length_by_language_5models.RData")) {
   ## INCREASING smooth: a higher score means the sentence is more probable than
   ## its words alone would predict, and so should be judged more acceptable.
   models_by_language_length <- list()
-  for (language_iter in levels(length_model_data$language)) {
+  for (language_iter in levels(crit_by_items$language)) {
     print(
       paste0("Fitting models for ", language_iter)
     )
 
-    ## Get specific data
-    crit_by_items_language_specific <- language_data_length(language_iter)
+    ## Get specific data. MORCELA's two weights are learned separately for each
+    ## experiment, since there is no reason a single beta and gamma should suit
+    ## all of them.
+    crit_by_items_language_specific <- crit_by_items %>%
+      filter(language == language_iter) %>%
+      droplevels()
+
+    crit_by_items_language_specific$morcela <- morcela_score(
+      crit_by_items_language_specific, morcela_weights(crit_by_items_language_specific)
+    )
 
     if (language_iter == "en_exp") {
       ## Fit models
@@ -385,27 +373,28 @@ if (file.exists("models/s3_length_by_language_5models.RData")) {
 
 ## Make sure the cache holds what this script fits: all nine experiments, five
 ## models each, and a Communication model whose information term is length.
-smooth_labels <- function(m) vapply(m$smooth, function(s) s$label, character(1))
-
 stopifnot(
-  setequal(names(models_by_language_length), levels(length_model_data$language)),
+  setequal(names(models_by_language_length), levels(crit_by_items$language)),
   all(vapply(models_by_language_length, function(M) {
     identical(names(M), c("grammatical", "distance", "weighted_distance", "slor", "morcela")) &&
-      all(c("s(weighted_dl_distance)", "s(n_words)") %in% smooth_labels(M$weighted_distance))
+      all(c("s(weighted_dl_distance)", "s(n_words)") %in%
+            vapply(M$weighted_distance$smooth, function(s) s$label, character(1)))
   }, logical(1)))
 )
 
 ## Evaluate Convergence
-lapply(models_by_language_length, function(M) sapply(M, function(m) m$conv))
+print(lapply(models_by_language_length, function(M) sapply(M, function(m) m$conv)))
 
-### ---- Analysis Across All Experiments ----
-## Each model is also fit once to all nine experiments at the same time, with a
-## random effect for language on top of the one for item. The language random
-## effects are really experiment random effects, with English and controlled
-## English as two separate levels. MORCELA's two weights are estimated once
-## here, on the pooled data: this is one model of all nine experiments, so it
-## gets one beta and one gamma.
-crit_by_items_all_experiments <- length_model_data
+### ---- Analysis Across All Languages ----
+## Each model is also fit once to the eight language experiments at the same
+## time, with a random intercept for language (8 levels) and a by-language random
+## slope for each predictor, on top of the item random intercept.
+## Controlled English is left out of the pool and fit only on its own, above.
+## MORCELA's two weights are estimated once here, on the pooled data: this is one
+## model of the eight language experiments, so it gets one beta and one gamma.
+crit_by_items_all_experiments <- crit_by_items %>%
+  filter(language != "en_exp") %>%
+  droplevels()
 
 crit_by_items_all_experiments$morcela <- morcela_score(
   crit_by_items_all_experiments, morcela_weights(crit_by_items_all_experiments)
@@ -415,22 +404,20 @@ if (file.exists("models/s3_length_all_experiments_5models.RData")) {
   load("models/s3_length_all_experiments_5models.RData")
 } else {
 
-  print("Fitting models for all experiments together")
+  print("Fitting models for all languages together")
 
   mod_grammatical <- scam(
     response_num ~ grammatical_numeric +  # Fixed effects
       s(item, bs="re") +
       s(language, bs="re") + s(language, grammatical_numeric, bs="re"), # RE
-    data=crit_by_items_all_experiments,
-    control = scam.control(trace = TRUE)
+    data=crit_by_items_all_experiments
   )
 
   mod_distance <- scam(
     response_num ~ s(dl_distance, bs="mpd") + # Fixed effects
       s(item, bs="re") +
       s(language, bs="re") + s(language, dl_distance, bs="re"), # RE
-    data=crit_by_items_all_experiments,
-    control = scam.control(trace = TRUE)
+    data=crit_by_items_all_experiments
   )
 
   mod_weighted_distance <- scam(
@@ -438,24 +425,21 @@ if (file.exists("models/s3_length_all_experiments_5models.RData")) {
       s(item, bs="re") +
       s(language, bs="re") + s(language, weighted_dl_distance, bs="re") +
       s(language, n_words, bs="re"), # RE
-    data=crit_by_items_all_experiments,
-    control = scam.control(trace = TRUE)
+    data=crit_by_items_all_experiments
   )
 
   mod_slor <- scam(
     response_num ~ s(slor, bs="mpi") + # Fixed effects
       s(item, bs="re") +
       s(language, bs="re") + s(language, slor, bs="re"), # RE
-    data=crit_by_items_all_experiments,
-    control = scam.control(trace = TRUE)
+    data=crit_by_items_all_experiments
   )
 
   mod_morcela <- scam(
     response_num ~ s(morcela, bs="mpi") + # Fixed effects
       s(item, bs="re") +
       s(language, bs="re") + s(language, morcela, bs="re"), # RE
-    data=crit_by_items_all_experiments,
-    control = scam.control(trace = TRUE)
+    data=crit_by_items_all_experiments
   )
 
   save(
@@ -469,19 +453,22 @@ if (file.exists("models/s3_length_all_experiments_5models.RData")) {
 
 }
 
-## Make sure the cache holds the pooled length-based fits of all nine experiments
+## Make sure the cache holds the pooled length-based fits of the eight language
+## experiments, without controlled English
 stopifnot(
   nrow(mod_weighted_distance$model) == nrow(crit_by_items_all_experiments),
-  nlevels(mod_weighted_distance$model$language) == 9,
-  all(c("s(weighted_dl_distance)", "s(n_words)") %in% smooth_labels(mod_weighted_distance))
+  nlevels(mod_weighted_distance$model$language) == 8,
+  !"en_exp" %in% levels(mod_weighted_distance$model$language),
+  all(c("s(weighted_dl_distance)", "s(n_words)") %in%
+        vapply(mod_weighted_distance$smooth, function(s) s$label, character(1)))
 )
 
 ## Evaluate Convergence
-mod_grammatical$conv
-mod_distance$conv
-mod_weighted_distance$conv
-mod_slor$conv
-mod_morcela$conv
+print(mod_grammatical$conv)
+print(mod_distance$conv)
+print(mod_weighted_distance$conv)
+print(mod_slor$conv)
+print(mod_morcela$conv)
 
 ### ---- Marginal log-likelihoods ----
 ## Build the by-language log-likelihood table using the MARGINAL log-likelihood
@@ -496,22 +483,8 @@ stats_models_by_language <- do.call(rbind, lapply(names(models_by_language_lengt
 })) %>%
   mutate(
     language_code = language,
-    language = case_when(
-      language == "da" ~ "Danish",
-      language == "de" ~ "German",
-      language == "en" ~ "English",
-      language == "hi" ~ "Hindi",
-      language == "fr" ~ "French",
-      language == "ko" ~ "Korean",
-      language == "ru" ~ "Russian",
-      language == "zh" ~ "Mandarin",
-      language == "en_exp" ~ "English\n(controlled)"
-    ),
-    language = factor(
-      language,
-      levels=c("English\n(controlled)", "Russian", "Mandarin",
-               "Korean", "Hindi", "German", "French", "English", "Danish")
-    ),
+    ## In reverse, as the figure's y axis runs from the bottom up
+    language = fct_rev(label_language(language)),
     model = case_when(
       model == "grammatical" ~ "Binary",
       model == "distance" ~ "Gradient",
@@ -528,9 +501,13 @@ stats_models_by_language <- do.call(rbind, lapply(names(models_by_language_lengt
   ) %>%
   ungroup()
 
-write_csv(stats_models_by_language, "outputs/s3_length_likelihoods_by_language.csv")
+## The figure label "English\n(controlled)" goes on one line in the CSV
+write_csv(
+  stats_models_by_language %>% mutate(language = gsub("\n", " ", language)),
+  "outputs/s3_length_likelihoods_by_language.csv"
+)
 
-main_likelihoods <- tibble(
+pooled_likelihoods <- tibble(
   model = c("Binary", "Gradient", "Communication", "SLOR", "MORCELA"),
   log_likelihood = c(
     marginal_logLik(mod_grammatical),
@@ -553,14 +530,14 @@ main_likelihoods <- tibble(
     model = factor(model, levels=MODEL_LEVELS)
   )
 
-write_csv(main_likelihoods, "outputs/s3_length_likelihoods_all_experiments.csv")
+write_csv(pooled_likelihoods, "outputs/s3_length_likelihoods_all_experiments.csv")
 
 ## Binary, Gradient, SLOR and MORCELA have no information term, so they are the
 ## main text's models, and only Communication changes. The change: these fits
 ## (length) minus the main text's (surprisal; ../analysis/outputs, written by
-## ../analysis/main_analysis.R), for all nine experiments together and then in
-## each experiment
-main_likelihoods %>%
+## ../analysis/main_analysis.R), for the eight language experiments together
+## (both pools leave out controlled English) and then in each experiment
+pooled_likelihoods %>%
   mutate(model = as.character(model)) %>%
   left_join(
     read_csv("../analysis/outputs/likelihoods_all_experiments.csv", show_col_types = FALSE) %>%
@@ -585,11 +562,11 @@ stats_models_by_language %>%
 
 ### ---- Likelihood differences figure ----
 ## Drawn exactly like the main text's five-model figure, with the pooled "All
-## Experiments" row on top of the by-experiment rows.
-p_main_likelihoods <- ggplot(main_likelihoods) +
+## Languages" row on top of the by-experiment rows.
+p_pooled_likelihoods <- ggplot(pooled_likelihoods) +
   geom_point(
     aes(
-      y="All Experiments",
+      y="All Languages",
       x=likelihood_diff,
       color=model,
       fill=model,
@@ -607,10 +584,10 @@ p_main_likelihoods <- ggplot(main_likelihoods) +
   scale_x_continuous(
     name = ""
   ) +
-  ## Five entries do not fit on one row at this width, so the paper's three
-  ## models go on the first row and SLOR and MORCELA on the second. The colour,
-  ## fill and shape scales share a name, labels and guide, so ggplot merges them
-  ## into one legend whose keys show each model's marker.
+  ## Five entries do not fit on one row at this width, so Binary, Gradient and
+  ## Communication go on the first row and SLOR and MORCELA on the second. The
+  ## colour, fill and shape scales share a name, labels and guide, so ggplot
+  ## merges them into one legend whose keys show each model's marker.
   guides(
     color = guide_legend(nrow = 2, byrow = TRUE),
     fill = guide_legend(nrow = 2, byrow = TRUE),
@@ -642,97 +619,43 @@ p_language_likelihoods <- ggplot(stats_models_by_language) +
   theme(legend.position="none") +
   scale_y_discrete(name="")
 
-## Stack the combined "All Experiments" panel (top) over the by-language panel
+## Stack the combined "All Languages" panel (top) over the by-language panel
 ## (bottom).
-likelihood_differences_figure <- p_main_likelihoods / p_language_likelihoods +
+likelihood_differences_figure <- p_pooled_likelihoods / p_language_likelihoods +
   plot_layout(heights = c(1, 3))
 
 ggsave("figures/likelihood_differences_length.png",
        plot = likelihood_differences_figure, width = 8, height = 8)
 
-## ---- Curve Figure ----
-## The submitted paper's main figure: item-mean ratings over length, with the
-## Binary, Gradient and Communication models' predictions drawn as curves for
-## DL distances 0, 1 and 3. The predictions come from the by-experiment fits
-## above. YLIM, the DL colours and buckets, label_language() and
-## scale_dl_color() come from setup.R.
-#### ---- Helper Functions
-## The level of `item` is only a placeholder so predict() sees every term in the
-## model; all of the item random effects are excluded from the predictions
-## themselves (random_effect_labels(), in setup.R), so the curves are for an
-## average item. For en_exp that includes its by-item slopes.
-get_prediction_grid_length <- function(
-    fits,
-    lang,
-    model_type,
-    n_words=c(4, 40),
-    dl_distance=c(0, 1, 3)
-) {
-  expand.grid(
-    n_words = seq(n_words[1] - .25, n_words[2] + .25, 1),
-    dl_distance = dl_distance
-  ) %>%
-    mutate(
-      weighted_dl_distance = dl_distance / n_words,
-      grammatical_numeric = ifelse(dl_distance == 0, .5, -.5),
-      item=factor(fits[[lang]][[model_type]]$model$item[1], levels=levels(fits[[lang]][[model_type]]$model$item))
-    )
-}
-
-### ---- Baseline data for plotting (item means) ----
-## Same aggregation as the model data, but deliberately WITHOUT the
-## filter(dl_distance <= 3): the scatter shows the shuffled items as well, in the
-## grey "4+" bucket, as context. The models (and hence the fitted curves drawn
-## over these points) are still fit on distances up to 3 only.
-plot_data_by_item_length <- crit %>%
-  mutate(
-    weighted_dl_distance = crit$dl_distance / crit$n_words,
-    grammatical = factor(
-      ifelse(dl_distance == 0, "grammatical", "ungrammatical"),
-      levels=c("ungrammatical", "grammatical")),
-    item = as.factor(item),
-    language = as.factor(language),
-    response = as.factor(response),
-    response_num = as.numeric(as.character(response)),
-    participant_id = as.factor(participant_id),
-    item = as.factor(item),
-    language = as.factor(language)
-  ) %>%
-  group_by(language, item, n_words, dl_distance, weighted_dl_distance,
-           grammatical, condition) %>%
-  summarize(
-    response_num = mean(response_num)
-  ) %>%
-  mutate(
-    grammatical_numeric = ifelse(grammatical == "grammatical", .5, -.5)
-  ) %>%
-  dplyr::group_by(language, item, n_words, dl_distance) %>%
-  dplyr::summarise(response = mean(response_num), .groups = "drop") %>%
-  dplyr::mutate(
-    dl_distance_bucket = bucket_dl(dl_distance),
-    language           = label_language(language)
-  )
+## ---- Curve Figure (Figure S5) ----
+## The main text's Figure 1 with length in place of surprisal: item-mean ratings
+## over length, with the Binary, Gradient and Communication models' predictions
+## (from the by-experiment fits above) drawn as curves for DL distances 0, 1 and
+## 3. Drawn like Figure 1 (../analysis/main_analysis.R), at its print size
+## (theme_print_8pt, setup.R), with the models in the order of the other
+## figures. Predictions are population-level: random_effect_labels() drops every
+## item effect, including the by-item slopes of the controlled English models.
 
 ### ---- Baseline scatterplot (item means) ----
+## plot_data_by_item (setup.R) deliberately keeps the items at DL >= 4: the
+## scatter and the human-judgment smooths show them in the grey "4+" bucket, as
+## context. The models (and hence their fitted curves) are still fit on
+## distances up to 3 only. Length, like surprisal, is a property of the item.
 p_baseline <- ggplot(
-  plot_data_by_item_length,
+  plot_data_by_item,
   aes(x = n_words, y = response, color = dl_distance_bucket)
 ) +
-  geom_point(alpha = 0.3) +
+  geom_point(alpha = 0.3, size = 0.6, stroke = 0) +
   facet_wrap(~language, ncol = 1, strip.position = "left") +
-  labs(x="Sentence Length in Words", y="Rating") +
+  labs(x = "Sentence length (tokens)", y = NULL) +
+  theme_print_8pt +
   theme(
-          legend.position = "top",
-          plot.title = element_text(hjust = 0.5),
-
-          # put facet strips on the outside + rotate text
-          strip.placement = "outside",
-          strip.text.y.left = element_text(angle = 90)
-      ) +
-  scale_y_continuous(
-    limits = YLIM,
-    breaks = NULL,
-    labels = NULL
+    legend.position = "top",
+    ## Facet strips outside, with the language names horizontal. Only this
+    ## first column shows them; the other columns blank their strips.
+    strip.placement = "outside",
+    strip.text.y.left = element_text(angle = 0, hjust = 1),
+    panel.spacing = unit(4, "pt")
   ) +
   scale_dl_color()
 
@@ -743,7 +666,7 @@ p_gam <- p_baseline +
     method  = "gam",
     formula = y ~ s(x, bs = "tp"),
     se = TRUE,
-    linewidth = 1.5,
+    linewidth = 0.5,
     show.legend = FALSE
   ) +
   theme(
@@ -753,49 +676,69 @@ p_gam <- p_baseline +
   scale_y_continuous(
     limits = YLIM,
     breaks = seq(1, 7, 2),
-    labels = seq(1, 7, 2),
     name = "Acceptability Ratings (1-7 scale)"
   ) +
   ggplot2::guides(color = "none")
 
-### ---- Model-based plots ----
-#### ---- Grammatical model ----
-#### ---- Predictions from grammatical model ----
-grammatical_predictions <- setNames(
-    lapply(names(models_by_language_length), function(lang) {
-      predict(
-        models_by_language_length[[lang]]$grammatical,
-        newdata = get_prediction_grid_length(models_by_language_length, lang, "grammatical", n_words = range(crit[crit$language == lang,]$n_words)),
-        type = "response",
-        se.fit = TRUE,
-        exclude = random_effect_labels(models_by_language_length[[lang]]$grammatical)
-      )
-    }
-  ),
-  names(models_by_language_length)
-)
+### ---- Model predictions ----
+## Each model's predictions over the experiment's range of length, at DL
+## distances 0, 1 and 3, one experiment at a time
+binary_plot_data <- bind_rows(lapply(names(models_by_language_length), function(lang) {
+  fit <- models_by_language_length[[lang]]$grammatical
+  grid <- get_prediction_grid(
+    models_by_language_length, lang, "grammatical",
+    n_words = range(crit$n_words[crit$language == lang])
+  )
+  preds <- predict(fit, newdata = grid, type = "response", se.fit = TRUE,
+                   exclude = random_effect_labels(fit))
+  tibble(
+    language = label_language(lang),
+    n_words = grid$n_words,
+    dl_distance_bucket = bucket_dl(grid$dl_distance),
+    response = preds$fit,
+    se = preds$se.fit
+  )
+}))
 
-## Combine list to tibble
-grammatical_plot_data <- bind_rows(
-  lapply(names(grammatical_predictions), function(lang) {
-    preds <- grammatical_predictions[[lang]]
-    grid  <- get_prediction_grid_length(models_by_language_length, lang, "grammatical", n_words = range(crit[crit$language == lang,]$n_words))
+gradient_plot_data <- bind_rows(lapply(names(models_by_language_length), function(lang) {
+  fit <- models_by_language_length[[lang]]$distance
+  grid <- get_prediction_grid(
+    models_by_language_length, lang, "distance",
+    n_words = range(crit$n_words[crit$language == lang])
+  )
+  preds <- predict(fit, newdata = grid, type = "response", se.fit = TRUE,
+                   exclude = random_effect_labels(fit))
+  tibble(
+    language = label_language(lang),
+    n_words = grid$n_words,
+    dl_distance_bucket = bucket_dl(grid$dl_distance),
+    response = preds$fit,
+    se = preds$se.fit
+  )
+}))
 
-    tibble(
-      language = label_language(lang),
-      n_words = grid$n_words,
-      dl_distance_bucket = bucket_dl(grid$dl_distance),
-      response = preds$fit,
-      se = preds$se.fit
-    )
-  })
-)
+communication_plot_data <- bind_rows(lapply(names(models_by_language_length), function(lang) {
+  fit <- models_by_language_length[[lang]]$weighted_distance
+  grid <- get_prediction_grid(
+    models_by_language_length, lang, "weighted_distance",
+    n_words = range(crit$n_words[crit$language == lang])
+  )
+  preds <- predict(fit, newdata = grid, type = "response", se.fit = TRUE,
+                   exclude = random_effect_labels(fit))
+  tibble(
+    language = label_language(lang),
+    n_words = grid$n_words,
+    dl_distance_bucket = bucket_dl(grid$dl_distance),
+    response = preds$fit,
+    se = preds$se.fit
+  )
+}))
 
-##### ---- Plot grammatical model ----
-p_grammatical <- p_baseline +
+### ---- Plot binary grammaticality model ----
+p_binary <- p_baseline +
   ggnewscale::new_scale_color() +   # <- reset color scale AFTER baseline
   geom_ribbon(
-    data=grammatical_plot_data,
+    data = binary_plot_data,
     aes(
       x = n_words,
       ymin = response - 2 * se,
@@ -803,81 +746,31 @@ p_grammatical <- p_baseline +
       group = dl_distance_bucket
     ),
     alpha = 0.25
-    ) +
+  ) +
   geom_line(
-    data=grammatical_plot_data,
+    data = binary_plot_data,
     aes(
       x = n_words,
       y = response,
       color = dl_distance_bucket
     ),
-    linewidth = 1.5
+    linewidth = 0.5
   ) +
   facet_wrap(~language, ncol = 1) +
-  labs(
-    x = "Sentence Length in Words",
-    y = ""
-  ) +
   theme(
     legend.position = "none",
-    plot.title = element_text(hjust = 0.5),
     strip.text = element_blank(),
     strip.background = element_blank()
   ) +
-  ggtitle("Binary Grammaticality Model") +
-  scale_y_continuous(
-    limits = YLIM,
-    breaks = NULL,
-    labels = NULL
-  ) +
-  scale_color_manual(
-    values = c(
-      "0" = "#EB7AA3",
-      "1-2" = "#06402B",
-      "3" = "#06402B",
-      "4+" = "#06402B"
-    )
-  ) +
+  ggtitle(MODEL_LABELS[1]) +
+  scale_y_continuous(limits = YLIM, breaks = NULL) +
+  scale_color_manual(values = DL_COLORS_BINARY) +
   ggplot2::guides(color = "none")
 
-if (interactive()) print(p_grammatical)
-
-#### ---- Distance model ----
-#### ---- Predictions from distance model ----
-distance_predictions <- setNames(
-  lapply(names(models_by_language_length), function(lang) {
-    predict(
-      models_by_language_length[[lang]]$distance,
-      newdata = get_prediction_grid_length(models_by_language_length, lang, "distance", n_words = range(crit[crit$language == lang,]$n_words)),
-      type = "response",
-      se.fit = TRUE,
-      exclude = random_effect_labels(models_by_language_length[[lang]]$distance)
-    )
-  }
-  ),
-  names(models_by_language_length)
-)
-
-## Combine list to tibble
-distance_plot_data <- bind_rows(
-  lapply(names(distance_predictions), function(lang) {
-    preds <- distance_predictions[[lang]]
-    grid  <- get_prediction_grid_length(models_by_language_length, lang, "distance", n_words = range(crit[crit$language == lang,]$n_words))
-
-    tibble(
-      language = label_language(lang),
-      n_words = grid$n_words,
-      dl_distance_bucket = bucket_dl(grid$dl_distance),
-      response = preds$fit,
-      se = preds$se.fit
-    )
-  })
-)
-
-##### ---- Plot distance model ----
-p_distance <- p_baseline +
+### ---- Plot gradient grammaticality model ----
+p_gradient <- p_baseline +
   geom_ribbon(
-    data=distance_plot_data,
+    data = gradient_plot_data,
     aes(
       x = n_words,
       ymin = response - 2 * se,
@@ -888,75 +781,32 @@ p_distance <- p_baseline +
     color = NA
   ) +
   geom_line(
-    data=distance_plot_data,
+    data = gradient_plot_data,
     aes(
       x = n_words,
       y = response,
       color = dl_distance_bucket
     ),
-    linewidth = 1.5
+    linewidth = 0.5
   ) +
   facet_wrap(~language, ncol = 1) +
-  labs(
-    x = "Sentence Length in Words",
-    y = ""
-  ) +
   theme(
     legend.position = "none",
-    plot.title = element_text(hjust = 0.5),
     strip.text = element_blank(),
     strip.background = element_blank()
   ) +
-  ggtitle("Gradient Grammaticality Model") +
-  scale_y_continuous(
-    limits = YLIM,
-    breaks = NULL,
-    labels = NULL
-  ) +
+  ggtitle(MODEL_LABELS[2]) +
+  scale_y_continuous(limits = YLIM, breaks = NULL) +
   ggplot2::guides(color = "none")
 
-if (interactive()) print(p_distance)
-
-#### ---- Weighted distance model ----
-#### ---- Predictions from weighted distance model ----
-weighted_distance_predictions <- setNames(
-  lapply(names(models_by_language_length), function(lang) {
-    predict(
-      models_by_language_length[[lang]]$weighted_distance,
-      newdata = get_prediction_grid_length(models_by_language_length, lang, "weighted_distance", n_words = range(crit[crit$language == lang,]$n_words)),
-      type = "response",
-      se.fit = TRUE,
-      exclude = random_effect_labels(models_by_language_length[[lang]]$weighted_distance)
-    )
-  }
-  ),
-  names(models_by_language_length)
-)
-
-## Combine list to tibble
-weighted_distance_plot_data <- bind_rows(
-  lapply(names(weighted_distance_predictions), function(lang) {
-    preds <- weighted_distance_predictions[[lang]]
-    grid  <- get_prediction_grid_length(models_by_language_length, lang, "weighted_distance", n_words = range(crit[crit$language == lang,]$n_words))
-
-    tibble(
-      language = label_language(lang),
-      n_words = grid$n_words,
-      dl_distance_bucket = bucket_dl(grid$dl_distance),
-      response = preds$fit,
-      se = preds$se.fit
-    )
-  })
-)
-
-##### ---- Plot weighted distance (communication-based) model ----
-p_weighted_distance <- p_baseline +
+### ---- Plot communication-based model ----
+## Predictions above 7.5 are drawn at 7.5, the top of the panel
+p_communication <- p_baseline +
   geom_ribbon(
-    data=weighted_distance_plot_data %>%
+    data = communication_plot_data %>%
       mutate(
-        lower = response - 2*se,
-        upper = response + 2*se,
-        upper = ifelse(upper > 7.5, 7.5, upper),
+        lower = response - 2 * se,
+        upper = pmin(response + 2 * se, 7.5)
       ),
     aes(
       x = n_words,
@@ -968,61 +818,44 @@ p_weighted_distance <- p_baseline +
     color = NA
   ) +
   geom_line(
-    data=weighted_distance_plot_data %>%
-      mutate(
-        response = ifelse(response > 7.5, 7.5, response)
-      ),
+    data = communication_plot_data %>%
+      mutate(response = pmin(response, 7.5)),
     aes(
       x = n_words,
       y = response,
       color = dl_distance_bucket
     ),
-    linewidth = 1.5
+    linewidth = 0.5
   ) +
   facet_wrap(~language, ncol = 1) +
-  labs(
-    x = "Sentence Length in Words",
-    y = ""
-  ) +
   theme(
     legend.position = "none",
-    plot.title = element_text(hjust = 0.5),
     strip.text = element_blank(),
     strip.background = element_blank()
   ) +
-  ggtitle("Communication Model") +
-  scale_y_continuous(
-    limits = YLIM,
-    breaks = NULL,
-    labels = NULL
-  ) +
+  ggtitle(MODEL_LABELS[3]) +
+  scale_y_continuous(limits = YLIM, breaks = NULL) +
   ggplot2::guides(color = "none")
 
-if (interactive()) print(p_weighted_distance)
-
-### ---- Combine plots into the curve figure ----
-curves_length_figure = (p_gam |  p_weighted_distance | p_distance |p_grammatical) +
-  plot_layout(guides = "collect") &
+### ---- Combine the panels into Figure S5 ----
+## As in the main text's Figure 1: one legend and one x-axis title for the four
+## columns, and the print theme for the figure as a whole
+prediction_figure <- (p_gam | p_binary | p_gradient | p_communication) +
+  plot_layout(guides = "collect", axis_titles = "collect") +
+  plot_annotation(theme = theme_print_8pt) &
   theme(legend.position = "bottom",
-        plot.title = element_text(hjust = 0.5)
-        )
+        legend.margin = margin(0, 0, 0, 0),
+        legend.box.spacing = unit(2, "pt"),
+        plot.title = element_text(hjust = 0.5, size = rel(1))
+  )
 
-if (interactive()) print(curves_length_figure)
+if (interactive()) print(prediction_figure)
 
 ggsave(
   filename = "figures/curves_length.png",
-  plot     = curves_length_figure,
-  width    = 25,
-  height   = 20,
+  plot     = prediction_figure,
+  width    = 7,
+  height   = 7.5,
   units    = "in",
   dpi      = 300
-)
-
-## Save as pdf
-ggsave(
-  filename = "figures/curves_length.pdf",
-  plot     = curves_length_figure,
-  width    = 25,
-  height   = 20,
-  units    = "in"
 )

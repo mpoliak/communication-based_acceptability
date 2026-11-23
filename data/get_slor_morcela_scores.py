@@ -1,14 +1,15 @@
 # Compute the language-model quantities every analysis in the paper uses, for the
-# stimuli of all nine experiments and of the artificial English follow-ups: the
-# log-probability of each sentence, and the unigram log-probability of the words
-# in it.
+# stimuli of all nine experiments and of the constructed English sentences of SI
+# section 5: the log-probability of each sentence, and the unigram
+# log-probability of the words in it.
 #
 # Both are computed on the PERCEIVED sentence -- the string the participant
-# actually saw -- for every condition, not just the original. SLOR and MORCELA
-# are properties of the string on the screen, so they use each condition's own
-# row. The communication account's Information(s) is the surprisal of the
-# intended sentence, so the analyses take it as -log_p_sentence of the item's
-# "original" row.
+# actually saw, lowercased, with punctuation and symbols removed (as in
+# data/preprocess_stimuli.R) -- for every condition, not just the original.
+# SLOR and MORCELA are properties of the string on the screen, so they use each
+# condition's own row. The communication account's Information(s) is the
+# surprisal of the intended sentence, so the analyses take it as
+# -log_p_sentence of the item's "original" row.
 #
 # Run this from the data/ folder with the goldfish conda environment
 # (goldfish_environment.yml, next to this script):
@@ -19,7 +20,10 @@ import math
 import os
 import warnings
 
-warnings.filterwarnings("ignore")
+# torch 2.2.2 was built against NumPy 1.x, so importing it next to NumPy 2 warns
+# "Failed to initialize NumPy". Nothing here passes tensors to NumPy, so only
+# that warning is hidden; every other warning is shown.
+warnings.filterwarnings("ignore", message="Failed to initialize NumPy")
 
 import pandas as pd
 import regex
@@ -32,8 +36,8 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # One Goldfish monolingual model per language, all trained on 1GB of text, so the
 # scores are as comparable across languages as possible. The length-controlled
-# English experiment (en_experimental) and the artificial English follow-ups
-# (en_artificial) use the English model.
+# English experiment (en_experimental) and the constructed English sentences of
+# SI section 5 (en_artificial) use the English model.
 GOLDFISH_MODELS = {
     "da":              "goldfish-models/dan_latn_1000mb",   # Danish (Latin)
     "de":              "goldfish-models/deu_latn_1000mb",   # German (Latin)
@@ -54,17 +58,16 @@ WORDFREQ_LANGUAGES = {
     "en_artificial": "en",
 }
 
-# The four artificial English experiments (three of them in SI section 4) all
-# show the same 243 sentences (27 items x 9 conditions), so we score them once,
-# from the materials of SI 4.1 (acceptability ratings only).
+# The three constructed-sentence experiments of SI section 5 all show the same
+# 243 sentences (27 items x 9 conditions), so we score them once, from the
+# materials of SI 5.2 (acceptability ratings only).
 EN_ARTIFICIAL_MATERIALS = os.path.join(
     "en_artificial_acceptability_ratings",
     "materials_en_artificial_acceptability_ratings.csv",
 )
 
 # Probability given to a word wordfreq has never seen. Danish and Korean need it
-# most (about 9% and 10% of their word tokens); English, Mandarin and the
-# controlled English experiment need it for none.
+# most; English, Mandarin and the controlled English experiment need it for none.
 UNSEEN_WORD_PROBABILITY = 1e-9
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -76,7 +79,9 @@ def get_tokenizer_model(experiment):
     if experiment not in _loaded:
         model_id = GOLDFISH_MODELS[experiment]
         tok = AutoTokenizer.from_pretrained(model_id, use_fast=True)
-        # Force safetensors to avoid .bin safety gate; keep memory low on CPU
+        # transformers will not load .bin weights with torch < 2.6, so the
+        # safetensors copy is loaded from the Hub's refs/pr/1, which needs
+        # network access; keep memory low on CPU
         mdl = AutoModelForCausalLM.from_pretrained(
             model_id,
             use_safetensors=True,
@@ -117,7 +122,7 @@ def sentence_log_probability(experiment, sentence):
     tok_log_probs = ctx_log_probs.gather(2, next_ids.unsqueeze(-1)).squeeze(-1)
 
     # Sum in full precision: adding up the tensor first would do it in the
-    # model's 32-bit arithmetic and lose about 1e-4 of a bit per sentence.
+    # model's 32-bit arithmetic and lose up to 1e-4 of a bit per sentence.
     return math.fsum(float(lp) for lp in tok_log_probs[0]) / math.log(2.0)
 
 
@@ -125,11 +130,11 @@ def unigram_log_probability_from_model(experiment, word, cache):
     """Log2 p(word | start of sentence), read off the model itself.
 
     This is the unigram model we use by default. It is available in every
-    language, it is matched to the model's own vocabulary so no word is ever
-    unknown, and it needs no outside corpus. It is a sentence-INITIAL
+    language, it is matched to the model's own vocabulary, so every word gets a
+    probability (the few characters outside that vocabulary are scored as
+    <unk>), and it needs no outside corpus. It is a sentence-INITIAL
     distribution rather than a true unigram frequency, which is why we also
-    compute the wordfreq version below and check that nothing depends on the
-    choice.
+    compute the wordfreq version below.
     """
     if word not in cache:
         cache[word] = sentence_log_probability(experiment, word)
@@ -173,6 +178,8 @@ def load_stimuli(experiment):
     # Each experiment's stimuli live in its own folder, as written by
     # data/preprocess_stimuli.R and data/preprocess_en_experimental.R.
     stimuli = pd.read_csv(os.path.join(experiment, "stimuli_data.csv"))
+    # Skip rows without a sentence (a safeguard: no shipped stimuli_data.csv
+    # has one)
     return stimuli[stimuli["perceived_sentence"].notna()].reset_index(drop=True)
 
 

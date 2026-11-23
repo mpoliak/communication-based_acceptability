@@ -1,10 +1,10 @@
 ## =============================================================================
 ## Build the Surveyor questionnaire for the binary error detection version of the
-## artificial length-controlled English materials.
+## constructed English sentences.
 ##
 ## Same sentences as data/en_artificial_exchange_identification -- read from its validated
 ## stimuli file, so the two tasks show byte-identical sentences -- presented as
-## in data/en_binary_error_detection and data/en_experimental_binary_error_detection: an
+## in data/en_binary_error_detection: an
 ## error-detection question, then an acceptability rating coordinated to follow
 ## it. Writes materials_en_artificial_binary_error_detection.csv (stimuli) and
 ## demographics_en_artificial_binary_error_detection.csv (survey properties).
@@ -56,6 +56,8 @@ sentences <- read_csv("../en_artificial_exchange_identification/materials_en_art
 ## was moved, "Yes" for every swap condition.
 error_question <- sentences %>%
   transmute(
+    ## Surveyor label kept from the original studies, where it held the
+    ## comprehension question; here it is the binary error detection question
     experiment = "exp_b_comprehension",
     item, condition, sentence,
     prompt = "Are there any errors in this sentence?",
@@ -89,9 +91,10 @@ materials <- bind_rows(error_question, acceptability) %>%
 write_csv(materials, "materials_en_artificial_binary_error_detection.csv", na = "")
 
 ## ---- Survey properties (demographics) ----
-## Identical to data/en_experimental_binary_error_detection. Two thirds of the
-## sentences contain a swap, so "Most of these materials have errors" still
-## holds. Mirrors data/en_binary_error_detection/demographics_en_binary_error_detection.csv. The
+## Two thirds of the sentences contain a swap, so "Most of these materials have
+## errors" still holds. The consent and background questions are those of
+## data/en_binary_error_detection; its instructions are not (they put the
+## rating first). The
 ## instructions describe the order the participant actually meets the two
 ## questions in: the binary error detection question comes first, the rating second.
 demographics <- tribble(

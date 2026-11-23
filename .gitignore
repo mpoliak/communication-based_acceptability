@@ -22,3 +22,9 @@ PAPER_MAP.md
 
 # Local writing aid: every statistic to report, by paper section
 STATS_TO_REPORT.md
+
+# Large files of data/probability_based_models_scoring/ (SI section 4 scoring):
+# the WikiText-103 training text, its unigram counts and the pickled Kneser-Ney
+# models (up to 983 MB), rebuilt by build_corpus.py and train_kn_on_corpus.py
+data/probability_based_models_scoring/corpus/
+data/probability_based_models_scoring/models/

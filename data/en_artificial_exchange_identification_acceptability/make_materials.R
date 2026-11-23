@@ -1,6 +1,6 @@
 ## =============================================================================
 ## Build the Surveyor questionnaire for the exchange identification + acceptability version of
-## the artificial length-controlled English materials.
+## the constructed English sentences.
 ##
 ## Same sentences as data/en_artificial_exchange_identification -- read from its validated
 ## stimuli file, so every artificial-materials study shows byte-identical
@@ -8,7 +8,7 @@
 ## are misplaced (exactly the en_artificial_exchange_identification task), then rates the
 ## sentence's acceptability (exactly the original English prompt and scale).
 ##
-## The click comes first because it has to: Surveyor shows the sentence only on
+## Exchange identification comes first because it has to: Surveyor shows the sentence only on
 ## the anchor trial, and a coordinated follow-up renders its prompt alone. The
 ## exchange identification task needs the sentence to click on, so it is the anchor and the rating
 ## is its coordinated follow-up -- the same arrangement as the binary error detection question
@@ -46,7 +46,7 @@ get_script_dir <- function() {
 }
 setwd(get_script_dir())
 
-## The click rows are the en_artificial_exchange_identification stimuli, unchanged; the rating
+## The exchange identification rows are the en_artificial_exchange_identification stimuli, unchanged; the rating
 ## prompt and scale are the original English experiment's.
 ## Read as plain text: its options, literal_response and config hold the literal
 ## string "NA", which read_csv would otherwise turn into missing values.
@@ -60,7 +60,8 @@ stopifnot(length(acceptability_prompt) == 1, length(acceptability_options) == 1)
 
 ## ---- Exchange identification task ----
 ## The anchor trial: it carries the sentence and is what the participant sees
-## first. Every column as in en_artificial_exchange_identification (per_word_multiple_choice,
+## first. Every column as in en_artificial_exchange_identification ('annot', the
+## Surveyor label of the exchange identification task; per_word_multiple_choice;
 ## options, literal_response and config all "NA").
 clicks <- click_task %>%
   select(experiment, item, condition, sentence, prompt, question_type,
@@ -83,7 +84,7 @@ acceptability <- click_task %>%
                     ";item%", item, ";condition%", condition)
   )
 
-## Interleave so each sentence's two trials sit together, click first.
+## Interleave so each sentence's two trials sit together, exchange identification first.
 materials <- bind_rows(clicks, acceptability) %>%
   arrange(as.integer(item), condition, experiment)
 
@@ -91,7 +92,7 @@ write_csv(materials, "materials_en_artificial_exchange_identification_acceptabil
 
 ## ---- Survey properties (demographics) ----
 ## As in en_artificial_exchange_identification, with the instructions extended to the rating
-## that now follows each click trial.
+## that now follows each exchange identification trial.
 demographics <- tribble(
   ~name, ~type, ~content, ~options, ~config,
   "consent", "text",

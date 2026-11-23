@@ -8,17 +8,6 @@
 
 library(tidyverse)
 
-## Set plotting preferences
-ggplot2::theme_set(ggplot2::theme_bw(base_size=18))
-ggplot2::theme_update(panel.grid = ggplot2::element_blank(), 
-                      strip.background = ggplot2::element_blank(),
-                      legend.key = ggplot2::element_blank(),
-                      panel.border = ggplot2::element_blank(),
-                      axis.line = ggplot2::element_line(),
-                      strip.text = ggplot2::element_text(face = "bold"),
-                      plot.title = element_text(hjust = 0.5))
-options(ggplot2.discrete.colour= c("#A31F34", "#8A8B8C"))
-
 ## Set working directory
 get_script_dir <- function() {
   args <- commandArgs(trailingOnly = FALSE)
@@ -35,7 +24,6 @@ get_script_dir <- function() {
 setwd(get_script_dir())
 
 directories <- list.dirs(full.names=F, recursive=F)
-directories
 
 for (language in directories) {
   print(paste0("Anonymizing ", language))

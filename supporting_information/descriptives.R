@@ -7,12 +7,8 @@
 ##   - comprehension accuracy by DL distance, per experiment and pooled (an
 ##     optional check that comprehension stays near ceiling despite errors)
 ##   - item x condition cells by DL distance and condition, written to
-##     outputs/dl_distance_counts.txt, for the Methods (Materials), the Results
-##     (cells excluded at DL >= 4), the Discussion (data with DL distance of 3
-##     or less), the caption of the observed-vs-predicted figure (the conditions
-##     behind the DL 0, 1 and 3 points; DL 2 cells not drawn) and SI Section 2
-##     (shuffled cells kept at DL <= 3). Line references to this file depend on
-##     its layout.
+##     outputs/dl_distance_counts.txt: which cells the DL <= 3 rule keeps. Line
+##     references to this file depend on its layout.
 ##   - each experiment's answers to the first-language question, and the number
 ##     of analysed participants whose first language is the experiment's
 ##     language, per experiment and in total (Methods, Participants)
@@ -46,23 +42,7 @@ lengths <- crit %>%
   select(language, item, n_words) %>%
   distinct() %>%
   mutate(
-    language = case_when(
-      language == "da" ~ "Danish",
-      language == "de" ~ "German",
-      language == "en" ~ "English",
-      language == "hi" ~ "Hindi",
-      language == "fr" ~ "French",
-      language == "ko" ~ "Korean",
-      language == "ru" ~ "Russian",
-      language == "zh" ~ "Mandarin",
-      language == "en_exp" ~ "English\n(controlled)"
-    ),
-    language = factor(
-      language,
-      levels=c("Danish", "English", "French", "German", 
-               "Hindi", "Korean", "Mandarin", "Russian", 
-               "English\n(controlled)")
-      )
+    language = label_language(language)
   )
 
 
@@ -93,11 +73,14 @@ lengths %>%
 ### ---- Comprehension Accuracy by Edit Distance ----
 ## Descriptive check: how accurately did participants answer the comprehension
 ## question that followed each sentence, as a function of how corrupted that
-## sentence was? Restricted to the three error conditions in the design (0, 1, and
-## 3 adjacent-token exchanges); the rare intermediate DL distance of 2 is dropped
-## as it is only sparsely populated. Scored the same way as the exclusion
-## criterion in setup.R (correct = literal_response == response), on the same
-## retained sample (participants below the 80% threshold already excluded).
+## sentence was? Restricted to DL distances 0, 1 and 3, those of the three error
+## conditions in the design (0, 1, and 3 adjacent-token exchanges); the rare
+## intermediate DL distance of 2 is dropped as it is only sparsely populated.
+## The filter is on DL distance, not condition, so a sentence counts at the
+## distance it came out at (e.g., the DL 3 rows include some shuffled
+## sentences). Scored the same way as the exclusion criterion in setup.R
+## (correct = literal_response == response), on the same retained sample (the
+## filter below drops the participants below the 80% threshold).
 comprehension_accuracy <- comprehension %>%
   filter(!participant_id %in% exclusions,
          dl_distance %in% c(0, 1, 3)) %>%
@@ -133,24 +116,9 @@ comprehension %>%
 ### ---- Count Damerau-Levenshtein distance for each language ----
 distance_counts <- crit %>%
   select(language, item, condition, dl_distance, n_words) %>%
-  distinct() %>% mutate(
-    language = case_when(
-      language == "da" ~ "Danish",
-      language == "de" ~ "German",
-      language == "en" ~ "English",
-      language == "hi" ~ "Hindi",
-      language == "fr" ~ "French",
-      language == "ko" ~ "Korean",
-      language == "ru" ~ "Russian",
-      language == "zh" ~ "Mandarin",
-      language == "en_exp" ~ "English\n(controlled)"
-    ),
-    language = factor(
-      language,
-      levels=c("Danish", "English", "French", "German", 
-               "Hindi", "Korean", "Mandarin", "Russian", 
-               "English\n(controlled)")
-    )
+  distinct() %>%
+  mutate(
+    language = label_language(language)
   )
 
 ## Item x condition cells per experiment, over all DL distances
@@ -263,7 +231,7 @@ table(
 ) %>%
   print()
 
-## Chinese
+## Mandarin
 chinese_demographics <- demographics %>% filter(language == "zh")
 
 table(chinese_demographics$english_first_language) %>%

@@ -1,3 +1,17 @@
+## =============================================================================
+## Data preparation, step 1 (with preprocess_en_experimental.R); then run
+## concatenate_data_and_stimuli.R and get_slor_morcela_scores.py.
+## Reads <language>/materials_<language>.csv for the 8 languages (Mandarin:
+## materials_zh_for_analysis.csv) and writes <language>/stimuli_data.csv: one
+## row per critical sentence (no comprehension questions, no nonsense
+## sentences) with the normalized perceived and original sentence, the DL
+## distance between them and the original's length in tokens (n_words).
+## The length-controlled English experiment has its own script,
+## preprocess_en_experimental.R, because its conditions also code length. The
+## two scripts share the normalization and DL code line for line: a change to
+## one must be copied to the other.
+## =============================================================================
+
 library(tidyverse)
 library(stringdist)
 
@@ -60,10 +74,10 @@ for (current_language in all_languages) {
   ## Devanagari (Hindi) materials and merge distinct words into one another.
   current_dat$sentence <- gsub("[\\p{P}\\p{S}]+", "", current_dat$sentence, perl = TRUE)
   
-  ## Remove trailing spaces
+  ## Remove leading and trailing spaces
   current_dat$sentence <- gsub("^\\s+|\\s+$", "", current_dat$sentence)
   
-  ## Remove double spaces
+  ## Collapse runs of whitespace into one space
   current_dat$sentence <- gsub("\\s+", " ", current_dat$sentence)
   
   ## Make everything lower case
@@ -126,7 +140,8 @@ for (current_language in all_languages) {
   ## Set language
   current_dat$language <- current_language
   
-  
+  ## Mark the sentences as UTF-8 and write with a byte-order mark
+  ## (write_excel_csv), so that Excel shows the non-Latin scripts correctly
   Encoding(current_dat$original_sentence) <- "UTF-8"
   Encoding(current_dat$perceived_sentence) <- "UTF-8"
   

@@ -1,3 +1,15 @@
+## =============================================================================
+## Data preparation, step 2: run after preprocess_stimuli.R and
+## preprocess_en_experimental.R. For each of the nine experiments, reads
+## <experiment>/experiment_data.csv (the responses) and
+## <experiment>/stimuli_data.csv (from step 1), joins them on item and
+## condition, prefixes the item ids with the experiment (e.g. en_12), and
+## stacks all experiments into full_data.csv, with the harmonized
+## first_language_is_target and country_of_birth columns.
+## get_slor_morcela_scores.py reads only the stimuli_data.csv files, so it does
+## not depend on this step.
+## =============================================================================
+
 library(tidyverse)
 
 ## Set working directory
@@ -30,13 +42,17 @@ for (current_language in all_languages) {
   ## duplicate rows agree on every field (including the response) but their
   ## timestamps can differ by a second, so de-duplicating on the full row would
   ## miss them. De-duplicate ignoring the timestamp and keep the first
-  ## submission. This affects Mandarin plus participants hi_4 and ko_34.
+  ## submission. This affects participants hi_4 (144 rows, exact duplicates)
+  ## and ko_34 (143 rows, timestamps one second apart).
   dedup_columns <- setdiff(names(experiment_data), "timestamp")
   experiment_data <- experiment_data %>%
     distinct(across(all_of(dedup_columns)), .keep_all = TRUE)
 
-  ## Mandarin and the length-controlled English experiment do not carry a usable
-  ## timestamp; Mandarin participant_id is numeric and needs to be a character
+  ## The length-controlled English experiment stores its timestamp as text in
+  ## another format (YYYY/MM/DD HH:MM:SS), which bind_rows() cannot stack with
+  ## the other experiments' date-times, so it is dropped. The Mandarin timestamp
+  ## is dropped too, although it is a normal date-time; Mandarin ids are already
+  ## text, so as.character() is only a safeguard.
   if (current_language == "zh") {
     experiment_data <- experiment_data %>%
       select(-timestamp) %>%
@@ -73,6 +89,7 @@ for (current_language in all_languages) {
   }
 }
 
+## Mark the sentences as UTF-8 (written with a byte-order mark below)
 Encoding(all_data$original_sentence) <- "UTF-8"
 Encoding(all_data$perceived_sentence) <- "UTF-8"
 
@@ -98,5 +115,7 @@ all_data <- all_data %>%
     country_of_birth = coalesce(country_of_birth, country_birth)
   )
 
+## Write with a byte-order mark (write_excel_csv), so that Excel shows the
+## non-Latin scripts correctly
 write_excel_csv(all_data, "full_data.csv")
   

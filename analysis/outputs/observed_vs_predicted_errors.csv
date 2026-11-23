@@ -1,24 +1,24 @@
 experiment,model,dl_group,mean_error,n
-all_experiments,SLOR,0,0.6812334295287419,793
-all_experiments,SLOR,1,-0.4375207431955826,851
-all_experiments,SLOR,1 or 3,-0.6278703208172266,1534
-all_experiments,SLOR,3,-0.8650408780002703,683
-all_experiments,MORCELA,0,0.5188775207225442,793
-all_experiments,MORCELA,1,-0.47965866533193185,851
-all_experiments,MORCELA,1 or 3,-0.6017866323660358,1534
-all_experiments,MORCELA,3,-0.7539548606911047,683
-all_experiments,Communication,0,-0.08680856202147422,793
-all_experiments,Communication,1,-0.07870854941211572,851
-all_experiments,Communication,1 or 3,-0.039429922180549686,1534
-all_experiments,Communication,3,0.009510212188502438,683
-all_experiments,Gradient,0,-0.09589772148268712,793
-all_experiments,Gradient,1,-0.15854537729671114,851
-all_experiments,Gradient,1 or 3,-0.15737699150665366,1534
-all_experiments,Gradient,3,-0.15592121360425204,683
-all_experiments,Binary,0,-0.06448692088782694,793
-all_experiments,Binary,1,0.42732436274221464,851
-all_experiments,Binary,1 or 3,-0.14082772170217112,1534
-all_experiments,Binary,3,-0.8487302456585019,683
+all_experiments,SLOR,0,0.23925019958209864,584
+all_experiments,SLOR,1,-0.3482722614088166,585
+all_experiments,SLOR,1 or 3,-0.44011716352151475,1116
+all_experiments,SLOR,3,-0.5413022251710967,531
+all_experiments,MORCELA,0,0.24117264430554367,584
+all_experiments,MORCELA,1,-0.31906787517216945,585
+all_experiments,MORCELA,1 or 3,-0.38146692403558013,1116
+all_experiments,MORCELA,3,-0.45021163888510035,531
+all_experiments,Communication,0,0.013011946011003509,584
+all_experiments,Communication,1,0.10340685216024086,585
+all_experiments,Communication,1 or 3,0.11165891084785182,1116
+all_experiments,Communication,3,0.12075016194437259,531
+all_experiments,Gradient,0,4.0448722013309115e-4,584
+all_experiments,Gradient,1,0.017888612649227333,585
+all_experiments,Gradient,1 or 3,0.007721750227535363,1116
+all_experiments,Gradient,3,-0.003479030406531639,531
+all_experiments,Binary,0,-4.483240179221859e-4,584
+all_experiments,Binary,1,0.6877058856994536,585
+all_experiments,Binary,1 or 3,0.01901228535469404,1116
+all_experiments,Binary,3,-0.7176840540081748,531
 da,SLOR,0,0.7085256387389272,72
 da,SLOR,1,-0.2670994783732457,72
 da,SLOR,1 or 3,-0.3542628193694637,144

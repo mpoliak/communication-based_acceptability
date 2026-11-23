@@ -11,24 +11,26 @@
 #   - the unigram term is the model-initial one: the sum over the sentence's
 #     words of log2 p(word | start of sentence);
 #   - SLOR = (log p_model - log p_unigram) / length, in words;
-#   - MORCELA = (log p_model - beta * log p_unigram + gamma) / length, with beta
-#     and gamma learned from the English acceptability ratings exactly as in
-#     main_analysis.R: regress the item-by-condition mean ratings (DL distance
-#     up to 3, after the comprehension exclusions) on log p_model / length,
-#     log p_unigram / length and 1 / length.
+#   - MORCELA = (log p_model - beta * log p_unigram + gamma) / length, with the
+#     English beta and gamma that analysis/main_analysis.R learned from the
+#     English acceptability ratings, read from
+#     analysis/outputs/morcela_weights.csv (row en), so run main_analysis.R first.
 #
 # Run this from the data/ folder with the goldfish conda environment
 # (goldfish_environment.yml, next to this script):
 #   cd data && python sample_slor_morcela_scores.py
-# It only prints; it writes no files.
+# It writes data/sample_slor_morcela_scores.csv (one row per example sentence,
+# full precision) and prints the same values rounded to 2 decimals.
 
 import math
 import os
 import warnings
 
-warnings.filterwarnings("ignore")
+# torch 2.2.2 was built against NumPy 1.x, so importing it next to NumPy 2 warns
+# "Failed to initialize NumPy". Nothing here passes tensors to NumPy, so only
+# that warning is hidden; every other warning is shown.
+warnings.filterwarnings("ignore", message="Failed to initialize NumPy")
 
-import numpy as np
 import pandas as pd
 import regex
 import torch
@@ -49,47 +51,10 @@ examples = pd.DataFrame([
     ("demonstrated", "d", "Stuff basis of will daily you for in have writing room a us be long will pretty before on the already record you demonstrated a successful."),
 ], columns=["example", "version", "sentence"])
 
-# ---- MORCELA's English weights, as in main_analysis.R ----
-dat = pd.read_csv("full_data.csv", low_memory=False)
-
-# Exclude participants with a low comprehension score
-comprehension = dat[dat["experiment"].str.contains("comprehension")]
-correct = comprehension["literal_response"] == comprehension["response"]
-accuracy = correct.groupby(comprehension["participant_id"]).mean()
-exclusions = accuracy[accuracy < .8].index
-
-english = dat[
-    ~dat["participant_id"].isin(exclusions)
-    & (dat["experiment"] == "exp_b")
-    & ~dat["condition"].str.contains("non_sense")
-    & (dat["language"] == "en")
-].copy()
-english["response"] = english["response"].str[0].astype(float)
-
-english_by_items = (
-    english[english["dl_distance"] <= 3]
-    .groupby(["item", "condition", "n_words"], as_index=False)["response"]
-    .mean()
-)
-
-scores = pd.read_csv("slor_morcela_scores.csv", dtype={"item": str})
-scores = scores[(scores["language"] == "en") & (scores["unigram_model"] == "model_initial")].copy()
-scores["item"] = "en_" + scores["item"]
-english_by_items = english_by_items.merge(
-    scores[["item", "condition", "log_p_sentence", "log_p_unigram"]],
-    on=["item", "condition"], how="left", validate="one_to_one",
-)
-assert not english_by_items["log_p_sentence"].isna().any()
-
-predictors = np.column_stack([
-    np.ones(len(english_by_items)),
-    english_by_items["log_p_sentence"] / english_by_items["n_words"],
-    english_by_items["log_p_unigram"] / english_by_items["n_words"],
-    1 / english_by_items["n_words"],
-])
-coefficients = np.linalg.lstsq(predictors, english_by_items["response"].to_numpy(), rcond=None)[0]
-beta = -coefficients[2] / coefficients[1]
-gamma = coefficients[3] / coefficients[1]
+# ---- MORCELA's English weights, from main_analysis.R ----
+weights = pd.read_csv(os.path.join("..", "analysis", "outputs", "morcela_weights.csv"))
+beta = weights.loc[weights["experiment"] == "en", "beta"].item()
+gamma = weights.loc[weights["experiment"] == "en", "gamma"].item()
 print("English MORCELA weights: beta = %.7f, gamma = %.7f" % (beta, gamma))
 
 # ---- Score the examples with the English Goldfish model ----
@@ -101,11 +66,15 @@ model = AutoModelForCausalLM.from_pretrained(
 ).eval()
 cls_id = tokenizer.convert_tokens_to_ids("[CLS]")
 
-# The same normalization as perceived_sentence
-examples["words"] = [
-    regex.sub(r"\s+", " ", regex.sub(r"^\s+|\s+$", "", regex.sub(r"[\p{P}\p{S}]+", "", s))).lower().split()
-    for s in examples["sentence"]
-]
+# The same normalization as perceived_sentence (normalize_sentence() in
+# get_slor_morcela_scores.py), one step at a time:
+# drop punctuation and symbols
+normalized = [regex.sub(r"[\p{P}\p{S}]+", "", s) for s in examples["sentence"]]
+# remove leading and trailing spaces
+normalized = [regex.sub(r"^\s+|\s+$", "", s) for s in normalized]
+# collapse runs of whitespace into one space, and lowercase
+normalized = [regex.sub(r"\s+", " ", s).lower() for s in normalized]
+examples["words"] = [s.split() for s in normalized]
 examples["n_words"] = examples["words"].map(len)
 
 # Every string we need a log probability for: each whole sentence, and each word
@@ -130,4 +99,7 @@ examples["morcela"] = (
     examples["log_p_sentence"] - beta * examples["log_p_unigram"] + gamma
 ) / examples["n_words"]
 
+examples = examples.drop(columns="words")
+examples.to_csv("sample_slor_morcela_scores.csv", index=False)
 print(examples[["example", "version", "n_words", "slor", "morcela"]].round(2).to_string(index=False))
+print("Wrote data/sample_slor_morcela_scores.csv")

@@ -16,9 +16,12 @@
 ##   T1-T2  German by-item means (as in the per-experiment fits)
 ##   T2b    simulated data with clearly non-zero item intercept and slope
 ##          variances (the real item-slope variance can be estimated at zero)
-##   T3-T5  by-item means pooled over all nine experiments (as in the pooled fits)
+##   T3-T5  by-item means pooled over the eight language experiments (as in the
+##          pooled fits; the controlled English experiment is not pooled), with
+##          the length predictors (n_words, weighted_dl_distance) of the
+##          Section 3 pooled fits
 ##
-## Small fits only, but it takes about 10 minutes. Not part of run_all.R; run it on its own:
+## Small fits only. Not part of run_all.R; run it on its own:
 ##   LC_ALL=en_US.UTF-8 Rscript supporting_information/check_marginal_loglik.R
 ## It stops with an error if any test fails.
 ## =============================================================================
@@ -26,18 +29,6 @@
 library(tidyverse)
 library(lme4)
 library(mgcv)
-
-## Set plotting preferences
-ggplot2::theme_set(ggplot2::theme_bw(base_size=18))
-ggplot2::theme_update(panel.grid = ggplot2::element_blank(),
-                      strip.background = ggplot2::element_blank(),
-                      legend.key = ggplot2::element_blank(),
-                      panel.border = ggplot2::element_blank(),
-                      axis.line = ggplot2::element_line(),
-                      strip.text = ggplot2::element_text(face = "bold"),
-                      plot.title = element_text(hjust = 0.5))
-options(ggplot2.discrete.colour = c("#A31F34", "#8A8B8C"))
-options(ggplot2.discrete.fill = c("#A31F34", "#8A8B8C"))
 
 ## Set working directory
 get_script_dir <- function() {
@@ -66,8 +57,11 @@ tolerance <- 0.05
 
 check_marginal <- function(name, gam_formula, lmer_formula, data) {
   mod_gam  <- mgcv::gam(gam_formula, data = data, method = "ML")
+  ## nlminb, as in ../analysis/main_analysis.R: on the eight-language data, lmer's
+  ## default optimizer stops short of the maximum in T5
   mod_lmer <- lme4::lmer(lmer_formula, data = data, REML = FALSE,
-                         control = lme4::lmerControl(check.conv.singular = "ignore"))
+                         control = lme4::lmerControl(optimizer = "nlminbwrap",
+                                                     check.conv.singular = "ignore"))
   tibble(
     test = name,
     marginal_gam = marginal_logLik(mod_gam),
@@ -83,6 +77,7 @@ d_item <- crit_by_items %>%
   droplevels()
 
 d_comb <- crit_by_items %>%
+  filter(language != "en_exp") %>%
   droplevels()
 
 set.seed(1)

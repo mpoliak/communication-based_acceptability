@@ -1,0 +1,9 @@
+example,version,sentence,n_words,log_p_sentence,log_p_unigram,slor,morcela
+ball,a,A ball flying in the air can hurt.,8,-64.33805993732176,-120.95301536020297,7.076869427860151,4.056615074934784
+ball,b,A ball flying in air the can hurt.,8,-86.12892152708832,-120.95301536020297,4.353011729139331,1.3327573762139626
+ball,c,A ball flying air in can the hurt.,8,-98.31376060200775,-120.95301536020297,2.8299068447744027,-0.19034750815096524
+ball,d,In flying can ball a hurt air the.,8,-100.32865361713753,-120.95301536020297,2.5780452178831794,-0.4422091350421885
+demonstrated,a,You will already have demonstrated a pretty long successful record of writing stuff for us before you will be in the room on a daily basis.,26,-180.21317151775335,-403.16526886762017,8.57508066730257,4.769378366537553
+demonstrated,b,You will already have demonstrated a pretty long successful record of writing stuff for us before you will be in room the on a daily basis.,26,-200.07145530612635,-403.16526886762017,7.811300521595916,4.005598220830899
+demonstrated,c,You will already have a demonstrated pretty long successful record of writing stuff for before us you will be in room the on a daily basis.,26,-213.17075411511084,-403.16526886762017,7.307481336634974,3.5017790358699576
+demonstrated,d,Stuff basis of will daily you for in have writing room a us be long will pretty before on the already record you demonstrated a successful.,26,-278.9820966847606,-403.16526886762017,4.776275853186906,0.970573552421889

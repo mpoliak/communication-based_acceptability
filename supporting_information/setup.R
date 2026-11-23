@@ -3,8 +3,8 @@
 ##
 ## Sourced by every section script. Loads the libraries and plotting theme,
 ## defines the helper functions the sections share, reads the data and builds
-## `crit`, and prepares the by-item data frames and plotting helpers that
-## Sections 1-3 and the diagnostics all draw on.
+## `crit`, and prepares the by-item data frames (used by Sections 1-3 and
+## check_marginal_loglik.R) and plotting helpers (Sections 1-5).
 ##
 ## Run in a UTF-8 locale (default in RStudio; for Rscript use e.g.
 ## LC_ALL=en_US.UTF-8). Fitted models are cached under models/; delete that
@@ -50,7 +50,8 @@ get_script_dir <- function() {
 setwd(get_script_dir())
 
 ## Create the output folders if they are absent. models/ holds git-ignored model
-## caches, so it does not exist in a fresh clone and save() below would fail.
+## caches, so it does not exist in a fresh clone and the save() calls of
+## Sections 1-3 would fail.
 dir.create("models", showWarnings = FALSE)
 dir.create("figures", showWarnings = FALSE)
 dir.create("outputs", showWarnings = FALSE)
@@ -68,7 +69,7 @@ label_language <- function(language_code) {
     language_code == "zh" ~ "Mandarin",
     language_code == "en_exp" ~ "English\n(controlled)"
   ),
-  ## Use the reverse of this order: levels=c("English\n(controlled)", "Russian", "Mandarin", "Korean", "Hindi", "German", "French", "English", "Danish")
+  ## Figures that list the languages top to bottom reverse this order (limits = rev)
   levels=c("Danish", "English", "French", "German", "Hindi", "Korean", 
            "Mandarin", "Russian", "English\n(controlled)")
   )
@@ -158,7 +159,7 @@ morcela_score <- function(model_data, weights) {
 
 ## ---- Read and Prepare Data ----
 ## Read full data
-dat <- read_csv("../data/full_data.csv")
+dat <- read_csv("../data/full_data.csv", show_col_types = FALSE)
 
 ## Sentence log-probabilities from the Goldfish models (log2, i.e. bits), one row
 ## per sentence per unigram model, written by data/get_slor_morcela_scores.py. We
@@ -175,7 +176,7 @@ scores <- read_csv(
     item = paste(ifelse(language == "en_exp", "en_experimental", language), item, sep = "_")
   )
 
-## Examine comprehension questions
+## Comprehension-question rows (scored below for the exclusions)
 comprehension <- dat %>% filter(grepl("comprehension", experiment))
 
 ## Information(s) is the surprisal of the intended (original) sentence in bits.
@@ -195,7 +196,7 @@ dat <- dat %>%
   ) %>%
   mutate(
     weighted_dl_distance_surprisal = dl_distance / sum_surprisal,
-    ## SLOR (Lau, Clark & Lappin 2017), with length in words
+    ## SLOR (Lau, Clark & Lappin 2017), with length in tokens
     slor = (log_p_sentence - log_p_unigram) / n_words
   )
 
@@ -250,6 +251,7 @@ n_sentences <- crit %>%
 n_sentences
 
 ## Convert responses to numbers
+## Each response label starts with its scale point (1-7)
 crit$response_num <- as.numeric(substr(crit$response,1,1))
 
 ## Prepare the data frame
@@ -280,32 +282,27 @@ stopifnot(
 
 
 ## ---- By-item data frames ----
-## Item means used by the shape-constrained GAMs in Sections 1-3 and by the
-## diagnostics. `crit_by_items` is the dl_distance <= 3 subset the main
-## analyses use; `crit_by_items_full` keeps the shuffled condition too.
-crit_by_items_full <- crit %>% 
-  mutate(
-    weighted_dl_distance = crit$dl_distance / crit$n_words,
-    grammatical = factor(
-      ifelse(dl_distance == 0, "grammatical", "ungrammatical"),
-      levels=c("ungrammatical", "grammatical")),
-    item = as.factor(item),
-    language = as.factor(language),
-    response = as.factor(response),
-    response_num = as.numeric(as.character(response)),
-    participant_id = as.factor(participant_id),
-    item = as.factor(item),
-    language = as.factor(language)
-  ) %>%
+## Item x condition means (averaged over participants) used by the
+## shape-constrained GAMs in Sections 1-3 and by check_marginal_loglik.R.
+## `crit_by_items` is the dl_distance <= 3 subset the main analyses use;
+## `crit_by_items_full` (Section 2) also keeps the cells at DL >= 4. The filter
+## is on DL distance, not condition: the 20 shuffled cells that came out at DL
+## 2-3 stay in, the one three-exchange cell at DL 4 drops out, and the 9
+## one-exchange cells that the exchange left unchanged (DL 0) count as
+## error-free.
+crit_by_items_full <- crit %>%
   group_by(language, item, n_words, dl_distance, weighted_dl_distance,
            grammatical, sum_surprisal, condition, weighted_dl_distance_surprisal,
            log_p_sentence, log_p_unigram, slor) %>%
   summarize(
-    response_num = mean(response_num)
+    response_num = mean(response_num),
+    .groups = "drop"
   ) %>%
-  ungroup() %>%
   mutate(
     grammatical_numeric = ifelse(grammatical == "grammatical", .5, -.5),
+    ## Strip the s/m/l length suffix of the controlled English item ids after
+    ## the means are taken, so the three versions of a base item share one item
+    ## level (72 instead of 216)
     item = as.factor(gsub("[sml]$", "", item))
   )
 
@@ -316,13 +313,17 @@ crit_by_items <- crit_by_items_full %>%
 
 
 ## ---- Shared plotting helpers ----
-## Colour scale, DL-distance buckets, the model-prediction grid builder and the
-## by-item scatter data, all shared by the Section 1-3 figures.
-#### ---- Helper Functions 
+## Colour scale and DL-distance buckets (Sections 1-3 and 5); the prediction-grid
+## builders, the print theme and the by-item scatter data (Sections 1-3).
 YLIM <- c(0, 8)
 
 DL_COLORS <- c("0"="#EB7AA3", "1-2"="#1E88E5", "3"="#FFC107", "4+"="#BBBBBB")
 DL_BUCKET_LEVELS <- c("0", "1-2", "3", "4+")
+
+## The binary model predicts the same rating at every DL distance above 0, so
+## its panels draw a single "any error" line, in a neutral dark grey that is no
+## model's colour
+DL_COLORS_BINARY <- c(DL_COLORS["0"], "1-2" = "grey25", "3" = "grey25", "4+" = "grey25")
 
 bucket_dl <- function(dl_distance) {
   dplyr::case_when(
@@ -342,21 +343,38 @@ scale_dl_color <- function() {
     limits = DL_BUCKET_LEVELS,
     drop   = FALSE,
     guide  = ggplot2::guide_legend(
-      override.aes = list(alpha = 1, linewidth = 0, size = 3)
+      override.aes = list(alpha = 1, linewidth = 0, size = 1.6)
     )
   )
 }
+
+## The curve figures of Sections 1-3 (Figures S1, S3 and S5) are drawn at their
+## print size, like the main text's Figure 1 (../analysis/main_analysis.R): 7 in
+## wide, with 8-pt text. This is the theme above at 8 pt, with axis lines
+## thinned to match.
+theme_print_8pt <- theme_bw(base_size = 8) +
+  theme(panel.grid = element_blank(),
+        strip.background = element_blank(),
+        legend.key = element_blank(),
+        panel.border = element_blank(),
+        axis.line = element_line(linewidth = 0.3),
+        axis.ticks = element_line(linewidth = 0.3),
+        strip.text = element_text(face = "bold"),
+        plot.title = element_text(hjust = 0.5))
 
 
 ## `fits` is the by-language model list to take the item factor from. The item
 ## level is only a placeholder so predict() sees every term in the model -- the
 ## item random effect is excluded from the predictions themselves -- but it has
 ## to be a level the model knows, so it is read from the fits being predicted.
+## `n_words` is the range to cover (the experiment's shortest and longest
+## sentence). The grid starts 0.25 below the shortest and runs in steps of 1
+## token up to at most 0.25 above the longest, so the curves span the data.
 get_prediction_grid <- function(
     fits,
     lang,
     model_type,
-    n_words=c(4, 40), 
+    n_words,
     dl_distance=c(0, 1, 3)
 ) {
   expand.grid(
@@ -371,12 +389,13 @@ get_prediction_grid <- function(
 }
 
 ## The same grid over sentence surprisal (bits) instead of length, for the
-## models whose Information(s) is surprisal.
+## models whose Information(s) is surprisal (steps of 1 bit over the range given
+## in `sum_surprisal`, padded in the same way).
 get_prediction_grid_surprisal <- function(
     fits,
     lang,
     model_type,
-    sum_surprisal=c(4, 40), 
+    sum_surprisal,
     dl_distance=c(0, 1, 3)
 ) {
   expand.grid(
@@ -414,31 +433,18 @@ MODEL_SHAPES <- c(
 
 
 ### ---- Baseline data for plotting (item means) ----
-plot_data_by_item <- crit %>% 
+## Item x condition means, then averaged over the conditions of an item that
+## share a DL distance (one point per item and DL distance), and deliberately
+## WITHOUT the filter(dl_distance <= 3): the scatter of the curve figures also
+## shows the sentences at DL >= 4 (nearly all of the shuffled condition), in the
+## grey "4+" bucket. Sentence surprisal and length are properties of the item,
+## so the same points serve the figures over surprisal and over length.
+plot_data_by_item <- crit %>%
+  group_by(language, item, n_words, sum_surprisal, dl_distance, condition) %>%
+  summarize(response_num = mean(response_num), .groups = "drop") %>%
+  group_by(language, item, n_words, sum_surprisal, dl_distance) %>%
+  summarize(response = mean(response_num), .groups = "drop") %>%
   mutate(
-    weighted_dl_distance = crit$dl_distance / crit$n_words,
-    grammatical = factor(
-      ifelse(dl_distance == 0, "grammatical", "ungrammatical"),
-      levels=c("ungrammatical", "grammatical")),
-    item = as.factor(item),
-    language = as.factor(language),
-    response = as.factor(response),
-    response_num = as.numeric(as.character(response)),
-    participant_id = as.factor(participant_id),
-    item = as.factor(item),
-    language = as.factor(language)
-  ) %>%
-  group_by(language, item, n_words, sum_surprisal, dl_distance, weighted_dl_distance, 
-           grammatical, condition) %>%
-  summarize(
-    response_num = mean(response_num)
-  ) %>%
-  mutate(
-    grammatical_numeric = ifelse(grammatical == "grammatical", .5, -.5)
-  ) %>%
-  dplyr::group_by(language, item, n_words, sum_surprisal, dl_distance) %>%
-  dplyr::summarise(response = mean(response_num), .groups = "drop") %>%
-  dplyr::mutate(
     dl_distance_bucket = bucket_dl(dl_distance),
     language           = label_language(language)
   )

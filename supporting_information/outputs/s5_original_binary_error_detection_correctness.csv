@@ -1,0 +1,6 @@
+task,condition_label,n_trials,proportion_correct,proportion_reported_error
+original_binary_error_detection,Original,1432,0.7087988826815642,0.29120111731843573
+original_binary_error_detection,1 swap,1431,0.8078266946191475,0.8078266946191475
+original_binary_error_detection,3 swaps,1430,0.9433566433566434,0.9433566433566434
+original_binary_error_detection,Shuffled,1422,0.9915611814345991,0.9915611814345991
+original_binary_error_detection,All,5715,0.8626421697287839,0.7580052493438321

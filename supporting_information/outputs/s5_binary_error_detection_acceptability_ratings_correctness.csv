@@ -1,0 +1,13 @@
+task,condition_label,length_level,n_trials,proportion_correct,proportion_reported_error
+binary_error_detection_acceptability_ratings,Original,short,289,0.9584775086505191,0.04152249134948097
+binary_error_detection_acceptability_ratings,Original,medium,289,0.8961937716262975,0.10380622837370242
+binary_error_detection_acceptability_ratings,Original,long,289,0.7162629757785467,0.2837370242214533
+binary_error_detection_acceptability_ratings,Original,all,867,0.8569780853517878,0.14302191464821223
+binary_error_detection_acceptability_ratings,1 swap,short,291,0.9140893470790378,0.9140893470790378
+binary_error_detection_acceptability_ratings,1 swap,medium,288,0.8298611111111112,0.8298611111111112
+binary_error_detection_acceptability_ratings,1 swap,long,290,0.8310344827586207,0.8310344827586207
+binary_error_detection_acceptability_ratings,1 swap,all,869,0.8584579976985041,0.8584579976985041
+binary_error_detection_acceptability_ratings,3 swaps,short,289,0.9896193771626297,0.9896193771626297
+binary_error_detection_acceptability_ratings,3 swaps,medium,290,0.9586206896551724,0.9586206896551724
+binary_error_detection_acceptability_ratings,3 swaps,long,289,0.9653979238754326,0.9653979238754326
+binary_error_detection_acceptability_ratings,3 swaps,all,868,0.9711981566820277,0.9711981566820277

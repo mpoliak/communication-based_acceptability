@@ -47,7 +47,9 @@ Running them from inside their own folders works too, e.g.
 
 The two can run in either order: SI section 4 checks its fits against two
 shipped outputs of the main analysis (`analysis/outputs/likelihoods_by_language.csv`
-and `morcela_weights.csv`), so after changing `main_analysis.R`, rerun it first.
+and `morcela_weights.csv`), and SI section 5's last figure draws the English and
+English (controlled) rows of `likelihoods_by_language.csv`, so after changing
+`main_analysis.R`, rerun it first.
 Each script creates the `models/`, `figures/` and `outputs/` folders it writes to.
 
 ## Repository structure
@@ -61,16 +63,20 @@ Each script creates the `models/`, `figures/` and `outputs/` folders it writes t
   text's two example sentences (`sample_slor_morcela_scores.py` and its output
   `sample_slor_morcela_scores.csv`), and the
   data of the SI follow-up experiments: on the 27 artificial items,
-  `en_artificial_acceptability_ratings/` (5.2, acceptability ratings only),
-  `en_artificial_binary_error_detection/` (5.3, binary error detection +
+  `en_artificial_acceptability_ratings/` (5.4, acceptability ratings only),
+  `en_artificial_binary_error_detection/` (5.5, binary error detection +
   acceptability ratings) and
-  `en_artificial_exchange_identification_acceptability/` (5.4, exchange
-  identification + acceptability ratings), and, on the 72 items of the English
+  `en_artificial_exchange_identification_acceptability/` (5.6, exchange
+  identification + acceptability ratings), on the 72 items of the English
   experiment, `en_binary_error_detection/` (5.1, binary error detection +
-  acceptability ratings). The folder `en_artificial_exchange_identification/`
+  acceptability ratings), and, on the length-controlled sentences of the
+  English (controlled) experiment, `en_experimental_binary_error_detection/`
+  (5.2, binary error detection + acceptability ratings) and
+  `en_highlighted_errors/` (5.3, acceptability ratings only, with the errors
+  highlighted). The folder `en_artificial_exchange_identification/`
   holds no responses, only the materials that the three artificial studies'
   materials are built from (`fillers_exchanges.csv`, the `make_materials.R` that
-  reads it, and the Surveyor files it writes). Each of the four follow-up
+  reads it, and the Surveyor files it writes). Each of the six follow-up
   folders holds the responses, the Surveyor stimuli (`materials_*.csv`) and survey
   (`demographics_*.csv`) files and, where they exist, the `make_materials.R` that
   wrote them and the debriefing text. See `data/DATA_DICTIONARY.md`.
@@ -108,7 +114,9 @@ Each script creates the `models/`, `figures/` and `outputs/` folders it writes t
    sentence's log2 probability and the summed unigram log2 probability of its
    words. Besides the nine experiments, it scores the 243 sentences of the
    artificial English follow-ups (SI section 5), read from
-   `en_artificial_acceptability_ratings/`.
+   `en_artificial_acceptability_ratings/`. The length-controlled follow-ups (SI
+   5.2 and 5.3) show sentences of the English (controlled) experiment, so they
+   take its scores (`en_exp`).
 
    Apart from SI section 4's other language models, every analysis takes its
    surprisal from this one file. (SI section 4 also scores SLOR and MORCELA under
@@ -194,10 +202,13 @@ self-contained and can be run on its own, so reproducing one section does not me
 running the others. Sections 1–5 and `descriptives.R` source `setup.R` (libraries,
 helper functions, the `crit` data frame with its surprisal columns, the by-item
 frames and the shared plotting helpers). The section 5 script runs its parts in
-order: 5.1, then a shared set-up of the constructed sentences, which builds the
+order: 5.1; then a shared set-up of the length-controlled sentences, which builds
+the table of the 864 sentences of the English (controlled) experiment with the
+values the main analysis uses for them, then 5.2 and 5.3; then a shared set-up
+of the constructed sentences, which builds the
 table of the 243 artificial sentences with their scores from
-`data/slor_morcela_scores.csv`, then 5.2–5.4 and the figure that combines their
-log-likelihoods. Parts 5.3 and 5.4 each also read the other's response file, to
+`data/slor_morcela_scores.csv`, then 5.4–5.6 and the figure that combines the
+log-likelihoods of all six studies. Parts 5.5 and 5.6 each also read the other's response file, to
 exclude the participants who took both studies. Unless a row says otherwise, Information(s) is sentence surprisal, as
 in the main text.
 
@@ -209,12 +220,15 @@ in the main text.
 | `section3_length.R` | Section 3: length in tokens instead of surprisal. The main analyses (mixed models, the error-free length test, the five-model comparison) with Information(s) measured as sentence length. Figures `curves_length.png` (the main text's qualitative-predictions figure, over length) and `likelihood_differences_length.png`; `outputs/s3_length_*.csv` |
 | `section4_slor_morcela_settings.R` | Section 4: SLOR and MORCELA in the English experiment under 18 settings (6 language models × 3 unigram models), from `data/slor_morcela_scores_english_settings.csv`, against the main text's other three models; Communication is refit under each of the 6 language models, with that model's surprisal of the original sentence. Stops unless the main text's setting reproduces `../analysis/outputs/likelihoods_by_language.csv` and `morcela_weights.csv`. Also prints how the neural language models rank, at each unigram model and at each one's best setting, and the best unigram model for each language model. Figure `figures/s4_slor_morcela_settings.png`; `outputs/s4_slor_morcela_settings_likelihoods.csv` |
 | `section5_awareness_of_grammatical_errors.R` | Section 5: probing participants' awareness of grammatical errors, one script in parts, in the order of the SI. |
-| ↳ Part 5.1 | Binary error detection + acceptability ratings, on the original materials of the English experiment (its 72 items, original, with 1 swap, with 3 swaps or shuffled): participants first judge whether the sentence contains an error, then rate it. The same analyses as 5.3, on all trials and on the trials judged correctly, with the English experiment's specifications (by-item intercepts in the models, DL distance up to 3; binary error detection is reported for the shuffled sentences too). Starts from `setup.R`, not from the shared set-up of 5.2–5.4. Data `data/en_binary_error_detection/`. Figures `figures/s5_original_binary_error_detection_yes_responses` (proportion of "yes" answers to the binary error detection question) and `_correct_trials` (`.png`); `outputs/s5_original_binary_error_detection_*.csv` |
-| ↳ Shared set-up of 5.2–5.4 | It sources `setup.R` and builds the table of the 243 artificial sentences that all three studies show (27 items, each in a short, medium and long version, each original, with 1 swap or with 3 swaps), with their DL distance and their scores from `data/slor_morcela_scores.csv` |
-| ↳ Part 5.2 | Acceptability ratings only, on the artificial items. The main text's analyses: the five-model comparison, the DL distance × surprisal mixed model, the error-free surprisal slope and, in the CSV only, Communication with length in place of surprisal. Data `data/en_artificial_acceptability_ratings/`. Figure `figures/s5_acceptability_ratings_only_all_trials.png`; `outputs/s5_acceptability_ratings_only_*.csv` |
-| ↳ Part 5.3 | Binary error detection + acceptability ratings, on the artificial items: participants first judge whether the sentence contains an error, then rate it. The same analyses, on all trials and on the trials judged correctly. Data `data/en_artificial_binary_error_detection/`. Figures `figures/s5_binary_error_detection_acceptability_ratings_yes_responses` (proportion of "yes" answers to the binary error detection question) and `_correct_trials` (`.png`); `outputs/s5_binary_error_detection_acceptability_ratings_*.csv` |
-| ↳ Part 5.4 | Exchange identification + acceptability ratings, on the artificial items: participants first click the words they think are misplaced, then rate the sentence. The same analyses, on all rated trials and on the trials identified correctly (the rule is in the script's header). Data `data/en_artificial_exchange_identification_acceptability/`. Figures `figures/s5_exchange_identification_acceptability_ratings_correctness` and `_correct_trials` (`.png`); `outputs/s5_exchange_identification_acceptability_ratings_*.csv` |
-| ↳ Final figure | The five models' log-likelihoods in the three studies, one row per study (5.2 on all trials, 5.3 on the trials judged correctly, 5.4 on the trials identified correctly): `figures/s5_likelihood_differences.png`, `outputs/s5_likelihood_differences.csv`. Reads the log-likelihoods that 5.2–5.4 write, so run it after them |
+| ↳ Part 5.1 | Binary error detection + acceptability ratings, on the original materials of the English experiment (its 72 items, original, with 1 swap, with 3 swaps or shuffled): participants first judge whether the sentence contains an error, then rate it. The same analyses as 5.5, on all trials and on the trials judged correctly, with the English experiment's specifications (by-item intercepts in the models, DL distance up to 3; binary error detection is reported for the shuffled sentences too). Starts from `setup.R`, not from a shared set-up. Data `data/en_binary_error_detection/`. Figures `figures/s5_original_binary_error_detection_yes_responses` (proportion of "yes" answers to the binary error detection question) and `_correct_trials` (`.png`); `outputs/s5_original_binary_error_detection_*.csv` |
+| ↳ Shared set-up of 5.2–5.3 | It sources `setup.R` and builds the table of the 864 sentences of the English (controlled) experiment (72 base items, each in a short, medium and long version, each original, with 1 swap, with 3 swaps or shuffled), with the DL distance, length and scores the main analysis uses for them (checked against `crit`), and checks that 5.2 and 5.3 show those sentences character for character (5.3 once its highlighting is removed) and that 5.3 highlights the words that differ from the original |
+| ↳ Part 5.2 | Binary error detection + acceptability ratings, on the length-controlled materials of the English (controlled) experiment (all 12 conditions): participants first judge whether the sentence contains an error, then rate it. The same analyses as 5.5, on all trials and on the trials judged correctly, with the English (controlled) experiment's specifications (by-base-item random effects, DL distance up to 3; binary error detection is reported for the shuffled sentences too). Data `data/en_experimental_binary_error_detection/`. Figures `figures/s5_controlled_binary_error_detection_yes_responses` and `_correct_trials` (`.png`); `outputs/s5_controlled_binary_error_detection_*.csv` |
+| ↳ Part 5.3 | Acceptability ratings only, on the same length-controlled materials without the shuffled condition, with every displaced word shown in red. The analyses of 5.4, with the English (controlled) experiment's specifications. Data `data/en_highlighted_errors/`. Figure `figures/s5_controlled_highlighted_errors_all_trials.png`; `outputs/s5_controlled_highlighted_errors_*.csv` |
+| ↳ Shared set-up of 5.4–5.6 | It sources `setup.R` and builds the table of the 243 artificial sentences that all three studies show (27 items, each in a short, medium and long version, each original, with 1 swap or with 3 swaps), with their DL distance and their scores from `data/slor_morcela_scores.csv` |
+| ↳ Part 5.4 | Acceptability ratings only, on the artificial items. The main text's analyses: the five-model comparison, the DL distance × surprisal mixed model, the error-free surprisal slope and, in the CSV only, Communication with length in place of surprisal. Data `data/en_artificial_acceptability_ratings/`. Figure `figures/s5_acceptability_ratings_only_all_trials.png`; `outputs/s5_acceptability_ratings_only_*.csv` |
+| ↳ Part 5.5 | Binary error detection + acceptability ratings, on the artificial items: participants first judge whether the sentence contains an error, then rate it. The same analyses, on all trials and on the trials judged correctly. Data `data/en_artificial_binary_error_detection/`. Figures `figures/s5_binary_error_detection_acceptability_ratings_yes_responses` (proportion of "yes" answers to the binary error detection question) and `_correct_trials` (`.png`); `outputs/s5_binary_error_detection_acceptability_ratings_*.csv` |
+| ↳ Part 5.6 | Exchange identification + acceptability ratings, on the artificial items: participants first click the words they think are misplaced, then rate the sentence. The same analyses, on all rated trials and on the trials identified correctly (the rule is in the script's header). Data `data/en_artificial_exchange_identification_acceptability/`. Figures `figures/s5_exchange_identification_acceptability_ratings_correctness` and `_correct_trials` (`.png`); `outputs/s5_exchange_identification_acceptability_ratings_*.csv` |
+| ↳ Final figure | The five models' log-likelihoods, one row per experiment in three groups of materials: original (the main text's English experiment, 5.1 on the trials judged correctly), length-controlled (the main text's English (controlled) experiment, 5.2 on the trials judged correctly, 5.3 on all trials) and constructed (5.4 on all trials, 5.5 on the trials judged correctly, 5.6 on the trials identified correctly). The main text's two rows are read from `analysis/outputs/likelihoods_by_language.csv`. `figures/s5_likelihood_differences.png`, `outputs/s5_likelihood_differences.csv`. Reads the log-likelihoods that 5.1–5.6 write, so run it after them |
 | `descriptives.R` | Materials and participant descriptives the paper cites: sentence length per experiment, comprehension accuracy by DL distance and the answers to the first-language question (printed), and the item × condition cells by DL distance (`outputs/dl_distance_counts.txt`). Not part of the SI document. |
 | `check_marginal_loglik.R` | Checks `marginal_logLik()`, which the model comparisons use, against `lmer()` for each random-effect term the analyses use (item and language intercepts and slopes). Small fits; stops with an error if a test fails. Not run by `run_all.R` |
 | `run_all.R` | Runs six scripts above (sections 1–5 and `descriptives.R`) in document order, each in its own R process and with its own log, `logs/<script name>.log` (it creates `logs/` at the repository root). If a script fails, the others still run (its error is at the end of its log), and at the end it stops with the list of the scripts that failed. It does not run `main_analysis.R`, so it does not draw `likelihood_differences.png`. |

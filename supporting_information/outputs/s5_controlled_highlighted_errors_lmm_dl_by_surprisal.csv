@@ -1,0 +1,5 @@
+task,subset,term,estimate,se,df,t,p,singular,optimizer,optimizer_code,convergence,max_gradient,negative_hessian_eigenvalues,n_participants,n_trials
+controlled_highlighted_errors,All trials,(Intercept),3.391171715240282,0.10891586299675599,56.48040921864551,31.13570073205302,2.988947153909655e-37,TRUE,nlminbwrap,0,boundary (singular) fit: see help('isSingular'),4.6065874265524234e-5,0,40,2861
+controlled_highlighted_errors,All trials,dl_distance,-1.8587982308050894,0.08762790777072711,48.187802338153496,-21.21240000010633,4.344126447148455e-26,TRUE,nlminbwrap,0,boundary (singular) fit: see help('isSingular'),4.6065874265524234e-5,0,40,2861
+controlled_highlighted_errors,All trials,sum_surprisal,0.15383399916770965,0.06561273115038865,59.000173994267065,2.3445754576975633,0.02243401051795028,TRUE,nlminbwrap,0,boundary (singular) fit: see help('isSingular'),4.6065874265524234e-5,0,40,2861
+controlled_highlighted_errors,All trials,dl_distance:sum_surprisal,0.20209798944985596,0.06043882108710802,30.7716282807407,3.3438440031545342,0.0021839654871526407,TRUE,nlminbwrap,0,boundary (singular) fit: see help('isSingular'),4.6065874265524234e-5,0,40,2861

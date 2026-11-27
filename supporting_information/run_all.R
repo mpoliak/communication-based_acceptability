@@ -12,14 +12,19 @@
 ##     information measured as length in tokens instead of surprisal (3).
 ##   - Section 4 refits SLOR, MORCELA and the communication model for the
 ##     English experiment under other language models and unigram models.
-##   - Section 5 (one script) has the four follow-up experiments: binary error
+##   - Section 5 (one script) has the six follow-up experiments: binary error
 ##     detection + acceptability ratings on the original materials of the
-##     English experiment (5.1, ../data/en_binary_error_detection), and the
-##     three studies of constructed sentences, acceptability ratings only
-##     (5.2), binary error detection + acceptability ratings (5.3) and exchange
-##     identification + acceptability ratings (5.4), read from the
-##     ../data/en_artificial_* folders; it ends with the figure of the three
-##     constructed-sentence studies' log-likelihoods.
+##     English experiment (5.1, ../data/en_binary_error_detection); on the
+##     length-controlled materials of the English (controlled) experiment,
+##     binary error detection + acceptability ratings (5.2,
+##     ../data/en_experimental_binary_error_detection) and acceptability
+##     ratings with the errors highlighted (5.3, ../data/en_highlighted_errors);
+##     and the three studies of constructed sentences, acceptability ratings
+##     only (5.4), binary error detection + acceptability ratings (5.5) and
+##     exchange identification + acceptability ratings (5.6), read from the
+##     ../data/en_artificial_* folders. It ends with the figure of the five
+##     models' log-likelihoods in the six studies, with the main text's
+##     English and English (controlled) experiments.
 ##   - descriptives.R is not an SI section: it prints the sentence-length range
 ##     and median that the Methods report, plus unreported checks, and writes
 ##     outputs/dl_distance_counts.txt.

@@ -1,0 +1,3 @@
+task,subset,beta,se,df,t,p,singular,optimizer,optimizer_code,convergence,max_gradient,negative_hessian_eigenvalues,sd_surprisal_bits,n_participants,n_trials
+controlled_binary_error_detection,All trials,-0.14231680764323806,0.07204870798475194,37.19357238761155,-1.9752860477853031,0.05569188422179383,FALSE,bobyqa,0,none,1.0496593873373684e-6,0,46.62126017575814,40,718
+controlled_binary_error_detection,Judged correctly,-0.022812714225267088,0.035825094583248306,27.215120038361288,-0.6367802929942364,0.52958825911263,TRUE,bobyqa,0,boundary (singular) fit: see help('isSingular'),2.5140663306538606e-6,0,45.36365979555198,40,499

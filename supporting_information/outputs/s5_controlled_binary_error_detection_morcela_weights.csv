@@ -1,0 +1,3 @@
+task,subset,beta,gamma
+controlled_binary_error_detection,All trials,0.8246055734741872,17.58063184792417
+controlled_binary_error_detection,Judged correctly,0.8414320470740804,18.606139729790296

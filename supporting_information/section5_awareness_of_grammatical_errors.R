@@ -1,18 +1,24 @@
 ## =============================================================================
 ## SI Section 5: Probing participants' awareness of grammatical errors
 ##
-## One script for the four follow-up experiments of SI section 5, in the order
+## One script for the six follow-up experiments of SI section 5, in the order
 ## of the SI:
 ##   5.1  Binary error detection + acceptability ratings, on the original
 ##        materials of the English experiment (../data/en_binary_error_detection)
-##   5.2  Acceptability ratings only, on the constructed sentences
-##   5.3  Binary error detection + acceptability ratings, constructed sentences
-##   5.4  Exchange identification + acceptability ratings, constructed sentences
-## and then the figure of the five models' log-likelihoods in the three studies
-## of constructed sentences (SI Figure S11).
+##   5.2  Binary error detection + acceptability ratings, on the
+##        length-controlled materials of the English (controlled) experiment
+##        (../data/en_experimental_binary_error_detection)
+##   5.3  Acceptability ratings only, on the same length-controlled materials
+##        with the errors highlighted (../data/en_highlighted_errors)
+##   5.4  Acceptability ratings only, on the constructed sentences
+##   5.5  Binary error detection + acceptability ratings, constructed sentences
+##   5.6  Exchange identification + acceptability ratings, constructed sentences
+## and then the figure of the five models' log-likelihoods in the six studies,
+## with the main text's English and English (controlled) experiments.
 ##
-## 5.1 starts from setup.R; 5.2-5.4 and the figure share the set-up of the
-## constructed sentences, which follows 5.1. Before each part, the objects of
+## 5.1 starts from setup.R; 5.2-5.3 share the set-up of the length-controlled
+## sentences, which follows 5.1; 5.4-5.6 and the figure share the set-up of the
+## constructed sentences, which follows 5.3. Before each part, the objects of
 ## the previous part are removed, so that no part uses another part's objects.
 ## Outputs: outputs/s5_* and figures/s5_*.
 ## Run from inside supporting_information/:
@@ -81,13 +87,13 @@ setwd(get_script_dir())
 ## correlated with the rating, so all trials are the baseline to read the
 ## correct-trial results against.
 ##
-## Unlike the constructed sentences of sections 5.2-5.4, these items have no
-## length versions: surprisal and length are properties of the item, constant
-## across its conditions, as in the main analysis's English experiment. So the
-## models take that experiment's random effects: a by-item intercept in the
-## GAMs, by-item DL distance slopes (and no surprisal slopes) in (2), and a
-## by-item intercept in (3). As in the main analysis, the models use the
-## sentences with a DL distance of at most 3, which drops the shuffled
+## Unlike the length-controlled and constructed sentences of sections 5.2-5.6,
+## these items have no length versions: surprisal and length are properties of
+## the item, constant across its conditions, as in the main analysis's English
+## experiment. So the models take that experiment's random effects: a by-item
+## intercept in the GAMs, by-item DL distance slopes (and no surprisal slopes)
+## in (2), and a by-item intercept in (3). As in the main analysis, the models
+## use the sentences with a DL distance of at most 3, which drops the shuffled
 ## condition except for its 3 sentences with a DL distance of 2 or 3 (items 15,
 ## 16 and 23); the five models with the shuffled condition included are SI
 ## section 2's analysis of the main experiments. Binary error detection is
@@ -229,7 +235,7 @@ responses %>% distinct(participant_id, country_of_birth) %>% count(country_of_bi
 responses %>% distinct(participant_id, other_languages) %>% count(other_languages) %>% print()
 
 ## The study is of native English speakers: drop anyone who answered No (nobody
-## did here). A blank answer is kept, as in the section 5.2-5.4 studies.
+## did here). A blank answer is kept, as in the section 5.2-5.6 studies.
 non_native <- responses %>%
   distinct(participant_id, native_language) %>%
   filter(native_language %in% "No") %>%
@@ -237,7 +243,7 @@ non_native <- responses %>%
 cat("excluded as non-native:", length(non_native), "participant(s)\n")
 responses <- responses %>% filter(!participant_id %in% non_native)
 
-## Sections 5.3 and 5.4 exclude the people who took both of those studies,
+## Sections 5.5 and 5.6 exclude the people who took both of those studies,
 ## which show the same sentences: the studies of constructed sentences share
 ## one set of pseudonyms (en_artificial_<n>), so the same id in two of them is
 ## the same person. The participant ids here are pseudonyms given within this
@@ -291,7 +297,7 @@ cat("distinct item-to-condition assignments:",
     "over", n_distinct(judgments$participant_id), "participants\n")
 
 ## Every binary error detection judgment, rated or not, with its sentence: the
-## correctness table and figure use all of them, as in section 5.3
+## correctness table and figure use all of them, as in section 5.5
 judgment_trials <- judgments %>%
   left_join(sentences, by = c("item", "cond"))
 
@@ -318,7 +324,7 @@ cat("item x condition cells seen:", nrow(cells), "of", nrow(sentences),
     "range", min(cells$n), "-", max(cells$n), "\n")
 
 ## ---- Binary error detection: proportion judged correctly ----
-## Over all binary error detection judgments, rated or not (as in section 5.3),
+## Over all binary error detection judgments, rated or not (as in section 5.5),
 ## by condition, and over all conditions
 correctness <- bind_rows(
   judgment_trials %>%
@@ -849,7 +855,1573 @@ print("Done.")
 
 
 ## #############################################################################
-## Shared set-up of 5.2-5.4 (the constructed sentences)
+## Shared set-up of 5.2-5.3 (the length-controlled sentences)
+## #############################################################################
+## Start from a clean slate
+rm(list = setdiff(ls(), "get_script_dir"))
+
+## =============================================================================
+## SI Section 5: set-up shared by the two studies of the length-controlled
+## sentences
+##
+## Used by parts 5.2 and 5.3. It
+##   - sources setup.R, for the libraries, the plotting theme, the main
+##     analysis's marginal_logLik(), morcela_weights() and morcela_score(), the
+##     five models' colours, shapes and legend labels, the main text's
+##     DL-distance colours and buckets (DL_COLORS, DL_BUCKET_LEVELS,
+##     bucket_dl(), YLIM) for the acceptability figures, and the main
+##     experiments' data (crit), which the sentences' values are checked
+##     against;
+##   - sets the colours of the four conditions, for the binary error detection
+##     figure;
+##   - builds the table of the 864 sentences of the main text's English
+##     (controlled) experiment, and checks that 5.2 and 5.3 show them.
+##
+## The sentences: the 72 base items of the English (controlled) experiment,
+## each in a short, medium and long version, and each version original, with 1
+## swap, with 3 swaps or shuffled. That makes 12 conditions and 864 sentences.
+## 5.2 shows all 12 conditions, and 5.3 the 9 without the shuffled condition
+## (648 sentences). In both, every participant sees every base item once, in
+## one of the conditions. As in the main analysis, the analyses group by the
+## base item (the main data's item id without its s/m/l suffix), with that
+## experiment's by-item random effects: surprisal varies within base item.
+## =============================================================================
+
+## Libraries, plotting theme, helper functions, the models' colours, shapes
+## and labels, and the main experiments' data (crit)
+source("setup.R")
+
+## ---- Colours ----
+## The four conditions take the colours of their DL distances in the main
+## text's figures: the swaps have DL distance 1 and (mostly) 3, and nearly all
+## shuffled sentences fall in the grey "4+" bucket
+CONDITION_COLORS <- c("Original" = DL_COLORS[["0"]],
+                      "1 swap"   = DL_COLORS[["1-2"]],
+                      "3 swaps"  = DL_COLORS[["3"]],
+                      "Shuffled" = DL_COLORS[["4+"]])
+
+## ---- The 864 sentences ----
+## The sentences as the English (controlled) experiment showed them. Each
+## condition codes a version and a length (e.g. swap-1_medium).
+sentences <- read_csv("../data/en_experimental/materials_en_experimental.csv",
+                      show_col_types = FALSE) %>%
+  filter(experiment == "exp_b") %>%
+  transmute(item = as.integer(item), cond = condition, sentence) %>%
+  mutate(
+    length_level = factor(str_extract(cond, "[^_]+$"),
+                          levels = c("short", "medium", "long")),
+    condition_label = factor(recode(str_extract(cond, "^[^_]+"),
+                                    "original" = "Original",
+                                    "swap-1" = "1 swap",
+                                    "swap-3" = "3 swaps",
+                                    "random" = "Shuffled"),
+                             levels = names(CONDITION_COLORS)),
+    ## The sentence's item id and condition in the main data, as
+    ## data/preprocess_en_experimental.R writes them: the base item with s, m
+    ## or l for its length (e.g. 62m), and the version with an underscore
+    ## (swap_1)
+    main_item = paste0(item, str_sub(length_level, 1, 1)),
+    main_condition = str_replace(str_extract(cond, "^[^_]+"), "-", "_")
+  )
+
+## DL distance and length in words, from the stimulus table of the English
+## (controlled) experiment (written by data/preprocess_en_experimental.R;
+## full_data.csv takes its dl_distance and n_words from it)
+controlled_stimuli <- read_csv("../data/en_experimental/stimuli_data.csv",
+                               show_col_types = FALSE) %>%
+  transmute(main_item = item, main_condition = condition, perceived_sentence,
+            dl_distance, n_words)
+
+## The language-model scores, from the one source of the main analysis
+## (data/slor_morcela_scores.csv: Goldfish 1000mb, log2, model-initial unigram)
+controlled_scores <- read_csv("../data/slor_morcela_scores.csv",
+                              col_types = cols(item = col_character()),
+                              show_col_types = FALSE) %>%
+  filter(language == "en_exp", unigram_model == "model_initial") %>%
+  transmute(main_item = item, main_condition = condition, log_p_sentence,
+            log_p_unigram)
+
+## Information(s) in the communication account is the surprisal of the intended
+## sentence, i.e. of the original at the same length: the four versions of an
+## item at one length share it, and its short, medium and long versions differ.
+## SLOR and MORCELA instead score the sentence that was actually read, so they
+## take each condition's own log probabilities.
+original_surprisal <- controlled_scores %>%
+  filter(main_condition == "original") %>%
+  transmute(main_item, sum_surprisal = -log_p_sentence)
+
+sentences <- sentences %>%
+  left_join(controlled_stimuli, by = c("main_item", "main_condition")) %>%
+  left_join(original_surprisal, by = "main_item") %>%
+  left_join(controlled_scores, by = c("main_item", "main_condition")) %>%
+  mutate(
+    weighted_dl_distance = dl_distance / n_words,
+    weighted_dl_distance_surprisal = dl_distance / sum_surprisal,
+    grammatical_numeric = ifelse(dl_distance == 0, .5, -.5)
+  )
+
+## Every sentence found its DL distance, length and scores, under the item id
+## and condition of the same sentence in the main data: the stimulus table's
+## perceived_sentence is the sentence normalized as
+## data/preprocess_en_experimental.R does (punctuation and symbols removed,
+## spaces trimmed and collapsed, lowercased)
+stopifnot(
+  nrow(sentences) == 72 * 12,
+  nrow(distinct(sentences, item, cond)) == 72 * 12,
+  !anyNA(sentences),
+  all(sentences$perceived_sentence ==
+        tolower(str_squish(gsub("[\\p{P}\\p{S}]+", "", sentences$sentence, perl = TRUE))))
+)
+
+## And their values are those the main analysis uses for the English
+## (controlled) experiment (crit, from setup.R), in every cell that
+## experiment's participants saw
+controlled_crit <- crit %>%
+  filter(language == "en_exp") %>%
+  transmute(main_item = str_remove(as.character(item), "^en_experimental_"),
+            main_condition = condition, dl_distance, n_words, sum_surprisal,
+            log_p_sentence, log_p_unigram) %>%
+  distinct()
+
+stopifnot(
+  nrow(inner_join(controlled_crit, sentences, by = names(controlled_crit))) ==
+    nrow(controlled_crit)
+)
+cat("cells of the English (controlled) experiment matched:", nrow(controlled_crit),
+    "of", nrow(sentences), "\n")
+
+## The DL distance counts the word edits that the sentence shows, as in the
+## main analysis, so it can differ from the condition: some 3-swap sentences
+## show only 1 or 2 edits, and one 1-swap sentence (item 53, long) exchanges
+## "rare" with a dash, which the DL distance, computed without punctuation,
+## does not count (DL distance 0)
+cat("DL distance by condition (number of sentences):\n")
+sentences %>%
+  count(condition_label,
+        dl_distance = ifelse(dl_distance >= 4, "4 or more", as.character(dl_distance))) %>%
+  print(n = Inf)
+
+## The 72 original sentences of each length version: their length in words and
+## their surprisal in bits (the Information(s) of all four conditions)
+cat("Length (words) and surprisal (bits) of the original sentences, by length version:\n")
+sentences %>%
+  filter(condition_label == "Original") %>%
+  group_by(length_level) %>%
+  summarize(n_sentences = n(),
+            min_words = min(n_words), median_words = median(n_words),
+            max_words = max(n_words),
+            min_surprisal = min(sum_surprisal), median_surprisal = median(sum_surprisal),
+            max_surprisal = max(sum_surprisal)) %>%
+  print(width = Inf)
+
+## ---- The sentences of 5.2 and 5.3 ----
+## Each study's Surveyor materials file, one row per screen
+materials <- bind_rows(
+  controlled_binary_error_detection = read_csv(
+    "../data/en_experimental_binary_error_detection/materials_en_experimental_binary_error_detection.csv",
+    show_col_types = FALSE),
+  controlled_highlighted_errors = read_csv(
+    "../data/en_highlighted_errors/materials_en_highlighted_errors.csv",
+    show_col_types = FALSE),
+  .id = "task"
+) %>%
+  mutate(item = as.integer(item))
+
+## The screens of each trial, with their prompt and answer options: in 5.2, the
+## binary error detection question (exp_b_comprehension) and the rating
+## (exp_b); in 5.3, the rating only
+materials %>%
+  count(task, experiment, prompt, options, name = "sentences") %>%
+  mutate(screen = paste0(task, ", ", experiment, " (", sentences, " sentences): \"",
+                         prompt, "\" (", options, ")")) %>%
+  pull(screen) %>%
+  writeLines()
+
+## The sentence is on the row of the trial's first screen (5.2's rating has an
+## empty sentence). 5.3 shows each displaced word in bold red, inside
+## <b style="color:red;"> and </b>.
+shown_sentences <- materials %>%
+  filter((task == "controlled_binary_error_detection" & experiment == "exp_b_comprehension") |
+           (task == "controlled_highlighted_errors" & experiment == "exp_b")) %>%
+  transmute(task, item, cond = condition, shown_sentence = sentence,
+            plain_sentence = str_remove_all(sentence, '<b style="color:red;">|</b>')) %>%
+  left_join(sentences %>% select(item, cond, length_level, condition_label, dl_distance, sentence),
+            by = c("item", "cond"))
+
+## 5.2 shows all 864 sentences and 5.3 the 648 that are not shuffled, once
+## each, and every sentence is that of the English (controlled) experiment for
+## its item, length and condition, character for character: in 5.2 as shown,
+## and in 5.3 once the highlighting is removed
+stopifnot(
+  sum(shown_sentences$task == "controlled_binary_error_detection") == 72 * 12,
+  sum(shown_sentences$task == "controlled_highlighted_errors") == 72 * 9,
+  !anyDuplicated(shown_sentences[c("task", "item", "cond")]),
+  all(shown_sentences$condition_label[shown_sentences$task == "controlled_highlighted_errors"] != "Shuffled"),
+  all(shown_sentences$plain_sentence == shown_sentences$sentence),
+  all(shown_sentences$shown_sentence[shown_sentences$task == "controlled_binary_error_detection"] ==
+        shown_sentences$sentence[shown_sentences$task == "controlled_binary_error_detection"])
+)
+
+## In 5.3, the words in red are exactly those that differ from the word at the
+## same position in the original sentence of the same length, with one
+## exception: the swapped sentences of the English (controlled) experiment all
+## end in a full stop, so where the original does not (it ends in "?", "!" or
+## a quote, or has no final punctuation), the last word differs from the
+## original's last word by the added full stop only, and is not in red. One
+## row per word: the highlighting tag is shortened to <b> before the sentence
+## is split at its spaces, so that the tag stays with its word, and a run of
+## spaces counts as one (the medium and long originals of item 12 have a
+## double space).
+highlighted_words <- shown_sentences %>%
+  filter(task == "controlled_highlighted_errors") %>%
+  left_join(sentences %>%
+              filter(condition_label == "Original") %>%
+              select(item, length_level, original_sentence = sentence),
+            by = c("item", "length_level")) %>%
+  transmute(item, cond, condition_label,
+            word = str_split(str_squish(str_replace_all(shown_sentence,
+                                                        fixed('<b style="color:red;">'), "<b>")),
+                             " "),
+            original_word = str_split(str_squish(original_sentence), " "))
+
+## Every sentence has as many words as its original
+stopifnot(all(lengths(highlighted_words$word) == lengths(highlighted_words$original_word)))
+
+highlighted_words <- highlighted_words %>%
+  unnest(c(word, original_word)) %>%
+  group_by(item, cond) %>%
+  mutate(last_word = row_number() == n()) %>%
+  ungroup() %>%
+  mutate(
+    in_red = str_detect(word, "^<b>.*</b>$"),
+    word = str_remove_all(word, "<b>|</b>"),
+    differs = word != original_word,
+    full_stop_added = last_word & word == paste0(original_word, ".")
+  )
+
+stopifnot(
+  !any(str_detect(highlighted_words$word, "<|>")),
+  all(highlighted_words$in_red == (highlighted_words$differs & !highlighted_words$full_stop_added))
+)
+
+cat("5.3: words in red per sentence, by condition (number of sentences):\n")
+highlighted_words %>%
+  group_by(item, cond, condition_label) %>%
+  summarize(words_in_red = sum(in_red), .groups = "drop") %>%
+  count(condition_label, words_in_red) %>%
+  print()
+cat("5.3: last words not in red that differ from the original's by an added full stop only:",
+    sum(highlighted_words$full_stop_added), "\n")
+
+## Two quirks of the English (controlled) materials show in the highlighting.
+## The materials write some moved words in lower case, and in a few 3-swap
+## sentences such a word is back at its original position, so it is in red
+## although only its capital letter differs from the original's word. And the
+## 1-swap sentence with DL distance 0 (see above) has its two exchanged words,
+## "rare" and a dash, in red.
+cat("5.3: words in red that differ from the original's word in capitalization only:\n")
+highlighted_words %>%
+  filter(in_red, str_to_lower(word) == str_to_lower(original_word)) %>%
+  select(item, cond, word, original_word) %>%
+  print()
+cat("5.3: sentences with words in red and a DL distance of 0:\n")
+shown_sentences %>%
+  filter(task == "controlled_highlighted_errors", dl_distance == 0,
+         str_detect(shown_sentence, "color:red")) %>%
+  select(item, cond, shown_sentence) %>%
+  print(width = Inf)
+
+## Everything defined so far is shared by 5.2 and 5.3; each part below starts
+## by removing what the previous part defined
+shared_objects <- c(ls(), "shared_objects")
+
+
+## #############################################################################
+## 5.2  Binary error detection + acceptability ratings (length-controlled
+##      sentences)
+## #############################################################################
+rm(list = setdiff(ls(), shared_objects))
+
+## =============================================================================
+## SI Section 5.2: Binary error detection + acceptability ratings
+## (length-controlled sentences)
+##
+## en_experimental_binary_error_detection. The 864 sentences of the main
+## text's English (controlled) experiment (72 base items x short, medium and
+## long x original, 1 swap, 3 swaps and shuffled; see the shared set-up above),
+## and every participant sees every base item once. On each trial the
+## participant first answers "Are there any errors in this sentence?" (Yes/No)
+## and then, on the next screen, rates how acceptable the sentence is (1-7),
+## with the prompt and scale of the main experiments.
+##
+## Judged correctly: the answer to the binary error detection question matches
+## literal_response, i.e. "No" (no error) for an original and "Yes" for a
+## swapped or shuffled sentence.
+##
+## The main text's analyses, with sentence surprisal as Information(s) and the
+## specifications of the main analysis's English (controlled) experiment, each
+## on all trials and again on the trials judged correctly only:
+##   (1) the five models (Binary, Gradient, Communication, SLOR, MORCELA) as
+##       shape-constrained GAMs on item x condition means, compared on their
+##       marginal log-likelihood;
+##   (2) the linear mixed model of acceptability on DL distance x surprisal,
+##       over trials;
+##   (3) the surprisal slope among the error-free sentences;
+##   (4) the length check, in the CSV only: Communication with length in place
+##       of surprisal.
+## Restricting to the trials judged correctly selects on a response that is
+## correlated with the rating, so all trials are the baseline to read the
+## correct-trial results against.
+##
+## As in the main analysis and section 5.1, the models use the sentences with a
+## DL distance of at most 3, which drops the shuffled condition except for its
+## 9 sentences with a DL distance of 2 or 3, and the error-free sentences are
+## those with a DL distance of 0 (the originals and one 1-swap sentence; see the
+## shared set-up). Binary error detection is reported for all four conditions,
+## shuffled included.
+##
+## Mixed models have the maximal random-effects structure. As in
+## ../analysis/main_analysis.R, the linear mixed models of (2) are fit with
+## nlminb and the error-free models with bobyqa (see (2)). Singular fits are
+## kept. For every mixed model the CSVs record the optimizer, every message
+## and warning printed while fitting it (lme4's and lmerTest's) and lme4's
+## gradient and Hessian checks.
+##
+## Figures: figures/s5_controlled_binary_error_detection_yes_responses.png
+## (proportion of "yes" answers, over all binary error detection judgments) and
+## figures/s5_controlled_binary_error_detection_correct_trials.png
+## (the main text's human-judgment curves, on the trials judged correctly)
+## Numbers: outputs/s5_controlled_binary_error_detection_*.csv
+## The log-likelihoods are drawn together with the other studies' by the
+## figure at the end of this script.
+## =============================================================================
+
+task_name <- "controlled_binary_error_detection"
+
+## ---- Responses: one row per screen: the binary error detection question (exp_b_comprehension), then the rating (exp_b) ----
+responses <- read_csv("../data/en_experimental_binary_error_detection/data_en_exp_binary_error_detection.csv",
+                      show_col_types = FALSE)
+
+cat("\n---- export integrity ----\n")
+cat("participants in the file:", n_distinct(responses$participant_id), "\n")
+responses %>% distinct(participant_id, native_language) %>% count(native_language) %>% print()
+responses %>% distinct(participant_id, country_of_birth) %>% count(country_of_birth) %>% print()
+responses %>% distinct(participant_id, other_languages) %>% count(other_languages) %>% print()
+
+## No experimenter test session is in the file: every participant id is one of
+## the study's pseudonyms, en_exp_awareness_01 to en_exp_awareness_40
+stopifnot(all(str_detect(responses$participant_id, "^en_exp_awareness_[0-9]{2}$")))
+
+## The study is of native English speakers: drop anyone who answered No (nobody
+## did here). A blank answer is kept, as in the other studies.
+non_native <- responses %>%
+  distinct(participant_id, native_language) %>%
+  filter(native_language %in% "No") %>%
+  pull(participant_id)
+cat("excluded as non-native:", length(non_native), "participant(s)\n")
+responses <- responses %>% filter(!participant_id %in% non_native)
+
+## The participant ids are pseudonyms numbered within this study, as are those
+## of section 5.3 (en_highlighted_<n>), which shows the same sentences, so
+## whether anyone took part in both cannot be checked, and nobody is excluded
+## for it.
+
+judgments <- responses %>%
+  filter(experiment == "exp_b_comprehension") %>%
+  transmute(participant_id, item = as.integer(item), cond,
+            judgment_order = presentation_order,
+            ## Judged correctly: "No" for an original, "Yes" for a swapped or
+            ## shuffled sentence
+            correct = response == literal_response,
+            ## Reported an error: answered "Yes"
+            reported_error = response == "Yes")
+## A "yes" is correct for every sentence except an original
+stopifnot(all(judgments$reported_error == (judgments$correct != str_detect(judgments$cond, "^original"))))
+
+ratings <- responses %>%
+  filter(experiment == "exp_b") %>%
+  transmute(participant_id, item = as.integer(item), cond,
+            rating_order = presentation_order,
+            acceptability = as.numeric(substr(response, 1, 1)))
+
+responses %>% count(participant_id, name = "rows") %>% count(rows, name = "participants") %>% print()
+cat("(144 rows = 72 sentences x 2 questions; Surveyor writes no row for a skipped question)\n")
+cat("judgments without a rating:",
+    nrow(anti_join(judgments, ratings, by = c("participant_id", "item", "cond"))),
+    "| ratings without a judgment:",
+    nrow(anti_join(ratings, judgments, by = c("participant_id", "item", "cond"))), "\n")
+
+## Condition assignment: every participant judges and rates each base item at
+## most once, in one of its 12 conditions, and those who answered all 72 binary
+## error detection questions saw each condition 6 times. The participants by
+## how many items they judged, in how many of the 12 conditions, and the fewest
+## and most items they judged in one condition:
+stopifnot(
+  !anyDuplicated(judgments[c("participant_id", "item")]),
+  !anyDuplicated(ratings[c("participant_id", "item")])
+)
+judgments %>%
+  count(participant_id, cond) %>%
+  group_by(participant_id) %>%
+  summarize(items = sum(n), conditions = n(), fewest_per_condition = min(n),
+            most_per_condition = max(n)) %>%
+  count(items, conditions, fewest_per_condition, most_per_condition,
+        name = "participants") %>%
+  print(width = Inf)
+
+## Every binary error detection judgment, rated or not, with its sentence: the
+## correctness table and figure use all of them, as in section 5.1
+judgment_trials <- judgments %>%
+  left_join(sentences, by = c("item", "cond"))
+
+## A trial is a sentence with both its binary error detection judgment and its
+## rating: the acceptability analyses use these
+trials <- judgments %>%
+  inner_join(ratings, by = c("participant_id", "item", "cond")) %>%
+  left_join(sentences, by = c("item", "cond"))
+
+## The rating is always the screen right after its binary error detection
+## question, the order that the instructions describe
+stopifnot(
+  !anyNA(judgment_trials),
+  !anyNA(trials),
+  all(trials$rating_order == trials$judgment_order + 1)
+)
+cat("binary error detection judgments:", nrow(judgment_trials),
+    "| participants analysed:", n_distinct(trials$participant_id),
+    "| trials (judged and rated):", nrow(trials), "\n")
+
+cells <- trials %>% count(item, cond)
+cat("item x condition cells seen:", nrow(cells), "of", nrow(sentences),
+    "| responses per cell: median", median(cells$n),
+    "range", min(cells$n), "-", max(cells$n), "\n")
+
+## ---- Binary error detection: proportion judged correctly ----
+## Over all binary error detection judgments, rated or not (as in section 5.1),
+## by condition and length, over all lengths, and over all conditions
+correctness <- bind_rows(
+  judgment_trials %>%
+    group_by(condition_label = as.character(condition_label),
+             length_level = as.character(length_level)) %>%
+    summarize(n_trials = n(), proportion_correct = mean(correct),
+              proportion_reported_error = mean(reported_error), .groups = "drop"),
+  judgment_trials %>%
+    group_by(condition_label = as.character(condition_label)) %>%
+    summarize(n_trials = n(), proportion_correct = mean(correct),
+              proportion_reported_error = mean(reported_error), .groups = "drop") %>%
+    mutate(length_level = "all"),
+  judgment_trials %>%
+    summarize(n_trials = n(), proportion_correct = mean(correct),
+              proportion_reported_error = mean(reported_error)) %>%
+    mutate(condition_label = "All", length_level = "all")
+) %>%
+  mutate(task = task_name, .before = 1) %>%
+  arrange(factor(condition_label, levels = c(names(CONDITION_COLORS), "All")),
+          factor(length_level, levels = c("short", "medium", "long", "all")))
+
+print(correctness, n = Inf)
+write_csv(correctness, paste0("outputs/s5_", task_name, "_correctness.csv"))
+
+## ---- The trials analysed ----
+## One long table, with every analysis below run on each subset of it: all
+## trials, and the trials judged correctly. It keeps the shuffled sentences,
+## for the counts and the figure; the models below take the sentences with a
+## DL distance of at most 3, as in the main analysis.
+analysis_trials <- bind_rows(
+  "All trials" = trials,
+  "Judged correctly" = trials %>% filter(correct),
+  .id = "subset"
+)
+
+cat("\n---- trials by condition (all conditions) ----\n")
+analysis_trials %>%
+  count(subset, condition_label) %>%
+  pivot_wider(names_from = condition_label, values_from = n) %>%
+  print()
+
+## The sample sizes of the models (DL distance up to 3)
+sample_sizes <- analysis_trials %>%
+  filter(dl_distance <= 3) %>%
+  group_by(subset) %>%
+  summarize(n_participants = n_distinct(participant_id), n_trials = n())
+print(sample_sizes)
+
+cat("\n---- mean rating by condition and length ----\n")
+analysis_trials %>%
+  group_by(subset, condition_label, length_level) %>%
+  summarize(mean_rating = round(mean(acceptability), 2), .groups = "drop") %>%
+  pivot_wider(names_from = length_level, values_from = mean_rating) %>%
+  print()
+
+## ---- (1) The five models on item x condition means ----
+## As in the main analysis, the models are fit to the mean rating of each
+## sentence (one base item at one length in one version) with a DL distance of
+## at most 3, over the trials analysed. SLOR is computed as in the main
+## analysis.
+item_means <- analysis_trials %>%
+  filter(dl_distance <= 3) %>%
+  group_by(subset, item, cond, length_level, condition_label, n_words,
+           sum_surprisal, dl_distance, weighted_dl_distance,
+           weighted_dl_distance_surprisal, grammatical_numeric,
+           log_p_sentence, log_p_unigram) %>%
+  summarize(response_num = mean(acceptability), .groups = "drop") %>%
+  mutate(
+    item = as.factor(item),
+    slor = (log_p_sentence - log_p_unigram) / n_words,
+    morcela = NA_real_
+  )
+
+## MORCELA's two weights are estimated on these same means, separately for each
+## subset, by the main analysis's recipe
+morcela_weights_by_subset <- tibble()
+for (subset_iter in unique(item_means$subset)) {
+  in_subset <- item_means$subset == subset_iter
+  weights <- morcela_weights(item_means[in_subset, ])
+  item_means$morcela[in_subset] <- morcela_score(item_means[in_subset, ], weights)
+  morcela_weights_by_subset <- bind_rows(
+    morcela_weights_by_subset,
+    tibble(task = task_name, subset = subset_iter,
+           beta = weights$beta, gamma = weights$gamma)
+  )
+}
+print(morcela_weights_by_subset)
+
+## The models, with the specifications of the main analysis's English
+## (controlled) experiment: the base item takes a random intercept and a random
+## slope for every predictor.
+##   - Binary: grammatical vs. ungrammatical
+##   - Gradient: a decreasing smooth of the number of errors (DL distance)
+##   - Communication: a decreasing smooth of the errors per bit of information
+##     (DL distance / surprisal of the intended sentence) plus a decreasing
+##     smooth of that surprisal
+##   - SLOR and MORCELA: an increasing smooth of the score
+## The last model is the length check: Communication with length (in words) as
+## the information measure, with the random effects of SI section 3's
+## English (controlled) fit (section3_length.R).
+models_by_subset <- list()
+for (subset_iter in unique(item_means$subset)) {
+  print(paste0("Fitting models for ", subset_iter))
+
+  item_means_subset <- item_means %>% filter(subset == subset_iter)
+
+  grammatical <- scam(
+    response_num ~ grammatical_numeric +
+      s(item, bs="re") + s(item, grammatical_numeric, bs="re"),
+    data=item_means_subset
+  )
+
+  distance <- scam(
+    response_num ~ s(dl_distance, bs="mpd") +
+      s(item, bs="re") + s(item, dl_distance, bs="re"),
+    data=item_means_subset
+  )
+
+  weighted_distance <- scam(
+    response_num ~ s(weighted_dl_distance_surprisal, bs="mpd") + s(sum_surprisal, bs="mpd") +
+      s(item, bs="re") + s(item, weighted_dl_distance_surprisal, bs="re") +
+      s(item, sum_surprisal, bs="re"),
+    data=item_means_subset
+  )
+
+  slor <- scam(
+    response_num ~ s(slor, bs="mpi") +
+      s(item, bs="re") + s(item, slor, bs="re"),
+    data=item_means_subset
+  )
+
+  morcela <- scam(
+    response_num ~ s(morcela, bs="mpi") +
+      s(item, bs="re") + s(item, morcela, bs="re"),
+    data=item_means_subset
+  )
+
+  weighted_distance_length <- scam(
+    response_num ~ s(weighted_dl_distance, bs="mpd") + s(n_words, bs="mpd") +
+      s(item, bs="re") + s(item, weighted_dl_distance, bs="re") +
+      s(item, n_words, bs="re"),
+    data=item_means_subset
+  )
+
+  models_by_subset[[subset_iter]] <- list(
+    grammatical = grammatical,
+    distance = distance,
+    weighted_distance = weighted_distance,
+    slor = slor,
+    morcela = morcela,
+    weighted_distance_length = weighted_distance_length
+  )
+}
+
+## scam's inner fitting loop converged (one column per subset); the
+## smoothing-parameter search is checked below
+print(sapply(models_by_subset, sapply, `[[`, "conv"))
+
+## Marginal log-likelihoods, with the random effects integrated out, as in the
+## main analysis. `converged` is scam's inner fitting loop ($conv), which is
+## TRUE even when scam's search for the smoothing parameters stopped short;
+## bfgs_convergence is how that search ended ("Full convergence" when the
+## gradient of its smoothness score, GCV/UBRE, became small enough).
+model_fits <- tibble()
+for (subset_iter in names(models_by_subset)) {
+  model_fits <- bind_rows(model_fits, tibble(
+    subset = subset_iter,
+    fit = names(models_by_subset[[subset_iter]]),
+    log_likelihood = vapply(models_by_subset[[subset_iter]], marginal_logLik, numeric(1)),
+    converged = sapply(models_by_subset[[subset_iter]], `[[`, "conv"),
+    bfgs_convergence = sapply(lapply(models_by_subset[[subset_iter]], `[[`, "bfgs.info"), `[[`, "conv"),
+    optimizer = "bfgs"
+  ))
+}
+
+model_fits %>% count(bfgs_convergence) %>% print()
+
+## A fit whose search did not reach full convergence (it reached its 200-step
+## limit, or its last step found no lower score) is refit with scam's two other
+## optimizers, nlm and optim, as ../analysis/main_analysis.R checks its fits.
+## The fit reported is the one with the lowest smoothness score among the
+## original and the refits whose search converged; `optimizer` records which
+## (bfgs is scam's default). nlm's two messages of success end in "probably
+## solution"; optim's is "Successful completion".
+for (row_index in which(model_fits$bfgs_convergence != "Full convergence")) {
+  m <- models_by_subset[[model_fits$subset[row_index]]][[model_fits$fit[row_index]]]
+  refit_fits <- list(
+    bfgs = m,
+    nlm = scam(m$formula, data = m$model, optimizer = "nlm"),
+    optim = scam(m$formula, data = m$model, optimizer = "optim")
+  )
+  refits <- tibble(
+    subset = model_fits$subset[row_index],
+    fit = model_fits$fit[row_index],
+    optimizer = names(refit_fits),
+    search_convergence = c(m$bfgs.info$conv, refit_fits$nlm$nlm.info$conv,
+                           refit_fits$optim$optim.info$conv),
+    smoothness_score = sapply(refit_fits, `[[`, "gcv.ubre"),
+    log_likelihood = vapply(refit_fits, marginal_logLik, numeric(1))
+  )
+  print(as.data.frame(refits), digits = 7)
+
+  kept <- refits %>%
+    filter(optimizer == "bfgs" |
+             str_detect(search_convergence, "probably solution|Successful completion")) %>%
+    slice_min(smoothness_score, n = 1, with_ties = FALSE)
+  print(paste0("Kept: ", kept$optimizer, "; marginal log-likelihood change ",
+               round(kept$log_likelihood - model_fits$log_likelihood[row_index], 3)))
+
+  model_fits$optimizer[row_index] <- kept$optimizer
+  model_fits$log_likelihood[row_index] <- kept$log_likelihood
+  model_fits$converged[row_index] <- refit_fits[[kept$optimizer]]$conv
+}
+
+## The comparison with surprisal as the information measure is the five models.
+## The length check puts Communication's length fit in place of its surprisal
+## fit; the other four models have no information term, so they are the same
+## fits in both.
+likelihoods <- bind_rows(
+  Surprisal = model_fits %>% filter(fit != "weighted_distance_length"),
+  Length = model_fits %>%
+    filter(fit != "weighted_distance") %>%
+    mutate(fit = recode(fit, weighted_distance_length = "weighted_distance")),
+  .id = "information"
+) %>%
+  mutate(
+    task = task_name,
+    model = case_when(
+      fit == "grammatical" ~ "Binary",
+      fit == "distance" ~ "Gradient",
+      fit == "weighted_distance" ~ "Communication",
+      fit == "slor" ~ "SLOR",
+      fit == "morcela" ~ "MORCELA"
+    ) %>%
+      factor(levels = MODEL_LEVELS)
+  ) %>%
+  group_by(subset, information) %>%
+  mutate(
+    max_likelihood = max(log_likelihood),
+    likelihood_diff = log_likelihood - max_likelihood
+  ) %>%
+  ungroup() %>%
+  left_join(sample_sizes, by = "subset") %>%
+  left_join(count(item_means, subset, name = "n_cells"), by = "subset") %>%
+  arrange(subset, desc(information), model) %>%
+  select(task, subset, information, model, log_likelihood, max_likelihood,
+         likelihood_diff, converged, bfgs_convergence, optimizer,
+         n_participants, n_trials, n_cells)
+
+likelihoods %>%
+  select(subset, information, model, log_likelihood, likelihood_diff, converged,
+         optimizer) %>%
+  mutate(log_likelihood = round(log_likelihood, 1),
+         likelihood_diff = round(likelihood_diff, 1)) %>%
+  print(n = Inf)
+
+## ---- (2) The linear mixed model of the main text ----
+## Acceptability on DL distance x surprisal over trials with a DL distance of
+## at most 3, with the random effects of the main analysis's English
+## (controlled) fit, which are the maximal ones: by-participant and by-item
+## (base item) slopes for both predictors and their interaction. Both
+## predictors are z-scored within the trials analysed, as in the main analysis,
+## and the p-values are lmerTest's (Satterthwaite).
+##
+## Convergence. Each fit runs inside capture.output(type = "message"), which
+## records every message and warning printed while the model is fit (with
+## warn = 1, set above, warnings print as they happen): lme4's messages, and
+## lmerTest's warning when the Hessian of the variance parameters has a
+## negative eigenvalue. They go to the convergence column of the CSV. lme4
+## skips its gradient and Hessian checks on singular fits, so those two checks
+## are computed by hand below.
+lmer_fits <- list()
+lmer_messages <- list()
+
+## Both subsets: nlminb (nlminbwrap), as the main analysis fits the English
+## (controlled) experiment. In lme4's allFit() (run separately, with the five
+## optimizers installed here), nlminbwrap reaches the lowest REML criterion in
+## both subsets. bobyqa reaches the same optimum on all trials, but stops 0.08
+## short of it on the trials judged correctly, with fixed effects up to 0.003
+## away (the interaction).
+for (subset_iter in unique(analysis_trials$subset)) {
+  print(paste0("Fitting the linear mixed model for ", subset_iter))
+  lmer_messages[[subset_iter]] <- capture.output(
+    lmer_fits[[subset_iter]] <- lmer(
+      acceptability ~ dl_distance * sum_surprisal +
+        (dl_distance * sum_surprisal|participant_id) +
+        (dl_distance * sum_surprisal|item),
+      data=analysis_trials %>%
+        filter(subset == subset_iter, dl_distance <= 3) %>%
+        mutate(
+          item = as.factor(item),
+          sum_surprisal = scale(sum_surprisal)[,1],
+          dl_distance = scale(dl_distance)[,1]
+        ),
+      control = lmerControl(
+        optimizer ="nlminbwrap",
+        optCtrl = list(eval.max = 1e5, iter.max = 1e5)
+      )
+    ),
+    type = "message"
+  )
+}
+
+print(lapply(lmer_fits, summary))
+
+## Save the fixed effects, with the optimizer and its return code (0 = OK),
+## whether the fit is singular, the messages printed while fitting ("none" if
+## there were none), and lme4's gradient and Hessian checks, computed as lme4's
+## checkConv() does from the gradient and Hessian that lme4 stores at the
+## optimum (fit@optinfo$derivs):
+##   - max_gradient: the largest absolute gradient, scaled by the Hessian; lme4
+##     warns above 0.002. NA when the Hessian is not positive definite, where
+##     lme4 says "unable to evaluate scaled gradient".
+##   - negative_hessian_eigenvalues: the Hessian's eigenvalues below -1e-6;
+##     lme4 warns of a degenerate Hessian when there are any.
+lmm_dl_by_surprisal <- tibble()
+for (subset_iter in names(lmer_fits)) {
+  coefficients <- summary(lmer_fits[[subset_iter]])$coefficients
+  derivs <- lmer_fits[[subset_iter]]@optinfo$derivs
+  scaled_gradient <- try(solve(chol(derivs$Hessian), derivs$gradient), silent = TRUE)
+  lmm_dl_by_surprisal <- bind_rows(lmm_dl_by_surprisal, tibble(
+    task = task_name,
+    subset = subset_iter,
+    term = rownames(coefficients),
+    estimate = coefficients[, "Estimate"],
+    se = coefficients[, "Std. Error"],
+    df = coefficients[, "df"],
+    t = coefficients[, "t value"],
+    p = coefficients[, "Pr(>|t|)"],
+    singular = isSingular(lmer_fits[[subset_iter]]),
+    optimizer = lmer_fits[[subset_iter]]@optinfo$optimizer,
+    optimizer_code = lmer_fits[[subset_iter]]@optinfo$conv$opt,
+    convergence = ifelse(length(lmer_messages[[subset_iter]]) > 0,
+                         paste(lmer_messages[[subset_iter]], collapse = "; "), "none"),
+    max_gradient = ifelse(inherits(scaled_gradient, "try-error"), NA_real_,
+                          max(pmin(abs(scaled_gradient), abs(derivs$gradient)))),
+    negative_hessian_eigenvalues = sum(eigen(derivs$Hessian, symmetric = TRUE,
+                                             only.values = TRUE)$values < -1e-6)
+  ))
+}
+lmm_dl_by_surprisal <- lmm_dl_by_surprisal %>%
+  left_join(sample_sizes, by = "subset")
+
+lmm_dl_by_surprisal %>%
+  select(subset, term, estimate, se, t, p, singular, optimizer, optimizer_code,
+         convergence, max_gradient, negative_hessian_eigenvalues) %>%
+  print(n = Inf, width = Inf)
+
+## ---- (3) The surprisal slope among the error-free sentences ----
+## The main analysis's English (controlled) fit: the error-free sentences (DL
+## distance 0) only, surprisal z-scored within them, and by-participant and
+## by-item surprisal slopes (the maximal structure). Convergence is recorded as
+## in (2).
+error_free_fits <- list()
+error_free_messages <- list()
+for (subset_iter in unique(analysis_trials$subset)) {
+  print(paste0("Fitting the error-free slope for ", subset_iter))
+  error_free_messages[[subset_iter]] <- capture.output(
+    error_free_fits[[subset_iter]] <- lmer(
+      acceptability ~ sum_surprisal +
+        (sum_surprisal | participant_id) +
+        (sum_surprisal | item),
+      data=analysis_trials %>%
+        filter(subset == subset_iter, dl_distance == 0) %>%
+        mutate(
+          item = as.factor(item),
+          sum_surprisal = scale(sum_surprisal)[,1]
+        ),
+      control = lmerControl(
+        optimizer ="bobyqa",
+        optCtrl = list(maxfun = 1e5)
+      )
+    ),
+    type = "message"
+  )
+}
+
+print(lapply(error_free_fits, summary))
+
+## beta is per SD of surprisal; sd_surprisal_bits (the SD among the error-free
+## trials analysed) converts it to per bit
+error_free_sizes <- analysis_trials %>%
+  filter(dl_distance == 0) %>%
+  group_by(subset) %>%
+  summarize(sd_surprisal_bits = sd(sum_surprisal),
+            n_participants = n_distinct(participant_id),
+            n_trials = n())
+
+## The convergence columns are those of (2)
+error_free_surprisal_slopes <- tibble()
+for (subset_iter in names(error_free_fits)) {
+  coefficients <- summary(error_free_fits[[subset_iter]])$coefficients
+  derivs <- error_free_fits[[subset_iter]]@optinfo$derivs
+  scaled_gradient <- try(solve(chol(derivs$Hessian), derivs$gradient), silent = TRUE)
+  error_free_surprisal_slopes <- bind_rows(error_free_surprisal_slopes, tibble(
+    task = task_name,
+    subset = subset_iter,
+    beta = coefficients["sum_surprisal", "Estimate"],
+    se = coefficients["sum_surprisal", "Std. Error"],
+    df = coefficients["sum_surprisal", "df"],
+    t = coefficients["sum_surprisal", "t value"],
+    p = coefficients["sum_surprisal", "Pr(>|t|)"],
+    singular = isSingular(error_free_fits[[subset_iter]]),
+    optimizer = error_free_fits[[subset_iter]]@optinfo$optimizer,
+    optimizer_code = error_free_fits[[subset_iter]]@optinfo$conv$opt,
+    convergence = ifelse(length(error_free_messages[[subset_iter]]) > 0,
+                         paste(error_free_messages[[subset_iter]], collapse = "; "), "none"),
+    max_gradient = ifelse(inherits(scaled_gradient, "try-error"), NA_real_,
+                          max(pmin(abs(scaled_gradient), abs(derivs$gradient)))),
+    negative_hessian_eigenvalues = sum(eigen(derivs$Hessian, symmetric = TRUE,
+                                             only.values = TRUE)$values < -1e-6)
+  ))
+}
+error_free_surprisal_slopes <- error_free_surprisal_slopes %>%
+  left_join(error_free_sizes, by = "subset")
+
+error_free_surprisal_slopes %>%
+  select(subset, beta, se, t, p, sd_surprisal_bits, singular, optimizer,
+         optimizer_code, convergence, max_gradient, negative_hessian_eigenvalues) %>%
+  print(width = Inf)
+
+## ---- Save the tables ----
+write_csv(likelihoods, paste0("outputs/s5_", task_name, "_likelihoods.csv"))
+write_csv(lmm_dl_by_surprisal, paste0("outputs/s5_", task_name, "_lmm_dl_by_surprisal.csv"))
+write_csv(error_free_surprisal_slopes,
+          paste0("outputs/s5_", task_name, "_error_free_surprisal_slopes.csv"))
+write_csv(morcela_weights_by_subset, paste0("outputs/s5_", task_name, "_morcela_weights.csv"))
+
+
+## ---- Figure: "yes" responses in binary error detection ----
+## Over all binary error detection judgments, rated or not, like the
+## correctness table. The y axis is the proportion of "yes" answers to "Are
+## there any errors in this sentence?": false alarms for the originals, and
+## detected errors for the swapped and shuffled sentences. Points are sentences
+## (one item at one length in one condition). The four sentences of one item at
+## one length share their x (the surprisal of the intended sentence), so the
+## points are jittered sideways, by up to 2 bits, and never up or down, so that
+## no point is drawn outside 0-100%. Lines are logistic regressions of the
+## trial-level outcome on surprisal, one per condition; their 95% confidence
+## bands are computed on the logit scale, so they stay within 0-100%. They
+## ignore that trials are grouped by participant and item. The legend lists the
+## conditions from top to bottom in the order of the curves, and calls the
+## swaps "exchanges", as the text does.
+p_yes_responses <- ggplot(mapping = aes(x = sum_surprisal, color = condition_label,
+                                        fill = condition_label)) +
+  geom_point(data = judgment_trials %>%
+               group_by(condition_label, item, length_level, sum_surprisal) %>%
+               summarize(value = mean(reported_error), .groups = "drop"),
+             aes(y = value), alpha = 0.4,
+             position = position_jitter(width = 2, height = 0, seed = 2026)) +
+  geom_smooth(data = judgment_trials, aes(y = as.integer(reported_error)),
+              method = "glm", method.args = list(family = binomial), formula = y ~ x) +
+  scale_color_manual(name = "Condition", values = CONDITION_COLORS,
+                     labels = c("Original" = "Original", "1 swap" = "1 exchange",
+                                "3 swaps" = "3 exchanges", "Shuffled" = "Shuffled"),
+                     aesthetics = c("colour", "fill"),
+                     guide = guide_legend(reverse = TRUE)) +
+  scale_x_continuous(name = "Sentence surprisal (bits)") +
+  scale_y_continuous(name = "Proportion of \"yes\" responses\n(reported an error)",
+                     labels = scales::percent, breaks = seq(0, 1, 0.25)) +
+  coord_cartesian(ylim = c(0, 1))
+
+if (interactive()) print(p_yes_responses)
+
+ggsave(paste0("figures/s5_", task_name, "_yes_responses.png"),
+       p_yes_responses, width = 8, height = 5.5)
+
+
+## ---- Figure: acceptability on the trials judged correctly ----
+## The human-judgment curves of the main text's qualitative-predictions figure,
+## with its plotting code (p_baseline and p_gam in analysis/main_analysis.R),
+## for the trials judged correctly. Points are sentence means (one item at one
+## length in one condition); lines are GAM smooths of those means over
+## surprisal, one per DL distance bucket, with 95% confidence bands. As in the
+## main figure, the shuffled sentences are drawn too, nearly all in the grey
+## "4+" bucket, though the models are fit on DL distances up to 3 only. Like
+## the main figure, it is drawn at its print size, one PNAS column (8.7 cm)
+## wide, in the main figure's 8-pt print theme (theme_print_8pt there). Where
+## it differs from the main code: it has no "Human Judgments" title (there are
+## no model columns to tell it from) and shows its own legend, at the bottom
+## like the main figure's; the legend is centred on the whole plot, as the main
+## figure's collected legend is, so that it fits at this width.
+plot_data_by_item <- analysis_trials %>%
+  filter(subset == "Judged correctly") %>%
+  group_by(subset, item, length_level, condition_label, sum_surprisal, dl_distance) %>%
+  summarize(response = mean(acceptability), .groups = "drop") %>%
+  mutate(dl_distance_bucket = bucket_dl(dl_distance))
+
+p_acceptability <- ggplot(
+  plot_data_by_item,
+  aes(x = sum_surprisal, y = response, color = dl_distance_bucket)
+) +
+  geom_point(alpha = 0.5, size = 1.3, stroke = 0) +
+  geom_smooth(
+    method  = "gam",
+    formula = y ~ s(x, bs = "tp"),
+    se = TRUE,
+    linewidth = 0.5,
+    show.legend = FALSE
+  ) +
+  labs(x = "Sentence surprisal (bits)") +
+  theme_bw(base_size = 8) +
+  theme(panel.grid = element_blank(),
+        strip.background = element_blank(),
+        legend.key = element_blank(),
+        panel.border = element_blank(),
+        axis.line = element_line(linewidth = 0.3),
+        axis.ticks = element_line(linewidth = 0.3),
+        strip.text = element_text(face = "bold"),
+        plot.title = element_text(hjust = 0.5)) +
+  theme(
+    legend.position = "bottom",
+    legend.location = "plot",
+    legend.margin = margin(0, 0, 0, 0),
+    legend.box.spacing = unit(2, "pt"),
+    panel.spacing = unit(4, "pt")
+  ) +
+  scale_y_continuous(
+    limits = YLIM,
+    breaks = seq(1, 7, 2),
+    labels = seq(1, 7, 2),
+    name = "Acceptability Ratings (1-7 scale)"
+  ) +
+  scale_color_manual(
+    name   = "Damerau-Levenshtein Distance",
+    values = DL_COLORS,
+    breaks = DL_BUCKET_LEVELS,
+    limits = DL_BUCKET_LEVELS,
+    drop   = FALSE,
+    guide  = guide_legend(
+      override.aes = list(alpha = 1, linewidth = 0, size = 1.6)
+    )
+  )
+
+if (interactive()) print(p_acceptability)
+
+ggsave(paste0("figures/s5_", task_name, "_correct_trials.png"),
+       p_acceptability, width = 3.42, height = 2.6, units = "in", dpi = 300)
+
+
+print("Done.")
+
+
+## #############################################################################
+## 5.3  Acceptability ratings with the errors highlighted (length-controlled
+##      sentences)
+## #############################################################################
+rm(list = setdiff(ls(), shared_objects))
+
+## =============================================================================
+## SI Section 5.3: Acceptability ratings with the errors highlighted
+## (length-controlled sentences)
+##
+## en_highlighted_errors. The 648 sentences of the main text's English
+## (controlled) experiment without its shuffled condition (72 base items x
+## short, medium and long x original, 1 swap and 3 swaps; see the shared set-up
+## above), and every participant sees every base item once. Each displaced word
+## is shown in bold red: a word that differs from the word at the same position
+## in the original sentence (checked in the shared set-up). Participants only
+## rate each sentence (1-7), on the scale of the main experiments, with the
+## prompt "Please rate how acceptable the sentence is (note that errors
+## consisting of exchanged words are shown in red)".
+##
+## The main text's analyses, with sentence surprisal as Information(s) and the
+## specifications of the main analysis's English (controlled) experiment:
+##   (1) the five models (Binary, Gradient, Communication, SLOR, MORCELA) as
+##       shape-constrained GAMs on item x condition means, compared on their
+##       marginal log-likelihood;
+##   (2) the linear mixed model of acceptability on DL distance x surprisal,
+##       over trials;
+##   (3) the surprisal slope among the error-free sentences;
+##   (4) the length check, in the CSV only: Communication with length in place
+##       of surprisal.
+## There is no second task in this study, so no trials can be singled out as
+## correct: every analysis uses all trials. Every sentence shown has a DL
+## distance of at most 3 (checked below), so the main analysis's restriction to
+## those removes nothing here, and the error-free sentences are those with a DL
+## distance of 0 (the originals and one 1-swap sentence; see the shared
+## set-up).
+##
+## Mixed models have the maximal random-effects structure. As in
+## ../analysis/main_analysis.R, the linear mixed model of (2) is fit with
+## nlminb and the error-free model with bobyqa (see (2)). Singular fits are
+## kept. For every mixed model the CSVs record the optimizer, every message
+## and warning printed while fitting it (lme4's and lmerTest's) and lme4's
+## gradient and Hessian checks; see (2).
+##
+## Figure: figures/s5_controlled_highlighted_errors_all_trials.png, the main
+## text's human-judgment curves for this study
+## Numbers: outputs/s5_controlled_highlighted_errors_*.csv
+## The log-likelihoods are drawn together with the other studies' by the
+## figure at the end of this script.
+## =============================================================================
+
+task_name <- "controlled_highlighted_errors"
+
+## ---- Responses ----
+responses <- read_csv("../data/en_highlighted_errors/data_en_highlighted_errors.csv",
+                      show_col_types = FALSE)
+
+cat("\n---- export integrity ----\n")
+cat("participants in the file:", n_distinct(responses$participant_id), "\n")
+responses %>% count(participant_id, name = "trials") %>% count(trials, name = "participants") %>% print()
+cat("(72 trials = complete; Surveyor writes no row for a skipped question)\n")
+responses %>% distinct(participant_id, native_language) %>% count(native_language) %>% print()
+responses %>% distinct(participant_id, country_of_birth) %>% count(country_of_birth) %>% print()
+responses %>% distinct(participant_id, other_languages) %>% count(other_languages) %>% print()
+
+## Every row is a rating, and no experimenter test session is in the file:
+## every participant id is one of the study's pseudonyms, en_highlighted_01 to
+## en_highlighted_40
+stopifnot(
+  all(responses$experiment == "exp_b"),
+  all(str_detect(responses$participant_id, "^en_highlighted_[0-9]{2}$"))
+)
+
+## The study is of native English speakers: drop anyone who answered No (nobody
+## did here). A blank answer is kept, as in the other studies.
+non_native <- responses %>%
+  distinct(participant_id, native_language) %>%
+  filter(native_language %in% "No") %>%
+  pull(participant_id)
+cat("excluded as non-native:", length(non_native), "participant(s)\n")
+
+## The participant ids are pseudonyms numbered within this study, as are those
+## of section 5.2 (en_exp_awareness_<n>), which shows the same sentences, so
+## whether anyone took part in both cannot be checked, and nobody is excluded
+## for it.
+
+trials <- responses %>%
+  filter(!participant_id %in% non_native) %>%
+  transmute(participant_id, item = as.integer(item), cond,
+            acceptability = as.numeric(substr(response, 1, 1))) %>%
+  left_join(sentences, by = c("item", "cond"))
+
+stopifnot(
+  !anyNA(trials),
+  all(trials$condition_label != "Shuffled"),
+  all(trials$dl_distance <= 3)
+)
+
+## Condition assignment: every participant rates each base item at most once,
+## in one of its 9 conditions, and those who rated all 72 saw each condition 8
+## times. The participants by how many items they rated, in how many of the 9
+## conditions, and the fewest and most items they rated in one condition:
+stopifnot(!anyDuplicated(trials[c("participant_id", "item")]))
+trials %>%
+  count(participant_id, cond) %>%
+  group_by(participant_id) %>%
+  summarize(items = sum(n), conditions = n(), fewest_per_condition = min(n),
+            most_per_condition = max(n)) %>%
+  count(items, conditions, fewest_per_condition, most_per_condition,
+        name = "participants") %>%
+  print(width = Inf)
+
+cat("participants analysed:", n_distinct(trials$participant_id), "| trials:", nrow(trials), "\n")
+
+cells <- trials %>% count(item, cond)
+cat("item x condition cells seen:", nrow(cells), "of", sum(sentences$condition_label != "Shuffled"),
+    "| ratings per cell: median", median(cells$n),
+    "range", min(cells$n), "-", max(cells$n), "\n")
+
+cat("\n---- mean rating by condition and length ----\n")
+trials %>%
+  group_by(condition_label, length_level) %>%
+  summarize(mean_rating = round(mean(acceptability), 2), .groups = "drop") %>%
+  pivot_wider(names_from = length_level, values_from = mean_rating) %>%
+  print()
+
+## ---- The trials analysed ----
+## One long table, with every analysis below run on each subset of it. This
+## study has one subset: all trials.
+analysis_trials <- bind_rows("All trials" = trials, .id = "subset")
+
+sample_sizes <- analysis_trials %>%
+  group_by(subset) %>%
+  summarize(n_participants = n_distinct(participant_id), n_trials = n())
+print(sample_sizes)
+
+## ---- (1) The five models on item x condition means ----
+## As in the main analysis, the models are fit to the mean rating of each
+## sentence (one base item at one length in one version) over the trials
+## analysed. SLOR is computed as in the main analysis.
+item_means <- analysis_trials %>%
+  group_by(subset, item, cond, length_level, condition_label, n_words,
+           sum_surprisal, dl_distance, weighted_dl_distance,
+           weighted_dl_distance_surprisal, grammatical_numeric,
+           log_p_sentence, log_p_unigram) %>%
+  summarize(response_num = mean(acceptability), .groups = "drop") %>%
+  mutate(
+    item = as.factor(item),
+    slor = (log_p_sentence - log_p_unigram) / n_words,
+    morcela = NA_real_
+  )
+
+## MORCELA's two weights are estimated on these same means, separately for each
+## subset, by the main analysis's recipe
+morcela_weights_by_subset <- tibble()
+for (subset_iter in unique(item_means$subset)) {
+  in_subset <- item_means$subset == subset_iter
+  weights <- morcela_weights(item_means[in_subset, ])
+  item_means$morcela[in_subset] <- morcela_score(item_means[in_subset, ], weights)
+  morcela_weights_by_subset <- bind_rows(
+    morcela_weights_by_subset,
+    tibble(task = task_name, subset = subset_iter,
+           beta = weights$beta, gamma = weights$gamma)
+  )
+}
+print(morcela_weights_by_subset)
+
+## The models, with the specifications of the main analysis's English
+## (controlled) experiment: the base item takes a random intercept and a random
+## slope for every predictor.
+##   - Binary: grammatical vs. ungrammatical
+##   - Gradient: a decreasing smooth of the number of errors (DL distance)
+##   - Communication: a decreasing smooth of the errors per bit of information
+##     (DL distance / surprisal of the intended sentence) plus a decreasing
+##     smooth of that surprisal
+##   - SLOR and MORCELA: an increasing smooth of the score
+## The last model is the length check: Communication with length (in words) as
+## the information measure, with the random effects of SI section 3's
+## English (controlled) fit (section3_length.R).
+models_by_subset <- list()
+for (subset_iter in unique(item_means$subset)) {
+  print(paste0("Fitting models for ", subset_iter))
+
+  item_means_subset <- item_means %>% filter(subset == subset_iter)
+
+  grammatical <- scam(
+    response_num ~ grammatical_numeric +
+      s(item, bs="re") + s(item, grammatical_numeric, bs="re"),
+    data=item_means_subset
+  )
+
+  distance <- scam(
+    response_num ~ s(dl_distance, bs="mpd") +
+      s(item, bs="re") + s(item, dl_distance, bs="re"),
+    data=item_means_subset
+  )
+
+  weighted_distance <- scam(
+    response_num ~ s(weighted_dl_distance_surprisal, bs="mpd") + s(sum_surprisal, bs="mpd") +
+      s(item, bs="re") + s(item, weighted_dl_distance_surprisal, bs="re") +
+      s(item, sum_surprisal, bs="re"),
+    data=item_means_subset
+  )
+
+  slor <- scam(
+    response_num ~ s(slor, bs="mpi") +
+      s(item, bs="re") + s(item, slor, bs="re"),
+    data=item_means_subset
+  )
+
+  morcela <- scam(
+    response_num ~ s(morcela, bs="mpi") +
+      s(item, bs="re") + s(item, morcela, bs="re"),
+    data=item_means_subset
+  )
+
+  weighted_distance_length <- scam(
+    response_num ~ s(weighted_dl_distance, bs="mpd") + s(n_words, bs="mpd") +
+      s(item, bs="re") + s(item, weighted_dl_distance, bs="re") +
+      s(item, n_words, bs="re"),
+    data=item_means_subset
+  )
+
+  models_by_subset[[subset_iter]] <- list(
+    grammatical = grammatical,
+    distance = distance,
+    weighted_distance = weighted_distance,
+    slor = slor,
+    morcela = morcela,
+    weighted_distance_length = weighted_distance_length
+  )
+}
+
+## scam's inner fitting loop converged (one column per subset); the
+## smoothing-parameter search is checked below
+print(sapply(models_by_subset, sapply, `[[`, "conv"))
+
+## Marginal log-likelihoods, with the random effects integrated out, as in the
+## main analysis. `converged` is scam's inner fitting loop ($conv), which is
+## TRUE even when scam's search for the smoothing parameters stopped short;
+## bfgs_convergence is how that search ended ("Full convergence" when the
+## gradient of its smoothness score, GCV/UBRE, became small enough).
+model_fits <- tibble()
+for (subset_iter in names(models_by_subset)) {
+  model_fits <- bind_rows(model_fits, tibble(
+    subset = subset_iter,
+    fit = names(models_by_subset[[subset_iter]]),
+    log_likelihood = vapply(models_by_subset[[subset_iter]], marginal_logLik, numeric(1)),
+    converged = sapply(models_by_subset[[subset_iter]], `[[`, "conv"),
+    bfgs_convergence = sapply(lapply(models_by_subset[[subset_iter]], `[[`, "bfgs.info"), `[[`, "conv"),
+    optimizer = "bfgs"
+  ))
+}
+
+model_fits %>% count(bfgs_convergence) %>% print()
+
+## A fit whose search did not reach full convergence (it reached its 200-step
+## limit, or its last step found no lower score) is refit with scam's two other
+## optimizers, nlm and optim, as ../analysis/main_analysis.R checks its fits.
+## The fit reported is the one with the lowest smoothness score among the
+## original and the refits whose search converged; `optimizer` records which
+## (bfgs is scam's default). nlm's two messages of success end in "probably
+## solution"; optim's is "Successful completion".
+for (row_index in which(model_fits$bfgs_convergence != "Full convergence")) {
+  m <- models_by_subset[[model_fits$subset[row_index]]][[model_fits$fit[row_index]]]
+  refit_fits <- list(
+    bfgs = m,
+    nlm = scam(m$formula, data = m$model, optimizer = "nlm"),
+    optim = scam(m$formula, data = m$model, optimizer = "optim")
+  )
+  refits <- tibble(
+    subset = model_fits$subset[row_index],
+    fit = model_fits$fit[row_index],
+    optimizer = names(refit_fits),
+    search_convergence = c(m$bfgs.info$conv, refit_fits$nlm$nlm.info$conv,
+                           refit_fits$optim$optim.info$conv),
+    smoothness_score = sapply(refit_fits, `[[`, "gcv.ubre"),
+    log_likelihood = vapply(refit_fits, marginal_logLik, numeric(1))
+  )
+  print(as.data.frame(refits), digits = 7)
+
+  kept <- refits %>%
+    filter(optimizer == "bfgs" |
+             str_detect(search_convergence, "probably solution|Successful completion")) %>%
+    slice_min(smoothness_score, n = 1, with_ties = FALSE)
+  print(paste0("Kept: ", kept$optimizer, "; marginal log-likelihood change ",
+               round(kept$log_likelihood - model_fits$log_likelihood[row_index], 3)))
+
+  model_fits$optimizer[row_index] <- kept$optimizer
+  model_fits$log_likelihood[row_index] <- kept$log_likelihood
+  model_fits$converged[row_index] <- refit_fits[[kept$optimizer]]$conv
+}
+
+## The comparison with surprisal as the information measure is the five models.
+## The length check puts Communication's length fit in place of its surprisal
+## fit; the other four models have no information term, so they are the same
+## fits in both.
+likelihoods <- bind_rows(
+  Surprisal = model_fits %>% filter(fit != "weighted_distance_length"),
+  Length = model_fits %>%
+    filter(fit != "weighted_distance") %>%
+    mutate(fit = recode(fit, weighted_distance_length = "weighted_distance")),
+  .id = "information"
+) %>%
+  mutate(
+    task = task_name,
+    model = case_when(
+      fit == "grammatical" ~ "Binary",
+      fit == "distance" ~ "Gradient",
+      fit == "weighted_distance" ~ "Communication",
+      fit == "slor" ~ "SLOR",
+      fit == "morcela" ~ "MORCELA"
+    ) %>%
+      factor(levels = MODEL_LEVELS)
+  ) %>%
+  group_by(subset, information) %>%
+  mutate(
+    max_likelihood = max(log_likelihood),
+    likelihood_diff = log_likelihood - max_likelihood
+  ) %>%
+  ungroup() %>%
+  left_join(sample_sizes, by = "subset") %>%
+  left_join(count(item_means, subset, name = "n_cells"), by = "subset") %>%
+  arrange(subset, desc(information), model) %>%
+  select(task, subset, information, model, log_likelihood, max_likelihood,
+         likelihood_diff, converged, bfgs_convergence, optimizer,
+         n_participants, n_trials, n_cells)
+
+likelihoods %>%
+  select(subset, information, model, log_likelihood, likelihood_diff, converged,
+         optimizer) %>%
+  mutate(log_likelihood = round(log_likelihood, 1),
+         likelihood_diff = round(likelihood_diff, 1)) %>%
+  print(n = Inf)
+
+## ---- (2) The linear mixed model of the main text ----
+## Acceptability on DL distance x surprisal over trials, with the random effects
+## of the main analysis's English (controlled) fit, which are the maximal ones:
+## by-participant and by-item (base item) slopes for both predictors and their
+## interaction. Both predictors are z-scored within the trials analysed, as in
+## the main analysis, and the p-values are lmerTest's (Satterthwaite).
+##
+## Convergence. Each fit runs inside capture.output(type = "message"), which
+## records every message and warning printed while the model is fit (with
+## warn = 1, set above, warnings print as they happen): lme4's messages, and
+## lmerTest's warning when the Hessian of the variance parameters has a
+## negative eigenvalue. They go to the convergence column of the CSV. lme4
+## skips its gradient and Hessian checks on singular fits, so those two checks
+## are computed by hand below.
+lmer_fits <- list()
+lmer_messages <- list()
+
+## nlminb (nlminbwrap), as the main analysis fits the English (controlled)
+## experiment. In lme4's allFit() (run separately, with the five optimizers
+## installed here), bobyqa reaches the same optimum, with the same fixed
+## effects to 5 decimals.
+for (subset_iter in unique(analysis_trials$subset)) {
+  print(paste0("Fitting the linear mixed model for ", subset_iter))
+  lmer_messages[[subset_iter]] <- capture.output(
+    lmer_fits[[subset_iter]] <- lmer(
+      acceptability ~ dl_distance * sum_surprisal +
+        (dl_distance * sum_surprisal|participant_id) +
+        (dl_distance * sum_surprisal|item),
+      data=analysis_trials %>%
+        filter(subset == subset_iter) %>%
+        mutate(
+          item = as.factor(item),
+          sum_surprisal = scale(sum_surprisal)[,1],
+          dl_distance = scale(dl_distance)[,1]
+        ),
+      control = lmerControl(
+        optimizer ="nlminbwrap",
+        optCtrl = list(eval.max = 1e5, iter.max = 1e5)
+      )
+    ),
+    type = "message"
+  )
+}
+
+print(lapply(lmer_fits, summary))
+
+## Save the fixed effects, with the optimizer and its return code (0 = OK),
+## whether the fit is singular, the messages printed while fitting ("none" if
+## there were none), and lme4's gradient and Hessian checks, computed as lme4's
+## checkConv() does from the gradient and Hessian that lme4 stores at the
+## optimum (fit@optinfo$derivs):
+##   - max_gradient: the largest absolute gradient, scaled by the Hessian; lme4
+##     warns above 0.002. NA when the Hessian is not positive definite, where
+##     lme4 says "unable to evaluate scaled gradient".
+##   - negative_hessian_eigenvalues: the Hessian's eigenvalues below -1e-6;
+##     lme4 warns of a degenerate Hessian when there are any.
+lmm_dl_by_surprisal <- tibble()
+for (subset_iter in names(lmer_fits)) {
+  coefficients <- summary(lmer_fits[[subset_iter]])$coefficients
+  derivs <- lmer_fits[[subset_iter]]@optinfo$derivs
+  scaled_gradient <- try(solve(chol(derivs$Hessian), derivs$gradient), silent = TRUE)
+  lmm_dl_by_surprisal <- bind_rows(lmm_dl_by_surprisal, tibble(
+    task = task_name,
+    subset = subset_iter,
+    term = rownames(coefficients),
+    estimate = coefficients[, "Estimate"],
+    se = coefficients[, "Std. Error"],
+    df = coefficients[, "df"],
+    t = coefficients[, "t value"],
+    p = coefficients[, "Pr(>|t|)"],
+    singular = isSingular(lmer_fits[[subset_iter]]),
+    optimizer = lmer_fits[[subset_iter]]@optinfo$optimizer,
+    optimizer_code = lmer_fits[[subset_iter]]@optinfo$conv$opt,
+    convergence = ifelse(length(lmer_messages[[subset_iter]]) > 0,
+                         paste(lmer_messages[[subset_iter]], collapse = "; "), "none"),
+    max_gradient = ifelse(inherits(scaled_gradient, "try-error"), NA_real_,
+                          max(pmin(abs(scaled_gradient), abs(derivs$gradient)))),
+    negative_hessian_eigenvalues = sum(eigen(derivs$Hessian, symmetric = TRUE,
+                                             only.values = TRUE)$values < -1e-6)
+  ))
+}
+lmm_dl_by_surprisal <- lmm_dl_by_surprisal %>%
+  left_join(sample_sizes, by = "subset")
+
+lmm_dl_by_surprisal %>%
+  select(subset, term, estimate, se, t, p, singular, optimizer, optimizer_code,
+         convergence, max_gradient, negative_hessian_eigenvalues) %>%
+  print(n = Inf, width = Inf)
+
+## ---- (3) The surprisal slope among the error-free sentences ----
+## The main analysis's English (controlled) fit: the error-free sentences (DL
+## distance 0) only, surprisal z-scored within them, and by-participant and
+## by-item surprisal slopes (the maximal structure). Convergence is recorded as
+## in (2).
+error_free_fits <- list()
+error_free_messages <- list()
+for (subset_iter in unique(analysis_trials$subset)) {
+  print(paste0("Fitting the error-free slope for ", subset_iter))
+  error_free_messages[[subset_iter]] <- capture.output(
+    error_free_fits[[subset_iter]] <- lmer(
+      acceptability ~ sum_surprisal +
+        (sum_surprisal | participant_id) +
+        (sum_surprisal | item),
+      data=analysis_trials %>%
+        filter(subset == subset_iter, dl_distance == 0) %>%
+        mutate(
+          item = as.factor(item),
+          sum_surprisal = scale(sum_surprisal)[,1]
+        ),
+      control = lmerControl(
+        optimizer ="bobyqa",
+        optCtrl = list(maxfun = 1e5)
+      )
+    ),
+    type = "message"
+  )
+}
+
+print(lapply(error_free_fits, summary))
+
+## beta is per SD of surprisal; sd_surprisal_bits (the SD among the error-free
+## trials analysed) converts it to per bit
+error_free_sizes <- analysis_trials %>%
+  filter(dl_distance == 0) %>%
+  group_by(subset) %>%
+  summarize(sd_surprisal_bits = sd(sum_surprisal),
+            n_participants = n_distinct(participant_id),
+            n_trials = n())
+
+## The convergence columns are those of (2)
+error_free_surprisal_slopes <- tibble()
+for (subset_iter in names(error_free_fits)) {
+  coefficients <- summary(error_free_fits[[subset_iter]])$coefficients
+  derivs <- error_free_fits[[subset_iter]]@optinfo$derivs
+  scaled_gradient <- try(solve(chol(derivs$Hessian), derivs$gradient), silent = TRUE)
+  error_free_surprisal_slopes <- bind_rows(error_free_surprisal_slopes, tibble(
+    task = task_name,
+    subset = subset_iter,
+    beta = coefficients["sum_surprisal", "Estimate"],
+    se = coefficients["sum_surprisal", "Std. Error"],
+    df = coefficients["sum_surprisal", "df"],
+    t = coefficients["sum_surprisal", "t value"],
+    p = coefficients["sum_surprisal", "Pr(>|t|)"],
+    singular = isSingular(error_free_fits[[subset_iter]]),
+    optimizer = error_free_fits[[subset_iter]]@optinfo$optimizer,
+    optimizer_code = error_free_fits[[subset_iter]]@optinfo$conv$opt,
+    convergence = ifelse(length(error_free_messages[[subset_iter]]) > 0,
+                         paste(error_free_messages[[subset_iter]], collapse = "; "), "none"),
+    max_gradient = ifelse(inherits(scaled_gradient, "try-error"), NA_real_,
+                          max(pmin(abs(scaled_gradient), abs(derivs$gradient)))),
+    negative_hessian_eigenvalues = sum(eigen(derivs$Hessian, symmetric = TRUE,
+                                             only.values = TRUE)$values < -1e-6)
+  ))
+}
+error_free_surprisal_slopes <- error_free_surprisal_slopes %>%
+  left_join(error_free_sizes, by = "subset")
+
+error_free_surprisal_slopes %>%
+  select(subset, beta, se, t, p, sd_surprisal_bits, singular, optimizer,
+         optimizer_code, convergence, max_gradient, negative_hessian_eigenvalues) %>%
+  print(width = Inf)
+
+## ---- Save the tables ----
+write_csv(likelihoods, paste0("outputs/s5_", task_name, "_likelihoods.csv"))
+write_csv(lmm_dl_by_surprisal, paste0("outputs/s5_", task_name, "_lmm_dl_by_surprisal.csv"))
+write_csv(error_free_surprisal_slopes,
+          paste0("outputs/s5_", task_name, "_error_free_surprisal_slopes.csv"))
+write_csv(morcela_weights_by_subset, paste0("outputs/s5_", task_name, "_morcela_weights.csv"))
+
+## ---- Figure: acceptability ----
+## The human-judgment curves of the main text's qualitative-predictions figure,
+## with its plotting code (p_baseline and p_gam in analysis/main_analysis.R),
+## for all trials of this study: it has no second task. Points are sentence
+## means (one item at one length in one condition); lines are GAM smooths of
+## those means over surprisal, one per DL distance bucket, with 95% confidence
+## bands. Like the main figure, it is drawn at its print size, one PNAS column
+## (8.7 cm) wide, in the main figure's 8-pt print theme (theme_print_8pt
+## there). Where it differs from the main code: it has no "Human Judgments"
+## title (there are no model columns to tell it from) and shows its own legend,
+## at the bottom like the main figure's; the legend is centred on the whole
+## plot, as the main figure's collected legend is, so that it fits at this
+## width; and it leaves out "4+", since no sentence here has a DL distance of
+## more than 3.
+plot_data_by_item <- analysis_trials %>%
+  filter(subset == "All trials") %>%
+  group_by(subset, item, length_level, condition_label, sum_surprisal, dl_distance) %>%
+  summarize(response = mean(acceptability), .groups = "drop") %>%
+  mutate(dl_distance_bucket = bucket_dl(dl_distance))
+
+p_acceptability <- ggplot(
+  plot_data_by_item,
+  aes(x = sum_surprisal, y = response, color = dl_distance_bucket)
+) +
+  geom_point(alpha = 0.5, size = 1.3, stroke = 0) +
+  geom_smooth(
+    method  = "gam",
+    formula = y ~ s(x, bs = "tp"),
+    se = TRUE,
+    linewidth = 0.5,
+    show.legend = FALSE
+  ) +
+  labs(x = "Sentence surprisal (bits)") +
+  theme_bw(base_size = 8) +
+  theme(panel.grid = element_blank(),
+        strip.background = element_blank(),
+        legend.key = element_blank(),
+        panel.border = element_blank(),
+        axis.line = element_line(linewidth = 0.3),
+        axis.ticks = element_line(linewidth = 0.3),
+        strip.text = element_text(face = "bold"),
+        plot.title = element_text(hjust = 0.5)) +
+  theme(
+    legend.position = "bottom",
+    legend.location = "plot",
+    legend.margin = margin(0, 0, 0, 0),
+    legend.box.spacing = unit(2, "pt"),
+    panel.spacing = unit(4, "pt")
+  ) +
+  scale_y_continuous(
+    limits = YLIM,
+    breaks = seq(1, 7, 2),
+    labels = seq(1, 7, 2),
+    name = "Acceptability Ratings (1-7 scale)"
+  ) +
+  scale_color_manual(
+    name   = "Damerau-Levenshtein Distance",
+    values = DL_COLORS,
+    breaks = c("0", "1-2", "3"),
+    limits = DL_BUCKET_LEVELS,
+    drop   = FALSE,
+    guide  = guide_legend(
+      override.aes = list(alpha = 1, linewidth = 0, size = 1.6)
+    )
+  )
+
+if (interactive()) print(p_acceptability)
+
+ggsave(paste0("figures/s5_", task_name, "_all_trials.png"),
+       p_acceptability, width = 3.42, height = 2.6, units = "in", dpi = 300)
+
+
+print("Done.")
+
+
+## #############################################################################
+## Shared set-up of 5.4-5.6 (the constructed sentences)
 ## #############################################################################
 ## Start from a clean slate, as the stand-alone scripts did
 rm(list = setdiff(ls(), "get_script_dir"))
@@ -857,13 +2429,13 @@ rm(list = setdiff(ls(), "get_script_dir"))
 ## =============================================================================
 ## SI Section 5: set-up shared by the three studies of constructed sentences
 ##
-## Used by parts 5.2, 5.3 and 5.4 and the figure below. It
+## Used by parts 5.4, 5.5 and 5.6 and the figure below. It
 ##   - sources setup.R, for the libraries, the plotting theme, the main
 ##     analysis's marginal_logLik(), morcela_weights() and morcela_score(), the
 ##     five models' colours, shapes and legend labels, and the main text's
 ##     DL-distance colours and buckets (DL_COLORS, DL_BUCKET_LEVELS,
 ##     bucket_dl(), YLIM) for the acceptability figures (setup.R also reads the
-##     main experiments' data, which parts 5.2-5.4 do not use);
+##     main experiments' data, which parts 5.4-5.6 do not use);
 ##   - sets the colours of the three conditions, for the correctness figures;
 ##   - builds the table of the 243 sentences that all three studies show.
 ##
@@ -1007,18 +2579,18 @@ sentences %>%
             max_surprisal = max(sum_surprisal)) %>%
   print(width = Inf)
 
-## Everything defined so far is shared by 5.2-5.4 and the figure; each part
+## Everything defined so far is shared by 5.4-5.6 and the figure; each part
 ## below starts by removing what the previous part defined
 shared_objects <- c(ls(), "shared_objects")
 
 
 ## #############################################################################
-## 5.2  Acceptability ratings only (constructed sentences)
+## 5.4  Acceptability ratings only (constructed sentences)
 ## #############################################################################
 rm(list = setdiff(ls(), shared_objects))
 
 ## =============================================================================
-## SI Section 5.2: Acceptability ratings only (constructed sentences)
+## SI Section 5.4: Acceptability ratings only (constructed sentences)
 ##
 ## en_artificial_acceptability_ratings. The 243 constructed sentences (27 base
 ## items x short, medium and long x original, 1 swap and 3 swaps; see
@@ -1041,7 +2613,7 @@ rm(list = setdiff(ls(), shared_objects))
 ##
 ## Mixed models have the maximal random-effects structure and are fit with
 ## bobyqa; singular fits are kept. ../analysis/main_analysis.R and sections
-## 5.3-5.4 fit the linear mixed model of (2) with nlminb, but here
+## 5.5-5.6 fit the linear mixed model of (2) with nlminb, but here
 ## nlminb stops short (see (2)). For every mixed model the CSVs record the
 ## optimizer, every message and warning printed while fitting it (lme4's and
 ## lmerTest's) and lme4's gradient and Hessian checks; see (2).
@@ -1049,7 +2621,7 @@ rm(list = setdiff(ls(), shared_objects))
 ## Figure: figures/s5_acceptability_ratings_only_all_trials.png, the main
 ## text's human-judgment curves for this study
 ## Numbers: outputs/s5_acceptability_ratings_only_*.csv
-## The log-likelihoods are drawn together with the other two studies' by
+## The log-likelihoods are drawn together with the other studies' by
 ## the figure at the end of this script.
 ## =============================================================================
 
@@ -1563,12 +3135,12 @@ print("Done.")
 
 
 ## #############################################################################
-## 5.3  Binary error detection + acceptability ratings (constructed sentences)
+## 5.5  Binary error detection + acceptability ratings (constructed sentences)
 ## #############################################################################
 rm(list = setdiff(ls(), shared_objects))
 
 ## =============================================================================
-## SI Section 5.3: Binary error detection + acceptability ratings (constructed
+## SI Section 5.5: Binary error detection + acceptability ratings (constructed
 ## sentences)
 ##
 ## en_artificial_binary_error_detection. The 243 constructed sentences (27 base
@@ -1609,7 +3181,7 @@ rm(list = setdiff(ls(), shared_objects))
 ## figures/s5_binary_error_detection_acceptability_ratings_correct_trials.png
 ## (the main text's human-judgment curves, on the trials judged correctly)
 ## Numbers: outputs/s5_binary_error_detection_acceptability_ratings_*.csv
-## The log-likelihoods are drawn together with the other two studies' by
+## The log-likelihoods are drawn together with the other studies' by
 ## the figure at the end of this script.
 ## =============================================================================
 
@@ -1633,7 +3205,7 @@ cat("excluded as non-native:", length(non_native), "participant(s)\n")
 responses <- responses %>% filter(!participant_id %in% non_native)
 
 ## Participants who also took the exchange identification + acceptability
-## ratings study (section 5.4) saw the same sentences twice; they are excluded
+## ratings study (section 5.6) saw the same sentences twice; they are excluded
 ## from both studies. The studies of constructed sentences share one set of
 ## pseudonyms (en_artificial_<n>), so the same id in both is the same person.
 took_both <- intersect(
@@ -1687,7 +3259,7 @@ judgments %>%
   print(width = Inf)
 
 ## Every binary error detection judgment, rated or not, with its sentence: the
-## correctness table and figure use all of them, as section 5.4 uses all
+## correctness table and figure use all of them, as section 5.6 uses all
 ## exchange identification trials
 judgment_trials <- judgments %>%
   left_join(sentences, by = c("item", "cond"))
@@ -1715,7 +3287,7 @@ cat("item x condition cells seen:", nrow(cells), "of", nrow(sentences),
     "range", min(cells$n), "-", max(cells$n), "\n")
 
 ## ---- Binary error detection: proportion judged correctly ----
-## Over all binary error detection judgments, rated or not (as section 5.4
+## Over all binary error detection judgments, rated or not (as section 5.6
 ## uses all exchange identification trials), by condition and length, and over
 ## all lengths
 correctness <- bind_rows(
@@ -2243,12 +3815,12 @@ print("Done.")
 
 
 ## #############################################################################
-## 5.4  Exchange identification + acceptability ratings (constructed sentences)
+## 5.6  Exchange identification + acceptability ratings (constructed sentences)
 ## #############################################################################
 rm(list = setdiff(ls(), shared_objects))
 
 ## =============================================================================
-## SI Section 5.4: Exchange identification + acceptability ratings
+## SI Section 5.6: Exchange identification + acceptability ratings
 ## (constructed sentences)
 ##
 ## en_artificial_exchange_identification_acceptability. The 243 constructed
@@ -2305,7 +3877,7 @@ rm(list = setdiff(ls(), shared_objects))
 ## (the main text's human-judgment curves, on the rated trials identified
 ## correctly)
 ## Numbers: outputs/s5_exchange_identification_acceptability_ratings_*.csv
-## The log-likelihoods are drawn together with the other two studies' by
+## The log-likelihoods are drawn together with the other studies' by
 ## the figure at the end of this script.
 ## =============================================================================
 
@@ -2367,7 +3939,7 @@ cat("excluded as non-native:", length(non_native), "participant(s)\n")
 responses <- responses %>% filter(!participant_id %in% non_native)
 
 ## Participants who also took the binary error detection + acceptability
-## ratings study (section 5.3) saw the same sentences twice; they are excluded
+## ratings study (section 5.5) saw the same sentences twice; they are excluded
 ## from both studies. The studies of constructed sentences share one set of
 ## pseudonyms (en_artificial_<n>), so the same id in both is the same person.
 took_both <- intersect(
@@ -3032,24 +4604,31 @@ print("Done.")
 
 
 ## #############################################################################
-## Figure: the five models' log-likelihoods in the three studies (S11)
+## Figure: the five models' log-likelihoods in the six studies
 ## #############################################################################
 rm(list = setdiff(ls(), shared_objects))
 
 ## =============================================================================
-## SI Section 5: the five models' log-likelihoods in the three studies of
-## constructed sentences
+## SI Section 5: the five models' log-likelihoods in the six studies, with the
+## main text's English and English (controlled) experiments
 ##
-## One row per study, drawn like the by-experiment panel of the main text's
+## One row per experiment, drawn like the by-experiment panel of the main text's
 ## log-likelihood figure (p_language_likelihoods in analysis/main_analysis.R):
 ## each model's marginal log-likelihood minus that of the best model in the same
-## study, with sentence surprisal as the information measure. The binary error
-## detection + acceptability ratings study is shown on the trials judged
-## correctly, and the exchange identification + acceptability ratings study on
-## the trials identified correctly; the acceptability ratings only study has no
-## second task, so all its trials are used.
+## experiment, with sentence surprisal as the information measure. The rows are
+## grouped by the sentences shown, from top to bottom:
+##   - original materials: the main text's English experiment, then 5.1 on the
+##     trials judged correctly;
+##   - length-controlled materials: the main text's English (controlled)
+##     experiment, then 5.2 on the trials judged correctly and 5.3 on all trials
+##     (it has no second task);
+##   - constructed materials: 5.4 on all trials (it has no second task), 5.5 on
+##     the trials judged correctly and 5.6 on the trials identified correctly.
+## The two main-text rows are those of the main figure, read from
+## ../analysis/outputs/likelihoods_by_language.csv, which
+## ../analysis/main_analysis.R writes.
 ##
-## Reads the log-likelihoods that parts 5.2-5.4 above write, so it runs after
+## Reads the log-likelihoods that parts 5.1-5.6 above write, so it runs after
 ## them.
 ##
 ## Figure: figures/s5_likelihood_differences.png
@@ -3057,65 +4636,121 @@ rm(list = setdiff(ls(), shared_objects))
 ## =============================================================================
 
 ## ---- The rows of the figure ----
-## The trials each study contributes, and its label, from top to bottom. The
-## labels are broken over lines, as the main figure breaks its long row label
-## ("English\n(controlled)"), with the trials used in parentheses on the last
-## line.
+## The trials each experiment contributes, its label and its group of
+## materials, from top to bottom. The labels are broken over lines, as the main
+## figure breaks its long row label ("English\n(controlled)"), with the trials
+## used in parentheses on the last line. The main text's experiments are named
+## main_text_<code> after their code in the main data (en and en_exp). One
+## experiment per two lines: its task and trials, then its label and group.
 figure_rows <- tribble(
-  ~task,                                           ~subset,                ~dataset,
-  "acceptability_ratings_only",                    "All trials",           "Acceptability ratings only\n(all trials)",
-  "binary_error_detection_acceptability_ratings",  "Judged correctly",     "Binary error detection +\nacceptability ratings\n(trials judged correctly)",
-  "exchange_identification_acceptability_ratings", "Identified correctly", "Exchange identification +\nacceptability ratings\n(trials identified correctly)"
-)
+  ~task, ~subset,
+  ~dataset, ~materials,
+  "main_text_en", "All trials",
+  "English (main text):\nacceptability ratings only", "Original\nmaterials",
+  "original_binary_error_detection", "Judged correctly",
+  "Binary error detection +\nacceptability ratings\n(trials judged correctly)", "Original\nmaterials",
+  "main_text_en_exp", "All trials",
+  "English (controlled)\n(main text):\nacceptability ratings only", "Length-controlled\nmaterials",
+  "controlled_binary_error_detection", "Judged correctly",
+  "Binary error detection +\nacceptability ratings\n(trials judged correctly)", "Length-controlled\nmaterials",
+  "controlled_highlighted_errors", "All trials",
+  "Acceptability ratings only,\nerrors highlighted\n(all trials)", "Length-controlled\nmaterials",
+  "acceptability_ratings_only", "All trials",
+  "Acceptability ratings only\n(all trials)", "Constructed\nmaterials",
+  "binary_error_detection_acceptability_ratings", "Judged correctly",
+  "Binary error detection +\nacceptability ratings\n(trials judged correctly)", "Constructed\nmaterials",
+  "exchange_identification_acceptability_ratings", "Identified correctly",
+  "Exchange identification +\nacceptability ratings\n(trials identified correctly)", "Constructed\nmaterials"
+) %>%
+  mutate(row = paste(task, subset))
 
-likelihood_files <- paste0("outputs/s5_", figure_rows$task, "_likelihoods.csv")
+## ---- The six studies ----
+likelihood_files <- paste0("outputs/s5_",
+                           setdiff(figure_rows$task, c("main_text_en", "main_text_en_exp")),
+                           "_likelihoods.csv")
 if (!all(file.exists(likelihood_files))) {
-  stop("Run parts 5.2-5.4 first; missing: ",
+  stop("Run parts 5.1-5.6 first; missing: ",
        paste(likelihood_files[!file.exists(likelihood_files)], collapse = ", "))
 }
 
 ## Surprisal as the information measure; the length check stays in the CSVs
 s5_likelihoods <- bind_rows(lapply(likelihood_files, read_csv, show_col_types = FALSE)) %>%
   filter(information == "Surprisal") %>%
-  inner_join(figure_rows, by = c("task", "subset")) %>%
-  mutate(
-    ## The first study on top: a discrete y axis puts the first level at the
-    ## bottom
-    dataset = factor(dataset, levels = rev(figure_rows$dataset)),
-    model = factor(model, levels = MODEL_LEVELS)
-  )
+  inner_join(figure_rows, by = c("task", "subset"))
 
 stopifnot(
-  nrow(s5_likelihoods) == nrow(figure_rows) * length(MODEL_LEVELS),
+  nrow(s5_likelihoods) == 6 * length(MODEL_LEVELS),
   all(s5_likelihoods$converged)
 )
 
 ## The fits whose smoothing-parameter search did not reach full convergence with
 ## scam's default optimizer, and the optimizer of the fit reported (see (1) in
-## parts 5.2-5.4)
+## parts 5.1-5.6)
 s5_likelihoods %>%
   filter(bfgs_convergence != "Full convergence") %>%
   select(task, subset, model, bfgs_convergence, optimizer) %>%
   print(width = Inf)
 
-s5_likelihoods %>%
+## ---- The main text's two experiments ----
+## Their log-likelihoods as the main figure draws them, and the sample sizes of
+## their models, from crit (setup.R), which is built as in the main analysis:
+## the participants and trials with a DL distance of at most 3, and the item x
+## condition cells the models are fit to
+main_text_likelihoods <- read_csv("../analysis/outputs/likelihoods_by_language.csv",
+                                  show_col_types = FALSE) %>%
+  filter(experiment %in% c("en", "en_exp")) %>%
+  transmute(task = paste0("main_text_", experiment), subset = "All trials", model,
+            log_likelihood, max_likelihood, likelihood_diff) %>%
+  left_join(crit %>%
+              filter(language %in% c("en", "en_exp"), dl_distance <= 3) %>%
+              group_by(task = paste0("main_text_", language)) %>%
+              summarize(n_participants = n_distinct(participant_id), n_trials = n(),
+                        n_cells = n_distinct(item, condition)),
+            by = "task") %>%
+  inner_join(figure_rows, by = c("task", "subset"))
+
+## Five models in each, and every difference is from that experiment's best
+## model (to 1e-9: R reads a few of the CSV's 17-digit numbers 1 unit off in
+## their last binary digit, about 1e-13)
+stopifnot(
+  nrow(main_text_likelihoods) == 2 * length(MODEL_LEVELS),
+  all(main_text_likelihoods %>%
+        group_by(task) %>%
+        mutate(best = max(log_likelihood) == max_likelihood) %>%
+        pull(best)),
+  all(abs(main_text_likelihoods$likelihood_diff -
+            (main_text_likelihoods$log_likelihood - main_text_likelihoods$max_likelihood)) < 1e-9)
+)
+
+## ---- All rows ----
+figure_likelihoods <- bind_rows(main_text_likelihoods, s5_likelihoods) %>%
+  mutate(
+    ## The first row on top: a discrete y axis puts the first level at the
+    ## bottom
+    row = factor(row, levels = rev(figure_rows$row)),
+    materials = factor(materials, levels = unique(figure_rows$materials)),
+    model = factor(model, levels = MODEL_LEVELS)
+  )
+
+figure_likelihoods %>%
+  arrange(desc(row), model) %>%
   select(task, subset, model, log_likelihood, likelihood_diff) %>%
   mutate(log_likelihood = round(log_likelihood, 1),
          likelihood_diff = round(likelihood_diff, 1)) %>%
   print(n = Inf, width = Inf)
 
 write_csv(
-  s5_likelihoods %>%
-    arrange(desc(dataset), model) %>%
+  figure_likelihoods %>%
+    arrange(desc(row), model) %>%
     select(task, subset, model, log_likelihood, max_likelihood, likelihood_diff,
            n_participants, n_trials, n_cells),
   "outputs/s5_likelihood_differences.csv"
 )
 
-## ---- All five sets of trials ----
+## ---- All ten sets of trials of the six studies ----
 ## The figure shows one set of trials per study; the studies with a second task
-## were also analysed on all trials. In each of the five sets: the models from
-## best to worst (surprisal as the information measure), and the length check:
+## were also analysed on all trials. In each set: the models from best to worst
+## (surprisal as the information measure), and the length check:
 ## Communication's log-likelihood with length minus that with surprisal
 s5_all_likelihoods <- bind_rows(lapply(likelihood_files, read_csv, show_col_types = FALSE))
 
@@ -3136,17 +4771,21 @@ s5_all_likelihoods %>%
 ## ---- Figure ----
 ## The by-experiment panel of the main figure, with the legend of that figure's
 ## top panel, since this figure has no pooled panel to carry it. Five entries
-## do not fit on one row at this width, so Binary, Gradient and Communication go
-## on the first row and SLOR and MORCELA on the second. The figure is as wide as the
-## main one (8 in), so that printed one PNAS column (8.7 cm) wide its smallest
-## text (tick labels and legend) comes out at about 6 pt, as in the main
-## figure. The long row labels push the panel to the right, and a legend
-## centred over the panel would run off the right edge, so the legend is
-## centred on the whole plot instead (legend.location = "plot").
-p_dataset_likelihoods <- ggplot(s5_likelihoods) +
+## do not fit on one row at this width, so Communication, Gradient and Binary go
+## on the first row and MORCELA and SLOR on the second. The three groups of
+## materials are panels stacked on one x axis, each as tall as its number of
+## rows and named in the strip on its right. The figure is as wide as the main
+## one (8 in), so that printed one PNAS column (8.7 cm) wide its smallest text
+## (tick labels and legend) comes out at about 6 pt, as in the main figure. The
+## long row labels push the panels to the right, and a legend centred over the
+## panels would run off the right edge, so the legend is centred on the whole
+## plot instead (legend.location = "plot"). Communication's markers are drawn
+## last, on top, so that it stays visible where another model's marker falls on
+## it (Gradient, 0.7 below it in 5.2).
+p_dataset_likelihoods <- ggplot(figure_likelihoods %>% arrange(desc(model))) +
   geom_point(
     aes(
-      y=dataset,
+      y=row,
       x=likelihood_diff,
       color=model,
       fill=model,
@@ -3154,6 +4793,7 @@ p_dataset_likelihoods <- ggplot(s5_likelihoods) +
     ),
     size=3
   ) +
+  facet_grid(rows = vars(materials), scales = "free_y", space = "free_y") +
   scale_color_manual(
     name="",
     values=MODEL_COLORS,
@@ -3171,13 +4811,14 @@ p_dataset_likelihoods <- ggplot(s5_likelihoods) +
     fill = guide_legend(nrow = 2, byrow = TRUE),
     shape = guide_legend(nrow = 2, byrow = TRUE)
   ) +
-  theme(legend.position="top", legend.location = "plot") +
-  scale_y_discrete(name="")
+  theme(legend.position="top", legend.location = "plot",
+        panel.spacing = unit(12, "pt")) +
+  scale_y_discrete(name="", labels = deframe(select(figure_rows, row, dataset)))
 
 if (interactive()) print(p_dataset_likelihoods)
 
 ggsave("figures/s5_likelihood_differences.png",
-       plot = p_dataset_likelihoods, width = 8, height = 5.5)
+       plot = p_dataset_likelihoods, width = 8, height = 11)
 
 
 print("Done.")

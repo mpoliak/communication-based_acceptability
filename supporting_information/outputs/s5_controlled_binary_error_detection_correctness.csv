@@ -1,0 +1,18 @@
+task,condition_label,length_level,n_trials,proportion_correct,proportion_reported_error
+controlled_binary_error_detection,Original,short,239,0.7405857740585774,0.2594142259414226
+controlled_binary_error_detection,Original,medium,240,0.7041666666666667,0.29583333333333334
+controlled_binary_error_detection,Original,long,240,0.6375,0.3625
+controlled_binary_error_detection,Original,all,719,0.694019471488178,0.30598052851182195
+controlled_binary_error_detection,1 swap,short,240,0.8833333333333333,0.8833333333333333
+controlled_binary_error_detection,1 swap,medium,238,0.8319327731092437,0.8319327731092437
+controlled_binary_error_detection,1 swap,long,238,0.7941176470588235,0.7941176470588235
+controlled_binary_error_detection,1 swap,all,716,0.8365921787709497,0.8365921787709497
+controlled_binary_error_detection,3 swaps,short,239,0.9246861924686193,0.9246861924686193
+controlled_binary_error_detection,3 swaps,medium,238,0.9201680672268907,0.9201680672268907
+controlled_binary_error_detection,3 swaps,long,238,0.9201680672268907,0.9201680672268907
+controlled_binary_error_detection,3 swaps,all,715,0.9216783216783216,0.9216783216783216
+controlled_binary_error_detection,Shuffled,short,239,0.9874476987447699,0.9874476987447699
+controlled_binary_error_detection,Shuffled,medium,238,0.9915966386554622,0.9915966386554622
+controlled_binary_error_detection,Shuffled,long,238,0.9831932773109243,0.9831932773109243
+controlled_binary_error_detection,Shuffled,all,715,0.9874125874125874,0.9874125874125874
+controlled_binary_error_detection,All,all,2865,0.8596858638743455,0.762303664921466

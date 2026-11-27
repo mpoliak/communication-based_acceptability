@@ -1,0 +1,11 @@
+task,subset,information,model,log_likelihood,max_likelihood,likelihood_diff,converged,bfgs_convergence,optimizer,n_participants,n_trials,n_cells
+controlled_highlighted_errors,All trials,Surprisal,Communication,-909.963604202605,-902.1893818748725,-7.774222327732446,TRUE,Full convergence,bfgs,40,2861,639
+controlled_highlighted_errors,All trials,Surprisal,Gradient,-902.1893818748725,-902.1893818748725,0,TRUE,Full convergence,bfgs,40,2861,639
+controlled_highlighted_errors,All trials,Surprisal,Binary,-920.778909367182,-902.1893818748725,-18.589527492309458,TRUE,Full convergence,bfgs,40,2861,639
+controlled_highlighted_errors,All trials,Surprisal,MORCELA,-1233.9564036163915,-902.1893818748725,-331.767021741519,TRUE,Full convergence,bfgs,40,2861,639
+controlled_highlighted_errors,All trials,Surprisal,SLOR,-1318.3161018517756,-902.1893818748725,-416.126719976903,TRUE,Full convergence,bfgs,40,2861,639
+controlled_highlighted_errors,All trials,Length,Communication,-899.3096087634119,-899.3096087634119,0,TRUE,Full convergence,bfgs,40,2861,639
+controlled_highlighted_errors,All trials,Length,Gradient,-902.1893818748725,-899.3096087634119,-2.879773111460622,TRUE,Full convergence,bfgs,40,2861,639
+controlled_highlighted_errors,All trials,Length,Binary,-920.778909367182,-899.3096087634119,-21.46930060377008,TRUE,Full convergence,bfgs,40,2861,639
+controlled_highlighted_errors,All trials,Length,MORCELA,-1233.9564036163915,-899.3096087634119,-334.6467948529796,TRUE,Full convergence,bfgs,40,2861,639
+controlled_highlighted_errors,All trials,Length,SLOR,-1318.3161018517756,-899.3096087634119,-419.00649308836364,TRUE,Full convergence,bfgs,40,2861,639

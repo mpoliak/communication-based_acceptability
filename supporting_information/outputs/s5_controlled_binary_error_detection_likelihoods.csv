@@ -1,0 +1,21 @@
+task,subset,information,model,log_likelihood,max_likelihood,likelihood_diff,converged,bfgs_convergence,optimizer,n_participants,n_trials,n_cells
+controlled_binary_error_detection,All trials,Surprisal,Communication,-1019.454220881696,-1019.454220881696,0,TRUE,Full convergence,bfgs,40,2159,636
+controlled_binary_error_detection,All trials,Surprisal,Gradient,-1030.7388754735298,-1019.454220881696,-11.284654591833828,TRUE,Full convergence,bfgs,40,2159,636
+controlled_binary_error_detection,All trials,Surprisal,Binary,-1073.502431518583,-1019.454220881696,-54.04821063688712,TRUE,Full convergence,bfgs,40,2159,636
+controlled_binary_error_detection,All trials,Surprisal,MORCELA,-1133.3896175889452,-1019.454220881696,-113.9353967072492,TRUE,Full convergence,bfgs,40,2159,636
+controlled_binary_error_detection,All trials,Surprisal,SLOR,-1184.7320322361302,-1019.454220881696,-165.27781135443422,TRUE,Full convergence,bfgs,40,2159,636
+controlled_binary_error_detection,All trials,Length,Communication,-1017.1560019257669,-1017.1560019257669,0,TRUE,Full convergence,bfgs,40,2159,636
+controlled_binary_error_detection,All trials,Length,Gradient,-1030.7388754735298,-1017.1560019257669,-13.582873547762915,TRUE,Full convergence,bfgs,40,2159,636
+controlled_binary_error_detection,All trials,Length,Binary,-1073.502431518583,-1017.1560019257669,-56.34642959281621,TRUE,Full convergence,bfgs,40,2159,636
+controlled_binary_error_detection,All trials,Length,MORCELA,-1133.3896175889452,-1017.1560019257669,-116.23361566317828,TRUE,Full convergence,bfgs,40,2159,636
+controlled_binary_error_detection,All trials,Length,SLOR,-1184.7320322361302,-1017.1560019257669,-167.5760303103633,TRUE,Full convergence,bfgs,40,2159,636
+controlled_binary_error_detection,Judged correctly,Surprisal,Communication,-865.1344643236341,-865.1344643236341,0,TRUE,Full convergence,bfgs,40,1769,607
+controlled_binary_error_detection,Judged correctly,Surprisal,Gradient,-865.7895090774653,-865.1344643236341,-0.6550447538311346,TRUE,Full convergence,bfgs,40,1769,607
+controlled_binary_error_detection,Judged correctly,Surprisal,Binary,-898.0576338969161,-865.1344643236341,-32.92316957328194,TRUE,Full convergence,bfgs,40,1769,607
+controlled_binary_error_detection,Judged correctly,Surprisal,MORCELA,-1126.2925522355563,-865.1344643236341,-261.15808791192217,TRUE,Full convergence,bfgs,40,1769,607
+controlled_binary_error_detection,Judged correctly,Surprisal,SLOR,-1183.0775313673353,-865.1344643236341,-317.94306704370115,TRUE,Full convergence,bfgs,40,1769,607
+controlled_binary_error_detection,Judged correctly,Length,Communication,-857.7264818062581,-857.7264818062581,0,TRUE,Full convergence,bfgs,40,1769,607
+controlled_binary_error_detection,Judged correctly,Length,Gradient,-865.7895090774653,-857.7264818062581,-8.063027271207147,TRUE,Full convergence,bfgs,40,1769,607
+controlled_binary_error_detection,Judged correctly,Length,Binary,-898.0576338969161,-857.7264818062581,-40.33115209065795,TRUE,Full convergence,bfgs,40,1769,607
+controlled_binary_error_detection,Judged correctly,Length,MORCELA,-1126.2925522355563,-857.7264818062581,-268.5660704292982,TRUE,Full convergence,bfgs,40,1769,607
+controlled_binary_error_detection,Judged correctly,Length,SLOR,-1183.0775313673353,-857.7264818062581,-325.35104956107716,TRUE,Full convergence,bfgs,40,1769,607

@@ -209,6 +209,8 @@ scores <- read_csv("slor_morcela_scores.csv", col_types = cols(item = col_charac
   `-log_p_sentence` of the `original_<length>` row, joined on (`item`, length),
   where length is the suffix of `condition`. The original and swapped versions of
   an item at one length share it; its short, medium and long versions differ.
+- The length-controlled follow-ups of SI section 5 (5.2 and 5.3) show sentences
+  of `en_exp` and use its rows, as the main analysis does.
 
 ---
 
@@ -267,20 +269,22 @@ to about 1e-13 bits, which section 4 checks.
 
 Each folder below holds one Surveyor study of English speakers, run after the nine
 acceptability experiments. None of them is part of `full_data.csv`; the SI
-section 5 script reads four of them directly (see Used by). The fifth,
+section 5 script reads six of them directly (see Used by). The seventh,
 `en_artificial_exchange_identification/`, holds no responses, only the materials
 that the three constructed-sentence studies are built from.
 
 | Folder | Responses | Design | Used by |
 |---|---|---|---|
 | `en_binary_error_detection/` | `data_en_binary_error_detection.csv`, 80 participants (`en_awareness_<n>`) | The 72 items of the English experiment (`en`) in `original`, `swap_1`, `swap_3` and `random`. On each trial a binary error detection question (`exp_b_comprehension`), then a rating (`exp_b`) | SI 5.1, binary error detection + acceptability ratings on the original materials (`supporting_information/section5_awareness_of_grammatical_errors.R`, part 5.1) |
+| `en_experimental_binary_error_detection/` | `data_en_exp_binary_error_detection.csv`, 40 participants (`en_exp_awareness_<nn>`) | The 864 sentences of the English (controlled) experiment (`en_exp`, materials in `en_experimental/`): 72 base items, each in a short, medium and long version, each `original`, `swap-1`, `swap-3` or `random`: 12 conditions (`<version>_<length>`). On each trial a binary error detection question (`exp_b_comprehension`), then a rating (`exp_b`) | SI 5.2, binary error detection + acceptability ratings on the length-controlled materials |
+| `en_highlighted_errors/` | `data_en_highlighted_errors.csv`, 40 participants (`en_highlighted_<nn>`) | The 648 sentences of the English (controlled) experiment that are not shuffled (9 conditions), with every displaced word in bold red (`<b style="color:red;">`…`</b>` in `sentence`). Rating only (`exp_b`), with the prompt "Please rate how acceptable the sentence is (note that errors consisting of exchanged words are shown in red)" | SI 5.3, acceptability ratings with the errors highlighted |
 | `en_artificial_exchange_identification/` | None (materials only) | 27 constructed items, each in a short, medium and long version, each `original`, `swap-1` or `swap-3`: 9 conditions (`<version>_<length>`), 243 sentences | The source of the materials of the three studies below |
-| `en_artificial_binary_error_detection/` | `en_artificial_binary_error_detection_data.csv`, 100 participants | The same 243 sentences. Binary error detection, then rating | SI 5.3, binary error detection + acceptability ratings (5.4 reads its responses, to drop the people who took both) |
-| `en_artificial_acceptability_ratings/` | `en_artificial_acceptability_ratings_data.csv`, 101 participants | The same 243 sentences. Rating only | SI 5.2, acceptability ratings only, and the source of the `en_artificial` sentences in `slor_morcela_scores.csv` |
-| `en_artificial_exchange_identification_acceptability/` | `en_artificial_exchange_identification_acceptability_data.csv`, 100 participants | The same 243 sentences. Exchange identification, then rating | SI 5.4, exchange identification + acceptability ratings (5.3 reads its responses likewise) |
+| `en_artificial_binary_error_detection/` | `en_artificial_binary_error_detection_data.csv`, 100 participants | The same 243 sentences. Binary error detection, then rating | SI 5.5, binary error detection + acceptability ratings (5.6 reads its responses, to drop the people who took both) |
+| `en_artificial_acceptability_ratings/` | `en_artificial_acceptability_ratings_data.csv`, 101 participants | The same 243 sentences. Rating only | SI 5.4, acceptability ratings only, and the source of the `en_artificial` sentences in `slor_morcela_scores.csv` |
+| `en_artificial_exchange_identification_acceptability/` | `en_artificial_exchange_identification_acceptability_data.csv`, 100 participants | The same 243 sentences. Exchange identification, then rating | SI 5.6, exchange identification + acceptability ratings (5.5 reads its responses likewise) |
 
 Three people took both `en_artificial_binary_error_detection` and
-`en_artificial_exchange_identification_acceptability`. Sections 5.3 and 5.4 match
+`en_artificial_exchange_identification_acceptability`. Sections 5.5 and 5.6 match
 the two response files on `participant_id` and drop them from both.
 
 ## Response files
@@ -291,15 +295,15 @@ screen right after it, so its `presentation_order` is one higher.
 
 | Column | Description |
 |---|---|
-| `participant_id` | Pseudonym that replaced the Prolific ID before release. The `en_artificial_*` studies share one numbering (`en_artificial_<n>`), so a person who took two of them has the same id in both; `en_binary_error_detection` is numbered on its own (`en_awareness_1` to `en_awareness_80`). |
+| `participant_id` | Pseudonym that replaced the Prolific ID before release. The `en_artificial_*` studies share one numbering (`en_artificial_<n>`), so a person who took two of them has the same id in both; `en_binary_error_detection` is numbered on its own (`en_awareness_1` to `en_awareness_80`), as are `en_experimental_binary_error_detection` (`en_exp_awareness_01` to `en_exp_awareness_40`) and `en_highlighted_errors` (`en_highlighted_01` to `en_highlighted_40`). |
 | `experiment` | Trial type: `exp_b` = acceptability rating (1–7, the same response format as in `full_data.csv`); `exp_b_comprehension` = here the binary error detection question, "Are there any errors in this sentence?" (`Yes`/`No`); `annot` = exchange identification, "Click on all the words that are misplaced". |
-| `item` | Item number (`1`–`72`, or `1`–`27` in the artificial studies), without a language prefix. |
+| `item` | Item number (`1`–`72`, or `1`–`27` in the artificial studies), without a language prefix. In the studies with length versions, it is the base item, and `cond` gives the length. |
 | `cond` | Condition, as in the table above. |
 | `presentation_order` | 0-based position of the screen in the participant's session. |
 | `literal_response` | On the binary error detection question, the correct answer: `No` for originals, `Yes` for every altered sentence. `NA` on rating and click rows. |
 | `response` | On rating rows, the rating (character, as in `full_data.csv`: take the leading digit). On binary error detection rows, `Yes` or `No`. On click rows, the clicked words as comma-separated `position:word` pairs, with 1-based word positions and the words percent-encoded for `%`, `,` and `:` (decode with `URLdecode`), or `NONE` when nothing was clicked. |
 | `timestamp` | Time stamp of the participant's session (the same on all of a participant's rows). |
-| `native_language` | `Yes`/`No` to "Is English your first language?". Sections 5.1–5.4 drop the participants who answered `No` (blank answers are kept). |
+| `native_language` | `Yes`/`No` to "Is English your first language?". Sections 5.1–5.6 drop the participants who answered `No` (blank answers are kept). |
 | `other_languages` | Free text: any languages other than English the participant speaks. |
 | `country_of_birth` | Country of birth, chosen from a list. |
 
@@ -316,8 +320,11 @@ screen right after it, so its `presentation_order` is one higher.
 - `make_materials.R` — writes that folder's `materials_*.csv` and
   `demographics_*.csv`. The materials are shipped, and the analyses do not
   regenerate them. `en_binary_error_detection/` has no `make_materials.R` and no
-  debriefing file, and `en_artificial_exchange_identification/` has no responses
-  and no debriefing file.
+  debriefing file, `en_experimental_binary_error_detection/` and
+  `en_highlighted_errors/` have no debriefing file, and
+  `en_artificial_exchange_identification/` has no responses and no debriefing
+  file. The two `make_materials.R` of the length-controlled studies read the
+  sentences of `en_experimental/materials_en_experimental.csv`.
 - `en_artificial_exchange_identification/fillers_exchanges.csv` — the table of
   the 243 artificial sentences, which that folder's `make_materials.R` reads. The
   authors constructed 27 base sentences in a short, medium and long version (the
